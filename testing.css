@@ -1,5 +1,42 @@
-body {
-    background-image: url('css/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+.hero, section{
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.mask{
+  overflow: hidden;
+}
+
+h1{
+  font-size: 7vw;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin: 0;
+  transform: translateY(-100%);
+  animation: slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideDown{
+  to {
+    transform: translateY(0);
   }
+}
+
+
+img{
+  width: 300px;
+}
+
+.ex1 {
+  max-width: 1000px;
+  display: flex;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mask,
+.pic {
+  flex: 1;
+}
