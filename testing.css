@@ -1,15 +1,39 @@
-.hero, section{
+
+
+.carouselContainer {
+  display: inline;
+  width: 50%;
+  margin: 10% auto; /* Sets the left and right margins to auto */
+
+}
+.aboutUsContainer{
+
+}
+
+
+
+
+    
+.container{
   height: 100vh;
   display: grid;
   place-content: center;
 }
 
-.mask{
+.title{
   overflow: hidden;
 }
 
 h1{
   font-size: 7vw;
+  font-family:  serif;
+  font-style: italic;
+  margin: 0;
+  transform: translateY(-100%);
+  animation: slideDown 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+p{
+  font-size: 2vw;
   font-family: 'Playfair Display', serif;
   font-style: italic;
   margin: 0;
@@ -24,19 +48,17 @@ h1{
 }
 
 
-img{
-  width: 300px;
-}
 
 .ex1 {
-  max-width: 1000px;
+  width: 50%;
+  height: 70%;
   display: flex;
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.mask,
+.title,
 .pic {
   flex: 1;
 }

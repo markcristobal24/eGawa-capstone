@@ -7,7 +7,7 @@
         place-content: center;
       }
       
-      .mask{
+      .title{
         overflow: hidden;
       }
       
@@ -37,7 +37,7 @@
         margin-right: auto;
       }
       
-      .mask,
+      .title,
       .pic {
         flex: 1;
       }
