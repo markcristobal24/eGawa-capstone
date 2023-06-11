@@ -1,156 +1,45 @@
+body {
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-    body {
-        background-image: url('bg.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-  
-  
-      
-      /* extra extra large  */
-      @media (max-width: 5000px) {
-          
-        .titlePage{
-          color: rgb(237, 20, 190);
-        }
-  
-        .navbar-brand img {
-          max-height: 60px;
-        }
-        
-        i{
-            color: black;
-            padding: 5px 10px;
-        }
-        i:hover{
-            color: rgb(57, 170, 101);
-        }
-        
-        .fonts{
-                font-size: 20px;
-        }
-        .footerInfo{
-            color: black;
-        }
-        .form-control{
-          border-radius: 12px
-        }
-        .btn{
-          border-radius: 12px
-        }
-        .nav-item:hover{
-          color: rgb(57, 170, 101);
-        }
-        
-        footer {
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 60px;
-          background-color: #69696900;
-          text-align: center;
-        }
-      }
-  
-  
-  
-  
-  
-  
-      /* extra large  */
-      @media (max-width: 1200px) {
-        .titlePage{
-          color: rgb(20, 237, 38);
-        }
-      }
-  
-  
-  
-      /* large  */
-      @media (max-width: 992px) {
-        .titlePage{
-          color: rgb(255, 242, 0);
-        }
-      }
-  
-  
-      /* medium  */
-      @media (max-width: 768px) {
-        .titlePage{
-          color: rgb(35, 20, 237);
-        }
-        .container{
-          padding-bottom: 60%;
-        }
-        .fonts{
-          font-size: 15px;
-        }
-        .titlePage{
-          font-size: 30px;
-        }
-        .footerInfo{
-          font-size: 10px;
-          color: aliceblue;
-        }
-        i{
-          padding: 2px 4px;
-          color: aliceblue;
-        }
-        i:hover{
-          color: rgb(213, 214, 213);
-        }
-        .btn, .form-control{
-          margin-top: 10px;
-        }
-        body {
-          background-image: none;
-        }
-        footer{
-          background-color: rgb(109, 114, 114);
-        }
-      }
-  
-  
-  
-  
-      /* small  */
-      @media (max-width: 576px) {
-        .titlePage{
-          color: red;
-        }
-        .container{
-          padding-bottom: 60%;
-        }
-        .fonts{
-          font-size: 15px;
-        }
-        .titlePage{
-          font-size: 30px;
-        }
-        .footerInfo{
-          font-size: 10px;
-          color: aliceblue;
-        }
-        i{
-          padding: 2px 4px;
-          color: aliceblue;
-        }
-        i:hover{
-          color: rgb(213, 214, 213);
-        }
-        .btn, .form-control{
-          margin-top: 10px;
-        }
-        body {
-          background-image: none;
-        }
-        footer{
-          background-color: rgb(109, 114, 114);
-        }
-      }
-      
-  
-  
-      
-  
+
+/* extra extra large  */
+@media (max-width: 5000px) {
+  .text-center {
+    color: rgb(237, 20, 190);
+  }
+}
+
+
+/* extra large  */
+@media (max-width: 1200px) {
+  .text-center {
+    color: rgb(20, 237, 38);
+  }
+}
+
+
+/* large  */
+@media (max-width: 992px) {
+  .text-center {
+    color: rgb(255, 242, 0);
+  }
+}
+
+
+/* medium  */
+@media (max-width: 768px) {
+  .text-center {
+    color: rgb(35, 20, 237);
+  }
+}
+
+
+/* small  */
+@media (max-width: 576px) {
+  .text-center {
+    color: red;
+  }
+}

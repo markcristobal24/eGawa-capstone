@@ -1,117 +1,158 @@
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/aboutUs.css">
-  <link rel="stylesheet" href="bootstrap.min.css" />
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+
+  <!-- Link for CSS -->
+  <link rel="stylesheet" href="aboutUs.css">
+
+  <!-- Link for Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- For social icons in the footer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-  <title>eGawa | About Us</title> 
-
+  <title>eGawa | Online Freelance Service Platform</title>
 
 </head>
+
 <body>
 
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" title="eGAwa Online Freelance Service Platform" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="aboutUs.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-      </ul>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-success" type="submit">Search</button>
-      </form>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login_register.html">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </nav>
 
-<body>
-  <section class="ex1">
-
-      <div class="title">
-          <h1>eGawa</h1>
+  <div class="container" id="mainContainer">
+    <div class="row">
+      <div class="col" id="col1">
+        <div class="text-center">
+          <h2 class="title">eGawa</h2>
+          <p class="aboutInfo"> Online Freelance Services Platform that aims to be a space for freelancers to connect,
+            share and sell their crafts to the client. The freelancers are given wider customization and
+            information for their products or services package which may vary according to the price,
+            quality or difficulty of the work to lessen the hassle in communicating. </p>
+        </div>
       </div>
-      <div class="pic">
-        <div class="container mt-5">
-          <div id="gallery" class="carousel slide" data-bs-ride="carousel">
-            
-            <!-- These are the indicators for selecting slides. -->
-            <div class="carousel-indicators"> 
-              <button type="button" data-bs-target="#gallery" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#gallery" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#gallery" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              <button type="button" data-bs-target="#gallery" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            </div>
-
-            <!-- These are the images and captions for each slides. -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="img/1.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block"> <!-- Area for captions -->	
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="img/2.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block"> <!-- Area for captions -->
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="img/3.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block"> <!-- Area for captions -->
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="img/4.jpg" class="d-block w-100">
-                <div class="carousel-caption d-none d-md-block"> <!-- Area for captions -->
-                </div>
-              </div>
-            </div>
-            
-            <!-- These are the navigation buttons previous and next. -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#gallery" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#gallery" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+      <div class="col" id="col2">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-indicators">
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
           </div>
-        </div>	
-        <script src="bootstrap.min.js"></script>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/1.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="img/2.jpg" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="img/3.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="img/4.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="img/5.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
       </div>
+    </div>
+  </div>
 
-  </section>
-  
-</body>
+  <div class="container2">
+    <div class="row">
+      <div class="col" id="col1">
+        <div class="text-center">
+          <h2 class="title">eGawa</h2>
+          <p class="aboutInfo"> Online Freelance Services Platform that aims to be a space for freelancers to connect,
+            share and sell their crafts to the client. The freelancers are given wider customization and
+            information for their products or services package which may vary according to the price,
+            quality or difficulty of the work to lessen the hassle in communicating. </p>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col" id="col2">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+          <div class="carousel-indicators">
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+            <button data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/1.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="img/2.jpg" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="img/3.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="img/4.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="img/5.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<footer class="footer">
+  <footer class="footer">
     <div class="container">
       <div class="socialIcons">
         <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
@@ -119,10 +160,13 @@
         <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
         <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-      <p class="footerInfo">&copy;2023 eGawa: Online Freelance Service Platform</p>
+      </div>
+      <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
