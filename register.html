@@ -50,23 +50,27 @@
     </nav>
 
     <div class="containerLogin">
-        <form>
-            <h1>Register</h1>
-
-            <div class="form-floating mb-3" id="userDiv">
-                <a>User</a>
-                <label for="user">Join as User</label>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-grid gap-2 d-md-flex justify-content-center">User</h5>
+                        <img id="user1" src="css/user.png" style="width: 150px;" title="Join as User">
+                    </div>
+                </div>
             </div>
-
-            <div class="form-floating mb-3" id="freelanceDiv">
-                <a>Freelancer</a>
-                <label for="freelance">Apply as Freelancer</label>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-grid gap-2 d-md-flex justify-content-center">Freelancer</h5>
+                        <img id="user2" src="css/freelance.png" style="width: 150px;" title="Join as Freelancer">
+                    </div>
+                </div>
             </div>
-
-            <div class="d-grid gap-2 d-md-flex justify-content-center">
-                <button class="btn btn-primary">Register</button>
-            </div>
-        </form>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-center">
+            <button class="btn btn-primary">Register</button>
+        </div>
         <hr>
         <p>Already have an account? <a href="login.html">Login here</a></p>
     </div>
