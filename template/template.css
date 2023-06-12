@@ -12,6 +12,13 @@
   padding: 0;
 }
 
+.div1,
+.div2 {
+  color: white;
+}
+
+
+
 
 
 .footerInfo {
@@ -38,8 +45,10 @@ i:hover {
 }
 
 
+
+
 body {
-  background-image: url('img/bg.jpg');
+  background-image: url('bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
