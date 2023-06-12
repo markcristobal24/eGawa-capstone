@@ -1,0 +1,178 @@
+.container {
+    margin-top: 2s0px;
+}
+
+.container2 {
+    display: none;
+}
+
+
+
+#mainContainer {
+    margin-top: 100px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #43424262;
+    text-align: center;
+    padding: 0;
+}
+
+
+
+.footerInfo {
+    font-size: 10px;
+    color: rgb(237, 237, 237);
+}
+
+i {
+    color: rgb(237, 237, 237);
+    margin-left: 15px;
+}
+
+i:hover {
+    color: chartreuse;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.text-center {
+    font-family: 'roboto', Arial, sans-serif;
+
+}
+
+
+body {
+    background-image: url('img/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+
+    .title {
+        color: rgb(237, 20, 190);
+        font-size: 90px;
+    }
+
+    .aboutInfo {
+        color: rgb(201, 201, 201);
+        font-size: 30px;
+        /* background-color: #57494989; */
+    }
+
+    #col1 {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #col2 {
+        margin-top: 90px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1200px) {
+
+    .title,
+    .aboutInfo {
+        color: rgb(20, 237, 38);
+    }
+
+    #mainContainer {
+        margin-top: 50px;
+    }
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {
+
+    .title,
+    .aboutInfo {
+        color: rgb(255, 242, 0);
+        font-size: 15px;
+    }
+
+    #mainContainer {
+        margin-top: 50px;
+    }
+}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {
+
+    #mainContainer {
+        display: none;
+    }
+
+    .container2 {
+        display: block;
+        padding: 30px;
+        margin-top: 40px;
+    }
+
+    #col2 {
+        margin-top: 80px;
+    }
+
+    .title {
+        color: rgb(255, 247, 8);
+        font-size: 30px;
+    }
+
+    .aboutInfo {
+        color: rgb(201, 201, 201);
+        font-size: 15px;
+    }
+}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+    #mainContainer {
+        display: none;
+    }
+
+    .container2 {
+        display: block;
+        padding: 30px 30px 90px 30px;
+        margin-top: 40px;
+    }
+
+    #col2 {
+        margin-top: 80px;
+    }
+
+    .title {
+        color: rgb(255, 6, 6);
+        font-size: 30px;
+    }
+
+    .aboutInfo {
+        color: rgb(201, 201, 201);
+        font-size: 15px;
+    }
+
+    i {
+        color: rgb(237, 237, 237);
+        margin-left: 5px;
+    }
+
+
+}
