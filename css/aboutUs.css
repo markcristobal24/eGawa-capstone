@@ -10,7 +10,14 @@
 
 
 #mainContainer {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     margin-top: 100px;
+    background-color: rgba(221, 221, 221, 0.173);
+
 }
 
 .footer {
@@ -62,12 +69,12 @@ body {
 @media (max-width: 5000px) {
 
     .title {
-        color: rgb(237, 20, 190);
+        color: rgb(246, 246, 246);
         font-size: 90px;
     }
 
     .aboutInfo {
-        color: rgb(201, 201, 201);
+        color: rgb(246, 246, 246);
         font-size: 30px;
         /* background-color: #57494989; */
     }

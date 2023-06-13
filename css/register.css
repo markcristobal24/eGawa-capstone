@@ -13,15 +13,62 @@
 }
 
 
+.choice {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+}
+
+.choice-label {
+    font-size: 14px;
+}
+
+.choice.selected {
+    background-color: rgb(0, 136, 255);
+    border-color: rgb(255, 255, 255);
+    color: #fff;
+}
+
+.choice img {
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+}
+
 .containerLogin {
-    max-width: 400px;
+    max-width: 530px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 100px;
-    background-color: #ddd;
+    background-color: rgba(221, 221, 221, 0.269);
 }
+
+.regisTitle {
+    color: rgb(255, 255, 255);
+}
+
+p {
+    color: rgb(255, 255, 255);
+}
+
+#loginLink {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(7, 161, 7);
+}
+
+
 
 .div1,
 .div2 {
@@ -86,10 +133,10 @@ body {
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
     .containerLogin {
-        max-width: 300px;
-        max-height: 500px;
+        max-width: 280px;
+        max-height: 700px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 20px 150px 20px;
         border: 1px solid #ddd;
         border-radius: 5px;
         margin-top: 100px;
@@ -101,8 +148,21 @@ body {
         max-width: 50px;
     }
 
-    .card {
-        max-width: 70pxpx;
+    .regisTitle {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+    }
+
+    p {
+        color: rgb(0, 0, 0);
+        font-size: 10px;
+    }
+
+    #loginLink {
+        text-decoration: none;
+        font-size: larger;
+        font-weight: 600;
+        color: rgb(7, 161, 7);
     }
 
 
