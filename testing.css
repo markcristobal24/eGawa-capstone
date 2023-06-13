@@ -1,10 +1,7 @@
-.container {
-    margin-top: 2s0px;
+#mainContainer {
+    margin-top: 100px;
 }
 
-.container2 {
-    display: none;
-}
 
 .containerLogin {
     max-width: 400px;
@@ -13,12 +10,28 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 100px;
-    background-color: #ddd;
+    background-color: rgba(221, 221, 221, 0.269);
 }
 
+.loginTitle {
+    color: rgb(255, 255, 255);
+}
 
-#mainContainer {
-    margin-top: 100px;
+p {
+    color: rgb(255, 255, 255);
+}
+
+#registerLink {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(7, 161, 7);
+}
+
+#forgotPasswordLink {
+    font-weight: 600;
+    color: rgb(209, 44, 91);
+    text-decoration: none;
 }
 
 .footer {
@@ -67,121 +80,54 @@ body {
 
 
 /*============================ extra extra large  ===========================*/
-@media (max-width: 5000px) {
-
-    .title {
-        color: rgb(237, 20, 190);
-        font-size: 90px;
-    }
-
-    .aboutInfo {
-        color: rgb(201, 201, 201);
-        font-size: 30px;
-        /* background-color: #57494989; */
-    }
-
-    #col1 {
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #col2 {
-        margin-top: 90px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+@media (max-width: 5000px) {}
 
 
 /*============================ extra large  ===========================*/
-@media (max-width: 1200px) {
-
-    .title,
-    .aboutInfo {
-        color: rgb(20, 237, 38);
-    }
-
-    #mainContainer {
-        margin-top: 50px;
-    }
-}
+@media (max-width: 1200px) {}
 
 
 /*============================ large  ===========================*/
-@media (max-width: 992px) {
-
-    .title,
-    .aboutInfo {
-        color: rgb(255, 242, 0);
-        font-size: 15px;
-    }
-
-    #mainContainer {
-        margin-top: 50px;
-    }
-}
+@media (max-width: 992px) {}
 
 
 /*============================ medium  ===========================*/
-@media (max-width: 768px) {
-
-    #mainContainer {
-        display: none;
-    }
-
-    .container2 {
-        display: block;
-        padding: 30px;
-        margin-top: 40px;
-    }
-
-    #col2 {
-        margin-top: 80px;
-    }
-
-    .title {
-        color: rgb(255, 247, 8);
-        font-size: 30px;
-    }
-
-    .aboutInfo {
-        color: rgb(201, 201, 201);
-        font-size: 15px;
-    }
-}
+@media (max-width: 768px) {}
 
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    #mainContainer {
-        display: none;
+
+    .containerLogin {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 100px;
+        background-color: #ddd;
     }
 
-    .container2 {
-        display: block;
-        padding: 30px 30px 90px 30px;
-        margin-top: 40px;
+    .loginTitle {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
     }
 
-    #col2 {
-        margin-top: 80px;
+    #registerLink {
+        text-decoration: none;
+        font-size: larger;
+        font-weight: 600;
+        color: rgb(7, 161, 7);
     }
 
-    .title {
-        color: rgb(255, 6, 6);
-        font-size: 30px;
+    #forgotPasswordLink {
+        font-weight: 600;
+        color: rgb(209, 44, 91);
+        text-decoration: none;
     }
 
-    .aboutInfo {
-        color: rgb(201, 201, 201);
-        font-size: 15px;
+    p {
+        font-size: 10px;
     }
-
-    i {
-        color: rgb(237, 237, 237);
-        margin-left: 5px;
-    }
-
 
 }

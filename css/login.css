@@ -10,9 +10,29 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 100px;
-  background-color: #ddd;
+  background-color: rgba(221, 221, 221, 0.269);
 }
 
+.loginTitle {
+  color: rgb(255, 255, 255);
+}
+
+p {
+  color: rgb(255, 255, 255);
+}
+
+#registerLink {
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 600;
+  color: rgb(7, 161, 7);
+}
+
+#forgotPasswordLink {
+  font-weight: 600;
+  color: rgb(209, 44, 91);
+  text-decoration: none;
+}
 
 .footer {
   position: fixed;
@@ -77,6 +97,7 @@ body {
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
+
   .containerLogin {
     max-width: 300px;
     margin: 0 auto;
@@ -85,6 +106,28 @@ body {
     border-radius: 5px;
     margin-top: 100px;
     background-color: #ddd;
+  }
+
+  .loginTitle {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  #registerLink {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(7, 161, 7);
+  }
+
+  #forgotPasswordLink {
+    font-weight: 600;
+    color: rgb(209, 44, 91);
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 10px;
   }
 
 }
