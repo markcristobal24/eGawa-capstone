@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once dirname(__FILE__) . '/php/classes/DbConnection.php';
+require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
 $username = $_REQUEST["email"];
 $pass = $_REQUEST["pass"];
