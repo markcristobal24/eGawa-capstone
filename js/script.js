@@ -16,6 +16,8 @@ $(document).ready(function () {
             }
         });
     });
+
+
 });
 
 //-----------Registration Functions
@@ -28,7 +30,8 @@ function sendData() {
         var encodedData = encodeURIComponent(data);
         window.location.href = encodedData;
     } else {
-        alert("Please Select a choice first.");
+        //alert("Please Select a choice first.");
+        showWarningModal();
     }
 }
 
@@ -48,5 +51,13 @@ function selectChoice(choice) {
         button.textContent = "Continue as Freelancer";
         selectedChoice = "freelanceRegistration.html";
     }
+}
+
+//------Modal Function
+function showWarningModal() {
+    $('#myModal').modal('show');
+    $('#yes').on("click", function (e) {
+        $('#myModal').modal('hide');
+    });
 }
 
