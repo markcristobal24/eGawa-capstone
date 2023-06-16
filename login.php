@@ -65,7 +65,7 @@
             <p><a id="forgotPasswordLink" href="#">Forgot password?</a></p>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" id="btnLogin">
                     Login
                 </button>
             </div>
@@ -95,6 +95,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+    <script src="js/validate.js"></script>
 
 </body>
 
