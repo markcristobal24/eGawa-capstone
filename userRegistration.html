@@ -49,22 +49,67 @@
         </div>
     </nav>
 
-    <div class="container" id="mainContainer">
+    <div class="containerRegis">
+        <h1 class="userRegTitle">User Registration</h1>
         <div class="row">
-            <div class="col">
-                <div class="text-center">
-                    <h1 class="div1">div1</h1>
-                    <h3 class="div1">User Registration</h3>
-                </div>
+            <!--Each row is based on a 12 column system-->
+
+            <!--For the full name we use 4+4+4 -->
+            <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                <input type="text" id="firstName" class="form-control" placeholder="Enter First Name" required>
+                <label for="text">Enter First Name</label>
             </div>
-            <div class="col">
-                <div class="text-center">
-                    <h1 class="div2">div2</h1>
-                    <h3 class="div2">User Registration</h3>
-                </div>
+
+            <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                <!-- Gap on all sides is 2 -->
+                <input type="text" id="middleName" class="form-control" placeholder="Enter Middle Name" required>
+                <label for="text">Enter Middle Name</label>
+            </div>
+
+            <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                <!-- Gap on all sides is 2 -->
+                <input type="text" id="surName" class="form-control" placeholder="Enter Surname" required>
+                <label for="text">Enter Surname</label>
+            </div>
+
+
+            <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                <input type="text" id="username" class="form-control" placeholder="Enter Username" required>
+                <label for="text">Enter Username</label>
+            </div>
+
+            <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                <input type="email" id="emailAddress" class="form-control" placeholder="Enter Email Address" required>
+                <label for="email">Enter Email Address</label>
+            </div>
+
+            <!--For the password we use 6 -->
+            <div class="form-floating mb-3 col-6 g-2">
+                <input type="password" id="pass1" class="form-control" placeholder="Enter Password" required>
+                <label for="password">Enter Password</label>
+            </div>
+
+            <div class="form-floating mb-3 col-6 g-2">
+                <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password" required>
+                <label for="Password">Re-enter Password</label>
+            </div>
+
+
+
+            <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                <input type="text" id="address" class="form-control" placeholder="Enter Address" required>
+                <label for="text">Enter Address</label>
             </div>
         </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary">Continue</button>
+            <button class="btn btn-secondary">Clear</button>
+        </div>
+        <hr>
+        <p>Already have an account? <a id="loginLink" href="login.html">Login here</a></p>
     </div>
+
+
 
 
 

@@ -12,6 +12,31 @@
     padding: 0;
 }
 
+.containerRegis {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 100px;
+    background-color: rgba(221, 221, 221, 0.269);
+}
+
+p {
+    color: rgb(255, 255, 255);
+}
+
+#loginLink {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: 600;
+    color: rgb(7, 161, 7);
+}
+
+.userRegTitle {
+    color: rgb(255, 255, 255);
+}
+
 .div1,
 .div2 {
     color: white;
