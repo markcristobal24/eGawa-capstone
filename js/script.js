@@ -17,7 +17,6 @@ $(document).ready(function () {
         });
     });
 
-
 });
 
 //-----------Registration Functions
@@ -44,12 +43,12 @@ function selectChoice(choice) {
         choice1.classList.add('selected');
         choice2.classList.remove('selected');
         button.textContent = "Continue as User";
-        selectedChoice = "userRegistration.html";
+        selectedChoice = "userRegistration.php";
     } else if (choice === 'choice2') {
         choice2.classList.add('selected');
         choice1.classList.remove('selected');
         button.textContent = "Continue as Freelancer";
-        selectedChoice = "freelanceRegistration.html";
+        selectedChoice = "freelanceRegistration.php";
     }
 }
 
