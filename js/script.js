@@ -68,35 +68,12 @@ function validatePassword() {
     if (fname === "" || sname === "" || lname === "" || uname === "" || eadd === "" || pass1 === "" || pass2 === "") {
         showWarningModal();
     } else if (pass1 === pass2) {
-
-
-        if (pass1.length < 8 || pass1.length > 12) {
-            //=======bakit ayaw mag show nito??????????????????????????
-            myModalPasswordChecker();
-        }
-        // Check for spaces
-        else if (pass1.includes(" ")) {
-            //=======bakit ayaw mag show nito??????????????????????????
-            myModalPasswordChecker();
-        }
-
-        // Check for numeric characters
-        else if (!/\d/.test(pass1)) {
-            //=======bakit ayaw mag show nito??????????????????????????
-            myModalPasswordChecker();
-        }
-
-        // Check for special characters
-        else if (!/[!@#$%^&*]/.test(pass1)) {
-            //=======bakit ayaw mag show nito??????????????????????????
-            myModalPasswordChecker();
-        }
-
-
+        alert("Passwords match!");
     } else {
         showWarningPassModal();
     }
 
+
 }
 
 
@@ -104,16 +81,6 @@ function validatePassword() {
 
 
 
-
-
-
-//===== modal for pasword checker
-function myModalPasswordChecker() {
-    $('#myModalPasswordChecker').modal('show');
-    $('#yes3').on("click", function (e) {
-        $('#myModalPasswordChecker').modal('hide');
-    });
-}
 
 
 
@@ -122,7 +89,7 @@ function myModalPasswordChecker() {
 //===== modal for pasword did not match
 function showWarningPassModal() {
     $('#myModalPassword').modal('show');
-    $('#yes2').on("click", function (e) {
+    $('#yes').on("click", function (e) {
         $('#myModalPassword').modal('hide');
     });
 }
