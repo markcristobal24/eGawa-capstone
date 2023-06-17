@@ -32,10 +32,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about" class="nav-link" href="aboutUs.html">About</a>
+                        <a id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -73,7 +73,7 @@
         <hr />
         <p>
             Don't have an account?
-            <a id="registerLink" href="register.html">Register here</a>
+            <a id="registerLink" href="register.php">Register here</a>
         </p>
         <div id="message"></div>
     </div>
