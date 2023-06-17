@@ -24,7 +24,7 @@
     border: 2px solid #ccc;
     border-radius: 5px;
     width: 200px;
-    height: 200px;
+    height: 300px;
 }
 
 .choice-label {
@@ -38,13 +38,13 @@
 }
 
 .choice img {
-    width: 150px;
+    width: 100px;
     display: block;
     margin-bottom: 10px;
 }
 
 .containerLogin {
-    max-width: 530px;
+    max-width: 540px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -57,9 +57,9 @@
     color: rgb(255, 255, 255);
 }
 
-p {
+/* p {
     color: rgb(255, 255, 255);
-}
+} */
 
 #loginLink {
     text-decoration: none;

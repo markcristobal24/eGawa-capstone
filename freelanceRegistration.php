@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Link for CSS -->
-  <link rel="stylesheet" href="css/register.css" />
+  <link rel="stylesheet" href="css/freelanceRegistration.css" />
 
   <!-- Link for Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
@@ -55,6 +55,7 @@
             <div class="choice" onclick="selectChoice('choice1')" id="choice1">
               <h5 class="choice-label">Browse for possible work</h5>
               <img src="css/look4job.png" alt="Browse for possible work" />
+              <p>Browse and apply for posted jobs on the marketplace</p>
             </div>
           </div>
         </div>
@@ -65,6 +66,7 @@
             <div class="choice" onclick="selectChoice('choice2')" id="choice2">
               <h5 class="choice-label">Package up work</h5>
               <img src="css/create.png" alt="Package up work" />
+              <p>Customize service's prices and information for the clients to avail</p>
             </div>
           </div>
         </div>
@@ -75,11 +77,8 @@
         Continue
       </button>
     </div>
-    <hr />
-    <p>
-      Already have an account?
-      <a id="loginLink" href="login.php">Login here</a>
-    </p>
+
+
   </div>
 
   <footer class="footer">
