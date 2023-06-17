@@ -143,7 +143,7 @@
                 </div>
                 <div class="modal-body" id="modalUser">Incomplete Details</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yes2">
+                    <button type="button" class="btn btn-primary" id="yesReg">
                         Understood
                     </button>
                 </div>
@@ -151,24 +151,7 @@
         </div>
     </div>
 
-    <!--Modal for password checker-->
-    <div class="modal fade" id="myModalPasswordChecker" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
-                </div>
-                <div class="modal-body">Password should be: <br> Minumum of 8 Characters <br> Maximum of 12 Characters
-                    <br> Has Numerical Character <br> Has a Special Character
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yes3">
-                        Understood
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"

@@ -42,14 +42,14 @@ $(document).ready(function () {
         if (fName === "" || mName === "" || lName === "" || address === "" || username === "" || email === "" || pass === "" || rpass === "") {
             modalBody.innerHTML = "Incomplete Details!";
             $('#modalUserReg').modal('show');
-            $('#yes').on("click", function (e) {
+            $('#yesReg').on("click", function (e) {
                 $('#modalUserReg').modal('hide');
             });
         }
         else if (pass !== rpass) {
             modalBody.innerHTML = "Your password is not matched!";
             $('#modalUserReg').modal('show');
-            $('#yes').on("click", function (e) {
+            $('#yesReg').on("click", function (e) {
                 $('#modalUserReg').modal('hide');
             });
         }
