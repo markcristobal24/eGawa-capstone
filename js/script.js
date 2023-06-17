@@ -53,6 +53,53 @@ function selectChoice(choice) {
     }
 }
 
+
+
+
+function validatePassword() {
+    var pass1 = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+
+    const fname = document.getElementById('firstName').value;
+    const sname = document.getElementById('middleName').value;
+    const lname = document.getElementById('surName').value;
+    const uname = document.getElementById('username').value;
+    const eadd = document.getElementById('emailAddress').value;
+
+    if (fname === "" || sname === "" || lname === "" || uname === "" || eadd === "" || pass1 === "" || pass2 === "") {
+        showWarningModal();
+    } else if (pass1 === pass2) {
+        alert("Passwords match!");
+    } else {
+        showWarningPassModal();
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//===== modal for pasword did not match
+function showWarningPassModal() {
+    $('#myModalPassword').modal('show');
+    $('#yes').on("click", function (e) {
+        $('#myModalPassword').modal('hide');
+    });
+}
+
+
+
+
+
+
 //------Modal Function
 function showWarningModal() {
     $('#myModal').modal('show');

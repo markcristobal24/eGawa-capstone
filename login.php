@@ -51,14 +51,12 @@
             <h1 class="loginTitle">Login</h1>
 
             <div class="form-floating mb-3">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address"
-                    required />
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address"/>
                 <label for="email">Enter Email Address</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password"
-                    required />
+                <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password"/>
                 <label for="pass">Enter Password</label>
             </div>
 
