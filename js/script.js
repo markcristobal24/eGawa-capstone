@@ -11,7 +11,7 @@ $(document).ready(function () {
                 if (jsonData.success == "1") {
                     location.href = 'pages/dashboard.php';
                 } else {
-                    alert('Invalid Credentials');
+                    //alert('Invalid Credentials');
                 }
             }
         });

@@ -2,16 +2,28 @@ $(document).ready(function () {
     $('#btnLogin').on("click", function (e) {
         const email = document.getElementById('email').value;
         const password = document.getElementById('pass').value;
+        const modalBody = document.getElementById('modal-body');
 
         if (email === "" && password === "") {
-            ////insert modal here
-            alert("Please input your email and password!");
+            modalBody.innerHTML = "Please enter your email and password!";
+            $('#loginModal').modal('show');
+            $('#confirm').on("click", function (e) {
+                $('#loginModal').modal('hide');
+            })
         }
         else if (email === "") {
-            alert("Please input your email!");
+            modalBody.innerHTML = "Please enter your email!";
+            $('#loginModal').modal('show');
+            $('#confirm').on("click", function (e) {
+                $('#loginModal').modal('hide');
+            })
         }
         else if (password === "") {
-            alert("Please input your password!");
+            modalBody.innerHTML = "Please enter your password!";
+            $('#loginModal').modal('show');
+            $('#confirm').on("click", function (e) {
+                $('#loginModal').modal('hide');
+            })
         }
     });
 });
