@@ -53,61 +53,60 @@
     </nav>
 
     <div class="containerRegis">
-        <form id="userRegForm" action="">
+        <form id="userRegForm" method="post">
             <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
 
                 <!--For the full name we use 4+4+4 -->
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
-                    <input type="text" id="firstName" class="form-control" placeholder="Enter First Name" required>
-                    <label for="text">Enter First Name</label>
+                    <input type="text" id="firstName" class="form-control" placeholder="Enter First Name">
+                    <label for="firstName">Enter First Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="middleName" class="form-control" placeholder="Enter Middle Name" required>
-                    <label for="text">Enter Middle Name</label>
+                    <input type="text" id="middleName" class="form-control" placeholder="Enter Middle Name">
+                    <label for="middleName">Enter Middle Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="surName" class="form-control" placeholder="Enter Surname" required>
-                    <label for="text">Enter Surname</label>
+                    <input type="text" id="surName" class="form-control" placeholder="Enter Surname">
+                    <label for="surName">Enter Surname</label>
                 </div>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                    <input type="text" id="address" class="form-control" placeholder="Enter Address" required>
-                    <label for="text">Enter Address</label>
+                    <input type="text" id="address" class="form-control" placeholder="Enter Address">
+                    <label for="address">Enter Address</label>
                 </div>
 
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="text" id="username" class="form-control" placeholder="Enter Username" required>
-                    <label for="text">Enter Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter Username">
+                    <label for="username">Enter Username</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="email" id="emailAddress" class="form-control" placeholder="Enter Email Address"
-                        required>
-                    <label for="email">Enter Email Address</label>
+                    <input type="email" id="emailAddress" class="form-control" placeholder="Enter Email Address">
+                    <label for="emailAddress">Enter Email Address</label>
                 </div>
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass1" class="form-control" placeholder="Enter Password" required>
-                    <label for="password">Enter Password</label>
+                    <input type="password" id="pass1" class="form-control" placeholder="Enter Password">
+                    <label for="pass1">Enter Password</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password" required>
-                    <label for="Password">Re-enter Password</label>
+                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
+                    <label for="pass2">Re-enter Password</label>
                 </div>
 
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="submit" id="userRegButton" class="btn btn-primary" onclick="validatePassword();">
+                <button type="submit" id="btnUserReg" class="btn btn-primary">
                     Register
                 </button>
                 <button class="btn btn-secondary">Clear</button>
@@ -136,13 +135,13 @@
 
 
     <!--Modal for incomplete details-->
-    <div class="modal fade" id="myModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalUserReg" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                    <h5 class="modal-title">Warning!</h5>
                 </div>
-                <div class="modal-body">Incomplete Details</div>
+                <div class="modal-body" id="modalUser">Incomplete Details</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="yes">
                         Understood
@@ -151,36 +150,12 @@
             </div>
         </div>
     </div>
-
-    <!--Modal for password did not match-->
-    <div class="modal fade" id="myModalPassword" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
-                </div>
-                <div class="modal-body">Password did not match</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yes">
-                        Understood
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-</body>
+    <script src="js/validate.js"></script>
 </body>
 
 </html>
