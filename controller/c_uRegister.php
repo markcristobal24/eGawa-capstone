@@ -32,10 +32,10 @@ if (!empty($email) && !empty($password)) {
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';
 
-            $mail->Username = 'email account';
-            $mail->Password = 'email password';
+            $mail->Username = 'egawa.freelance@gmail.com';
+            $mail->Password = 'egawafreelance';
 
-            $mail->setFrom('email account', 'OTP Verification');
+            $mail->setFrom('egawa.freelance@gmail.com', 'OTP Verification');
             $mail->addAddress($_REQUEST["emailAddress"]);
 
             $mail->isHTML(true);
