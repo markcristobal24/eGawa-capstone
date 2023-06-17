@@ -161,7 +161,24 @@
                 </div>
                 <div class="modal-body">Password did not match</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yes">
+                    <button type="button" class="btn btn-primary" id="yes2">
+                        Understood
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--Modal for password checker-->
+        <div class="modal fade" id="myModalPasswordChecker" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                </div>
+                <div class="modal-body">Password should be: <br> Minumum of 8 Characters <br> Maximum of 12 Characters <br> Has Numerical Character <br> Has a Special Character</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="yes3">
                         Understood
                     </button>
                 </div>
