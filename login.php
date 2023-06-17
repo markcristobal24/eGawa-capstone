@@ -51,12 +51,14 @@
             <h1 class="loginTitle">Login</h1>
 
             <div class="form-floating mb-3">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address"/>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address"
+                    required />
                 <label for="email">Enter Email Address</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password"/>
+                <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password"
+                    required />
                 <label for="pass">Enter Password</label>
             </div>
 
@@ -88,6 +90,22 @@
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
     </footer>
+
+    <!---Modal Login-->
+    <div class="modal fade" id="loginModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Warning!</h5>
+                </div>
+                <div class="modal-body" id="modal-body">Body</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirm">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
