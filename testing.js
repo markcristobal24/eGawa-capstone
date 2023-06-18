@@ -9,3 +9,17 @@ function validatePassword() {
         alert("Passwords do not match!");
     }
 }
+
+
+$('#btnVerify').on("click", function (e) {
+    const code = document.getElementById('verificationCode').value;
+
+    if (code === "") {
+        // alert("testing")
+        modalBody.innerHTML = "Please enter your verification code!";
+        $('#verifyModal').modal('show');
+        $('#verifyConfirm').on("click", function (e) {
+            $('#verifyModal').modal('hide');
+        });
+    }
+});
