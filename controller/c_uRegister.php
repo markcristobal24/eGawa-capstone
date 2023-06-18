@@ -33,7 +33,7 @@ if (!empty($email) && !empty($password)) {
             $mail->SMTPSecure = 'tls';
 
             $mail->Username = 'egawa.freelance@gmail.com';
-            $mail->Password = 'egawafreelance';
+            $mail->Password = 'vwfugwytghchiqja';
 
             $mail->setFrom('egawa.freelance@gmail.com', 'OTP Verification');
             $mail->addAddress($_REQUEST["emailAddress"]);
