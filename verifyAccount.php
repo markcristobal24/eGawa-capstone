@@ -51,8 +51,8 @@
             <h1 class="loginTitle">Verify Account</h1>
 
             <div class="form-floating mb-3">
-                <input type="text" id="verificationCode" name="verificationCode" class="form-control" placeholder="Enter verification code"
-                    required />
+                <input type="text" id="verificationCode" name="verificationCode" class="form-control"
+                    placeholder="Enter verification code" required />
                 <label for="text">Enter verification code</label>
             </div>
 
@@ -90,7 +90,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Warning!</h5>
                 </div>
-                <div class="modalbody2" id="modalbody2">Body</div>
+                <div class="modal-body" id="modalbody2">Body</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="verifyConfirm">Ok</button>
                 </div>
