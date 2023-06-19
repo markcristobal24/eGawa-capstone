@@ -2,10 +2,10 @@
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
-$username = $_REQUEST["email"];
+$email = $_REQUEST["email"];
 $pass = $_REQUEST["pass"];
 
-$query = "SELECT * FROM account WHERE username='$username' and password='$pass' and user_type='super_admin'";
+$query = "SELECT * FROM account WHERE email='$email' and password='$pass' and userType='super_admin'";
 $result = mysqli_query($con, $query);
 $count = mysqli_num_rows($result);
 

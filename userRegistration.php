@@ -53,48 +53,50 @@
     </nav>
 
     <div class="containerRegis">
-        <form id="userRegForm" method="post">
+        <form action="controller/c_uRegister.php" method="POST">
             <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
 
                 <!--For the full name we use 4+4+4 -->
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
-                    <input type="text" id="firstName" class="form-control" placeholder="Enter First Name">
+                    <input type="text" id="firstName" name="fName" class="form-control" placeholder="Enter First Name">
                     <label for="firstName">Enter First Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="middleName" class="form-control" placeholder="Enter Middle Name">
+                    <input type="text" id="middleName" name="mName" class="form-control"
+                        placeholder="Enter Middle Name">
                     <label for="middleName">Enter Middle Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="surName" class="form-control" placeholder="Enter Surname">
+                    <input type="text" id="surName" name="lName" class="form-control" placeholder="Enter Surname">
                     <label for="surName">Enter Surname</label>
                 </div>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                    <input type="text" id="address" class="form-control" placeholder="Enter Address">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
                     <label for="address">Enter Address</label>
                 </div>
 
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="text" id="username" class="form-control" placeholder="Enter Username">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
                     <label for="username">Enter Username</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="email" id="emailAddress" class="form-control" placeholder="Enter Email Address">
+                    <input type="email" id="emailAddress" name="email" class="form-control"
+                        placeholder="Enter Email Address">
                     <label for="emailAddress">Enter Email Address</label>
                 </div>
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass1" class="form-control" placeholder="Enter Password">
+                    <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
                     <label for="pass1">Enter Password</label>
                 </div>
 

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,17 +49,17 @@
     </nav>
 
     <div class="containerVerify">
-        <form id="loginform" method="post">
+        <form action="#" method="post">
             <h1 class="loginTitle">Verify Account</h1>
 
             <div class="form-floating mb-3">
-                <input type="text" id="verificationCode" name="verificationCode" class="form-control"
+                <input type="text" id="verificationCode" name="otp_code" class="form-control"
                     placeholder="Enter verification code" required />
                 <label for="text">Enter verification code</label>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" id="btnVerify">
+                <button type="submit" class="btn btn-primary" name="btnVerify" id="btnVerify">
                     Verify
                 </button>
             </div>
@@ -88,7 +90,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Warning!</h5>
+                    <h5 class="modal-title" id="modalTitle">Warning!</h5>
                 </div>
                 <div class="modal-body" id="modalbody2">Body</div>
                 <div class="modal-footer">
@@ -108,3 +110,29 @@
 </body>
 
 </html>
+
+<?php
+include('php/classes/DbConnection.php');
+
+if (isset($_POST["btnVerify"])) {
+    $otp = $_SESSION['otp'];
+    $email = $_SESSION['mail'];
+    $otp_code = $_POST['otp_code'];
+
+    if ($otp != $otp_code) {
+        ?>
+<script>
+invalidOtp();
+</script>
+<?php
+    } else {
+        mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
+        ?>
+<script>
+alert('sucess otp');
+window.location.replace("login.php");
+</script>
+<?php
+    }
+}
+?>

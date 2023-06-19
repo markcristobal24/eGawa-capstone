@@ -2,8 +2,14 @@
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
-$email = $_REQUEST["emailAddress"];
-$password = $_REQUEST["pass1"];
+$firstName = $_POST["fName"];
+$middleName = $_POST["mName"];
+$lastName = $_POST["lName"];
+$address = $_POST["address"];
+$username = $_POST["username"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$usertype = "user";
 
 $check_query = mysqli_query($con, "SELECT * FROM account where email = '$email'");
 $rowCount = mysqli_num_rows($check_query);
@@ -14,16 +20,18 @@ if (!empty($email) && !empty($password)) {
 <script>
 //insert modal here
 //email already exist!!
+alert('email already exist');
+window.location.replace('../userRegistration.php');
 </script>
 <?php
     } else {
-        $result = mysqli_query($con, "INSERT INTO account (email, password, status) VALUES ('$email', '$password', 0)");
+        $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status) VALUES ('$firstName', '$middleName', '$lastName', '$address', '$username', '$email', '$password', '$usertype', 0)");
 
         if ($result) {
             $otp = rand(100000, 999999);
             $_SESSION['otp'] = $otp;
             $_SESSION['mail'] = $email;
-            require "/../php/PHPMailer/PHPMailerAutoload.php";
+            require dirname(__FILE__) . "/../php/PHPMailer/PHPMailerAutoload.php";
             $mail = new PHPMailer;
 
             $mail->isSMTP();
@@ -36,7 +44,7 @@ if (!empty($email) && !empty($password)) {
             $mail->Password = 'vwfugwytghchiqja';
 
             $mail->setFrom('egawa.freelance@gmail.com', 'OTP Verification');
-            $mail->addAddress($_REQUEST["emailAddress"]);
+            $mail->addAddress($_POST["email"]);
 
             $mail->isHTML(true);
             $mail->Subject = "Your verification code";
@@ -55,9 +63,10 @@ if (!empty($email) && !empty($password)) {
             } else {
                 ?>
 <script>
-//modal here
+//modal here    
 //Registration Successfully, OTP sent to email
-window.location.replace('verification.php');
+alert('Success');
+window.location.replace('../verifyAccount.php');
 </script>
 <?php
             }
