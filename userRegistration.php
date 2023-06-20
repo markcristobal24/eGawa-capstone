@@ -53,7 +53,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_uRegister.php" method="POST">
+        <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
             <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
