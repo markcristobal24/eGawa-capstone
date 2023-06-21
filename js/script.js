@@ -20,18 +20,26 @@ $(document).ready(function () {
 
 });
 
+
+
+
+
+//-----------Freelance Registration start-----------------------------------//
+
+
 //-----------Registration Functions
 //var button = document.getElementById("myButton");
 var selectedChoice = "";
 
 function sendData() {
+
     if (selectedChoice !== "") {
         var data = selectedChoice;
         var encodedData = encodeURIComponent(data);
         window.location.href = encodedData;
     } else {
-        //alert("Please Select a choice first.");
-        showWarningModal();
+        alert("Please Select a choice first.");
+        //showWarningModal();
     }
 }
 
@@ -52,6 +60,53 @@ function selectChoice(choice) {
         selectedChoice = "freelanceRegistration.php";
     }
 }
+
+
+//-----------Freelancer type of work choice
+var freelanceChoice1 = "";
+function sendDataRegister() {
+
+    // alert("tryyyyyyyyyy");
+    if (freelanceChoice1 !== "") {
+        var data2 = freelanceChoice1;
+        var encodedData2 = encodeURIComponent(data2);
+        window.location.href = encodedData2;
+    } else {
+        //alert("Please Select a choice first.");
+        // showWarningModal();
+        alert("please select");
+    }
+
+}
+
+function freelanceChoice(freelanceWorkChoice) {
+    var workChoice1 = document.getElementById('freelanceBrowse');
+    var workChoice2 = document.getElementById('freelancePackage');
+
+    if (freelanceWorkChoice === 'freelanceBrowse') {
+        workChoice1.classList.add('selected');
+        workChoice2.classList.remove('selected');
+        // button.textContent = "Continue as User";
+        freelanceChoice1 = "freelanceRegisterInfo.php";
+    } else if (freelanceWorkChoice === 'freelancePackage') {
+        workChoice2.classList.add('selected');
+        workChoice1.classList.remove('selected');
+        // button.textContent = "Continue as Freelancer";
+        freelanceChoice1 = "freelanceRegisterInfo.php";
+    }
+
+}
+
+function clearFreelanceChoice() {
+    var workChoice1Clear = document.getElementById('freelanceBrowse');
+    var workChoice2Clear = document.getElementById('freelancePackage');
+
+    workChoice1Clear.classList.remove('selected');
+    workChoice2Clear.classList.remove('selected');
+    freelanceChoice1 = "";
+
+}
+//-----------Freelance Registration end--------------------------------------------//
 
 
 

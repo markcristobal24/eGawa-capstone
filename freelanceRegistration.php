@@ -15,6 +15,7 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
   <title>eGawa | Freelance Register</title>
 </head>
 
@@ -52,7 +53,7 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <div class="choice" onclick="selectChoice('choice1')" id="choice1">
+            <div class="choice" onclick="freelanceChoice('freelanceBrowse')" id="freelanceBrowse">
               <h5 class="choice-label">Browse for possible work</h5>
               <img src="css/look4job.png" alt="Browse for possible work" />
               <p>Browse and apply for posted jobs on the marketplace</p>
@@ -63,7 +64,7 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <div class="choice" onclick="selectChoice('choice2')" id="choice2">
+            <div class="choice" onclick="freelanceChoice('freelancePackage')" id="freelancePackage">
               <h5 class="choice-label">Package up work</h5>
               <img src="css/create.png" alt="Package up work" />
               <p>Customize service's prices and information for the clients to avail</p>
@@ -72,9 +73,12 @@
         </div>
       </div>
     </div>
-    <div class="d-grid mt-4 gap-2 d-md-flex justify-content-center">
-      <button type="button" id="myButton" class="btn btn-primary" onclick="sendData();">
+    <div class="d-grid mt-4 gap-2 d-md-flex justify-content-end">
+      <button type="button" id="registerContinue" class="btn btn-primary" onclick="sendDataRegister();">
         Continue
+      </button>
+      <button type="button" id="registerClear" class="btn btn-secondary" onclick="clearFreelanceChoice();">
+        Clear
       </button>
     </div>
 
