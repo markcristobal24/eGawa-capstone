@@ -1,51 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="testing.js"></script>
-
-
-
-    <title>eGawa | User Registration</title>
-
-    <style>
-        /* CSS styles go here */
-        .pic {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-
+    <title>Dropdown Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="containerRegis">
-        <img src="img/check.png" alt="" class="pic">
-        <form id="userRegForm" action="">
-            <h1 class="userRegTitle">User Registration</h1>
-            <div class="row">
-                <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass1" class="form-control" placeholder="Enter Password" required>
-                    <label for="password">Enter Password</label>
-                </div>
-
-                <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password" required>
-                    <label for="Password">Re-enter Password</label>
-                </div>
-
+    <div class="container">
+        <h2>Dropdown Menu</h2>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Select Option
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Option 1</a>
+                <a class="dropdown-item" href="#">Option 2</a>
+                <a class="dropdown-item" href="#">Option 3</a>
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" id="userRegButton" class="btn btn-primary" onclick="validatePassword();">
-                    Register
-                </button>
-            </div>
-        </form>
+        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

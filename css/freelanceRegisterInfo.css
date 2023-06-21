@@ -39,12 +39,14 @@ p {
 
 .div1,
 .div2 {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 
-
-
+.labelImage {
+    color: #ddd;
+    font-size: 30px;
+}
 
 .footerInfo {
     font-size: 10px;
