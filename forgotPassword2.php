@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/forgotPassword.css" />
+    <link rel="stylesheet" href="css/forgotPassword2.css" />
 
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
@@ -17,7 +17,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>eGawa | Forgot Password</title>
+    <title>eGawa | Email Sent!</title>
 </head>
 
 <body>
@@ -50,21 +50,16 @@
 
     <div class="containerForgot">
         <form action="#" method="post">
-            <h1 class="forgotPageTitle">Forgot Password</h1>
-
-            <div class="form-floating mb-3">
-                <input type="text" id="sendEmail" name="sendEmail" class="form-control"
-                    placeholder="Enter email address" required />
-                <label for="text">Enter email address</label>
-            </div>
-
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit">
-                    Submit
-                </button>
-            </div>
+            <h1 class="forgotPageTitle">Email Sent!</h1>
+                <img id="check" src="img/check.png" alt="check">
+                <p>Link has been sent to your email address to create your new password!</p>
+                <hr />
+                <p>
+                    <span class="infoForgot">Email not received?</span>
+                    <a id="resendEmail" href="#">Resend Email</a>
+                </p>
         </form>
-
+        
         <div id="message"></div>
     </div>
 
