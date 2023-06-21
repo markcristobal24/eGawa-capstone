@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/verifyAccount.css" />
+    <link rel="stylesheet" href="css/forgotPassword.css" />
 
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
@@ -17,7 +17,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>eGawa | Account Verification</title>
+    <title>eGawa | Forgot Password</title>
 </head>
 
 <body>
@@ -48,26 +48,26 @@
         </div>
     </nav>
 
-    <div class="containerVerify">
+    <div class="containerFogot">
         <form action="#" method="post">
-            <h1 class="verifyTitle">Verify Account</h1>
+            <h1 class="forgotPageTitle">Forgot Password</h1>
 
             <div class="form-floating mb-3">
-                <input type="text" id="verificationCode" name="otp_code" class="form-control"
-                    placeholder="Enter verification code" required />
-                <label for="text">Enter verification code</label>
+                <input type="text" id="sendEmail" name="sendEmail" class="form-control"
+                    placeholder="Enter email address" required />
+                <label for="text">Enter email address</label>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" name="btnVerify" id="btnVerify">
-                    Verify
+                <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit">
+                    Submit
                 </button>
             </div>
         </form>
         <hr />
         <p>
-            <span class="infoVerify">Did not received the code?</span>
-            <a id="resendLink" href="#">Resend code</a>
+            <span class="infoForgot">Email not received?</span>
+            <a id="resendEmail" href="#">Resend Email</a>
         </p>
         <div id="message"></div>
     </div>
@@ -111,28 +111,3 @@
 
 </html>
 
-<?php
-include('php/classes/DbConnection.php');
-
-if (isset($_POST["btnVerify"])) {
-    $otp = $_SESSION['otp'];
-    $email = $_SESSION['mail'];
-    $otp_code = $_POST['otp_code'];
-
-    if ($otp != $otp_code) {
-        ?>
-<script>
-invalidOtp();
-</script>
-<?php
-    } else {
-        mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
-        ?>
-<script>
-alert('sucess otp');
-window.location.replace("login.php");
-</script>
-<?php
-    }
-}
-?>

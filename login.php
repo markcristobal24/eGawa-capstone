@@ -72,7 +72,7 @@
         </form>
         <hr />
         <p>
-            Don't have an account?
+            <span class="infoLogin">Don't have an account?</span>
             <a id="registerLink" href="register.php">Register here</a>
         </p>
         <div id="message"></div>
