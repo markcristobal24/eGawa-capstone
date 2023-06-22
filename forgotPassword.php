@@ -49,7 +49,7 @@
     </nav>
 
     <div class="containerForgot">
-        <form action="#" method="post">
+        <form action="controller/c_forgotPassword.php" method="post">
             <h1 class="forgotPageTitle">Forgot Password</h1>
 
             <div class="form-floating mb-3">
@@ -106,4 +106,3 @@
 </body>
 
 </html>
-

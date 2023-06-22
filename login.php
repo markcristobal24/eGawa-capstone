@@ -62,7 +62,7 @@
                 <label for="pass">Enter Password</label>
             </div>
 
-            <p><a id="forgotPasswordLink" href="#">Forgot password?</a></p>
+            <p><a id="forgotPasswordLink" href="forgotPassword.php">Forgot password?</a></p>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-primary" id="btnLogin">
