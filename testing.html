@@ -2,28 +2,118 @@
 <html>
 
 <head>
-    <title>Dropdown Menu</title>
+    <title>Date Picker Example</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <!-- Include Bootstrap CSS file -->
 </head>
 
 <body>
     <div class="container">
-        <h2>Dropdown Menu</h2>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                Select Option
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Option 1</a>
-                <a class="dropdown-item" href="#">Option 2</a>
-                <a class="dropdown-item" href="#">Option 3</a>
-            </div>
+        <h2>Date Picker Example</h2>
+        <div class="form-group">
+            <input type="text" id="datepicker" class="form-control" placeholder="Select a date">
+            <!-- Input field where the date picker will be attached -->
         </div>
     </div>
 
+    <div class="containerRegis">
+        <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
+            <h1 class="userRegTitle">Freelance Registration</h1>
+
+            <hr>
+            <h3 class="userRegTitle">Work Experience</h3>
+            <div class="row">
+                <!--Each row is based on a 12 column system-->
+
+                <!--For the full name we use 4+4+4 -->
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="firstName" name="fName" class="form-control" placeholder="Work Title">
+                    <label for="firstName">Enter Work Title</label>
+                </div>
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="middleName" name="mName" class="form-control" placeholder="Company">
+                    <label for="middleName">Enter Company Name</label>
+                </div>
+
+                <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="dateStarted" name="dateStarted" class="form-control datepicker"
+                        placeholder="Enter Date Started">
+                    <label for="dateStarted">Enter Date Started</label>
+                </div>
+
+                <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                    <input type="text" id="dateEnded" name="dateEnded" class="form-control datepicker"
+                        placeholder="Enter Date Ended">
+                    <label for="dateEnded">Enter Date Ended</label>
+                </div>
+
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                <button type="submit" id="btnUserReg" class="btn btn-primary">
+                    Continue
+                </button>
+                <button id="clear" class="btn btn-secondary">Clear</button>
+            </div>
+            <hr>
+            <p>Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+        </form>
+
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Include jQuery library -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Bootstrap JavaScript file -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- Include Bootstrap Datepicker JavaScript file -->
+
+    <script>
+        $(document).ready(function () {
+            // When the document is ready, execute the following code
+
+            $('#datepicker').datepicker({
+                // Initialize the datepicker on the element with id "datepicker"
+                format: 'yyyy-mm-dd',
+                // Set the date format as "yyyy-mm-dd"
+                autoclose: true,
+                // Close the datepicker when a date is selected
+                todayHighlight: true
+                // Highlight today's date
+            });
+        });
+
+
+        $(document).ready(function () {
+            // When the document is ready, execute the following code
+
+            $('#clear').datepicker({
+                // Initialize the datepicker on the element with id "datepicker"
+                format: 'yyyy-mm-dd',
+                // Set the date format as "yyyy-mm-dd"
+                autoclose: true,
+                // Close the datepicker when a date is selected
+                todayHighlight: true
+                // Highlight today's date
+            });
+
+            $('#dateEnded').datepicker({
+                // Initialize the datepicker on the element with id "datepicker"
+                format: 'yyyy-mm-dd',
+                // Set the date format as "yyyy-mm-dd"
+                autoclose: true,
+                // Close the datepicker when a date is selected
+                todayHighlight: true
+                // Highlight today's date
+            });
+        });
+    </script>
 </body>
 
 </html>
