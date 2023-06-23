@@ -38,7 +38,7 @@
     margin: 0 auto;
     padding: 30px;
     border: 1px solid rgb(255, 255, 255);
-    background-color: #0580b9cb;
+    background-color: #ddd;
     border-radius: 5px;
     margin-top: 100px;
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
@@ -46,6 +46,27 @@
 
 .title {
     font-family: 'Times New Roman', Times, serif
+}
+
+
+.custom-shape-divider-bottom-1687514102 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1687514102 svg {
+    position: relative;
+    display: block;
+    width: calc(158% + 1.3px);
+    height: 190px;
+}
+
+.custom-shape-divider-bottom-1687514102 .shape-fill {
+    fill: #0073aa;
 }
 
 
@@ -64,11 +85,12 @@
 
 .footerInfo {
     font-size: 10px;
-    color: #0073aa;
+    color: #f4f4f4
 }
 
 i {
-    color: #0073aa;
+    color: #f4f4f4;
+    font-size: larger;
     margin-left: 15px;
 }
 
@@ -85,10 +107,8 @@ i:hover {
 
 }
 
-
-
 body {
-    background-color: #dca7848e;
+    background-color: hsla(200, 57%, 85%, 0.275);
     /* background-color: hsla(200, 57%, 85%, 0.275); */
     /* Desired background color for the whole page */
     /* background: linear-gradient(to bottom, #ff0000, #00ff00); */
@@ -99,12 +119,12 @@ body {
 @media (max-width: 5000px) {
 
     .title {
-        color: rgb(246, 246, 246);
+        color: rgb(49, 49, 49);
         font-size: 90px;
     }
 
     .aboutInfo {
-        color: rgb(246, 246, 246);
+        color: rgb(49, 49, 49);
         font-size: 25px;
         /* background-color: #57494989; */
     }
@@ -222,6 +242,11 @@ body {
         font-size: 15px;
     }
 
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
     i {
         color: #0073aa;
         margin-left: 15px;
@@ -235,5 +260,16 @@ body {
         color: #f4f4f4;
     }
 
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
 
 }

@@ -50,22 +50,59 @@
             </div>
         </div>
     </nav>
+    <div class="containerLogin">
+        <form id="loginform" method="post">
+            <h1 class="loginTitle">Login</h1>
+
+            <div class="form-floating mb-3">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email Address"
+                    required />
+                <label for="email">Enter Email Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password"
+                    required />
+                <label for="pass">Enter Password</label>
+            </div>
+
+            <p><a id="forgotPasswordLink" href="forgotPassword.php">Forgot password?</a></p>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary" id="btnLogin">
+                    Login
+                </button>
+            </div>
+        </form>
+        <hr />
+        <p>
+            <span class="infoLogin">Don't have an account?</span>
+            <a id="registerLink" href="register.php">Register here</a>
+        </p>
+        <div id="message"></div>
+    </div>
 
     <div class="container" id="mainContainer">
         <div class="row">
             <div class="col">
                 <div class="text-center">
-                    <h2 class="div1">div1</h2>
+                    <h2 class="div1"></h2>
                 </div>
             </div>
             <div class="col">
                 <div class="text-center">
-                    <h2 class="div2">div2</h2>
+                    <h2 class="div2"></h2>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="custom-shape-divider-bottom-1687514102">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill"></path>
+        </svg>
+    </div>
 
 
     <footer class="footer">
