@@ -2,14 +2,29 @@
     margin-top: 100px;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #43424262;
-    text-align: center;
-    padding: 0;
+.navbar {
+    background-color: #0073aa;
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#login1 {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#login1:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
 }
 
 
@@ -47,50 +62,61 @@
     max-width: 530px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     margin-top: 100px;
-    background-color: rgba(221, 221, 221, 0.269);
+    /* background-color: rgba(221, 221, 221, 0.269); */
+    /* background-color: #0580b9cb; */
+    background-color: #ddd;
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(221, 221, 221, 0.269); */
 }
 
 .regisTitle {
-    color: rgb(255, 255, 255);
+    color: #0073aa;
 }
 
 p {
     color: rgb(255, 255, 255);
 }
 
+#myButton {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 #loginLink {
     text-decoration: none;
     font-size: larger;
     font-weight: 600;
-    color: rgb(7, 161, 7);
+    color: rgb(73, 187, 73);
 }
 
-
-
-.div1,
-.div2 {
-    color: white;
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #0073aa; */
+    /* background: linear-gradient(to bottom, #0074aa0c, #0073aa); */
+    /* box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5); */
+    text-align: center;
+    padding: 0;
 }
-
-
-
 
 
 .footerInfo {
     font-size: 10px;
-    color: rgb(237, 237, 237);
+    color: #0073aa;
 }
 
 i {
-    color: rgb(237, 237, 237);
+    color: #0073aa;
     margin-left: 15px;
 }
 
 i:hover {
-    color: chartreuse;
+    color: #ff6600;
 }
 
 .navbar-brand img {
@@ -102,15 +128,13 @@ i:hover {
 
 }
 
-
-
-
 body {
-    background-image: url('bg.jpg');
+    /* background-image: url("bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center; */
+    background-color: #dca7848e;
 }
 
 
