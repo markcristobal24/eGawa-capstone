@@ -47,22 +47,22 @@
     </nav>
 
     <div class="containerLogin">
-        <form id="loginform" method="post">
+        <form action="controller/c_newPassword.php" method="post">
             <h1 class="newPassTitle">Create New Password</h1>
 
             <div class="form-floating mb-3 col-12 g-2">
-                    <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
-                    <label for="pass1">Enter Password</label>
-                </div>
+                <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
+                <label for="pass1">Enter Password</label>
+            </div>
 
-                <div class="form-floating mb-3 col-12 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
-                    <label for="pass2">Re-enter Password</label>
-                </div>
+            <div class="form-floating mb-3 col-12 g-2">
+                <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
+                <label for="pass2">Re-enter Password</label>
+            </div>
 
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" id="btnNewPassword">
+                <button type="submit" class="btn btn-primary" name="btnNewPassword" id="btnNewPassword">
                     Submit
                 </button>
                 <button type="submit" class="btn btn-secondary" id="btnNewPassword">
