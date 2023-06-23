@@ -4,11 +4,11 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Link for CSS -->
-  <link rel="stylesheet" href="css/aboutUs.css">
-
   <!-- Link for Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- Link for CSS -->
+  <link rel="stylesheet" href="css/aboutUs.css">
 
   <!-- For social icons in the footer -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,7 +22,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -32,13 +32,13 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a id="about1" class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a id="about" class="nav-link" href="aboutUs.php">About</a>
+            <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a id="login1" class="nav-link" href="login.php">Login</a>
           </li>
         </ul>
         <form class="d-flex">

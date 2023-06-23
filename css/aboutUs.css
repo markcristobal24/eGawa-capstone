@@ -2,9 +2,33 @@
     margin-top: 0;
 }
 
-
 .container2 {
     display: none;
+}
+
+.navbar {
+    background-color: #0073aa;
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#login1 {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#login1:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
 }
 
 
@@ -13,37 +37,43 @@
     max-width: 1020px;
     margin: 0 auto;
     padding: 30px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(39, 38, 38);
+    background-color: #0580b9cb;
     border-radius: 5px;
     margin-top: 100px;
-    background-color: rgba(221, 221, 221, 0.173);
-
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
+
+.title {
+    font-family: 'Times New Roman', Times, serif
+}
+
 
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #43424262;
+    /* background-color: #0073aa; */
+    /* background: linear-gradient(to bottom, #0074aa0c, #0073aa); */
+    /* box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5); */
     text-align: center;
     padding: 0;
 }
 
 
-
 .footerInfo {
     font-size: 10px;
-    color: rgb(237, 237, 237);
+    color: #ffffff;
 }
 
 i {
-    color: rgb(237, 237, 237);
+    color: #ffffff;
     margin-left: 15px;
 }
 
 i:hover {
-    color: chartreuse;
+    color: #ff6600;
 }
 
 .navbar-brand img {
@@ -56,12 +86,12 @@ i:hover {
 }
 
 
+
 body {
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-color: #dca7848e;
+    /* background-color: hsla(200, 57%, 85%, 0.275); */
+    /* Desired background color for the whole page */
+    /* background: linear-gradient(to bottom, #ff0000, #00ff00); */
 }
 
 
@@ -75,7 +105,7 @@ body {
 
     .aboutInfo {
         color: rgb(246, 246, 246);
-        font-size: 30px;
+        font-size: 25px;
         /* background-color: #57494989; */
     }
 
@@ -175,7 +205,7 @@ body {
     .container2 {
         display: block;
         padding: 30px 30px 90px 30px;
-        margin-top: 40px;
+        margin-top: 0;
     }
 
     #col2 {
@@ -183,18 +213,26 @@ body {
     }
 
     .title {
-        color: rgb(255, 6, 6);
+        color: rgb(53, 52, 52);
         font-size: 30px;
     }
 
     .aboutInfo {
-        color: rgb(201, 201, 201);
+        color: rgb(53, 52, 52);
         font-size: 15px;
     }
 
     i {
-        color: rgb(237, 237, 237);
-        margin-left: 5px;
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #home1,
+    #about1,
+    #login1 {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
     }
 
 
