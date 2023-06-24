@@ -87,7 +87,21 @@ function validateRegForm() {
         $('#yesReg').on("click", function (e) {
             $('#modalUserReg').modal('hide');
         });
-        return false
+        return false;
+    }
+    return true;
+}
+
+function validateForgotPass() {
+    const email = document.getElementById('sendEmail').value;
+    const modalBody = document.getElementById('modalForgot');
+    if (email === "") {
+        modalBody.innerHTML = "Please provide an email address!";
+        $('#forgotModal').modal('show');
+        $('#forgotConfirm').on("click", function (e) {
+            $('#forgotModal').modal('hide');
+        });
+        return false;
     }
     return true;
 }
