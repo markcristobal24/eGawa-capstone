@@ -57,7 +57,7 @@ function selectChoice(choice) {
         choice2.classList.add('selected');
         choice1.classList.remove('selected');
         button.textContent = "Continue as Freelancer";
-        selectedChoice = "freelanceRegistration.php";
+        selectedChoice = "freelanceRegis1.php";
     }
 }
 

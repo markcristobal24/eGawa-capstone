@@ -4,11 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/freelanceRegisterInfo.css"> 
-
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Link for CSS -->
+    <link rel="stylesheet" href="css/freelanceRegis1.css"> 
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -25,7 +25,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -33,15 +33,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+            <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a id="login1" class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -61,23 +61,23 @@
                 <!--For the full name we use 4+4+4 -->
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <input type="text" id="firstName" name="fName" class="form-control" placeholder="Enter First Name">
-                    <label for="firstName">Enter First Name</label>
+                    <label id="fName" for="firstName">Enter First Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="middleName" name="mName" class="form-control"
                         placeholder="Enter Middle Name">
-                    <label for="middleName">Enter Middle Name</label>
+                    <label id="mName" for="middleName">Enter Middle Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="surName" name="lName" class="form-control" placeholder="Enter Surname">
-                    <label for="surName">Enter Surname</label>
+                    <label id="sName" for="surName">Enter Surname</label>
                 </div>
 
-                <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                <!-- <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
                     <label for="address">Enter Address</label>
                 </div>
@@ -85,29 +85,29 @@
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="mobileNum" name="mobileNum" class="form-control" placeholder="Enter Mobile Number">
                     <label for="address">Enter Mobile Number</label>
-                </div>
+                </div> -->
 
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
-                    <label for="username">Enter Username</label>
+                    <label id="uName" for="username">Enter Username</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="email" id="emailAddress" name="email" class="form-control"
                         placeholder="Enter Email Address">
-                    <label for="emailAddress">Enter Email Address</label>
+                    <label id="eAdd" for="emailAddress">Enter Email Address</label>
                 </div>
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
                     <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
-                    <label for="pass1">Enter Password</label>
+                    <label id="pass1" for="pass1">Enter Password</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
                     <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
-                    <label for="pass2">Re-enter Password</label>
+                    <label id="pass2" for="pass2">Re-enter Password</label>
                 </div>
 
             </div>
@@ -119,9 +119,18 @@
                 <button class="btn btn-secondary">Clear</button>
             </div>
             <hr>
-            <p>Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+            <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
         </form>
 
+    </div>
+
+
+    <div class="custom-shape-divider-bottom-1687514102">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill"></path>
+        </svg>
     </div>
 
 

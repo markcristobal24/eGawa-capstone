@@ -9,4 +9,6 @@ register
 forgotPassword
 createnewpassword
 forgotPassword2
-
+userRegistration
+verifyAccount
+freelanceRegis1 (modified)
