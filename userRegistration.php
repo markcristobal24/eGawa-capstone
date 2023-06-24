@@ -25,7 +25,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -54,55 +54,55 @@
 
     <div class="containerRegis">
         <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
-            <h1 class="userRegTitle">User Registrationnnnnn</h1>
+            <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
 
                 <!--For the full name we use 4+4+4 -->
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <input type="text" id="firstName" name="fName" class="form-control" placeholder="Enter First Name">
-                    <label for="firstName">Enter First Name</label>
+                    <label id="fName" for="firstName">Enter First Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="middleName" name="mName" class="form-control"
                         placeholder="Enter Middle Name">
-                    <label for="middleName">Enter Middle Name</label>
+                    <label id="sName" for="middleName">Enter Middle Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="surName" name="lName" class="form-control" placeholder="Enter Surname">
-                    <label for="surName">Enter Surname</label>
+                    <label id="sName" for="surName">Enter Surname</label>
                 </div>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
                     <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
-                    <label for="address">Enter Address</label>
+                    <label id="addr" for="address">Enter Address</label>
                 </div>
 
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
-                    <label for="username">Enter Username</label>
+                    <label id="uName" for="username">Enter Username</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="email" id="emailAddress" name="email" class="form-control"
                         placeholder="Enter Email Address">
-                    <label for="emailAddress">Enter Email Address</label>
+                    <label id="eAdd" for="emailAddress">Enter Email Address</label>
                 </div>
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
                     <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
-                    <label for="pass1">Enter Password</label>
+                    <label id="pass1" for="pass1">Enter Password</label>
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
                     <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
-                    <label for="pass2">Re-enter Password</label>
+                    <label id="pass2" for="pass2">Re-enter Password</label>
                 </div>
 
             </div>
@@ -111,10 +111,10 @@
                 <button type="submit" id="btnUserReg" class="btn btn-primary">
                     Register
                 </button>
-                <button class="btn btn-secondary">Clear</button>
+                <button id="btnUserRegClear" class="btn btn-secondary">Clear</button>
             </div>
             <hr>
-            <p>Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+            <p class="infoUserReg">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
         </form>
     </div>
 
