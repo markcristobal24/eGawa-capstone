@@ -2,14 +2,29 @@
     margin-top: 100px;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #43424262;
-    text-align: center;
-    padding: 0;
+.navbar {
+    background-color: #0073aa;
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#login1 {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#login1:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
 }
 
 .containerRegis {
@@ -37,14 +52,15 @@ p {
     color: rgb(255, 255, 255);
 }
 
-.div1,
-.div2 {
-    color: white;
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #43424262;
+    text-align: center;
+    padding: 0;
 }
-
-
-
-
 
 .footerInfo {
     font-size: 10px;
