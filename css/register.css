@@ -85,6 +85,10 @@ p {
     padding-right: 20px;
 }
 
+p {
+    color: rgb(0, 0, 0);
+}
+
 #loginLink {
     text-decoration: none;
     font-size: larger;
