@@ -11,3 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// < !-- for testing, will put this in js file-- >
+
+function loadImage(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var uploadedImage = document.getElementById('uploadedImage');
+        uploadedImage.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}

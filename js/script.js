@@ -63,21 +63,20 @@ function selectChoice(choice) {
 
 
 //-----------Freelancer type of work choice
-var freelanceChoice1 = "";
-function sendDataRegister() {
+//=========NOT IN USE=====================================//
+// var freelanceChoice1 = "";
+// function sendDataRegister() {
 
-    // alert("tryyyyyyyyyy");
-    if (freelanceChoice1 !== "") {
-        var data2 = freelanceChoice1;
-        var encodedData2 = encodeURIComponent(data2);
-        window.location.href = encodedData2;
-    } else {
-        //alert("Please Select a choice first.");
-        // showWarningModal();
-        alert("please select");
-    }
-
-}
+//     if (freelanceChoice1 !== "") {
+//         var data2 = freelanceChoice1;
+//         var encodedData2 = encodeURIComponent(data2);
+//         window.location.href = encodedData2;
+//     } else {
+//         //alert("Please Select a choice first.");
+//         // showWarningModal();
+//         alert("please select");
+//     }
+// }
 
 function freelanceChoice(freelanceWorkChoice) {
     var workChoice1 = document.getElementById('freelanceBrowse');

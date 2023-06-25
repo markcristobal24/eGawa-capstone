@@ -55,11 +55,8 @@
             <h1 class="userRegTitle">Freelance Registration</h1>
             <hr>
             <div class="row">
-                <!--Each row is based on a 12 column system-->
-
-                <!--For the full name we use 4+4+4 -->
                 <div>
-                <label class="labelImage" for="uploadInput">Upload Image</label>
+                    <label class="labelImage" for="uploadInput">Upload Image</label>
                     <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                         <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
                     </div>
