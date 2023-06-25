@@ -8,7 +8,7 @@
 
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    
+
     <!-- Link for CSS -->
     <link rel="stylesheet" href="css/forgotPassword.css" />
 
@@ -49,12 +49,12 @@
     </nav>
 
     <div class="containerForgot">
-        <form action="controller/c_forgotPassword.php" method="post">
+        <form action="controller/c_forgotPassword.php" method="post" onsubmit="return validateForgotPass()">
             <h1 class="forgotPageTitle">Forgot Password</h1>
 
             <div class="form-floating mb-3">
                 <input type="text" id="sendEmail" name="sendEmail" class="form-control"
-                    placeholder="Enter email address" required />
+                    placeholder="Enter email address" />
                 <label for="text">Enter email address</label>
             </div>
 
@@ -92,15 +92,15 @@
     </footer>
 
     <!---Modal Verify-->
-    <div class="modal fade" id="verifyModal" aria-hidden="true">
+    <div class="modal fade" id="forgotModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle">Warning!</h5>
                 </div>
-                <div class="modal-body" id="modalbody2">Body</div>
+                <div class="modal-body" id="modalForgot">Body</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="verifyConfirm">Ok</button>
+                    <button type="button" class="btn btn-primary" id="forgotConfirm">Ok</button>
                 </div>
             </div>
         </div>
