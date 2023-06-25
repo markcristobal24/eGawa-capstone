@@ -75,21 +75,33 @@
                         <div class="pickRoles">
                             <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="webdev">
-                                    <label class="form-check-label" for="webdev">
+                                <input class="form-check-input" type="checkbox" id="webDesign">
+                                    <label class="form-check-label" for="webDesign">
+                                    Web Designer
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="webDev">
+                                    <label class="form-check-label" for="webDev">
                                     Web Developer
                                     </label>
                             </div>
                             <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobDev">
-                                    <label class="form-check-label" for="mobDev">
+                                    <input class="form-check-input" type="checkbox" id="mobAppDev">
+                                    <label class="form-check-label" for="mobAppDev">
                                     Mobile Application Developer
                                     </label>
                             </div>
                             <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="graphics">
-                                    <label class="form-check-label" for="graphics">
-                                    Graphic Artist
+                                    <input class="form-check-input" type="checkbox" id="brandDesign">
+                                    <label class="form-check-label" for="brandDesign">
+                                    Branding and Design
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="hostingMaintenance">
+                                    <label class="form-check-label" for="hostingMaintenance">
+                                    Hosting/Maintenance
                                     </label>
                             </div>
                         </div>
@@ -130,10 +142,8 @@
 
                         <h3 class="userRegTitle" for="comment">Job Description</h3>
                         <div>
-                                <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea> 
+                            <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea> 
                         </div>
-
-
                     </div>
                     <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
