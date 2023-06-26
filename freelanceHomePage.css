@@ -141,101 +141,6 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
-/*============================ extra extra large  ===========================*/
-@media (max-width: 5000px) {}
-
-
-/*============================ extra large  ===========================*/
-@media (max-width: 1200px) {}
-
-
-/*============================ large  ===========================*/
-@media (max-width: 992px) {}
-
-
-/*============================ medium  ===========================*/
-@media (max-width: 768px) {}
-
-
-/*============================ small  ===========================*/
-@media (max-width: 576px) {
-    .containerRegis {
-        max-width: 360px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 100px;
-        background-color: #ddd;
-    }
-
-    #fName,
-    #mName,
-    #sName,
-    #addr,
-    #uName,
-    #eAdd,
-    #pass1,
-    #pass2 {
-        font-size: 10px;
-    }
-
-    .userRegTitle {
-        color: rgb(0, 0, 0);
-    }
-
-    #loginLink {
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: 600;
-        color: rgb(7, 161, 7);
-    }
-
-    #forgotPasswordLink {
-        font-size: 15px;
-        font-weight: 600;
-        color: rgb(209, 44, 91);
-        text-decoration: none;
-    }
-
-    .freelanceRegInfo {
-        font-size: 13px;
-        color: black;
-    }
-
-
-    .footerInfo {
-        font-size: 10px;
-        color: #0073aa
-    }
-
-    i {
-        color: #0073aa;
-        margin-left: 15px;
-    }
-
-    #home1,
-    #about1,
-    #login1 {
-        font-size: 15px;
-        font-family: 'roboto', sans-serif;
-        color: #f4f4f4;
-    }
-
-    .custom-shape-divider-bottom-1687514102 {
-        display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 svg {
-        display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 .shape-fill {
-        fill: #0073aa;
-    }
-}
-
-
 /* ==============================This is for the modal================================== */
 /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
 .modal {
@@ -283,4 +188,300 @@ body {
 
 .title {
     color: #0073aa;
+}
+
+/* ==============================end of modal================================== */
+
+
+
+/*=============media queries===================================================*/
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1200px) {}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {
+    .containerFreelanceHome {
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        background-color: #ddd;
+    }
+
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 10px;
+    }
+
+
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #home1,
+    #about1,
+    #login1 {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
+    }
+
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
+
+    /* ==============================This is for the modal================================== */
+    /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .labelImage {
+        font-size: 15px;
+    }
+
+    #imgUpl {
+        margin-bottom: 10px;
+    }
+
+    #uploadedImage {
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    #uploadInput {
+        font-size: 13px;
+    }
+
+    .form-check {
+        font-size: 13px;
+    }
+
+    #addressLabel,
+    #companyNameLabel,
+    #workTitleLabel,
+    #dateStartedLabel,
+    #dateEndedLabel,
+    #comment {
+        font-size: 13px;
+    }
+
+
+    .pickRoles {
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 10px 30px 20px 30px;
+        border: 1px solid #888;
+        width: 90%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .title {
+        color: #0073aa;
+    }
+}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+    .containerFreelanceHome {
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        background-color: #ddd;
+    }
+
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 10px;
+    }
+
+
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #home1,
+    #about1,
+    #login1 {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
+    }
+
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
+
+    /* ==============================This is for the modal================================== */
+    /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .labelImage {
+        font-size: 15px;
+    }
+
+    #imgUpl {
+        margin-bottom: 10px;
+    }
+
+    #uploadedImage {
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    #uploadInput {
+        font-size: 13px;
+    }
+
+    .form-check {
+        font-size: 13px;
+    }
+
+    #addressLabel,
+    #companyNameLabel,
+    #workTitleLabel,
+    #dateStartedLabel,
+    #dateEndedLabel,
+    #comment {
+        font-size: 13px;
+    }
+
+
+    .pickRoles {
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 10px 30px 20px 30px;
+        border: 1px solid #888;
+        width: 90%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .title {
+        color: #0073aa;
+    }
 }
