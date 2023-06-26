@@ -49,7 +49,7 @@
     </nav>
 
     <div class="containerLogin">
-        <form id="loginform" method="post">
+        <form action="controller/c_login.php" method="post">
             <h1 class="loginTitle">Login</h1>
 
             <div class="form-floating mb-3">

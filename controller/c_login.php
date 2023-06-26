@@ -2,21 +2,38 @@
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
-$email = $_REQUEST["email"];
-$pass = $_REQUEST["pass"];
+$email = $_POST["email"];
+$password = $_POST["pass"];
 
-$query = "SELECT * FROM account WHERE email='$email' and password='$pass' and userType='super_admin'";
-$result = mysqli_query($con, $query);
-$count = mysqli_num_rows($result);
+$sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email'");
+$query = mysqli_num_rows($sql);
+$fetch = mysqli_fetch_assoc($sql);
 
-if ($count == 1) {
-    $row = $result->fetch_assoc();
-    $_SESSION["username"] = $row['username'];
-    echo json_encode(array('success' => 1));
-} else {
-    echo json_encode(array('success' => 0));
-    header("refresh: 0; url=login.php");
+if ($query <= 0) {
+    ?>
+    <script>
+        alert('Email Address do not exist!');
+    </script>
+    <?php
+} else if ($query > 0) {
+    if ($fetch["userType"] == 'super_admin') {
+        ?>
+            <script>
+                window.location.replace("../pages/dashboard.php");
+            </script>
+            <?php
+    } else if ($fetch["userType"] == 'user') {
+        if ($fetch["status"] == 0) {
+            //verification
+        } else {
+            //rekta login
+        }
+    } else if ($fetch["userType"] == 'freelancer') {
+        if ($fetch["status"] == 0) {
+            //verification
+        } else if ($fetch["profileStatus"] == 0) {
+            //create profile
+        }
+    }
 }
-
-mysqli_close($con);
 ?>
