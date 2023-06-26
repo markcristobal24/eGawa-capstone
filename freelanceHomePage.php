@@ -38,20 +38,29 @@
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a id="login1" class="nav-link" href="login.php">Login</a>
+                        <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="logout1" class="nav-link">Logout</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-success" type="submit">Search</button>
-                </form>
+                </form> -->
             </div>
         </div>
     </nav>
 
     <div class="containerFreelanceHome">
-        <div class="div1">heyyy im div1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quam, laudantium, est velit non accusamus, assumenda architecto at sed aut a ut placeat recusandae ipsa distinctio? Quia aperiam soluta autem nostrum, mollitia laboriosam ex amet ipsam veniam voluptatibus suscipit possimus consectetur aut laudantium nulla minima animi temporibus similique. Qui, sit.</div>
-        <div class="div2">heyyy im div2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente voluptatem accusantium blanditiis ut facilis doloribus excepturi cum minus. Sit aspernatur quia, vel, totam necessitatibus blanditiis voluptatum aliquam asperiores officiis hic non sed illo recusandae iste aut explicabo voluptatibus sunt magnam adipisci ab officia sint autem? Suscipit aspernatur amet sunt incidunt. Mollitia voluptatum doloribus et sint sed repudiandae cumque aliquam quisquam corrupti omnis quas natus quam iure ratione illo in, hic quasi exercitationem beatae. Velit officia, aut inventore doloribus dicta itaque deserunt adipisci cum ipsum quisquam reiciendis a vero rerum libero error eum reprehenderit quibusdam vel quasi. Non, suscipit veritatis.</div>
+        <div class="div1">
+        <h2>freelance Profile</h2>
+            heyyy im div1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente voluptatem accusantium blanditiis ut facilis doloribus excepturi cum minus. Sit aspernatur quia, vel, totam necessitatibus blanditiis voluptatum aliquam asperiores officiis hic non sed illo recusandae iste aut explicabo voluptatibus sunt magnam adipisci ab officia sint 
+        </div>
+
+        <div class="div2">
+            <h2>freelance Project catalog</h2>
+            heyyy im div2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente voluptatem accusantium blanditiis ut facilis doloribus excepturi cum minus. Sit aspernatur quia, vel, totam necessitatibus blanditiis voluptatum aliquam asperiores officiis hic non sed illo recusandae iste aut explicabo voluptatibus sunt magnam adipisci ab officia sint autem? Suscipit aspernatur amet sunt incidunt. Mollitia voluptatum doloribus et sint sed repudiandae cumque aliquam quisquam corrupti omnis quas natus quam iure ratione illo in, hic quasi exercitationem beatae. Velit officia, aut inventore doloribus dicta itaque deserunt adipisci cum ipsum quisquam reiciendis a vero rerum libero error eum reprehenderit quibusdam vel quasi. Non, suscipit veritatis.</div>
     </div>
 
     <div id="myModal" class="modal">
@@ -140,14 +149,14 @@
                             <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
                         </div>
 
-                        <h3 class="userRegTitle" for="comment">Job Description</h3>
+                        <h3 class="jobDescription" for="comment">Job Description</h3>
                         <div>
                             <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea> 
                         </div>
                     </div>
                     <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                        <button type="submit" id="btnUserReg" class="btn btn-primary">
+                        <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
                             Continue
                         </button>
                         <button class="btn btn-secondary">Clear</button>
@@ -183,17 +192,20 @@
 
 
 
-    <!--Modal if the freelnacer has not yet created a profile-->
-    <div class="modal fade" id="modalFreelanceProfile" aria-hidden="true">
+    <!--Modal for log out-->
+    <div class="modal fade" id="modalLogOut" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Create Profile First!</h5>
+                    <h5 class="modal-title">Logging Out</h5>
                 </div>
-                <div class="modal-body" id="modalUser">Incomplete Details</div>
+                <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yesReg">
-                        Understood
+                    <button type="button" class="btn btn-primary" id="logoutBtn">
+                        Log Out
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
+                        Cancel
                     </button>
                 </div>
             </div>

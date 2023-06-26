@@ -9,10 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
     closeButton.addEventListener("click", function () {
         modal.style.display = "none";
     });
+
+
+    //for log out
+    var logout = document.getElementById('logout1');
+    logout.addEventListener('click', function () {
+        $('#modalLogOut').modal('show');
+        $('#cancelLogOutBtn').on("click", function (e) {
+            $('#modalLogOut').modal('hide');
+        });
+    });
+
+
 });
 
-// < !-- for testing, will put this in js file-- >
 
+//for image upload
 function loadImage(event) {
     var reader = new FileReader();
     reader.onload = function () {
