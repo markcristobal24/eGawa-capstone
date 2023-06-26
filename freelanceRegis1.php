@@ -8,15 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/freelanceRegis1.css"> 
+    <link rel="stylesheet" href="css/freelanceRegis1.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-
 
 
     <title>eGawa | Freelance Registration</title>
@@ -33,7 +30,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
@@ -53,7 +50,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
+        <form action="controller/c_fRegister.php" method="POST" onsubmit="return validateRegForm()">
             <h1 class="userRegTitle">Freelance Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -113,7 +110,7 @@
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="submit" id="btnUserReg" class="btn btn-primary">
+                <button type="submit" id="btnFreelanceReg" class="btn btn-primary">
                     Continue
                 </button>
                 <button class="btn btn-secondary">Clear</button>
