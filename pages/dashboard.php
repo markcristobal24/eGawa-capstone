@@ -9,6 +9,20 @@
 
 <body>
     <h1>Hello I'm Admin DashBoard</h1>
+    <form action="">
+        <button type="submit" name="logout">Log out</button>
+    </form>
+
 </body>
 
 </html>
+
+<?php
+session_start();
+if (isset($_POST["logout"])) {
+
+    session_destroy();
+    header("Location:/../login.php");
+    die();
+}
+?>
