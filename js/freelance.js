@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
     //for log out
     var logout = document.getElementById('logout1');
     logout.addEventListener('click', function () {

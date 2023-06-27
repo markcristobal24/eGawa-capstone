@@ -13,7 +13,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .modal {
+        #myModal {
             display: none;
             position: fixed;
             z-index: 999;
@@ -25,13 +25,14 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        .modal-content {
+        #modalFreelanceProfile {
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 50%;
         }
+
 
         .close {
             color: #aaa;
@@ -48,19 +49,50 @@
             cursor: pointer;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("myModal");
+            var closeButton = document.getElementsByClassName("close")[0];
+
+            // Display the modal
+            modal.style.display = "block";
+
+            // Close the modal when the close button is clicked
+            closeButton.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+
+            var logoutbtn = document.getElementById("logout");
+
+            logoutbtn.addEventListener("click", function () {
+                $('#modalLogOut1').modal();
+                $('#cancelLogOutBtn').on("click", function (e) {
+                    $('#modalLogOut1').modal('hide');
+                });
+            });
+
+
+        });
+
+
+
+
+    </script>
 </head>
 
 <body>
     <div class="container">
+
+        <button class="logout" id="logout">logout</button>
+
         <div id="myModal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" id="modalFreelanceProfile">
                 <span class="close">&times;</span>
                 <h2>Create Your Profile First</h2>
 
-                <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
-
+                <form>
                     <div class="row">
-
                         <div>
                             <label class="labelImage" for="uploadInput">Upload Image</label>
                             <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -74,6 +106,7 @@
                                 placeholder="Please Enter Your Job or Role">
                             <label for="freelanceRole">Please Enter Your Job or Role</label>
                         </div>
+                        <button id="closethis">close</button>
 
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -87,16 +120,39 @@
                 </form>
             </div>
         </div>
+
+        <!--Modal for log out-->
+        <div class="modal fade" id="modalLogOut1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="logoutModalContent">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Logging Out</h5>
+                    </div>
+                    <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="logoutBtn">
+                            Log Out
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Include jQuery library -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Include Bootstrap JavaScript file -->
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
     <!-- Include Bootstrap Datepicker JavaScript file -->
-    <script src="testing.js"></script>
+    <!-- <script src="testing.js"></script> -->
 </body>
 
 </html>
