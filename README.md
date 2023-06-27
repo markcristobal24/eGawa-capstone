@@ -12,3 +12,9 @@ forgotPassword2
 userRegistration
 verifyAccount
 freelanceRegis1 (modified)
+
+
+currently working on:
+------------------------
+freelanceHomePage
+
