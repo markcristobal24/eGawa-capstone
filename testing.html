@@ -1,158 +1,21 @@
-<!DOCTYPE html>
-<html>
+<style>
+    .editContainer {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        background-color: lightgray;
+    }
 
-<head>
-    <title>Date Picker Example</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    .editFreelanceAcc {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+</style>
 
-    <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/freelanceRegis1.css">
-
-    <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        #myModal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        #modalFreelanceProfile {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 50%;
-        }
-
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var modal = document.getElementById("myModal");
-            var closeButton = document.getElementsByClassName("close")[0];
-
-            // Display the modal
-            modal.style.display = "block";
-
-            // Close the modal when the close button is clicked
-            closeButton.addEventListener("click", function () {
-                modal.style.display = "none";
-            });
-
-
-            var logoutbtn = document.getElementById("logout");
-
-            logoutbtn.addEventListener("click", function () {
-                $('#modalLogOut1').modal();
-                $('#cancelLogOutBtn').on("click", function (e) {
-                    $('#modalLogOut1').modal('hide');
-                });
-            });
-
-
-        });
-
-
-
-
-    </script>
-</head>
-
-<body>
-    <div class="container">
-
-        <button class="logout" id="logout">logout</button>
-
-        <div id="myModal" class="modal">
-            <div class="modal-content" id="modalFreelanceProfile">
-                <span class="close">&times;</span>
-                <h2>Create Your Profile First</h2>
-
-                <form>
-                    <div class="row">
-                        <div>
-                            <label class="labelImage" for="uploadInput">Upload Image</label>
-                            <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
-                            </div>
-                            <input id="uploadInput" type="file" accept="image/*" onchange="loadImage(event)">
-                        </div>
-
-                        <div class="form-floating mt-3 mb-3 col-12 gx-2 gy-2">
-                            <input type="text" id="freelanceRole" name="freelanceRole" class="form-control"
-                                placeholder="Please Enter Your Job or Role">
-                            <label for="freelanceRole">Please Enter Your Job or Role</label>
-                        </div>
-                        <button id="closethis">close</button>
-
-                    </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-                        <button type="submit" id="btnUserReg" class="btn btn-primary">
-                            Continue
-                        </button>
-                        <button class="btn btn-secondary">Clear</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
-        <!--Modal for log out-->
-        <div class="modal fade" id="modalLogOut1" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" id="logoutModalContent">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Logging Out</h5>
-                    </div>
-                    <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="logoutBtn">
-                            Log Out
-                        </button>
-                        <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
-                            Cancel
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Include jQuery library -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Include Bootstrap JavaScript file -->
-
-    <!-- Include Bootstrap Datepicker JavaScript file -->
-    <!-- <script src="testing.js"></script> -->
-</body>
-
-</html>
+<div class="editContainer">
+    <div class="editFreelanceAcc"></div>
+</div>

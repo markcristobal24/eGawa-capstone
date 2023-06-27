@@ -44,23 +44,34 @@
                         <a id="logout1" class="nav-link">Logout</a>
                     </li>
                 </ul>
-                <!-- <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form> -->
             </div>
         </div>
     </nav>
 
     <div class="containerFreelanceHome">
         <div class="div1">
-        <h2>freelance Profile</h2>
-            heyyy im div1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente voluptatem accusantium blanditiis ut facilis doloribus excepturi cum minus. Sit aspernatur quia, vel, totam necessitatibus blanditiis voluptatum aliquam asperiores officiis hic non sed illo recusandae iste aut explicabo voluptatibus sunt magnam adipisci ab officia sint 
+            <img id="freelancerPic"src="img/profile.png" alt="user profile" title="user profile">
+            <h2 id="freelanceName">Freelance Name</h2>
+            <div id="verifyFreelanceAcc">Verify Account</div>
+            <div id="jobsAndRole">Jobs and Roles:</div>
+            <ul>
+                <li>Web Developer</li>
+                <li>Web Designer</li>
+                <li>Hosting/Maintenance</li>
+            </ul>
+            <div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae voluptatem fugiat eos blanditiis officiis esse adipisci, numquam eveniet pariatur! Tenetur, aut quibusdam. Fuga dolore molestias tenetur rerum id voluptates blanditiis!</p>
+            </div>
+            <div class="editContainer">
+                <div id="editFreelanceAcc">Edit Account</div>
+            </div>
         </div>
 
         <div class="div2">
             <h2>freelance Project catalog</h2>
-            heyyy im div2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente voluptatem accusantium blanditiis ut facilis doloribus excepturi cum minus. Sit aspernatur quia, vel, totam necessitatibus blanditiis voluptatum aliquam asperiores officiis hic non sed illo recusandae iste aut explicabo voluptatibus sunt magnam adipisci ab officia sint autem? Suscipit aspernatur amet sunt incidunt. Mollitia voluptatum doloribus et sint sed repudiandae cumque aliquam quisquam corrupti omnis quas natus quam iure ratione illo in, hic quasi exercitationem beatae. Velit officia, aut inventore doloribus dicta itaque deserunt adipisci cum ipsum quisquam reiciendis a vero rerum libero error eum reprehenderit quibusdam vel quasi. Non, suscipit veritatis.</div>
+            <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger. Isipin mo 'yon, tiger.  Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong lasinggero ng titser na yan?! Ha?!  Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger. Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger hindi ako lasing. Tiger hindi ako lasing.</p>
+            
+        </div>
     </div>
 
     <div id="myModal" class="modal">
