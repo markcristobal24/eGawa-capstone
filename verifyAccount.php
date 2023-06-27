@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!isset($_SESSION["otp"])) {
+    //error
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +33,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
@@ -63,13 +67,14 @@
                     Verify
                 </button>
             </div>
+
+            <hr />
+            <p>
+                <span class="infoVerify">Did not received the code?</span>
+                <button id="resendLink" href="#" name="resend">Resend code</button>
+            </p>
+            <div id="message"></div>
         </form>
-        <hr />
-        <p>
-            <span class="infoVerify">Did not received the code?</span>
-            <a id="resendLink" href="#">Resend code</a>
-        </p>
-        <div id="message"></div>
     </div>
 
     <div class="custom-shape-divider-bottom-1687514102">
@@ -122,7 +127,7 @@
 
 <?php
 include('php/classes/DbConnection.php');
-
+require_once dirname(__FILE__) . '/php/classes/Email.php';
 if (isset($_POST["btnVerify"])) {
     $otp = $_SESSION['otp'];
     $email = $_SESSION['mail'];
@@ -143,5 +148,5 @@ window.location.replace("login.php");
 </script>
 <?php
     }
-}
+} 
 ?>

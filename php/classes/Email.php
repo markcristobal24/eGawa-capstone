@@ -29,5 +29,12 @@ class Email
         $mail->msgHTML($body);
         return $mail->send();
     }
+
+    public function generate_code()
+    {
+        $otp = rand(100000, 999999);
+
+        return $otp;
+    }
 }
 ?>

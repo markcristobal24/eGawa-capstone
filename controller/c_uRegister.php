@@ -17,13 +17,13 @@ $rowCount = mysqli_num_rows($check_query);
 if (!empty($email) && !empty($password)) {
     if ($rowCount > 0) {
         ?>
-<script>
-//insert modal here
-//email already exist!!
-alert('email already exist');
-window.location.replace('../userRegistration.php');
-</script>
-<?php
+        <script>
+            //insert modal here
+            //email already exist!!
+            alert('email already exist');
+            window.location.replace('../userRegistration.php');
+        </script>
+        <?php
     } else {
         $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status) VALUES ('$firstName', '$middleName', '$lastName', '$address', '$username', '$email', '$password', '$usertype', 0)");
 
@@ -55,20 +55,21 @@ window.location.replace('../userRegistration.php');
 
             if (!$mail->send()) {
                 ?>
-<script>
-//modal
-//Registration Failed. Invalid Email
-</script>
-<?php
+                <script>
+                //modal
+                //Registration Failed. Invalid Email
+                </script>
+                <?php
             } else {
+
                 ?>
-<script>
-//modal here    
-//Registration Successfully, OTP sent to email
-alert('Success');
-window.location.replace('../verifyAccount.php');
-</script>
-<?php
+                <script>
+                    //modal here    
+                    //Registration Successfully, OTP sent to email
+                    alert('Success');
+                    window.location.replace('../verifyAccount.php');
+                </script>
+                <?php
             }
         }
     }
