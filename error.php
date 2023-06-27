@@ -57,7 +57,7 @@
             <p>It may have been moved, renamed, or deleted.</p>
         </div>
         <div class="goBackCont">
-            <div class="goBack" href="login.php">Go Back</div>
+            <div class="goBack" onclick="location.href='login.php';">Go Back</div>
         </div>
     </div>
 
