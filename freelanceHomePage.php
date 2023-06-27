@@ -64,7 +64,7 @@
     </div>
 
     <div id="myModal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" id="myModalContent">
                 <span class="close">&times;</span>
                 <h2 class="title">Create Your Profile First</h2>
                 <hr>

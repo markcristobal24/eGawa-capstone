@@ -145,7 +145,7 @@ body {
 
 /* ==============================This is for the modal================================== */
 /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
-.modal {
+#myModal {
     display: none;
     position: fixed;
     z-index: 999;
@@ -157,7 +157,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
+#myModalContent {
     background-color: #fefefe;
     margin: 5% auto;
     padding: 30px;
@@ -258,7 +258,7 @@ body {
 
     /* ==============================This is for the modal================================== */
     /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
-    .modal {
+    #myModal {
         display: none;
         position: fixed;
         z-index: 999;
@@ -311,7 +311,7 @@ body {
         margin-bottom: 10px;
     }
 
-    .modal-content {
+    #myModalContent {
         background-color: #fefefe;
         margin: 5% auto;
         padding: 10px 30px 20px 30px;
@@ -385,7 +385,7 @@ body {
 
     /* ==============================This is for the modal================================== */
     /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
-    .modal {
+    #myModal {
         display: none;
         position: fixed;
         z-index: 999;
@@ -438,7 +438,7 @@ body {
         margin-bottom: 10px;
     }
 
-    .modal-content {
+    #myModalContent {
         background-color: #fefefe;
         margin: 5% auto;
         padding: 10px 30px 20px 30px;
