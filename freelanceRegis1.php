@@ -50,7 +50,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_fRegister.php" method="POST" onsubmit="return validateRegForm()">
+        <form action="controller/c_fRegister.php" method="POST" onsubmit="return validateFreelanceForm();">
             <h1 class="userRegTitle">Freelance Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -148,15 +148,15 @@
 
 
     <!--Modal for incomplete details-->
-    <div class="modal fade" id="modalUserReg" aria-hidden="true">
+    <div class="modal fade" id="modalFreelanceReg" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Warning!</h5>
                 </div>
-                <div class="modal-body" id="modalUser">Incomplete Details</div>
+                <div class="modal-body" id="modalFreelance">Incomplete Details</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yesReg">
+                    <button type="button" class="btn btn-primary" id="yesFReg">
                         Understood
                     </button>
                 </div>

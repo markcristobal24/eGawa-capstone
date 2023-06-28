@@ -105,3 +105,32 @@ function validateForgotPass() {
     }
     return true;
 }
+
+function validateFreelanceForm() {
+    const fName = document.getElementById('firstName').value;
+    const mName = document.getElementById('middleName').value;
+    const lName = document.getElementById('surName').value;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('emailAddress').value;
+    const pass1 = document.getElementById('pass1').value;
+    const pass2 = document.getElementById('pass2').value;
+    const modalBody = document.getElementById('modalFreelance');
+
+    if (fName === "" || mName == "" || lName === "" || username === "" || email === "" || pass1 === "" || pass2 === "") {
+        modalBody.innerHTML = "Incomplete Details!";
+        $('#modalFreelanceReg').modal('show');
+        $('#yesFReg').on("click", function (e) {
+            $('#modalFreelanceReg').modal('hide');
+        });
+        return false;
+    }
+    else if (pass1 !== pass2) {
+        modalBody.innerHTML = "Your password is not matched!";
+        $('#modalFreelanceReg').modal('show');
+        $('#yesFReg').on("click", function (e) {
+            $('#modalFreelanceReg').modal('hide');
+        });
+        return false;
+    }
+    return true;
+}
