@@ -2,11 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["token"])) {
-    ?>
-    <script>
-        alert('Error 404');
-    </script>
-    <?php
+    header('location: error.php');
 }
 ?>
 
