@@ -70,6 +70,8 @@
         <div class="div2">
             <h2>freelance Project catalog</h2>
             <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger. Isipin mo 'yon, tiger.  Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong lasinggero ng titser na yan?! Ha?!  Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger. Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger hindi ako lasing. Tiger hindi ako lasing.</p>
+
+            <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger. Isipin mo 'yon, tiger.  Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong lasinggero ng titser na yan?! Ha?!  Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger. Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger hindi ako lasing. Tiger hindi ako lasing.</p>
             
         </div>
     </div>
