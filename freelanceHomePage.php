@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="freelanceHomePage.css"> 
+    <link rel="stylesheet" href="css/freelanceHomePage.css"> 
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -41,7 +41,7 @@
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a id="logout1" class="nav-link">Logout</a>
+                        <a id="logout1" class="nav-link" href="#">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
 
     <div class="containerFreelanceHome">
         <div class="div1">
-            <img id="freelancerPic"src="img/profile.png" alt="user profile" title="user profile">
+            <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
             <h2 id="freelanceName">Freelance Name</h2>
             <div id="verifyFreelanceAcc">Verify Account</div>
             <div id="jobsAndRole">Jobs and Roles:</div>
