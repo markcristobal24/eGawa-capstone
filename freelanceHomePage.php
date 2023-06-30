@@ -72,10 +72,6 @@
             </ul>
 
             <div class="flexDiv">
-                <img src="img/telno.png" alt="" class="telnoImg" height="20px">
-                <div class="freelanceTelNO">09999999999</div>
-            </div>
-            <div class="flexDiv">
                 <img src="img/address.png" alt="" class="addressImg" height="20px">
                 <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
             </div>
@@ -220,10 +216,6 @@
                         <li class="job five"></li>
                     </ul>
 
-                    <div class="flexDiv">
-                        <img src="img/telno.png" alt="" class="telnoImg" height="20px">
-                        <div class="freelanceTelNO">09999999999</div>
-                    </div>
                     <div class="flexDiv">
                         <img src="img/address.png" alt="" class="addressImg" height="20px">
                         <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
