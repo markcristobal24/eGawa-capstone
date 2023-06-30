@@ -134,3 +134,37 @@ function validateFreelanceForm() {
     }
     return true;
 }
+
+function validateProfileForm() {
+    const webDesign = document.getElementById('webDesign');
+    const webDev = document.getElementById('webDev');
+    const mobAppDev = document.getElementById('mobAppDev');
+    const brandDesign = document.getElementById('brandDesign');
+    const hostingMaintenance = document.getElementById('hostingMaintenance');
+
+    const address = document.getElementById('address').value;
+    const companyName = document.getElementById('companyName').value;
+    const workTitle = document.getElementById('workTitle').value;
+    const dateStarted = document.getElementById('dateStarted').value;
+    const dateEnded = document.getElementById('dateEnded').value;
+    const comment = document.getElementById('comment').value;
+    const modalBody = document.getElementById('modalCreate');
+
+    if (!webDesign.checked && !webDev.checked && !mobAppDev.checked && !brandDesign.checked && !hostingMaintenance.checked) {
+        modalBody.innerHTML = "Please choose a job role!";
+        $('#modalCreateProfile').modal('show');
+        $('#confirmCreate').on("click", function (e) {
+            $('#modalCreateProfile').modal('hide');
+        });
+        return false;
+    }
+    else if (address === "" || companyName === "" || workTitle === "" || dateStarted === "" || dateEnded === "" || comment === "") {
+        modalBody.innerHTML = "Incomplete Details!";
+        $('#modalCreateProfile').modal('show');
+        $('#confirmCreate').on("click", function (e) {
+            $('#modalCreateProfile').modal('hide');
+        });
+        return false;
+    }
+    return true;
+}

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var modal = document.getElementById("myModal");
     var closeButton = document.getElementsByClassName("close")[0];
+    var submitButton = document.getElementById('btnFreelanceProfile');
 
     // Display the modal
     modal.style.display = "block";
@@ -9,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     closeButton.addEventListener("click", function () {
         modal.style.display = "none";
     });
+
+    submitButton.addEventListener("click", function () {
+        if (validateProfileForm() === true) {
+            modal.style.display = "none";
+        }
+    })
+
+
 
 
 

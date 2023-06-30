@@ -29,6 +29,7 @@ window.location.replace("../pages/dashboard.php");
             $otp = $verifyEmail->generate_code();
             $_SESSION['otp'] = $otp;
             $_SESSION['mail'] = $email;
+            $_SESSION['email'] = $email;
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>
@@ -52,6 +53,7 @@ window.location.replace("../verifyAccount.php");
             $otp = $verifyEmail->generate_code();
             $_SESSION['otp'] = $otp;
             $_SESSION['mail'] = $email;
+            $_SESSION['email'] = $email;
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>
@@ -67,7 +69,12 @@ window.location.replace("../verifyAccount.php");
 
                         $verifyEmail->sendEmail("E-Gawa", $email, $subject, $body);
         } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 0) {
+            $_SESSION['email'] = $email;
             header('location: ../freelanceHomePage.php');
+            die();
+        } else {
+            header('location: ../freelanceHomePage.php');
+            die();
         }
     }
 }
