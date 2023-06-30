@@ -1,57 +1,71 @@
-<!DOCTYPE html>
-<html>
+<div id="modalFreelanceProfile" class="modal">
+    <div class="modal-content" id="myModalContent">
 
-<head>
-    <style>
-        .editContainer {
-            display: flex;
-            flex-direction: row;
-        }
+        <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
+        <h2 id="freelanceName">Freelance Name</h2>
+        <div id="verifyFreelanceAcc">Verify Account</div>
+        <div id="jobsAndRole">Jobs and Roles:</div>
+        <ul>
+            <li class="job one">Sample Job1</li>
+            <li class="job two"></li>
+            <li class="job three"></li>
+            <li class="job four"></li>
+            <li class="job five"></li>
+        </ul>
 
-        .div1 {
-            background-color: red;
-            height: 300px;
-            width: 50%;
-        }
+        <div class="flexDiv">
+            <img src="img/telno.png" alt="" class="telnoImg" height="20px">
+            <div class="freelanceTelNO">09999999999</div>
+        </div>
+        <div class="flexDiv">
+            <img src="img/address.png" alt="" class="addressImg" height="20px">
+            <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
+        </div>
+        <div class="flexDiv">
+            <img src="img/email.png" alt="" class="emailImg" height="20px">
+            <div class="freelanceEmail">sample@gmail.com</div>
+        </div>
 
-        .div2 {
-            background-color: blue;
-            height: 300px;
-            width: 50%;
-        }
+        <hr>
+        <h3>Work Experience</h3>
+        <div class="flexDiv" id="workExpi1">
+            <div class="companyNameModal1">Company Name: </div>
+            <div class="companyNameModal1Data">Example Company</div>
+        </div>
+        <div class="flexDiv">
+            <div class="dateStartedModal1">Date Started: </div>
+            <div class="dateStartedModal1Data">December 1, 2000</div>
+        </div>
+        <div class="flexDiv">
+            <div class="dateEndedModal1">Date Ended: </div>
+            <div class="dateEndedModal1Data">February 1, 2010</div>
+        </div>
 
-        @media (max-width: 576px) {
-            .editContainer {
-                flex-direction: column;
-                margin-left: auto;
-                margin-right: auto;
-            }
 
-            .div1 {
-                background-color: rgb(221, 255, 0);
-                height: 300px;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-            }
+        <div class="flexDiv" id="workExpi2">
+            <div class="companyNameModal2"></div>
+            <div class="companyNameModal2Data"></div>
+        </div>
+        <div class="flexDiv">
+            <div class="dateStartedModal2"></div>
+            <div class="dateStartedModal2Data"></div>
+        </div>
+        <div class="flexDiv">
+            <div class="dateEndedModal2"></div>
+            <div class="dateEndedModal2Data"></div>
+        </div>
 
-            .div2 {
-                background-color: rgb(0, 255, 13);
-                height: 300px;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-            }
-        }
-    </style>
+        <hr>
+        <h3>Job Description</h3>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate iusto
+            quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor accusantium
+            dolores iste architecto?
+        </p>
 
-</head>
+        <button type="button" class="btn btn-secondary" id="closeModal" onclick="closeViewMore();">
+            Close
+        </button>
 
-<body>
-    <div class="editContainer">
-        <div class="div1"></div>
-        <div class="div2"></div>
     </div>
-</body>
-
-</html>
+</div>

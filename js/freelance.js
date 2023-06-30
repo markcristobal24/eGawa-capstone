@@ -21,8 +21,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    var viewmore = document.getElementById('viewmore');
+    viewmore.addEventListener('click', function () {
+        $('#modalViewMore').modal('show');
+        $('#cancelViewMore').on("click", function (e) {
+            $('#modalViewMore').modal('hide');
+        });
+    });
+
+
+
+
 
 });
+
+
+
+
 
 
 //for image upload

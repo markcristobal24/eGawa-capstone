@@ -49,23 +49,6 @@
     </nav>
 
     <div class="containerFreelanceHome">
-        <div class="div1">
-            <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
-            <h2 id="freelanceName">Freelance Name</h2>
-            <div id="verifyFreelanceAcc">Verify Account</div>
-            <div id="jobsAndRole">Jobs and Roles:</div>
-            <ul>
-                <li>Web Developer</li>
-                <li>Web Designer</li>
-                <li>Hosting/Maintenance</li>
-            </ul>
-            <div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae voluptatem fugiat eos blanditiis officiis esse adipisci, numquam eveniet pariatur! Tenetur, aut quibusdam. Fuga dolore molestias tenetur rerum id voluptates blanditiis!</p>
-            </div>
-            <div class="editContainer">
-                <div id="editFreelanceAcc">Edit Account</div>
-            </div>
-        </div>
 
         <div class="div2">
             <h2>freelance Project catalog</h2>
@@ -74,8 +57,44 @@
             <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger. Isipin mo 'yon, tiger.  Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong lasinggero ng titser na yan?! Ha?!  Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger. Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger hindi ako lasing. Tiger hindi ako lasing.</p>
             
         </div>
+
+        <div class="div1">
+            <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
+            <h2 id="freelanceName">Freelance Name</h2>
+            <div id="verifyFreelanceAcc">Verify Account</div>
+            <div id="jobsAndRole">Jobs and Roles:</div>
+            <ul>
+                <li class="job one">Sample Job1</li>
+                <li class="job two"></li>
+                <li class="job three"></li>
+                <li class="job four"></li>
+                <li class="job five"></li>
+            </ul>
+
+            <div class="flexDiv">
+                <img src="img/telno.png" alt="" class="telnoImg" height="20px">
+                <div class="freelanceTelNO">09999999999</div>
+            </div>
+            <div class="flexDiv">
+                <img src="img/address.png" alt="" class="addressImg" height="20px">
+                <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
+            </div>
+            <div class="flexDiv">
+                <img src="img/email.png" alt="" class="emailImg" height="20px">
+                <div class="freelanceEmail">sample@gmail.com</div>
+            </div>
+            <div id="viewmore">View More</div>
+            <div>
+                
+            </div>
+            <div class="editContainer">
+                <div id="editFreelanceAcc">Edit Account</div>
+            </div>
+        </div>
     </div>
 
+
+    <!-- this modal is for freelance information this will be shown if the freelancer does not have profile -->
     <div id="myModal" class="modal">
             <div class="modal-content" id="myModalContent">
                 <span class="close">&times;</span>
@@ -178,6 +197,89 @@
                 </form>
             </div>
         </div>
+
+
+
+<!-- this modal is for freelance profile if you click "view more" -->
+    <div class="modal fade" id="modalViewMore" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>User Profile</h5>
+                    </div>
+
+                    <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
+                    <h2 id="freelanceName">Freelance Name</h2>
+                    <div id="verifyFreelanceAcc">Verify Account</div>
+                    <div id="jobsAndRole">Jobs and Roles:</div>
+                    <ul>
+                        <li class="job one">Sample Job1</li>
+                        <li class="job two"></li>
+                        <li class="job three"></li>
+                        <li class="job four"></li>
+                        <li class="job five"></li>
+                    </ul>
+
+                    <div class="flexDiv">
+                        <img src="img/telno.png" alt="" class="telnoImg" height="20px">
+                        <div class="freelanceTelNO">09999999999</div>
+                    </div>
+                    <div class="flexDiv">
+                        <img src="img/address.png" alt="" class="addressImg" height="20px">
+                        <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
+                    </div>
+                    <div class="flexDiv">
+                        <img src="img/email.png" alt="" class="emailImg" height="20px">
+                        <div class="freelanceEmail">sample@gmail.com</div>
+                    </div>
+
+                    <hr>
+                    <h3>Work Experience</h3>
+                    <div class="flexDiv" id="workExpi1">
+                        <div class="companyNameModal1">Company Name: </div>
+                        <div class="companyNameModal1Data">Example Company</div>
+                    </div>
+                    <div class="flexDiv">
+                        <div class="dateStartedModal1">Date Started: </div>
+                        <div class="dateStartedModal1Data">December 1, 2000</div>
+                    </div>
+                    <div class="flexDiv">
+                        <div class="dateEndedModal1">Date Ended: </div>
+                        <div class="dateEndedModal1Data">February 1, 2010</div>
+                    </div>
+
+
+                    <div class="flexDiv" id="workExpi2">
+                        <div class="companyNameModal2"></div>
+                        <div class="companyNameModal2Data"></div>
+                    </div>
+                    <div class="flexDiv">
+                        <div class="dateStartedModal2"></div>
+                        <div class="dateStartedModal2Data"></div>
+                    </div>
+                    <div class="flexDiv">
+                        <div class="dateEndedModal2"></div>
+                        <div class="dateEndedModal2Data"></div>
+                    </div>
+
+                    <hr>
+                    <h3>Job Description</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate iusto
+                        quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor accusantium
+                        dolores iste architecto?
+                    </p>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelViewMore">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
     <div class="custom-shape-divider-bottom-1687514102">

@@ -81,9 +81,43 @@
 }
 
 #jobsAndRole {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
+    margin-left: 5px;
 }
+
+.job {
+    list-style-type: none;
+    /* Remove the default bullet dot */
+    font-size: 15px;
+    color: #ddd;
+}
+
+.flexDiv {
+    display: flex;
+    margin-left: 20px;
+}
+
+.telnoImg,
+.addressImg,
+.emailImg {
+    margin-right: 20px;
+}
+
+#viewmore {
+    margin: 10px auto 10px;
+    background-color: #079040;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+#viewmore:hover {
+    background-color: #044c22;
+    cursor: pointer;
+}
+
 
 .editContainer {
     position: relative;
@@ -105,7 +139,7 @@
 }
 
 .containerFreelanceHome .div2 {
-    background-color: #ff6600;
+    background-color: #0e8cc687;
     margin: 10px;
     width: 70%;
     max-height: auto;
@@ -287,6 +321,7 @@ body {
 
     .containerFreelanceHome .div1 {
         background-color: #0e8cc687;
+        order: -1;
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
@@ -433,6 +468,7 @@ body {
     }
 
     .containerFreelanceHome .div1 {
+        order: -1;
         background-color: #0e8cc687;
         margin: 10px auto 10px;
         width: 90%;
