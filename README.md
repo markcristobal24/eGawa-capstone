@@ -1,8 +1,7 @@
 # eGawa-capstone
 
+## updated and css modified
 
-updated and css modified
------------------------
 about us
 login
 register
@@ -12,9 +11,8 @@ forgotPassword2
 userRegistration
 verifyAccount
 freelanceRegis1 (modified)
+F_createProfile
 
+## currently working on:
 
-currently working on:
-------------------------
 freelanceHomePage
-
