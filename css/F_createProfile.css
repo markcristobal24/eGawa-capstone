@@ -32,7 +32,7 @@
     color: #ff6600;
 }
 
-.containerFreelanceHome {
+.containerFreelanceCreate {
     display: flex;
     max-width: auto;
     max-height: auto;
@@ -44,128 +44,40 @@
     border-radius: 5px;
     margin-top: 100px;
 }
+.labelImage{
+    font-size: 30px;
+    font-weight: 500;
+}
+#uploadedImage{
+    margin: 15px;
+}
 
-
-.containerFreelanceHome .div1 {
-    background-color: #0e8cc687;
+.containerFreelanceCreate .div1 {
+    /* background-color: #0e8cc687; */
     margin: 10px;
-    width: 30%;
+    width: 50%;
     max-height: auto;
     border: 1px solid rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-}
-
-#freelanceName {
-    margin: 10px auto 0;
-}
-
-#freelancerPic {
-    max-width: 150px;
-    margin: 10px auto 0;
-    border-radius: 73px;
-}
-
-#verifyFreelanceAcc {
-    margin: 10px auto 10px;
-    background-color: #079040;
-    color: #ddd;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 3px 10px;
-}
-
-#verifyFreelanceAcc:hover {
-    background-color: #044c22;
-    cursor: pointer;
-}
-
-#jobsAndRole1 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: 5px;
-}
-
-.job {
-    list-style-type: none;
-    /* Remove the default bullet dot */
-    font-size: 15px;
-    color: #ddd;
-}
-
-.flexDiv {
-    display: flex;
-    margin-left: 20px;
-}
-
-.telnoImg,
-.addressImg,
-.emailImg {
-    margin-right: 20px;
-}
-
-#viewmore {
-    margin: 10px auto 10px;
-    background-color: #079040;
-    color: #ddd;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 3px 10px;
-}
-
-#viewmore:hover {
-    background-color: #044c22;
-    cursor: pointer;
+    padding: 10px;
 }
 
 
-.editContainer {
-    position: relative;
-    background-color: lightgray;
-    margin-top: 20px;
-}
 
-#editFreelanceAcc {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #ddd;
-    padding-right: 3px;
-}
-
-#editFreelanceAcc:hover {
-    color: #ff6600;
-    cursor: pointer;
-}
-
-.containerFreelanceHome .div2 {
-    background-color: #0e8cc687;
+.containerFreelanceCreate .div2 {
+    /* background-color: #0e8cc687; */
     margin: 10px;
-    width: 70%;
+    width: 50%;
     max-height: auto;
     border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
 }
 
-
-p {
-    color: rgb(220, 220, 220);
-    padding: 5px;
+.date{
+    display: flex;
 }
 
-#checkboxInfo {
-    color: rgb(255, 255, 255);
-}
-
-.btn {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-
-.labelImage {
-    color: #ddd;
-    font-size: 30px;
-}
 
 .custom-shape-divider-bottom-1687514102 {
     position: absolute;
@@ -224,36 +136,6 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
-/*==========================FOR MODAL - VIEW MORE============================*/
-.titles,
-#jobsAndRole {
-    font-size: 30px;
-    font-weight: 400;
-    color: #0073aa;
-    padding: 10px;
-}
-
-#freelanceName {
-    margin-bottom: 15px;
-}
-
-.modal-header {
-    padding: 0;
-    padding: 10px;
-}
-
-.job {
-    color: black;
-}
-
-#jobDescModal {
-    color: black;
-    padding: 5px 10px;
-}
-
-/*==========================END OF MODAL - VIEW MORE============================*/
-
-
 
 
 /*============================FOR MEDIA QUERIES=================================*/
@@ -271,18 +153,8 @@ body {
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
-    .containerFreelanceHome {
-        max-width: 420px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        background-color: #ddd;
-    }
 
-    .containerFreelanceHome {
+    .containerFreelanceCreate {
         flex-direction: column;
         max-width: 440px;
         margin: 0 auto;
@@ -294,8 +166,7 @@ body {
         background-color: #ddd;
     }
 
-    .containerFreelanceHome .div1 {
-        background-color: #0e8cc687;
+    .containerFreelanceCreate .div1 {
         order: -1;
         margin: 10px auto 10px;
         width: 90%;
@@ -305,8 +176,7 @@ body {
         flex-direction: column;
     }
 
-    .containerFreelanceHome .div2 {
-        background-color: #ff6600;
+    .containerFreelanceCreate .div2 {
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
@@ -324,9 +194,11 @@ body {
         margin-left: 15px;
     }
 
+
     #home1,
     #about1,
-    #login1 {
+    #logout1,
+    #freeLanceInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
@@ -344,12 +216,48 @@ body {
         fill: #0073aa;
     }
 
+    
+    /*==========================FOR MODAL - VIEW MORE============================*/
+    .titles,
+    #jobsAndRole {
+        font-size: 20px;
+        font-weight: 400;
+        color: #0073aa;
+        padding: 10px;
+    }
+
+    #freelanceName {
+        margin-bottom: 15px;
+    }
+
+    .modal-header {
+        padding: 0;
+        padding: 10px;
+    }
+
+    .job {
+        color: black;
+    }
+
+    #jobDescModal {
+        color: black;
+        font-size: 15px;
+        padding: 5px 10px;
+    }
+
+    .modal-content {
+        max-width: 400px;
+        margin: 40px auto;
+    }
+
+    /*==========================END OF MODAL - VIEW MORE============================*/
+
 }
 
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    .containerFreelanceHome {
+    .containerFreelanceCreate {
         flex-direction: column;
         max-width: 440px;
         margin: 0 auto;
@@ -361,23 +269,24 @@ body {
         background-color: #ddd;
     }
 
-    .containerFreelanceHome .div1 {
-        order: -1;
-        background-color: #0e8cc687;
+    .containerFreelanceCreate .div1 {
         margin: 10px auto 10px;
-        width: 90%;
+        width: 95%;
         max-height: auto;
         border: 1px solid rgb(255, 255, 255);
         display: flex;
         flex-direction: column;
     }
 
-    .containerFreelanceHome .div2 {
-        background-color: #ff6600;
+    .containerFreelanceCreate .div2 {
         margin: 10px auto 10px;
-        width: 90%;
+        width: 95%;
         max-height: auto;
         border: 1px solid rgb(255, 255, 255);
+    }
+
+    .image-holder{
+        justify-content: center;
     }
 
 
@@ -393,11 +302,13 @@ body {
 
     #home1,
     #about1,
-    #logout1 {
+    #logout1,
+    #freeLanceInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
     }
+
 
     .custom-shape-divider-bottom-1687514102 {
         display: none;

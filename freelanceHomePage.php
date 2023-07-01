@@ -98,7 +98,7 @@ modal.style.display = "none";
                 <?php echo $fullname; ?>
             </h2>
             <div id="verifyFreelanceAcc">Verify Account</div>
-            <div id="jobsAndRole">Jobs and Roles:</div>
+            <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
                 <!-- <li class="job one">Sample Job1</li>
                 <li class="job two"></li>
@@ -142,134 +142,16 @@ modal.style.display = "none";
     </div>
 
 
-    <!-- this modal is for freelance information this will be shown if the freelancer does not have profile -->
-    <div id="myModal" class="modal">
-        <div class="modal-content" id="myModalContent">
-            <span class="close">&times;</span>
-            <h2 class="title">Create Your Profile First</h2>
-            <hr>
-            <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data"
-                onsubmit="return validateProfileForm()">
-
-                <div class="row">
-
-                    <div id="imgUpl">
-                        <label class="labelImage" for="uploadInput">Upload Image</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <input id="uploadInput" type="file" accept="image/*" name="imageProfile"
-                            onchange="loadImage(event)" required>
-                    </div>
-                    <hr>
-
-                    <div class="pickRoles">
-                        <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="jobRole[]" id="webDesign">
-                            <label class="form-check-label" for="webDesign">
-                                Web Designer
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev">
-                            <label class="form-check-label" for="webDev">
-                                Web Developer
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="jobRole[]" id="mobAppDev">
-                            <label class="form-check-label" for="mobAppDev">
-                                Mobile Application Developer
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="jobRole[]" id="brandDesign">
-                            <label class="form-check-label" for="brandDesign">
-                                Branding and Design
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="jobRole[]" id="hostingMaintenance">
-                            <label class="form-check-label" for="hostingMaintenance">
-                                Hosting/Maintenance
-                            </label>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                        <input type="text" id="address" name="address" class="form-control"
-                            placeholder="Enter Your Address" required>
-                        <label id="addressLabel" for="address">Enter Your Address</label>
-                    </div>
-
-                    <h3 class="userRegTitle title">Work Experience</h3>
-                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <!-- Gap on all sides is 2 -->
-                        <input type="text" id="companyName" name="companyName" class="form-control"
-                            placeholder="Enter Company Name">
-                        <label id="companyNameLabel" for="companyName">Enter Company Name</label>
-                    </div>
-
-                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <!-- Gap on all sides is 2 -->
-                        <input type="text" id="workTitle" name="workTitle" class="form-control"
-                            placeholder="Enter Worktitle">
-                        <label id="workTitleLabel" for="workTitle">Enter Worktitle</label>
-                    </div>
-
-                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateStarted" name="dateStarted" class="form-control"
-                            placeholder="Enter Date Started">
-                        <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
-                    </div>
-
-                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateEnded" name="dateEnded" class="form-control"
-                            placeholder="Enter Date Ended">
-                        <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
-                    </div>
-
-                    <h3 class="jobDescription" for="comment">Job Description</h3>
-                    <div>
-                        <textarea class="form-control" name="jobDesc" id="comment" rows="5"
-                            placeholder="Enter job description"></textarea>
-                    </div>
-                </div>
-                <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
-
-                    <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
-                        Continue
-                    </button>
-                    <button class="btn btn-secondary">Clear</button>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-
-
     <!-- this modal is for freelance profile if you click "view more" -->
     <div class="modal fade" id="modalViewMore" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>User Profile</h5>
+                    <div class="titles" id="modalTitleViewMore">User Profile</div>
                 </div>
 
                 <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
                 <h2 id="freelanceName">Freelance Name</h2>
-                <div id="verifyFreelanceAcc">Verify Account</div>
-                <div id="jobsAndRole">Jobs and Roles:</div>
-                <ul>
-                    <li class="job one">Sample Job1</li>
-                    <li class="job two"></li>
-                    <li class="job three"></li>
-                    <li class="job four"></li>
-                    <li class="job five"></li>
-                </ul>
 
                 <div class="flexDiv">
                     <img src="img/address.png" alt="" class="addressImg" height="20px">
@@ -279,9 +161,18 @@ modal.style.display = "none";
                     <img src="img/email.png" alt="" class="emailImg" height="20px">
                     <div class="freelanceEmail">sample@gmail.com</div>
                 </div>
+                
+                <div class="titles">Jobs and Roles:</div>
+                <ul>
+                    <li class="job one">Sample Job1</li>
+                    <li class="job two"></li>
+                    <li class="job three"></li>
+                    <li class="job four"></li>
+                    <li class="job five"></li>
+                </ul>
 
                 <hr>
-                <h3>Work Experience</h3>
+                <div class="titles">Work Experience</div>
                 <div class="flexDiv" id="workExpi1">
                     <div class="companyNameModal1">Company Name: </div>
                     <div class="companyNameModal1Data">Example Company</div>
@@ -310,8 +201,8 @@ modal.style.display = "none";
                 </div>
 
                 <hr>
-                <h3>Job Description</h3>
-                <p>
+                <div class="titles">Job Description</div>
+                <p id="jobDescModal">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate
                     iusto
                     quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor
@@ -329,8 +220,6 @@ modal.style.display = "none";
     </div>
 
 
-
-
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
@@ -338,7 +227,6 @@ modal.style.display = "none";
                 class="shape-fill"></path>
         </svg>
     </div>
-
 
 
     <footer class="footer">
@@ -353,7 +241,6 @@ modal.style.display = "none";
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
     </footer>
-
 
 
     <!--Modal for log out-->
@@ -375,27 +262,6 @@ modal.style.display = "none";
             </div>
         </div>
     </div>
-
-    <!--Create Profile Validation-->
-    <div class="modal fade" id="modalCreateProfile" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Warning!</h5>
-                </div>
-                <div class="modal-body" id="modalCreate">Are you sure you want to log out?</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="confirmCreate">
-                        OK
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
