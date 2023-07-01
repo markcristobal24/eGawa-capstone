@@ -132,7 +132,9 @@
                         <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
                             Continue
                         </button>
-                        <button class="btn btn-secondary">Clear</button>
+                        <button class="btn btn-secondary">
+                            Clear
+                        </button>
                         </div>
 
         </div>
