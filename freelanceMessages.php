@@ -15,6 +15,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+        .chatContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        .chat-window {
+            border: 1px solid #ccc;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        .message-sender {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .message-content {
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+
+        .chat-footer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .chat-footer input[type="text"] {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .chat-footer button {
+            margin-left: 10px;
+            padding: 5px 10px;
+        }
+    </style>
  
 
     <title>eGawa | Freelance Messages</title>
@@ -53,131 +112,36 @@
 
 
         <div class="div1">
-            <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
-            <h2 id="freelanceName"></h2>
-            <div id="verifyFreelanceAcc">Verify Account</div>
-            <div id="jobsAndRole1">Jobs and Roles:</div>
-            <ul>
-                <!-- <li class="job one">Sample Job1</li>
-                <li class="job two"></li>
-                <li class="job three"></li>
-                <li class="job four"></li>
-                <li class="job five"></li> -->
-            </ul>
-
-            <div class="flexDiv">
-                <img src="img/address.png" alt="" class="addressImg" height="20px">
-                <div class="freelanceAddress"></div>
-            </div>
-            <div class="flexDiv">
-                <img src="img/email.png" alt="" class="emailImg" height="20px">
-                <div class="freelanceEmail"></div>
-            </div>
-            <div id="viewmore">View More</div>
-            <div>
-
-            </div>
-            <div class="editContainer">
-                <div id="editFreelanceAcc">Edit Account</div>
-            </div>
+            
         </div>
 
         <div class="div2">
-            <h2>freelance Project catalog</h2>
-            <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger.
-                Isipin mo 'yon, tiger. Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong
-                lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong
-                lasinggero ng titser na yan?! Ha?! Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger.
-                Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger
-                hindi ako lasing. Tiger hindi ako lasing.</p>
-
-            <p>Rinespeto na nga kita eh. Pero anong ginawa mo? Tiger. Tiger, alam ko pero hindi ako rinespeto tiger.
-                Isipin mo 'yon, tiger. Hindi ako rinespeto tiger. Mukha lang akong makasalanan, mukha lang akong
-                lasinggero. Pero ginawa akong lasingero! Tiger isipin mo 'yon. Isipin mo 'yon, tiger. Ginawa akong
-                lasinggero ng titser na yan?! Ha?! Ano?! Ginawa akong lasinggero niyan... pare isipin mo 'yun tiger.
-                Ginawa akong lasinggero ng tarantado na 'yan. Isipin mo, tiger, isipin mo! Tignan mo! Tiger... Tiger
-                hindi ako lasing. Tiger hindi ako lasing.</p>
-
-        </div>
-    </div>
-
-
-    <!-- this modal is for freelance profile if you click "view more" -->
-    <div class="modal fade" id="modalViewMore" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="titles" id="modalTitleViewMore">User Profile</div>
+            
+        <div class="chatContainer">
+            <div class="chat-window">
+                <div class="chat-header">
+                    <h2>Chat Title</h2>
                 </div>
-
-                <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
-                <h2 id="freelanceName">Freelance Name</h2>
-
-                <div class="flexDiv">
-                    <img src="img/address.png" alt="" class="addressImg" height="20px">
-                    <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
+                <div class="chat-body" id="chatBody">
+                    <div class="message">
+                        <div class="message-sender">Sender</div>
+                        <div class="message-content">Hello!</div>
+                    </div>
+                    <div class="message">
+                        <div class="message-sender">Receiver</div>
+                        <div class="message-content">Hi there!</div>
+                    </div>
                 </div>
-                <div class="flexDiv">
-                    <img src="img/email.png" alt="" class="emailImg" height="20px">
-                    <div class="freelanceEmail">sample@gmail.com</div>
-                </div>
-                
-                <div class="titles">Jobs and Roles:</div>
-                <ul>
-                    <li class="job one">Sample Job1</li>
-                    <li class="job two"></li>
-                    <li class="job three"></li>
-                    <li class="job four"></li>
-                    <li class="job five"></li>
-                </ul>
-
-                <hr>
-                <div class="titles">Work Experience</div>
-                <div class="flexDiv" id="workExpi1">
-                    <div class="companyNameModal1">Company Name: </div>
-                    <div class="companyNameModal1Data">Example Company</div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateStartedModal1">Date Started: </div>
-                    <div class="dateStartedModal1Data">December 1, 2000</div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateEndedModal1">Date Ended: </div>
-                    <div class="dateEndedModal1Data">February 1, 2010</div>
-                </div>
-
-
-                <div class="flexDiv" id="workExpi2">
-                    <div class="companyNameModal2"></div>
-                    <div class="companyNameModal2Data"></div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateStartedModal2"></div>
-                    <div class="dateStartedModal2Data"></div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateEndedModal2"></div>
-                    <div class="dateEndedModal2Data"></div>
-                </div>
-
-                <hr>
-                <div class="titles">Job Description</div>
-                <p id="jobDescModal">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate
-                    iusto
-                    quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor
-                    accusantium
-                    dolores iste architecto?
-                </p>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancelViewMore">
-                        Close
-                    </button>
+                <div class="chat-footer">
+                    <input type="text" placeholder="Type your message" id="messageInput">
+                    <button id="sendButton">Send</button>
                 </div>
             </div>
+
         </div>
     </div>
+
+
 
 
     <div class="custom-shape-divider-bottom-1687514102">
@@ -229,7 +193,42 @@
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>
-</body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatBody = document.getElementById('chatBody');
+            const inputField = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+
+            function sendMessage() {
+                const message = inputField.value;
+                if (message.trim() !== '') {
+                    const messageContainer = document.createElement('div');
+                    messageContainer.classList.add('message');
+                    messageContainer.innerHTML = `
+                        <div class="message-sender">Sender</div>
+                        <div class="message-content">${message}</div>
+                    `;
+                    chatBody.appendChild(messageContainer);
+                    inputField.value = '';
+
+                    // Scroll to the bottom
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+            }
+
+            sendButton.addEventListener('click', sendMessage);
+
+            inputField.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
