@@ -31,9 +31,12 @@
 #freeLanceInbox:hover {
     color: #ff6600;
 }
+form{
+    display: flex;
+}
 
 .containerFreelanceCreate {
-    display: flex;
+    /* display: flex; */
     max-width: auto;
     max-height: auto;
     margin: 0 15%;
@@ -53,7 +56,6 @@
 }
 
 .containerFreelanceCreate .div1 {
-    /* background-color: #0e8cc687; */
     margin: 10px;
     width: 50%;
     max-height: auto;
@@ -154,6 +156,9 @@ body {
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
 
+    form{
+        display: block;
+    }
     .containerFreelanceCreate {
         flex-direction: column;
         max-width: 440px;
@@ -257,6 +262,11 @@ body {
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
+    
+    form{
+        display: block;
+    }
+    
     .containerFreelanceCreate {
         flex-direction: column;
         max-width: 440px;
