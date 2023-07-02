@@ -70,11 +70,12 @@ window.location.replace("../verifyAccount.php");
                         $verifyEmail->sendEmail("E-Gawa", $email, $subject, $body);
         } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 0) {
             $_SESSION['email'] = $email;
-            header('location: ../freelanceHomePage.php');
-            die();
+            header('location: ../createProfile.php');
+
         } else {
+            $_SESSION['email'] = $email;
             header('location: ../freelanceHomePage.php');
-            die();
+
         }
     }
 }

@@ -11,15 +11,6 @@ $sql2 = mysqli_query($con, "SELECT * FROM account WHERE email ='$email'");
 $check_rows2 = mysqli_num_rows($sql2);
 $fetch2 = mysqli_fetch_assoc($sql2);
 $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['lastName'];
-
-if ($fetch2['profileStatus'] === 1) {
-    ?>
-<script>
-var modal = document.getElementById("myModal");
-modal.style.display = "none";
-</script>
-<?php
-}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +29,7 @@ modal.style.display = "none";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+
 
     <title>eGawa | Freelance Homepage</title>
 
@@ -161,7 +152,7 @@ modal.style.display = "none";
                     <img src="img/email.png" alt="" class="emailImg" height="20px">
                     <div class="freelanceEmail">sample@gmail.com</div>
                 </div>
-                
+
                 <div class="titles">Jobs and Roles:</div>
                 <ul>
                     <li class="job one">Sample Job1</li>

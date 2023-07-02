@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,24 +49,25 @@
     </nav>
 
     <div class="containerFreelanceCreate">
-
-        <div class="div1">
-            <div id="imgUpl">
-                <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
+        <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
+            <div class="div1">
+                <div id="imgUpl">
+                    <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
                     <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                         <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
                     </div>
-                <input id="uploadInput" type="file" accept="image/*" onchange="loadImage(event)" required>
-            </div>
-            <hr>
+                    <input id="uploadInput" type="file" accept="image/*" onchange="loadImage(event)" required>
+                </div>
+                <hr>
 
-            <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                <input type="text" id="address" name="address" class="form-control"placeholder="Enter Your Address" required>
-                <label id="addressLabel" for="address">Enter Your Address</label>
-            </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
+                        required>
+                    <label id="addressLabel" for="address">Enter Your Address</label>
+                </div>
 
-            <div class="pickRoles">
-                <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
+                <div class="pickRoles">
+                    <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="webDesign">
                         <label class="form-check-label" for="webDesign">Web Designer</label>
                     </div>
@@ -87,57 +87,57 @@
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="hostingMaintenance">
                         <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
                     </div>
+                </div>
+
             </div>
-        
-        </div>
 
 
+            <div class="div2">
+                <h3 class="userRegTitle title">Work Experience</h3>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="companyName" name="companyName" class="form-control"
+                        placeholder="Enter Company Name">
+                    <label id="companyNameLabel" for="companyName">Enter Company Name</label>
+                </div>
 
-        <div class="div2">
-            <h3 class="userRegTitle title">Work Experience</h3>
-                        <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                            <!-- Gap on all sides is 2 -->
-                            <input type="text" id="companyName" name="companyName" class="form-control"
-                                placeholder="Enter Company Name">
-                            <label id="companyNameLabel" for="companyName">Enter Company Name</label>
-                        </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="workTitle" name="workTitle" class="form-control"
+                        placeholder="Enter Worktitle">
+                    <label id="workTitleLabel" for="workTitle">Enter Worktitle</label>
+                </div>
 
-                        <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                            <!-- Gap on all sides is 2 -->
-                            <input type="text" id="workTitle" name="workTitle" class="form-control"
-                                placeholder="Enter Worktitle">
-                            <label id="workTitleLabel" for="workTitle">Enter Worktitle</label>
-                        </div>
+                <div class="date">
+                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                        <input type="date" id="dateStarted" name="dateStarted" class="form-control"
+                            placeholder="Enter Date Started">
+                        <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
+                    </div>
 
-                        <div class="date">
-                            <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                            <input type="date" id="dateStarted" name="dateStarted" class="form-control"
-                                placeholder="Enter Date Started">
-                            <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
-                            </div>
+                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                        <input type="date" id="dateEnded" name="dateEnded" class="form-control"
+                            placeholder="Enter Date Ended">
+                        <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
+                    </div>
+                </div>
 
-                            <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                            <input type="date" id="dateEnded" name="dateEnded" class="form-control"
-                                placeholder="Enter Date Ended">
-                            <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
-                            </div>
-                        </div>
+                <h3 class="jobDescription" for="comment">Job Description</h3>
+                <div>
+                    <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea>
+                </div>
+                <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                        <h3 class="jobDescription" for="comment">Job Description</h3>
-                        <div>
-                            <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea> 
-                        </div>
-                        <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
+                        Continue
+                    </button>
+                    <button class="btn btn-secondary">
+                        Clear
+                    </button>
+                </div>
 
-                        <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
-                            Continue
-                        </button>
-                        <button class="btn btn-secondary">
-                            Clear
-                        </button>
-                        </div>
-
-        </div>
+            </div>
+        </form>
     </div>
 
 
