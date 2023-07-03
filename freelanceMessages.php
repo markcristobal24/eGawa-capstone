@@ -111,33 +111,36 @@
     <div class="containerFreelanceHome">
 
 
-        <div class="div1">
-            
-        </div>
+        <div class="div1"> </div>
 
         <div class="div2">
             
-        <div class="chatContainer">
-            <div class="chat-window">
-                <div class="chat-header">
-                    <h2>Chat Title</h2>
-                </div>
-                <div class="chat-body" id="chatBody">
-                    <div class="message">
-                        <div class="message-sender">Sender</div>
-                        <div class="message-content">Hello!</div>
+            <div class="chatContainer">
+                <div class="chat-window">
+
+                    <div class="chat-header">
+                        <h2>Chat Title</h2>
                     </div>
-                    <div class="message">
-                        <div class="message-sender">Receiver</div>
-                        <div class="message-content">Hi there!</div>
+
+                    <div class="chat-body" id="chatBody">
+
+                        <div class="message">
+                            <div class="message-sender">Sender</div>
+                            <div class="message-content">Hello!</div>
+                        </div>
+
+                        <div class="message">
+                            <div class="message-sender">Receiver</div>
+                            <div class="message-content">Hi there!</div>
+                        </div>
                     </div>
-                </div>
-                <div class="chat-footer">
-                    <input type="text" placeholder="Type your message" id="messageInput">
-                    <button id="sendButton">Send</button>
+
+                    <div class="chat-footer">
+                        <input type="text" placeholder="Type your message" id="messageInput">
+                        <button id="sendButton">Send</button>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
