@@ -56,7 +56,8 @@
                     <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                         <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
                     </div>
-                    <input id="uploadInput" type="file" accept="image/*" onchange="loadImage(event)" required>
+                    <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="loadImage(event)"
+                        required>
                 </div>
                 <hr>
 
@@ -68,27 +69,32 @@
 
                 <div class="pickRoles">
                     <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="webDesign">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="webDesign" value="Web Designer">
                         <label class="form-check-label" for="webDesign">Web Designer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="webDev">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev"
+                            value="Web Developer">
                         <label class="form-check-label" for="webDev">Web Developer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="mobAppDev">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="mobAppDev" value="Mobile Application Developer">
                         <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="brandDesign">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="brandDesign" value="Brand and Designing">
                         <label class="form-check-label" for="brandDesign">Branding and Design</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="hostingMaintenance">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="hostingMaintenance" value="Hosting/Maintenance">
                         <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
                     </div>
                 </div>
-                
+
             </div>
 
 
@@ -124,7 +130,8 @@
 
                 <h3 class="jobDescription" for="comment">Job Description</h3>
                 <div>
-                    <textarea class="form-control" id="comment" rows="5" placeholder="Enter job description"></textarea>
+                    <textarea class="form-control" id="comment" name="jobDesc" rows="5"
+                        placeholder="Enter job description"></textarea>
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 

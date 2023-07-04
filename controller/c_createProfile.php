@@ -8,11 +8,8 @@ if (isset($_POST['jobRole']) && is_array($_POST['jobRole'])) {
 
     $selectedData = $_POST['jobRole'];
 
-    $sanitizedOptions = array_map(function ($option) use ($con) {
-        return mysqli_real_escape_string($con, $option);
-    }, $selectedData);
 
-    $optionsString = implode(',', $sanitizedOptions);
+    $optionsString = implode(',', $selectedData);
 
     $address = $_POST['address'];
     $company = $_POST['companyName'];
@@ -38,12 +35,15 @@ if (isset($_POST['jobRole']) && is_array($_POST['jobRole'])) {
 
         $stmt = $con->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssssss", $account_id, $email, $imageData, $optionsString, $address, $company, $workTitle, $startDate, $endDate, $jobDesc);
-        //$stmt->execute();
+        $stmt->execute();
 
-        if ($stmt->execute()) {
-            $sql = $con->prepare("UPDATE account SET profileStatus = 1 WHERE email = '$email'");
-            $sql->execute();
+
+        $result = mysqli_query($con, "UPDATE account SET profileStatus = 1 WHERE email = '$email'");
+        if ($result) {
+            header('location: ../freelanceHomePage.php');
         }
+
+
 
     }
 

@@ -97,15 +97,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <li class="job four"></li>
                 <li class="job five"></li> -->
                 <?php
-                $roleValues = array();
+                $query = mysqli_query($con, "SELECT * FROM profile");
+                if ($query->num_rows > 0) {
+                    $roleValues = array();
 
-                while ($fetch) {
-                    $values = explode(',', $fetch['jobRole']);
-                    $roleValues = array_merge($roleValues, $values);
-                }
+                    while ($row = $query->fetch_assoc()) {
+                        $values = explode(',', $row['jobRole']);
+                        $roleValues = array_merge($roleValues, $values);
+                    }
 
-                foreach ($roleValues as $value) {
-                    echo "<li class='job'>$value</li>";
+                    foreach ($roleValues as $value) {
+                        echo "<li class='job one'>$value</li>";
+                    }
                 }
                 ?>
             </ul>
