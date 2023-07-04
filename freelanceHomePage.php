@@ -84,6 +84,14 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         </div>
 
         <div class="div1">
+            <?php
+            $stmt = mysqli_query($con, "SELECT imageProfile FROM profile WHERE email = '$email'");
+            if ($stmt) {
+                $row = mysqli_fetch_assoc($stmt);
+                $imageData = $row['imageProfile'];
+                //header("Content-type: image/jpeg");
+            }
+            ?>
             <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
             <h2 id="freelanceName">
                 <?php echo $fullname; ?>
@@ -107,7 +115,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     }
 
                     foreach ($roleValues as $value) {
-                        echo "<li class='job one'>$value</li>";
+                        echo "<li>$value</li>";
                     }
                 }
                 ?>
@@ -145,39 +153,62 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
 
                 <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
-                <h2 id="freelanceName">Freelance Name</h2>
+                <h2 id="freelanceName">
+                    <?php echo $fullname; ?>
+                </h2>
 
                 <div class="flexDiv">
                     <img src="img/address.png" alt="" class="addressImg" height="20px">
-                    <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
+                    <div class="freelanceAddress">
+                        <?php echo $fetch['address']; ?>
+                    </div>
                 </div>
                 <div class="flexDiv">
                     <img src="img/email.png" alt="" class="emailImg" height="20px">
-                    <div class="freelanceEmail">sample@gmail.com</div>
+                    <div class="freelanceEmail">
+                        <?php echo $email; ?>
+                    </div>
                 </div>
 
                 <div class="titles">Jobs and Roles:</div>
                 <ul>
-                    <li class="job one">Sample Job1</li>
-                    <li class="job two"></li>
-                    <li class="job three"></li>
-                    <li class="job four"></li>
-                    <li class="job five"></li>
+
+                    <?php
+                    $query = mysqli_query($con, "SELECT * FROM profile");
+                    if ($query->num_rows > 0) {
+                        $roleValues = array();
+
+                        while ($row = $query->fetch_assoc()) {
+                            $values = explode(',', $row['jobRole']);
+                            $roleValues = array_merge($roleValues, $values);
+                        }
+
+                        foreach ($roleValues as $value) {
+                            echo "<li>$value</li>";
+                        }
+                    }
+                    ?>
                 </ul>
 
                 <hr>
                 <div class="titles">Work Experience</div>
                 <div class="flexDiv" id="workExpi1">
-                    <div class="companyNameModal1">Company Name: </div>
-                    <div class="companyNameModal1Data">Example Company</div>
+                    <div class="companyNameModal1">Company Name:&nbsp;</div>
+                    <div class="companyNameModal1Data">
+                        <?php echo $fetch['companyName']; ?>
+                    </div>
                 </div>
                 <div class="flexDiv">
-                    <div class="dateStartedModal1">Date Started: </div>
-                    <div class="dateStartedModal1Data">December 1, 2000</div>
+                    <div class="dateStartedModal1">Date Started:&nbsp;</div>
+                    <div class="dateStartedModal1Data">
+                        <?php echo $fetch['startDate']; ?>
+                    </div>
                 </div>
                 <div class="flexDiv">
-                    <div class="dateEndedModal1">Date Ended: </div>
-                    <div class="dateEndedModal1Data">February 1, 2010</div>
+                    <div class="dateEndedModal1">Date Ended:&nbsp;</div>
+                    <div class="dateEndedModal1Data">
+                        <?php echo $fetch['endDate']; ?>
+                    </div>
                 </div>
 
 
@@ -197,11 +228,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <hr>
                 <div class="titles">Job Description</div>
                 <p id="jobDescModal">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate
-                    iusto
-                    quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor
-                    accusantium
-                    dolores iste architecto?
+                    <?php echo $fetch['jobDescription']; ?>
                 </p>
 
                 <div class="modal-footer">
