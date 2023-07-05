@@ -1,10 +1,18 @@
 <?php
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/Image.php";
 
 if (isset($_POST['jobRole']) && is_array($_POST['jobRole'])) {
     $profileImg = $_FILES['imageProfile']['tmp_name'];
-    $imageData = file_get_contents($profileImg);
+    //$imageData = file_get_contents($profileImg);
+
+    $image_link = $profileImg;
+    if ($profileImg != $_SESSION['current_image']) {
+        $upload_image = new Image();
+        $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
+        $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+    }
 
     $selectedData = $_POST['jobRole'];
 
@@ -34,7 +42,7 @@ if (isset($_POST['jobRole']) && is_array($_POST['jobRole'])) {
         //$result = mysqli_query($con, "INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES ('$account_id', '$email', '$imageData', '$optionsString', '$address', '$company', '$workTitle', '$startDate', '$endDate', '$jobDesc')");
 
         $stmt = $con->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $account_id, $email, $imageData, $optionsString, $address, $company, $workTitle, $startDate, $endDate, $jobDesc);
+        $stmt->bind_param("ssssssssss", $account_id, $email, $image_link, $optionsString, $address, $company, $workTitle, $startDate, $endDate, $jobDesc);
         $stmt->execute();
 
 

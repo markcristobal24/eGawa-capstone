@@ -84,15 +84,10 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         </div>
 
         <div class="div1">
-            <?php
-            $stmt = mysqli_query($con, "SELECT imageProfile FROM profile WHERE email = '$email'");
-            if ($stmt) {
-                $row = mysqli_fetch_assoc($stmt);
-                $imageData = $row['imageProfile'];
-                //header("Content-type: image/jpeg");
-            }
-            ?>
-            <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
+
+            <img id="freelancerPic"
+                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $fetch['imageProfile']; ?>"
+                alt="user profile" title="user profile">
             <h2 id="freelanceName">
                 <?php echo $fullname; ?>
             </h2>
@@ -152,7 +147,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <div class="titles" id="modalTitleViewMore">User Profile</div>
                 </div>
 
-                <img id="freelancerPic" src="img/profile.png" alt="user profile" title="user profile">
+                <img id="freelancerPic"
+                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $fetch['imageProfile']; ?>"
+                    alt="user profile" title="user profile">
                 <h2 id="freelanceName">
                     <?php echo $fullname; ?>
                 </h2>
