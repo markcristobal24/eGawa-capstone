@@ -100,7 +100,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <li class="job four"></li>
                 <li class="job five"></li> -->
                 <?php
-                $query = mysqli_query($con, "SELECT * FROM profile");
+                $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
                 if ($query->num_rows > 0) {
                     $roleValues = array();
 
@@ -171,7 +171,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <ul>
 
                     <?php
-                    $query = mysqli_query($con, "SELECT * FROM profile");
+                    $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
                     if ($query->num_rows > 0) {
                         $roleValues = array();
 
