@@ -32,6 +32,9 @@ function loadImage2(event) {
     reader.readAsDataURL(event.target.files[0]);
 }
 
+
+
+//for date input on create profile
 const dateStartedInput = document.getElementById('dateStarted');
 const dateEndedInput = document.getElementById('dateEnded');
 
@@ -39,3 +42,6 @@ dateStartedInput.addEventListener('change', function () {
   dateEndedInput.min = this.value;
 });
 
+dateEndedInput.addEventListener('change', function () {
+    dateStartedInput.max = this.value;
+  });
