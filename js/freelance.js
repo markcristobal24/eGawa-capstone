@@ -31,3 +31,11 @@ function loadImage2(event) {
     }
     reader.readAsDataURL(event.target.files[0]);
 }
+
+const dateStartedInput = document.getElementById('dateStarted');
+const dateEndedInput = document.getElementById('dateEnded');
+
+dateStartedInput.addEventListener('change', function () {
+  dateEndedInput.min = this.value;
+});
+
