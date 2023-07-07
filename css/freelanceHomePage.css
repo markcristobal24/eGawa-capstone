@@ -47,7 +47,7 @@
 
 
 .containerFreelanceHome .div1 {
-    background-color: #0e8cc687;
+    /* background-color: #0e8cc687; */
     margin: 10px;
     width: 30%;
     max-height: auto;
@@ -139,12 +139,47 @@
 }
 
 .containerFreelanceHome .div2 {
-    background-color: #0e8cc687;
+    /* background-color: #0e8cc687; */
     margin: 10px;
     width: 70%;
     max-height: auto;
     border: 1px solid rgb(255, 255, 255);
 }
+
+.containerCatalog{
+    width: auto;
+    height: 500px;
+    overflow: auto;
+    padding: 5px;
+}
+
+.catalogButtons{
+    padding: 5px;
+    display: flex;
+    justify-content: end;
+    margin-right: 5px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.item {
+    background-color: #0e8cc651;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    cursor: pointer;
+  }
+
+.catalogTexts{
+    margin-left: 5px;
+}
+
+.imgWork {
+    height: 100px;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
 
 
 p {

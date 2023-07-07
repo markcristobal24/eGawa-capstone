@@ -1,126 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messenger</title>
-    <style>
-        .chatContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .chat-window {
-            border: 1px solid #ccc;
-            width: 400px;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-header {
-            background-color: #f0f0f0;
-            padding: 10px;
-        }
-
-        .chat-body {
-            flex: 1;
-            padding: 10px;
-            overflow-y: scroll;
-        }
-
-        .message {
-            margin-bottom: 10px;
-        }
-
-        .message-sender {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .message-content {
-            padding: 5px;
-            background-color: #f0f0f0;
-        }
-
-        .chat-footer {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #f0f0f0;
-        }
-
-        .chat-footer input[type="text"] {
-            flex: 1;
-            padding: 5px;
-        }
-
-        .chat-footer button {
-            margin-left: 10px;
-            padding: 5px 10px;
-        }
-    </style>
+  <title>Dynamic Container Example</title>
+  <style>
+    .item {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .imgWork{
+        height: 100px;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="chat-window">
-            <div class="chat-header">
-                <h2>Chat Title</h2>
-            </div>
-            <div class="chat-body" id="chatBody">
-                <div class="message">
-                    <div class="message-sender">Sender</div>
-                    <div class="message-content">Hello!</div>
-                </div>
-                <div class="message">
-                    <div class="message-sender">Receiver</div>
-                    <div class="message-content">Hi there!</div>
-                </div>
-            </div>
-            <div class="chat-footer">
-                <input type="text" placeholder="Type your message" id="messageInput">
-                <button id="sendButton">Send</button>
-            </div>
-        </div>
+  <div id="container">
+    <div class="item" id="item-1" onclick="handleClick(this)">
+      <img class="imgWork" src="img/working.png"  alt="Image 1">
+      <h2>Title 1</h2>
+      <p>Description 1</p>
     </div>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const chatBody = document.getElementById('chatBody');
-            const inputField = document.getElementById('messageInput');
-            const sendButton = document.getElementById('sendButton');
+  <button onclick="addContainer()">Add Container</button>
 
-            function sendMessage() {
-                const message = inputField.value;
-                if (message.trim() !== '') {
-                    const messageContainer = document.createElement('div');
-                    messageContainer.classList.add('message');
-                    messageContainer.innerHTML = `
-                        <div class="message-sender">Sender</div>
-                        <div class="message-content">${message}</div>
-                    `;
-                    chatBody.appendChild(messageContainer);
-                    inputField.value = '';
+  <script>
+    let counter = 2;
 
-                    // Scroll to the bottom
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }
-            }
+    function handleClick(element) {
+      var itemId = element.id;
+      alert("You clicked the div with ID: " + itemId);
+      // You can perform any desired action here
+      // based on the clicked div
+    }
 
-            sendButton.addEventListener('click', sendMessage);
+    function addContainer() {
+      var container = document.getElementById('container');
 
-            inputField.addEventListener('keydown', function (event) {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    sendMessage();
-                }
-            });
-        });
-    </script>
+      // Create a new item div
+      var newItem = document.createElement('div');
+      newItem.className = 'item';
+      newItem.id = 'item-' + counter;
+      newItem.onclick = function () {
+        handleClick(this);
+      };
+
+      // Create elements for image, title, and description
+      var newImage = document.createElement('img');
+      newImage.src = 'img/working.png';
+      newImage.className = 'imgWork';
+      newImage.alt = 'New Image';
+
+      var newTitle = document.createElement('h2');
+      newTitle.textContent = 'New Title ' + counter;
+
+      var newDescription = document.createElement('p');
+      newDescription.textContent = 'New Description ' + counter;
+
+      // Append elements to the new item div
+      newItem.appendChild(newImage);
+      newItem.appendChild(newTitle);
+      newItem.appendChild(newDescription);
+
+      // Append the new item div to the container
+      container.appendChild(newItem);
+
+      counter++;
+    }
+  </script>
 </body>
-
 </html>
