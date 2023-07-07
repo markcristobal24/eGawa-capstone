@@ -284,63 +284,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         </div>
     </div>
 
-//PAG NILILIPAT KO TONG CODE NA TO SA freelance.js AYAW GUMANA
-  <script>
-    let counter = 2;
-
-    function handleClick(element) {
-      var itemId = element.id;
-      alert("You clicked the div with ID: " + itemId);
-      // You can perform any desired action here
-      // based on the clicked div
-    }
-
-    function addContainer() {
-      var container = document.getElementById('container');
-
-      // Create a new item div
-      var newItem = document.createElement('div');
-      newItem.className = 'item';
-      newItem.id = 'item-' + counter;
-      newItem.onclick = function () {
-        handleClick(this);
-      };
-
-      //this 2 divs will be appended inside the div created above
-      var newCatalogImgDiv = document.createElement('div');
-      newCatalogImgDiv.className = 'catalogImg';
-
-      var catalogTextsDiv = document.createElement('div');
-      catalogTextsDiv.className = 'catalogTexts';
 
 
-      // Create elements for image, title, and description
-      var newImage = document.createElement('img');
-      newImage.src = 'img/working.png';
-      newImage.className = 'imgWork';
-      newImage.alt = 'New Image';
-
-      var newTitle = document.createElement('h3');
-      newTitle.textContent = 'Title ' + counter;
-
-      var newDescription = document.createElement('p');
-      newDescription.textContent = 'New Description ' + counter;
-
-      // Append elements to the new item div
-      newCatalogImgDiv.appendChild(newImage);
-      newItem.appendChild(newCatalogImgDiv);
-      catalogTextsDiv.appendChild(newTitle);
-      catalogTextsDiv.appendChild(newDescription);
-      newItem.appendChild(catalogTextsDiv);
-
-      // Append the new item div to the container
-      container.appendChild(newItem);
-
-      counter++;
-    }
-
-  </script> //PAG NILILIPAT KO TONG CODE NA TO SA freelance.js AYAW GUMANA
-
+    <script src="js/createNewDiv.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>

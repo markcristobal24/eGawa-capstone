@@ -129,7 +129,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    color: #ddd;
+    color: rgb(255, 255, 255);
     padding-right: 3px;
 }
 
@@ -162,7 +162,8 @@
 }
 
 .item {
-    background-color: #0e8cc651;
+    /* background-color: #0e8cc651; */
+    background-color: rgb(157, 157, 157);
     border-radius: 5px;
     border: 1px solid rgb(255, 255, 255);
     padding: 10px;
@@ -170,6 +171,9 @@
     display: flex;
     cursor: pointer;
   }
+.item:hover{
+    background-color: #0074aa95;
+}
 
 .catalogTexts{
     margin-left: 5px;
@@ -341,7 +345,6 @@ body {
     }
 
     .containerFreelanceHome .div2 {
-        background-color: #ff6600;
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
@@ -408,7 +411,6 @@ body {
     }
 
     .containerFreelanceHome .div2 {
-        background-color: #ff6600;
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
