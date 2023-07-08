@@ -81,8 +81,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
             </div>
             <div class="catalogButtons">
-                <button onclick="addContainer()" class="">Add Catalog</button>
-                <button >Delete Catalog</button>
+                <button id="addCatalog" class="">Add Catalog</button>
+                <button id="">Delete Catalog</button>
             </div>
         </div>
 
@@ -239,6 +239,54 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
         </div>
     </div>
+
+    <!--Modal for Freelancer account adding catalog-->
+    <div class="modal fade" id="modalFreelanceAddCatalog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Catalog</h3>
+                </div>
+                
+                <div id="imgUpl">
+                    <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
+                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                        <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                    </div>
+                    <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
+                        required>
+                </div>
+
+                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                        placeholder="Enter Catalog Title">
+                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                </div>
+
+                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                    <!-- Gap on all sides is 2 -->
+                    <textarea class="form-control" id="catalogDescription" name="jobDesc" rows="10"
+                        placeholder="Enter Catalog Description"></textarea>
+                    <!-- <input type="text" id="companyName" name="companyName" class="form-control"
+                        placeholder="Enter Company Name"> -->
+                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                </div>
+
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submitUserID" onclick="addContainer()">
+                        Submit
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelSubmit">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+    
 
 
     <div class="custom-shape-divider-bottom-1687514102">

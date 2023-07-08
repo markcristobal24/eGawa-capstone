@@ -1,4 +1,5 @@
 let counter = 2;
+var reader = new FileReader();
 
 function handleClick(element) {
   var itemId = element.id;
@@ -28,15 +29,18 @@ function addContainer() {
 
   // Create elements for image, title, and description
   var newImage = document.createElement('img');
-  newImage.src = 'img/working.png';
+  // newImage.src = 'img/working.png';
+  newImage.src = reader.result;
   newImage.className = 'imgWork';
   newImage.alt = 'New Image';
 
   var newTitle = document.createElement('h3');
-  newTitle.textContent = 'Title ' + counter;
+  var catalogTitle = document.getElementById('catalogTitle').value;
+  newTitle.textContent = catalogTitle;
 
   var newDescription = document.createElement('p');
-  newDescription.textContent = 'New Description ' + counter;
+  var catalogDescription = document.getElementById('catalogDescription').value;
+  newDescription.textContent = catalogDescription;
 
   // Append elements to the new item div
   newCatalogImgDiv.appendChild(newImage);
@@ -49,4 +53,46 @@ function addContainer() {
   container.appendChild(newItem);
 
   counter++;
+  $('#modalFreelanceAddCatalog').modal('hide');
+
+  clearInputs();
+
 }
+
+
+function clearInputs(){
+  var imageInput = document.getElementById('uploadInput');
+  var imageCleared = document.getElementById('uploadedImage');
+  var cataTitle = document.getElementById('catalogTitleLabel');
+  var cataDesc = document.getElementById('catalogDescriptionLabel');
+  cataTitle = null;
+  cataDesc =null;
+  imageInput.value = null;
+  imageCleared.src = 'img/upload.png';
+}
+
+
+
+//for image upload
+function catalogImgUp(event) {
+
+  reader.onload = function () {
+      var uploadedImage = document.getElementById('uploadedImage');
+      uploadedImage.src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+
+
+var catalog = document.getElementById('addCatalog');
+catalog.addEventListener('click', function () {
+    $('#modalFreelanceAddCatalog').modal('show');
+    $('#cancelSubmit').on("click", function (e) {
+        $('#modalFreelanceAddCatalog').modal('hide');
+    });
+
+
+});
+
+
