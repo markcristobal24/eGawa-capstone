@@ -217,6 +217,15 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
+/* ====For User ID verification modal */
+#modaluserIdVerification{
+    margin-top: 10%;
+}
+
+#uploadedImageUser1, .labelImage{
+    margin-left: 10px;
+}
+
 
 
 
@@ -280,7 +289,7 @@ body {
 
     #home1,
     #about1,
-    #login1, 
+    #logout1, 
     #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
@@ -300,6 +309,14 @@ body {
     }
 
 }
+    /* ====For User ID verification modal */
+    #modaluserIdVerification{
+        margin-top: 10%;
+    }
+    #uploadedImageUser{
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 
 /*============================ small  ===========================*/
@@ -346,7 +363,7 @@ body {
 
     #home1,
     #about1,
-    #login1, 
+    #logout1, 
     #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;

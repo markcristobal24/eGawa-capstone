@@ -170,82 +170,6 @@
     </div>
 
 
-    <!-- this modal is for freelance profile if you click "view more" -->
-    <!-- <div class="modal fade" id="modalViewMore" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="titles" id="modalTitleViewMore">User Profile</div>
-                </div>
-
-                <img id="userPic" src="img/profile.png" alt="user profile" title="user profile">
-                <h2 id="freelanceName">Freelance Name</h2>
-
-                <div class="flexDiv">
-                    <img src="img/address.png" alt="" class="addressImg" height="20px">
-                    <div class="freelanceAddress">Sto.Nino, Hagonoy, Bulacan</div>
-                </div>
-                <div class="flexDiv">
-                    <img src="img/email.png" alt="" class="emailImg" height="20px">
-                    <div class="freelanceEmail">sample@gmail.com</div>
-                </div>
-
-                <div class="titles">Jobs and Roles:</div>
-                <ul>
-                    <li class="job one">Sample Job1</li>
-                    <li class="job two"></li>
-                    <li class="job three"></li>
-                    <li class="job four"></li>
-                    <li class="job five"></li>
-                </ul>
-
-                <hr>
-                <div class="titles">Work Experience</div>
-                <div class="flexDiv" id="workExpi1">
-                    <div class="companyNameModal1">Company Name: </div>
-                    <div class="companyNameModal1Data">Example Company</div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateStartedModal1">Date Started: </div>
-                    <div class="dateStartedModal1Data">December 1, 2000</div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateEndedModal1">Date Ended: </div>
-                    <div class="dateEndedModal1Data">February 1, 2010</div>
-                </div>
-
-
-                <div class="flexDiv" id="workExpi2">
-                    <div class="companyNameModal2"></div>
-                    <div class="companyNameModal2Data"></div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateStartedModal2"></div>
-                    <div class="dateStartedModal2Data"></div>
-                </div>
-                <div class="flexDiv">
-                    <div class="dateEndedModal2"></div>
-                    <div class="dateEndedModal2Data"></div>
-                </div>
-
-                <hr>
-                <div class="titles">Job Description</div>
-                <p id="jobDescModal">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti ipsum suscipit cupiditate
-                    iusto
-                    quas doloribus eum repellat, pariatur aperiam molestiae itaque fugit laborum placeat dolor
-                    accusantium
-                    dolores iste architecto?
-                </p>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancelViewMore">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
     <div class="custom-shape-divider-bottom-1687514102">
@@ -270,6 +194,36 @@
         </div>
     </footer>
 
+    <!--Modal for user account verification-->
+    <div class="modal fade" id="modaluserIdVerification" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>User verification</h3>
+                </div>
+
+                <div class="imgUpl1">
+                    <label class="labelImage" for="uploadInput">Upload 1(one) Valid ID</label>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedImageUser" src="img/upload.png" alt="Uploaded Image" height="200">
+                        </div>
+                        <div>
+                            <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
+                        </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submitUserID">
+                        Submit
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="clearUserID" onclick="clearUserID()">
+                        Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
 
     <!--Modal for log out-->
     <div class="modal fade" id="modalLogOut" aria-hidden="true">
@@ -278,8 +232,10 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Logging Out</h5>
                 </div>
-                <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
-                <div class="modal-footer">
+                <div class="modal-body" id="modalLogOutConfirmation"> <!-- Updated ID -->
+                    <!-- ...modal content for log out confirmation -->
+                    Are you sure you want to log out?
+                    <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="logoutBtn">
                         Log Out
                     </button>
@@ -287,17 +243,19 @@
                         Cancel
                     </button>
                 </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
     <script src="js/validate.js"></script>
-    <script src="js/freelance.js"></script>
+    <script src="js/user.js"></script>
+
 </body>
-</body>
+
 
 </html>
