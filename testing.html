@@ -1,43 +1,135 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Dynamic Container Example</title>
-  <style>
-    .item {
-      border: 1px solid black;
-      padding: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-    .imgWork{
-        height: 100px;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link for Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Link for CSS -->
+    <link rel="stylesheet" href="css/freelanceHomePage.css">
+
+    <!-- For social icons in the footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>eGawa | Testing</title>
+
 </head>
+
 <body>
-  <div id="container">
-    <div class="item" id="item-1" onclick="handleClick(this)">
-      <img class="imgWork" src="img/working.png"  alt="Image 1">
-      <h2>Title 1</h2>
-      <p>Description 1</p>
+
+
+
+    <div class="containerFreelanceHome">
+
+        <div class="div2">
+            <div class="containerCatalog">
+                <div id="container">
+                    <div class="item" id="item-1" onclick="handleClick(this)">
+                        <div class="catalogImg">
+                            <img class="imgWork" src="img/working.png"  alt="Image 1">
+                        </div>
+                        <div class="catalogTexts">
+                            <h3>Title 1</h3>
+                            <p>Description 1</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="catalogButtons">
+                <button id="addCatalog" class="">Add Catalog</button>
+                <button id="">Delete Catalog</button>
+            </div>
+        </div>
+
+
+
+
+
+    <!--Modal for Freelancer account adding catalog-->
+    <div class="modal fade" id="modalFreelanceAddCatalog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Catalog</h3>
+                </div>
+                
+            <form action="" required>
+            <div id="imgUpl">
+                    <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
+                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                        <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                    </div>
+                    <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
+                        required>
+                </div>
+
+                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                        placeholder="Enter Catalog Title" required>
+                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                </div>
+
+                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                    <!-- Gap on all sides is 2 -->
+                    <textarea class="form-control" id="catalogDescription" name="jobDesc" rows="10"
+                        placeholder="Enter Catalog Description" required></textarea>
+
+                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                </div>
+
+                
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="submitUserID" onclick="addContainer()">
+                        Submit
+                    </button>
+                    <button class="btn btn-secondary" id="cancelSubmit">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
     </div>
-  </div>
+                    
+    
 
-  <button onclick="addContainer()">Add Container</button>
 
-  <script>
-    let counter = 2;
 
-    function handleClick(element) {
-      var itemId = element.id;
-      alert("You clicked the div with ID: " + itemId);
-      // You can perform any desired action here
-      // based on the clicked div
-    }
 
-    function addContainer() {
-      var container = document.getElementById('container');
+    <script>
+      let counter = 2;
+var reader = new FileReader();
 
+function handleClick(element) {
+  var itemId = element.id;
+  alert("You clicked the div with ID: " + itemId);
+  // You can perform any desired action here
+  // based on the clicked div
+}
+
+function addContainer() {
+  var container = document.getElementById('container');
+  var imageInput = document.getElementById('uploadInput');
+  var catalogTitle = document.getElementById('catalogTitle').value;
+  var catalogDescription = document.getElementById('catalogDescription').value;
+  
+  // Check if an image is uploaded
+  if (imageInput.files.length === 0 || catalogTitle.trim() === '' || catalogDescription.trim() === '') {
+
+    return;
+
+  } else {
+
+
+    
       // Create a new item div
       var newItem = document.createElement('div');
       newItem.className = 'item';
@@ -46,28 +138,93 @@
         handleClick(this);
       };
 
+      //this 2 divs will be appended inside the div created above
+      var newCatalogImgDiv = document.createElement('div');
+      newCatalogImgDiv.className = 'catalogImg';
+
+      var catalogTextsDiv = document.createElement('div');
+      catalogTextsDiv.className = 'catalogTexts';
+
+
       // Create elements for image, title, and description
       var newImage = document.createElement('img');
-      newImage.src = 'img/working.png';
+      // newImage.src = 'img/working.png';
+      newImage.src = reader.result;
       newImage.className = 'imgWork';
       newImage.alt = 'New Image';
 
-      var newTitle = document.createElement('h2');
-      newTitle.textContent = 'New Title ' + counter;
+      var newTitle = document.createElement('h3');
+      var catalogTitle = document.getElementById('catalogTitle').value;
+      newTitle.textContent = catalogTitle;
 
       var newDescription = document.createElement('p');
-      newDescription.textContent = 'New Description ' + counter;
+      var catalogDescription = document.getElementById('catalogDescription').value;
+      newDescription.textContent = catalogDescription;
 
       // Append elements to the new item div
-      newItem.appendChild(newImage);
-      newItem.appendChild(newTitle);
-      newItem.appendChild(newDescription);
+      newCatalogImgDiv.appendChild(newImage);
+      newItem.appendChild(newCatalogImgDiv);
+      catalogTextsDiv.appendChild(newTitle);
+      catalogTextsDiv.appendChild(newDescription);
+      newItem.appendChild(catalogTextsDiv);
 
       // Append the new item div to the container
       container.appendChild(newItem);
 
       counter++;
-    }
-  </script>
+      $('#modalFreelanceAddCatalog').modal('hide');
+
+      clearInputs();
+  }
+
+}
+
+
+
+function clearInputs() {
+  var imageInput = document.getElementById('uploadInput');
+  var imageCleared = document.getElementById('uploadedImage');
+  var catalogTitle = document.getElementById('catalogTitle');
+  var catalogDescription = document.getElementById('catalogDescription');
+
+  // Reset the image input
+  imageInput.value = null;
+  imageCleared.src = 'img/upload.png';
+
+  // Reset the title and description inputs
+  catalogTitle.value = '';
+  catalogDescription.value = '';
+}
+
+
+
+
+//for image upload
+function catalogImgUp(event) {
+
+  reader.onload = function () {
+      var uploadedImage = document.getElementById('uploadedImage');
+      uploadedImage.src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+
+
+var catalog = document.getElementById('addCatalog');
+catalog.addEventListener('click', function () {
+    $('#modalFreelanceAddCatalog').modal('show');
+    $('#cancelSubmit').on("click", function (e) {
+        $('#modalFreelanceAddCatalog').modal('hide');
+    });
+});
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
 </body>
+
 </html>

@@ -65,8 +65,7 @@
     margin: 10px auto 0;
     border-radius: 73px;
 }
-
-#verifyFreelanceAcc {
+#verifyFreelanceAccDiv{
     margin: 10px auto 10px;
     background-color: #079040;
     color: #ddd;
@@ -74,8 +73,12 @@
     border-radius: 10px;
     padding: 3px 10px;
 }
+#verifyFreelanceAcc {
+    text-decoration: none;
+    color: #ddd;
+}
 
-#verifyFreelanceAcc:hover {
+#verifyFreelanceAccDiv:hover {
     background-color: #044c22;
     cursor: pointer;
 }
@@ -139,7 +142,8 @@
 }
 
 .containerFreelanceHome .div2 {
-    /* background-color: #0e8cc687; */
+    display: flex;
+    flex-direction: column;
     margin: 10px;
     width: 70%;
     max-height: auto;
@@ -148,22 +152,22 @@
 
 .containerCatalog{
     width: auto;
-    height: 500px;
+    height: 540px;
     overflow: auto;
     padding: 5px;
 }
 
 .catalogButtons{
+    margin-bottom: 0px;
     padding: 5px;
     display: flex;
     justify-content: end;
-    margin-right: 5px;
     border: 1px solid rgb(255, 255, 255);
 }
 
 .item {
     /* background-color: #0e8cc651; */
-    background-color: rgb(157, 157, 157);
+    background-color: #0074aa95;
     border-radius: 5px;
     border: 1px solid rgb(255, 255, 255);
     padding: 10px;
@@ -172,7 +176,15 @@
     cursor: pointer;
   }
 .item:hover{
-    background-color: #0074aa95;
+    background-color: rgb(157, 157, 157);
+}
+#uploadedImage{
+    margin-left: auto;
+    margin-right: auto;
+}
+#uploadInput{
+    margin-left: 40px;
+    margin-bottom: 10px;
 }
 
 .catalogTexts{
@@ -291,6 +303,19 @@ body {
 }
 
 /*==========================END OF MODAL - VIEW MORE============================*/
+#uploadedEditImage{
+    margin-left: auto;
+    margin-right: auto;
+}
+#uploadInputEdit{
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+/*==========================FOR MODAL - EDIT PROFILE============================*/
+
+
+/*==========================END OF MODAL - EDIT PROFILE============================*/
 
 
 

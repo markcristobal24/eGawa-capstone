@@ -94,7 +94,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             <h2 id="freelanceName">
                 <?php echo $fullname; ?>
             </h2>
-            <div id="verifyFreelanceAcc">Verify Account</div>
+            <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc"  href="freelanceIDVerification.php">Verify Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
                 <!-- <li class="job one">Sample Job1</li>
@@ -240,6 +240,88 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         </div>
     </div>
 
+
+
+    <!-- this modal is for freelance EDIT profile-->
+    <div class="modal fade" id="modalEditAccount" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Profile</h3>
+                </div>
+                
+                <form action="" required>
+                    <div id="imgUpl">
+                        <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedEditImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                        </div>
+                        <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
+                            required>
+                    </div>
+
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="editAddress" name="editAddress" class="form-control"
+                            placeholder="Edit your address" required>
+                        <label id="editAddressLabel" for="editAddress">Edit your address</label>
+                    </div>
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="editEmailAddress" name="editEmailAddress" class="form-control"
+                            placeholder="Edit your email address" required>
+                        <label id="editEmailAddressLabel" for="editEmailAddress">Edit your email address</label>
+                    </div>
+
+                    
+                <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
+                    <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="webDesign" value="Web Designer">
+                        <label class="form-check-label" for="webDesign">Web Designer</label>
+                    </div>
+
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev"
+                            value="Web Developer">
+                        <label class="form-check-label" for="webDev">Web Developer</label>
+                    </div>
+
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="mobAppDev" value="Mobile Application Developer">
+                        <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
+                    </div>
+
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="brandDesign" value="Brand and Designing">
+                        <label class="form-check-label" for="brandDesign">Branding and Design</label>
+                    </div>
+
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                            id="hostingMaintenance" value="Hosting/Maintenance">
+                        <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
+                    </div>
+                </div>
+
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="submitEdit">
+                            Save
+                        </button>
+                        <button class="btn btn-secondary" id="cancelEdit">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+            
+
+
+
+
+
+
     <!--Modal for Freelancer account adding catalog-->
     <div class="modal fade" id="modalFreelanceAddCatalog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -248,40 +330,41 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3>Add Catalog</h3>
                 </div>
                 
-                <div id="imgUpl">
-                    <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
-                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                        <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                <form action="" required>
+                    <div id="imgUpl">
+                        <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedImageCatalog" src="img/upload.png" alt="Uploaded Image" height="200">
+                        </div>
+                        <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
+                            required>
                     </div>
-                    <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
-                        required>
-                </div>
 
-                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                    <!-- Gap on all sides is 2 -->
-                    <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                        placeholder="Enter Catalog Title">
-                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
-                </div>
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                            placeholder="Enter Catalog Title" required>
+                        <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                    </div>
 
-                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                    <!-- Gap on all sides is 2 -->
-                    <textarea class="form-control" id="catalogDescription" name="jobDesc" rows="10"
-                        placeholder="Enter Catalog Description"></textarea>
-                    <!-- <input type="text" id="companyName" name="companyName" class="form-control"
-                        placeholder="Enter Company Name"> -->
-                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
-                </div>
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <textarea class="form-control" id="catalogDescription" name="jobDesc" rows="10"
+                            placeholder="Enter Catalog Description" required></textarea>
 
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="submitUserID" onclick="addContainer()">
-                        Submit
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="cancelSubmit">
-                        Cancel
-                    </button>
-                </div>
+                        <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                    </div>
+
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="submitUserID" onclick="addContainer()">
+                            Submit
+                        </button>
+                        <button class="btn btn-secondary" id="cancelSubmit">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
