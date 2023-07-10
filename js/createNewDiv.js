@@ -104,7 +104,7 @@ function catalogImgUp(event) {
 function editImgUp(event) {
 
   reader.onload = function () {
-      var uploadedImageEdit = document.getElementById('uploadedImageEdit');
+      var uploadedImageEdit = document.getElementById('uploadedEditImage');
       uploadedImageEdit.src = reader.result;
   }
   reader.readAsDataURL(event.target.files[0]);

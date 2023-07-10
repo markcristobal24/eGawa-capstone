@@ -256,7 +256,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                             <img id="uploadedEditImage" src="img/upload.png" alt="Uploaded Image" height="200">
                         </div>
-                        <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
+                        <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*" onchange="editImgUp(event)"
                             required>
                     </div>
 
