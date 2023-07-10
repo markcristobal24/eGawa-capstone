@@ -68,7 +68,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         <div class="div2">
             <div class="containerCatalog">
                 <div id="container">
-                    <div class="item" id="item-1" onclick="handleClick(this)">
+                    <!-- <div class="item" id="item-1" onclick="handleClick(this)">
                         <div class="catalogImg">
                             <img class="imgWork" src="img/working.png"  alt="Image 1">
                         </div>
@@ -77,7 +77,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             <p>Description 1</p>
                         </div>
                         
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="catalogButtons">

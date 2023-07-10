@@ -1,4 +1,4 @@
-let counter = 2;
+let counter = 1;
 var reader = new FileReader();
 
 function handleClick(element) {
