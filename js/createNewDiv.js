@@ -92,7 +92,6 @@ function clearInputs() {
 
 //for image upload in catalog
 function catalogImgUp(event) {
-
   reader.onload = function () {
       var uploadedImagecatalog = document.getElementById('uploadedImageCatalog');
       uploadedImagecatalog.src = reader.result;
@@ -102,7 +101,6 @@ function catalogImgUp(event) {
 
 //for image upload in EDIT PROFILE
 function editImgUp(event) {
-
   reader.onload = function () {
       var uploadedImageEdit = document.getElementById('uploadedEditImage');
       uploadedImageEdit.src = reader.result;
