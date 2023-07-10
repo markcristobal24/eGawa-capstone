@@ -30,6 +30,7 @@ if ($query <= 0) {
             $_SESSION['otp'] = $otp;
             $_SESSION['mail'] = $email;
             $_SESSION['email'] = $email;
+            $_SESSION['account_id'] = $fetch['account_id'];
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>
@@ -54,6 +55,7 @@ if ($query <= 0) {
             $_SESSION['otp'] = $otp;
             $_SESSION['mail'] = $email;
             $_SESSION['email'] = $email;
+            $_SESSION['account_id'] = $fetch['account_id'];
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>
@@ -70,10 +72,12 @@ if ($query <= 0) {
                         $verifyEmail->sendEmail("E-Gawa", $email, $subject, $body);
         } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 0) {
             $_SESSION['email'] = $email;
+            $_SESSION['account_id'] = $fetch['account_id'];
             header('location: ../createProfile.php');
 
         } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 1) {
             $_SESSION['email'] = $email;
+            $_SESSION['account_id'] = $fetch['account_id'];
             ?>
                                 <script>
                                     window.location.replace("../freelanceHomePage.php");
