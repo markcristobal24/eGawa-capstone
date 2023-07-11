@@ -78,6 +78,29 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         </div>
                         
                     </div> -->
+                    <?php
+                    $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
+                    if ($displayCatalog->num_rows > 0) {
+                        while ($row = $displayCatalog->fetch_assoc()) {
+                            ?>
+                            <div class="item">
+                                <div class="catalogImg">
+                                    <img class="imgWork"
+                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                </div>
+                                <div class="catalogTexts">
+                                    <h3>
+                                        <?php echo $row['catalogTitle']; ?>
+                                    </h3>
+                                    <p>
+                                        <?php echo $row['catalogDescription'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class="catalogButtons">
@@ -94,7 +117,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             <h2 id="freelanceName">
                 <?php echo $fullname; ?>
             </h2>
-            <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc"  href="freelanceIDVerification.php">Verify Account</a></div>
+            <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
+                    Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
                 <!-- <li class="job one">Sample Job1</li>
@@ -249,15 +273,15 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <div class="modal-header">
                     <h3>Edit Profile</h3>
                 </div>
-                
+
                 <form action="" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                             <img id="uploadedEditImage" src="img/upload.png" alt="Uploaded Image" height="200">
                         </div>
-                        <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*" onchange="editImgUp(event)"
-                            required>
+                        <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*"
+                            onchange="editImgUp(event)" required>
                     </div>
 
                     <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
@@ -273,36 +297,36 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <label id="editEmailAddressLabel" for="editEmailAddress">Edit your email address</label>
                     </div>
 
-                    
-                <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
-                    <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="webDesign" value="Web Designer">
-                        <label class="form-check-label" for="webDesign">Web Designer</label>
+
+                    <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
+                        <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                id="webDesign" value="Web Designer">
+                            <label class="form-check-label" for="webDesign">Web Designer</label>
+                        </div>
+
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                id="webDev" value="Web Developer">
+                            <label class="form-check-label" for="webDev">Web Developer</label>
+                        </div>
+
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                id="mobAppDev" value="Mobile Application Developer">
+                            <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
+                        </div>
+
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                id="brandDesign" value="Brand and Designing">
+                            <label class="form-check-label" for="brandDesign">Branding and Design</label>
+                        </div>
+
+                        <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                id="hostingMaintenance" value="Hosting/Maintenance">
+                            <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
+                        </div>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev"
-                            value="Web Developer">
-                        <label class="form-check-label" for="webDev">Web Developer</label>
-                    </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="mobAppDev" value="Mobile Application Developer">
-                        <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
-                    </div>
-
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="brandDesign" value="Brand and Designing">
-                        <label class="form-check-label" for="brandDesign">Branding and Design</label>
-                    </div>
-
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="hostingMaintenance" value="Hosting/Maintenance">
-                        <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
-                    </div>
-                </div>
-
-                    
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary" id="submitEdit">
                             Save
@@ -315,7 +339,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
         </div>
     </div>
-            
+
 
 
 
@@ -329,15 +353,15 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <div class="modal-header">
                     <h3>Add Catalog</h3>
                 </div>
-                
-                <form action="" required>
+
+                <form action="controller/c_addCatalog.php" method="POST" enctype="multipart/form-data" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                             <img id="uploadedImageCatalog" src="img/upload.png" alt="Uploaded Image" height="200">
                         </div>
-                        <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="catalogImgUp(event)"
-                            required>
+                        <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                            onchange="catalogImgUp(event)" required>
                     </div>
 
                     <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
@@ -349,15 +373,15 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
                     <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
                         <!-- Gap on all sides is 2 -->
-                        <textarea class="form-control" id="catalogDescription" name="jobDesc" rows="10"
+                        <textarea class="form-control" id="catalogDescription" name="catalogDesc" rows="10"
                             placeholder="Enter Catalog Description" required></textarea>
 
                         <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
                     </div>
 
-                    
+
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="submitUserID" onclick="addContainer()">
+                        <button type="submit" name="btnAddCatalog" class="btn btn-primary" id="submitUserID">
                             Submit
                         </button>
                         <button class="btn btn-secondary" id="cancelSubmit">
@@ -368,8 +392,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
         </div>
     </div>
-                    
-    
+
+
 
 
     <div class="custom-shape-divider-bottom-1687514102">
@@ -417,10 +441,11 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 
 
-    <script src="js/createNewDiv.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="js/createNewDiv.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>
