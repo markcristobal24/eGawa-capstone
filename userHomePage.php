@@ -52,13 +52,7 @@
     <div class="containerUserHome">
 
         <div class="div2">
-<!-- 
-            <div class="containerPost">
-                <h2>Post an Inquiry</h2>
-                <textarea name="" id="" cols="30" rows="3"></textarea>
-            </div>
 
-             -->
             <h2 class="userHistoryTitle">Your Transaction History</h2>
             <div class="containerHistory">
             
@@ -223,6 +217,48 @@
         </div>
     </div>
         
+    <!--Modal for USER EDIT ACCOUNT-->
+    <div class="modal fade" id="modaluserEditProfile" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Profile</h3>
+                </div>
+
+                <div class="userEditImg">
+                    <label class="labelImage" for="uploadInput">Change Profile Picture</label>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedEditProfileIMG" src="img/upload.png" alt="Uploaded Image" height="200">
+                        </div>
+                        <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                            <input id="uploadedImageUserEdit" type="file" accept="image/*" onchange="editUserImg(event)" required>
+                        </div> 
+                </div>
+
+                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="editUserAddress" name="editUserAddress" class="form-control"
+                            placeholder="Edit your address" required>
+                        <label id="editAddressLabel" for="editUserAddress">Edit your address</label>
+                    </div>
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="editUserEmailAddress" name="editUserEmailAddress" class="form-control"
+                            placeholder="Edit your email address" required>
+                        <label id="editEmailAddressLabel" for="editUserEmailAddress">Edit your email address</label>
+                    </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submitUserID">
+                        Submit
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="clearUserID" onclick="clearUserEdit()">
+                        Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!--Modal for log out-->

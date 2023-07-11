@@ -225,7 +225,12 @@ body {
 #uploadedImageUser1, .labelImage{
     margin-left: 10px;
 }
-
+/*============================FOR USER EDIT PROFILE MODAL=================================*/
+#uploadedEditProfileIMG{
+    margin-left: auto;
+    margin-right: auto;
+}
+/*============================END OF USER EDIT PROFILE MODAL=================================*/
 
 
 
