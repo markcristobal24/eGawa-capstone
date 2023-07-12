@@ -2,6 +2,11 @@
 session_start();
 require dirname(__FILE__) . "/php/classes/DbConnection.php";
 
+if (!isset($_SESSION['email'])) {
+    header('location: error.php');
+    exit();
+}
+
 $email = $_SESSION['email'];
 $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
 $check_rows = mysqli_num_rows($sql);
@@ -430,7 +435,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
                 <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn">
+                    <button type="button" class="btn btn-primary" id="logoutBtn" onclick="toLogout();">
                         Log Out
                     </button>
                     <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
