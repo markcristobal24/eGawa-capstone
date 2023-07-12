@@ -92,10 +92,17 @@ logout.addEventListener('click', function () {
     });
 });
 
+
+
+//dont move this to other JS file (it will generate bug)
+//FOR FREELANCE PROFILE "VIEW MORE"
 var viewmore = document.getElementById('viewmore');
 viewmore.addEventListener('click', function () {
     $('#modalViewMore').modal('show');
     $('#cancelViewMore').on("click", function (e) {
+        $('#modalViewMore').modal('hide');
+    });
+    $('#editFreelanceAcc').on("click", function (e) {
         $('#modalViewMore').modal('hide');
     });
 });

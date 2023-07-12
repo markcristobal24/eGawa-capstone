@@ -105,7 +105,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
             <div class="catalogButtons">
                 <button id="addCatalog" class="">Add Catalog</button>
-                <button id="">Delete Catalog</button>
             </div>
         </div>
 
@@ -159,9 +158,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             <div>
 
             </div>
-            <div class="editContainer">
+            <!-- <div class="editContainer">
                 <div id="editFreelanceAcc">Edit Account</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -256,6 +255,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </p>
 
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="editFreelanceAcc">
+                        Edit
+                    </button>
                     <button type="button" class="btn btn-secondary" id="cancelViewMore">
                         Close
                     </button>

@@ -9,6 +9,7 @@
 
 #home1,
 #about1,
+#inbox,
 #login1 {
   font-size: 18px;
   font-family: 'roboto', sans-serif;
@@ -16,6 +17,10 @@
 }
 
 #login1:hover {
+  color: #ff6600;
+}
+
+#inbox:hover {
   color: #ff6600;
 }
 
@@ -92,9 +97,6 @@ p {
   left: 0;
   bottom: 0;
   width: 100%;
-  /* background-color: #0073aa; */
-  /* background: linear-gradient(to bottom, #0074aa0c, #0073aa); */
-  /* box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5); */
   text-align: center;
   padding: 0;
 }
@@ -126,12 +128,6 @@ i:hover {
 }
 
 body {
-  /* background-image: url("bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; */
-  /* background-color: #dca7848e; */
   background-color: hsla(200, 57%, 85%, 0.275);
 }
 

@@ -107,6 +107,7 @@
     margin-right: 20px;
 }
 
+
 #viewmore {
     margin: 10px auto 10px;
     background-color: #079040;
@@ -128,18 +129,6 @@
     margin-top: 20px;
 }
 
-#editFreelanceAcc {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: rgb(255, 255, 255);
-    padding-right: 3px;
-}
-
-#editFreelanceAcc:hover {
-    color: #ff6600;
-    cursor: pointer;
-}
 
 .containerFreelanceHome .div2 {
     display: flex;
@@ -163,6 +152,24 @@
     display: flex;
     justify-content: end;
     border: 1px solid rgb(255, 255, 255);
+}
+
+#addCatalog{
+    background-color: #0073aa;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+    border-style: none;
+}
+
+#addCatalog:hover {
+    background-color: #014c6f;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+    border-style: none;
 }
 
 .item {

@@ -38,13 +38,13 @@
             <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
           </li>
           <li class="nav-item">
-            <a id="login1" class="nav-link" href="login.php">Login</a>
+            <a id="userInbox" class="nav-link" href="userInbox.php">Messages</a>
+          </li>
+          <li class="nav-item">
+            <a id="logoutAboutUs" class="nav-link" href="#">Logout</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
+
       </div>
     </div>
   </nav>
@@ -165,6 +165,27 @@
     </div>
 
 
+    <!--Modal for log out-->
+    <div class="modal fade" id="modalAboutUsLogOut" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Logging Out</h5>
+                </div>
+                <div class="modal-body" id="">Are you sure you want to log out?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="logoutAbtBtn">
+                        Log Out
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelLogOutAbtUs">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
   <footer class="footer">
     <div class="containerFooter">
@@ -179,7 +200,14 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+  <script src="js/aboutUs.js"></script>
+
 
 </body>
 

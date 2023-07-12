@@ -45,3 +45,4 @@ dateStartedInput.addEventListener('change', function () {
 dateEndedInput.addEventListener('change', function () {
     dateStartedInput.max = this.value;
   });
+

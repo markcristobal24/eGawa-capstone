@@ -35,14 +35,12 @@
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
+                        <a id="inbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="login1" class="nav-link" href="login.php">Login</a>
                     </li>
                 </ul>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
 
             </div>
         </div>
@@ -63,6 +61,7 @@
                     required />
                 <label for="pass">Enter Password</label>
             </div>
+
 
             <p><a id="forgotPasswordLink" href="forgotPassword.php">Forgot password?</a></p>
 
@@ -102,20 +101,20 @@
         </div>
     </footer>
 
-    <!---Modal Login-->
-    <div class="modal fade" id="loginModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Warning!</h5>
-                </div>
-                <div class="modal-body" id="modal-body">Body</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="confirm">Ok</button>
+        <!---Modal Login-->
+        <div class="modal fade" id="loginModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Warning!</h5>
+                    </div>
+                    <div class="modal-body" id="modal-body">Body</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="confirm">Ok</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

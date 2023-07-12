@@ -13,13 +13,14 @@
 
 #home1,
 #about1,
-#login1 {
+#logoutAboutUs,
+#userInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#login1:hover {
+#logoutAboutUs:hover {
     color: #ff6600;
 }
 
@@ -31,6 +32,9 @@
     color: #ff6600;
 }
 
+#userInbox:hover {
+    color: #ff6600;
+}
 
 
 #mainContainer {
@@ -127,7 +131,7 @@ body {
     }
 
     .aboutInfo {
-        color: rgb(49, 49, 49);
+        color: rgb(53, 52, 52);
         font-size: 25px;
         /* background-color: #57494989; */
     }
@@ -150,12 +154,12 @@ body {
 @media (max-width: 1200px) {
 
     .title {
-        color: rgb(20, 237, 38);
+        /* color: rgb(20, 237, 38); */
         font-size: 80px;
     }
 
     .aboutInfo {
-        color: rgb(201, 201, 201);
+        color: rgb(53, 52, 52);
         font-size: 25px;
     }
 
@@ -169,12 +173,12 @@ body {
 @media (max-width: 992px) {
 
     .title {
-        color: rgb(255, 242, 0);
+        /* color: rgb(255, 242, 0); */
         font-size: 60px;
     }
 
     .aboutInfo {
-        color: rgb(201, 201, 201);
+        color: rgb(53, 52, 52);
         font-size: 15px;
     }
 
@@ -208,12 +212,12 @@ body {
     }
 
     .title {
-        color: rgb(255, 247, 8);
+        /* color: rgb(255, 247, 8); */
         font-size: 30px;
     }
 
     .aboutInfo {
-        color: rgb(201, 201, 201);
+        color: rgb(53, 52, 52);
         font-size: 15px;
     }
 }
@@ -257,11 +261,12 @@ body {
 
     #home1,
     #about1,
-    #login1 {
+    #logoutAboutUs,
+    #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
-        color: #f4f4f4;
-    }
+        color: #f4f4f4
+}
 
     .custom-shape-divider-bottom-1687514102 {
         display: none;
