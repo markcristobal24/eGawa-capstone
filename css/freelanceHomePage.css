@@ -173,9 +173,7 @@
 }
 
 .item {
-    /* background-color: #0e8cc651; */
-    /* background-color: #0074aa95; */
-    background-color: #ddd;
+    background-color: #0074aa95;
     border-radius: 5px;
     border: 1px solid rgb(255, 255, 255);
     padding: 10px;
@@ -183,6 +181,14 @@
     display: flex;
     cursor: pointer;
     position: relative;
+  }
+
+.item:hover{
+    background-color: rgb(157, 157, 157);
+}
+
+  .item p, h3 {
+    color: #f4f4f4;
   }
 
 
@@ -193,9 +199,7 @@
    padding: 20px;
    width: 1000px;
 }
-#insideItem:hover{
-    background-color: rgb(157, 157, 157);
-}
+
 
 #uploadedImage{
     margin-left: auto;
@@ -207,10 +211,11 @@
 }
 
 .catalogTexts{
-    margin-left: 5px;
+   margin: auto 20px;
 }
 #catalogItemButton{
-    background-color: rgba(157, 157, 157, 0);
+    display: flex;
+    flex-direction: column  ;
     border: #0074aa00;
 }
 #catalogItemButton .btn{
@@ -218,11 +223,13 @@
 }
 
 #collapseExample{
-    margin-top: 18px;
+    margin-top: 10px;
+    margin-bottom: auto;
+    margin-right: 10px;
     position: absolute;
     top: 0;
     right: 0;
-    width: 200px;
+    width: 150px;
     z-index: 2;
 }
 
@@ -410,32 +417,33 @@ body {
         max-height: auto;
         border: 1px solid rgb(255, 255, 255);
     }
-    #insideItem{
+    .item{
         display: flex;
         flex-direction: column;
-        background-color: #0074aa95;
-        border: none;
-        padding: 20px;
-        width: 1000px;
-     }
+    }
 
-     #collapseExample {
-        margin-top: 18px;
-        position: absolute;
-        top: 0;
-        width: 200px;
-        z-index: 2;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        background-color: rgba(221, 221, 221, 0.765);
-        border-radius: 10px;
-      }
-      
+    .catalogImg, .catalogTexts{
+        margin: 10px auto 0 auto;
+    }
 
     #catalogItemButton{
+        display: flex;
+        flex-direction: row  ;
+        border: #0074aa00;
+    }
+    #editCatalogBtn{
+        max-width: 50%;
+    }
 
+    #deleteCatalogBtn{
+        max-width: 50%;
+    }
+    
+    #collapseExample{
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;   
     }
 
 
@@ -451,7 +459,8 @@ body {
 
     #home1,
     #about1,
-    #login1 {
+    #logout1,
+    #freeLanceInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;

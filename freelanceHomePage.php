@@ -2,11 +2,6 @@
 session_start();
 require dirname(__FILE__) . "/php/classes/DbConnection.php";
 
-if (!isset($_SESSION['email'])) {
-    header('location: error.php');
-    exit();
-}
-
 $email = $_SESSION['email'];
 $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
 $check_rows = mysqli_num_rows($sql);
@@ -88,10 +83,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         while ($row = $displayCatalog->fetch_assoc()) {
                             ?>
                             <div class="item">
-                                <div id="insideItem" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-
-
                                     <div class="catalogImg">
                                         <img class="imgWork"
                                             src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
@@ -105,18 +96,16 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                                         </p>
                                     </div>
 
-
-                                </div>
-                                <div class="collapse" id="collapseExample">
-                                    <div class="card card-body" id="catalogItemButton">
-                                        <button class="btn btn-primary">
-                                            Edit
-                                        </button>
-                                        <button class="btn btn-primary">
-                                            Delete
-                                        </button>
+                                    <div id="collapseExample">
+                                        <div id="catalogItemButton">
+                                            <button id="editCatalogBtn" class="btn btn-primary">
+                                                Edit
+                                            </button>
+                                            <button id="deleteCatalogBtn" class="btn btn-primary">
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
                             <?php
                         }
@@ -451,7 +440,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
                 <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn" onclick="toLogout();">
+                    <button type="button" class="btn btn-primary" id="logoutBtn">
                         Log Out
                     </button>
                     <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
