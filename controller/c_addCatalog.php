@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Image.php";
 
@@ -11,7 +12,9 @@ if (isset($_POST['btnAddCatalog'])) {
     $image_link = $catalogImg;
     if ($catalogImg != $_SESSION['current_imgCatalog']) {
         $upload_image = new Image();
-        $data = $upload_image->upload_image($catalogImg, $email, "egawa/freelancer/catalog/");
+        $generate_name = new Account();
+        $image_filename = $generate_name->generate_imageName(6);
+        $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
         $image_link = "v" . $data['version'] . "/" . $data['public_id'];
     }
 

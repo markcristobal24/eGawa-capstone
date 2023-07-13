@@ -67,8 +67,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
         <div class="div2">
             <div class="containerCatalog">
-                <div id="container">
-                    <!-- <div class="item" id="item-1" onclick="handleClick(this)">
+                <form action="">
+                    <div id="container">
+                        <!-- <div class="item" id="item-1" onclick="handleClick(this)">
                         <div class="catalogImg">
                             <img class="imgWork" src="img/working.png"  alt="Image 1">
                         </div>
@@ -77,41 +78,43 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             <p>Description 1</p>
                         </div>                        
                     </div> -->
-                    <?php
+                        <?php
                     $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
                     if ($displayCatalog->num_rows > 0) {
                         while ($row = $displayCatalog->fetch_assoc()) {
                             ?>
-                    <div class="item">
-                        <div class="catalogImg">
-                            <img class="imgWork"
-                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                        </div>
-                        <div class="catalogTexts">
-                            <h3>
-                                <?php echo $row['catalogTitle']; ?>
-                            </h3>
-                            <p>
-                                <?php echo $row['catalogDescription'] ?>
-                            </p>
-                        </div>
+                        <div class="item">
+                            <div class="catalogImg">
+                                <img class="imgWork"
+                                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                            </div>
+                            <div class="catalogTexts">
+                                <h3>
+                                    <?php echo $row['catalogTitle']; ?>
+                                </h3>
+                                <p>
+                                    <?php echo $row['catalogDescription'] ?>
+                                </p>
+                            </div>
 
-                        <div id="collapseExample">
-                            <div id="catalogItemButton">
-                                <button id="editCatalogBtn" class="btn btn-primary">
-                                    Edit
-                                </button>
-                                <button id="deleteCatalogBtn" class="btn btn-primary">
-                                    Delete
-                                </button>
+                            <div id="collapseExample">
+                                <div id="catalogItemButton">
+                                    <button id="editCatalogBtn" class="btn btn-primary">
+                                        Edit
+                                    </button>
+                                    <button id="deleteCatalogBtn" class="btn btn-primary">
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
                         }
                     }
                     ?>
-                </div>
+                    </div>
+                </form>
+
             </div>
             <div class="catalogButtons">
                 <button id="addCatalog" class="">Add Catalog</button>
