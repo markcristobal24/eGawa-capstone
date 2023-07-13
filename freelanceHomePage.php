@@ -82,32 +82,32 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     if ($displayCatalog->num_rows > 0) {
                         while ($row = $displayCatalog->fetch_assoc()) {
                             ?>
-                            <div class="item">
-                                    <div class="catalogImg">
-                                        <img class="imgWork"
-                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                    </div>
-                                    <div class="catalogTexts">
-                                        <h3>
-                                            <?php echo $row['catalogTitle']; ?>
-                                        </h3>
-                                        <p>
-                                            <?php echo $row['catalogDescription'] ?>
-                                        </p>
-                                    </div>
+                    <div class="item">
+                        <div class="catalogImg">
+                            <img class="imgWork"
+                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                        </div>
+                        <div class="catalogTexts">
+                            <h3>
+                                <?php echo $row['catalogTitle']; ?>
+                            </h3>
+                            <p>
+                                <?php echo $row['catalogDescription'] ?>
+                            </p>
+                        </div>
 
-                                    <div id="collapseExample">
-                                        <div id="catalogItemButton">
-                                            <button id="editCatalogBtn" class="btn btn-primary">
-                                                Edit
-                                            </button>
-                                            <button id="deleteCatalogBtn" class="btn btn-primary">
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
+                        <div id="collapseExample">
+                            <div id="catalogItemButton">
+                                <button id="editCatalogBtn" class="btn btn-primary">
+                                    Edit
+                                </button>
+                                <button id="deleteCatalogBtn" class="btn btn-primary">
+                                    Delete
+                                </button>
                             </div>
-                            <?php
+                        </div>
+                    </div>
+                    <?php
                         }
                     }
                     ?>
@@ -440,7 +440,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
                 <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn">
+                    <button type="button" class="btn btn-primary" id="logoutBtn" onclick="toLogout();">
                         Log Out
                     </button>
                     <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
