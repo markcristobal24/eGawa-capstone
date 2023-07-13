@@ -67,9 +67,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
         <div class="div2">
             <div class="containerCatalog">
-                <form onsubmit="event.preventDefault(); toDeleteCatalog(<?php echo $catalogId; ?>)">
-                    <div id="container">
-                        <!-- <div class="item" id="item-1" onclick="handleClick(this)">
+                <div id="container">
+                    <!-- <div class="item" id="item-1" onclick="handleClick(this)">
                         <div class="catalogImg">
                             <img class="imgWork" src="img/working.png"  alt="Image 1">
                         </div>
@@ -78,46 +77,44 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             <p>Description 1</p>
                         </div>                        
                     </div> -->
-                        <?php
-                        $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
-                        if ($displayCatalog->num_rows > 0) {
-                            while ($row = $displayCatalog->fetch_assoc()) {
-                                $catalogId = $row['catalog_id'];
-                                ?>
-                                <div class="item">
-                                    <div class="catalogImg">
-                                        <img class="imgWork"
-                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                    </div>
-                                    <div class="catalogTexts">
-                                        <h3>
-                                            <?php echo $row['catalogTitle']; ?>
-                                        </h3>
-                                        <p>
-                                            <?php echo $row['catalogDescription'] ?>
-                                        </p>
-                                    </div>
+                    <?php
+                    $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
+                    if ($displayCatalog->num_rows > 0) {
+                        while ($row = $displayCatalog->fetch_assoc()) {
+                            $catalogId = $row['catalog_id'];
+                            ?>
+                            <div class="item">
+                                <div class="catalogImg">
+                                    <img class="imgWork"
+                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                </div>
+                                <div class="catalogTexts">
+                                    <h3>
+                                        <?php echo $row['catalogTitle']; ?>
+                                    </h3>
+                                    <p>
+                                        <?php echo $row['catalogDescription'] ?>
+                                    </p>
+                                </div>
 
-                                    <div id="collapseExample">
-                                        <div id="catalogItemButton">
-                                            <button type="submit" id="deleteCatalogBtn" class="btn btn-primary"
-                                                name="btnDeleteCatalog" value="<?php echo $catalogId; ?>">
-                                                Delete
-                                            </button>
-                                            <button type="button" id="editCatalogBtn" class="btn btn-primary">
-                                                Edit
-                                            </button>
+                                <div id="collapseExample">
+                                    <div id="catalogItemButton">
+                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                            Delete
+                                        </button>
+                                        <button type="button" id="editCatalogBtn" class="btn btn-primary">
+                                            Edit
+                                        </button>
 
-                                        </div>
                                     </div>
                                 </div>
-                                <?php
-                            }
+                            </div>
+                            <?php
                         }
-                        ?>
-                    </div>
-                </form>
-
+                    }
+                    ?>
+                </div>
             </div>
             <div class="catalogButtons">
                 <button id="addCatalog" class="">Add Catalog</button>
@@ -482,6 +479,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/createNewDiv.js"></script>
+    <script src="js/Catalog.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>

@@ -43,5 +43,18 @@ class Account extends DbClass
 
         return $randomString;
     }
+
+    public function delete_catalog($catalog_id)
+    {
+        $query = $this->connect()->prepare("DELETE FROM catalog WHERE catalog_id = :catalog_id");
+        $result = $query->execute([':catalog_id' => $catalog_id]);
+
+        if ($result) {
+            $output['success'] = 'Catalog Deleted Successfully';
+        } else {
+            $output['error'] = 'Something went wrong! Please try again later.';
+        }
+        echo json_encode($output);
+    }
 }
 ?>

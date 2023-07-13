@@ -10,13 +10,13 @@ if (isset($_POST['btnAddCatalog'])) {
     $catalogImg = $_FILES['catalogImg']['tmp_name'];
 
     $image_link = $catalogImg;
-    if ($catalogImg != $_SESSION['current_imgCatalog']) {
-        $upload_image = new Image();
-        $generate_name = new Account();
-        $image_filename = $generate_name->generate_imageName(6);
-        $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
-        $image_link = "v" . $data['version'] . "/" . $data['public_id'];
-    }
+
+    $upload_image = new Image();
+    $generate_name = new Account();
+    $image_filename = $generate_name->generate_imageName(6);
+    $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
+    $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+
 
     $catalogTitle = $_POST['catalogTitle'];
     $catalogDesc = $_POST['catalogDesc'];
@@ -34,15 +34,16 @@ if (isset($_POST['btnAddCatalog'])) {
         $stmt->execute();
 
         ?>
-<script>
-window.location.replace('../freelanceHomePage.php');
-</script>
-<?php
+        <script>
+            window.location.replace('../freelanceHomePage.php');
+        </script>
+        <?php
     }
 }
 
-if(isset($_POST['btnDeleteCatalog'])) {
-    $catalog_id = $_POST['btnDeleteCatalog'];
-    $result = mysqli_query($con, "DELETE FROM catalog WHERE catalog_id = '$catalog_id'");
+if (isset($_POST['delete_catalog'])) {
+    $catalog_id = $_POST['catalog_id'];
+    $catalog = new Account();
+    $catalog->delete_catalog($catalog_id);
 }
 ?>
