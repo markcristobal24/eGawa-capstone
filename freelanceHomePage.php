@@ -84,34 +84,34 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             while ($row = $displayCatalog->fetch_assoc()) {
                                 $catalogId = $row['catalog_id'];
                                 ?>
-                        <div class="item">
-                            <div class="catalogImg">
-                                <img class="imgWork"
-                                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                            </div>
-                            <div class="catalogTexts">
-                                <h3>
-                                    <?php echo $row['catalogTitle']; ?>
-                                </h3>
-                                <p>
-                                    <?php echo $row['catalogDescription'] ?>
-                                </p>
-                            </div>
+                                <div class="item">
+                                    <div class="catalogImg">
+                                        <img class="imgWork"
+                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                    </div>
+                                    <div class="catalogTexts">
+                                        <h3>
+                                            <?php echo $row['catalogTitle']; ?>
+                                        </h3>
+                                        <p>
+                                            <?php echo $row['catalogDescription'] ?>
+                                        </p>
+                                    </div>
 
-                            <div id="collapseExample">
-                                <div id="catalogItemButton">
-                                    <button type="submit" id="deleteCatalogBtn" class="btn btn-primary"
-                                        name="btnDeleteCatalog" value="<?php echo $catalogId; ?>">
-                                        Delete
-                                    </button>
-                                    <button type="button" id="editCatalogBtn" class="btn btn-primary">
-                                        Edit
-                                    </button>
+                                    <div id="collapseExample">
+                                        <div id="catalogItemButton">
+                                            <button type="submit" id="deleteCatalogBtn" class="btn btn-primary"
+                                                name="btnDeleteCatalog" value="<?php echo $catalogId; ?>">
+                                                Delete
+                                            </button>
+                                            <button type="button" id="editCatalogBtn" class="btn btn-primary">
+                                                Edit
+                                            </button>
 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <?php
+                                <?php
                             }
                         }
                         ?>
@@ -482,7 +482,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/createNewDiv.js"></script>
-    <script src="js/Catalog.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>
