@@ -189,6 +189,7 @@
 
   .item p, h3 {
     color: #f4f4f4;
+    text-align: justify;
   }
 
 
@@ -212,6 +213,7 @@
 
 .catalogTexts{
    margin: auto 20px;
+   width: 400px;
 }
 #catalogItemButton{
     display: flex;
@@ -221,6 +223,7 @@
 #catalogItemButton .btn{
     margin: 5px;
 }
+
 
 #collapseExample{
     margin-top: 10px;
@@ -426,17 +429,21 @@ body {
         margin: 10px auto 0 auto;
     }
 
+    .catalogTexts{
+        width: 300px;
+     }
+
     #catalogItemButton{
         display: flex;
         flex-direction: row  ;
         border: #0074aa00;
     }
     #editCatalogBtn{
-        max-width: 50%;
+
     }
 
     #deleteCatalogBtn{
-        max-width: 50%;
+
     }
     
     #collapseExample{
@@ -445,6 +452,8 @@ body {
         margin-right: auto;
         width: 150px;   
     }
+
+
 
 
     .footerInfo {
