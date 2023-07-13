@@ -174,7 +174,8 @@
 
 .item {
     /* background-color: #0e8cc651; */
-    background-color: #0074aa95;
+    /* background-color: #0074aa95; */
+    background-color: #ddd;
     border-radius: 5px;
     border: 1px solid rgb(255, 255, 255);
     padding: 10px;
@@ -182,9 +183,17 @@
     display: flex;
     cursor: pointer;
   }
-.item:hover{
+/* .item:hover{
     background-color: rgb(157, 157, 157);
+} */
+#insideItem{
+   display: flex;
+    background-color: #0074aa95;
+   border: none;
+   height: 150px;
+   width: 700px;
 }
+
 #uploadedImage{
     margin-left: auto;
     margin-right: auto;
@@ -196,6 +205,13 @@
 
 .catalogTexts{
     margin-left: 5px;
+}
+#catalogItemButton{
+    background-color: rgba(157, 157, 157, 0);
+    border: #0074aa00;
+}
+#catalogItemButton .btn{
+    margin: 5px;
 }
 
 .imgWork {

@@ -75,8 +75,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <div class="catalogTexts">
                             <h3>Title 1</h3>
                             <p>Description 1</p>
-                        </div>
-                        
+                        </div>                        
                     </div> -->
                     <?php
                     $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
@@ -84,17 +83,34 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         while ($row = $displayCatalog->fetch_assoc()) {
                             ?>
                             <div class="item">
-                                <div class="catalogImg">
-                                    <img class="imgWork"
-                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                <div id="insideItem" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+
+
+                                    <div class="catalogImg">
+                                        <img class="imgWork"
+                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                    </div>
+                                    <div class="catalogTexts">
+                                        <h3>
+                                            <?php echo $row['catalogTitle']; ?>
+                                        </h3>
+                                        <p>
+                                            <?php echo $row['catalogDescription'] ?>
+                                        </p>
+                                    </div>
+
+
                                 </div>
-                                <div class="catalogTexts">
-                                    <h3>
-                                        <?php echo $row['catalogTitle']; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $row['catalogDescription'] ?>
-                                    </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body" id="catalogItemButton">
+                                        <button class="btn btn-primary">
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-primary">
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <?php
