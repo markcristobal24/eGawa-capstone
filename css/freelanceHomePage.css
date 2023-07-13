@@ -425,7 +425,8 @@ body {
         flex-direction: column;
     }
 
-    .catalogImg, .catalogTexts{
+    .catalogImg, 
+    .catalogTexts{
         margin: 10px auto 0 auto;
     }
 
