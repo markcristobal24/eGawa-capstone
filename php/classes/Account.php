@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once dirname(__FILE__) . "/DbClass.php";
 
 class Account extends DbClass

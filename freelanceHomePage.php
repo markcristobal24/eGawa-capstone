@@ -67,7 +67,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
         <div class="div2">
             <div class="containerCatalog">
-                <form action="">
+                <form onsubmit="event.preventDefault(); toDeleteCatalog(<?php echo $catalogId; ?>)">
                     <div id="container">
                         <!-- <div class="item" id="item-1" onclick="handleClick(this)">
                         <div class="catalogImg">
@@ -79,10 +79,11 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         </div>                        
                     </div> -->
                         <?php
-                    $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
-                    if ($displayCatalog->num_rows > 0) {
-                        while ($row = $displayCatalog->fetch_assoc()) {
-                            ?>
+                        $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
+                        if ($displayCatalog->num_rows > 0) {
+                            while ($row = $displayCatalog->fetch_assoc()) {
+                                $catalogId = $row['catalog_id'];
+                                ?>
                         <div class="item">
                             <div class="catalogImg">
                                 <img class="imgWork"
@@ -99,19 +100,21 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
                             <div id="collapseExample">
                                 <div id="catalogItemButton">
-                                    <button id="editCatalogBtn" class="btn btn-primary">
-                                        Edit
-                                    </button>
-                                    <button id="deleteCatalogBtn" class="btn btn-primary">
+                                    <button type="submit" id="deleteCatalogBtn" class="btn btn-primary"
+                                        name="btnDeleteCatalog" value="<?php echo $catalogId; ?>">
                                         Delete
                                     </button>
+                                    <button type="button" id="editCatalogBtn" class="btn btn-primary">
+                                        Edit
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
                         <?php
+                            }
                         }
-                    }
-                    ?>
+                        ?>
                     </div>
                 </form>
 
@@ -369,7 +372,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3>Add Catalog</h3>
                 </div>
 
-                <form action="controller/c_addCatalog.php" method="POST" enctype="multipart/form-data" required>
+                <form action="controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -454,6 +457,24 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         </div>
     </div>
 
+    <div class="modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Proceed to Delete?</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="deleteModalMessage" class="p-4"> Are you sure you want to delete the selected game?</div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="deleteNo" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" id="deleteYes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -461,6 +482,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/createNewDiv.js"></script>
+    <script src="js/Catalog.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>

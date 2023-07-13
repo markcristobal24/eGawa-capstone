@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Image.php";
@@ -34,10 +34,15 @@ if (isset($_POST['btnAddCatalog'])) {
         $stmt->execute();
 
         ?>
-        <script>
-            window.location.replace('../freelanceHomePage.php');
-        </script>
-        <?php
+<script>
+window.location.replace('../freelanceHomePage.php');
+</script>
+<?php
     }
+}
+
+if(isset($_POST['btnDeleteCatalog'])) {
+    $catalog_id = $_POST['btnDeleteCatalog'];
+    $result = mysqli_query($con, "DELETE FROM catalog WHERE catalog_id = '$catalog_id'");
 }
 ?>
