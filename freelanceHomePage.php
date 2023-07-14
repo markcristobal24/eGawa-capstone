@@ -2,6 +2,11 @@
 session_start();
 require dirname(__FILE__) . "/php/classes/DbConnection.php";
 
+if (!isset($_SESSION['email'])) {
+    header('location: login.php');
+    die();
+}
+
 $email = $_SESSION['email'];
 $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
 $check_rows = mysqli_num_rows($sql);
