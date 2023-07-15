@@ -7,6 +7,8 @@ if (!isset($_SESSION['email'])) {
     die();
 }
 
+
+
 $email = $_SESSION['email'];
 $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
 $check_rows = mysqli_num_rows($sql);
@@ -60,6 +62,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                     </li>
+
+
+
                     <li class="nav-item">
                         <a id="logout1" class="nav-link" href="#">Logout</a>
                     </li>
@@ -88,35 +93,37 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         while ($row = $displayCatalog->fetch_assoc()) {
                             $catalogId = $row['catalog_id'];
                             ?>
-                            <div class="item">
-                                <div class="catalogImg">
-                                    <img class="imgWork"
-                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                </div>
-                                <div class="catalogTexts">
-                                    <h3>
-                                        <?php echo $row['catalogTitle']; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $row['catalogDescription'] ?>
-                                    </p>
-                                </div>
+                    <div class="item">
+                        <div class="catalogImg">
+                            <img class="imgWork"
+                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                        </div>
+                        <div class="catalogTexts">
+                            <h3>
+                                <?php echo $row['catalogTitle']; ?>
+                            </h3>
+                            <p>
+                                <?php echo $row['catalogDescription'] ?>
+                            </p>
+                        </div>
 
-                                <div id="collapseExample">
-                                    <div id="catalogItemButton">
-                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                            Delete
-                                        </button>
-                                        <button type="button" id="editCatalogBtn" class="btn btn-primary">
-                                            Edit
-                                        </button>
+                        <div id="collapseExample">
+                            <div id="catalogItemButton">
+                                <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                    id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                    Delete
+                                </button>
+                                <button type="button" id="editCatalogBtn" class="btn btn-primary">
+                                    Edit
+                                </button>
 
-                                    </div>
-                                </div>
                             </div>
-                            <?php
+                        </div>
+                    </div>
+                    <?php
                         }
+                    } else {
+                        echo "<h1>There is no catalog to display</h1>";
                     }
                     ?>
                 </div>
