@@ -387,7 +387,9 @@ body {
 }
 
 /*==========================END OF MODAL - VIEW MORE============================*/
-#uploadedEditImage, #uploadedEditImageCatalog{
+#uploadedEditImage, 
+#uploadedEditImageCatalog, 
+#uploadedImageCatalog{
     margin-left: auto;
     margin-right: auto;
 }
