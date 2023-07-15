@@ -126,3 +126,22 @@ edit.addEventListener('click', function () {
         $('#modalEditAccount').modal('hide');
     });
 });
+
+//==FOR EDIT CATALOG MODAL=====================================
+var editCatalog = document.getElementById('editCatalogBtn');
+editCatalog.addEventListener('click', function () {
+    $('#modalFreelanceEditCatalog').modal('show');
+    $('#cancelEditCatalog').on("click", function (e) {
+        $('#modalFreelanceEditCatalog').modal('hide');
+    });
+});
+
+//for image upload in EDIT CATALOG MODAL
+function catalogEditImgUp(event) {
+  reader.onload = function () {
+      var uploadedImageEditCatalog = document.getElementById('uploadedEditImageCatalog');
+      uploadedImageEditCatalog.src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+

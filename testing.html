@@ -4,43 +4,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Collapse Example</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Dropdown Menu Example</title>
+
+  <style>
+    /* Dropdown button styles */
+    .dropdown-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Dropdown container -->
+  <div class="dropdown">
+    <!-- Dropdown button -->
+    <button class="dropdown-btn">Dropdown</button>
+    <!-- Dropdown content -->
+    <div class="dropdown-content">
+      <a href="#">Option 1</a>
+      <a href="#">Option 2</a>
+      <a href="#">Option 3</a>
+    </div>
+  </div>
 
-                      <div class="item" id="item-1">
-                        <div class="catalogImg">
-                            <img class="imgWork" src="img/working.png"  alt="Image 1">
-                        </div>
-                        <div class="catalogTexts">
-                            <h3>Title 1</h3>
-                            <p>Description 1</p>
-                        </div>                        
-                      </div>
+  <!-- Your page content here -->
 
-                      <div class="container mt-5">
-                        <p>
-                          <div class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Link with href
-                          </div>
-                          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            Button with data-bs-target
-                          </button>
-                        </p>
-                        <div class="collapse" id="collapseExample">
-                          <div class="card card-body">
-                            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
-                            activates the relevant trigger.
-                          </div>
-                        </div>
-                      </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.0.js"
-      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script></body>
+</body>
 
 </html>

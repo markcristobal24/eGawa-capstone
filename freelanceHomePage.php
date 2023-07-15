@@ -40,6 +40,12 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
     <title>eGawa | Freelance Homepage</title>
 
+    <style>
+
+    </style>
+
+
+
 </head>
 
 <body>
@@ -62,11 +68,16 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                     </li>
-
-
-
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a id="logout1" class="nav-link" href="#">Logout</a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a  id="freelanceOption" class="nav-link" href="#">Welcome, <span>Arvin</span></a>
+                        <div class="dropdown-content">
+                        <a href="#">Edit Email</a>
+                        <a href="#">Edit Password</a>
+                        <a id="logout1" href="#">Logout</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -298,7 +309,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Edit Profile</h3>
+                    <h3 class="modalTitles">Edit Profile</h3>
                 </div>
 
                 <form action="" required>
@@ -317,12 +328,12 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             placeholder="Edit your address" required>
                         <label id="editAddressLabel" for="editAddress">Edit your address</label>
                     </div>
-                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                        <!-- Gap on all sides is 2 -->
+
+                    <!-- <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
                         <input type="text" id="editEmailAddress" name="editEmailAddress" class="form-control"
                             placeholder="Edit your email address" required>
                         <label id="editEmailAddressLabel" for="editEmailAddress">Edit your email address</label>
-                    </div>
+                    </div> -->
 
 
                     <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
@@ -378,7 +389,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Add Catalog</h3>
+                    <h3 class="modalTitles">Add Catalog</h3>
                 </div>
 
                 <form action="controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
@@ -419,6 +430,58 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
         </div>
     </div>
+
+
+
+
+
+    <!--Modal for Freelancer EDITING CATALOG-->
+    <div class="modal fade" id="modalFreelanceEditCatalog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modalTitles">Edit Catalog</h3>
+                </div>
+
+                <form action="controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
+                    <div id="imgUpl">
+                        <label class="labelImage" for="uploadInput">Edit Catalog Picture</label>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedEditImageCatalog" src="img/upload.png" alt="Uploaded Image" height="200">
+                        </div>
+                        <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                            onchange="catalogEditImgUp(event)" required>
+                    </div>
+
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <input type="text" id="catalogTitleEdit" name="catalogTitleEdit" class="form-control"
+                            placeholder="Enter New Catalog Title" required>
+                        <label id="newCatalogTitleLabel" for="companyName">Enter New Catalog Title</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <textarea class="form-control" id="catalogEditDescription" name="catalogEditDescription" rows="10"
+                            placeholder="Enter New Catalog Description" required></textarea>
+
+                        <label id="catalogDescriptionLabel" for="catalogDescription">Enter New Catalog Description</label>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit" name="btnAddCatalog" class="btn btn-primary" id="submitEditCatalog">
+                            Submit
+                        </button>
+                        <button class="btn btn-secondary" id="cancelEditCatalog">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 
 
