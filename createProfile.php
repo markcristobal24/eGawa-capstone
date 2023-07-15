@@ -135,7 +135,8 @@
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
+                    <button type="submit" id="btnFreelanceProfile" name="btnCreateFreelanceProfile"
+                        class="btn btn-primary">
                         Continue
                     </button>
                     <button class="btn btn-secondary">
