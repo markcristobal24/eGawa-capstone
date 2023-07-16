@@ -23,11 +23,18 @@ class Account extends DbClass
             $data['imageProfile'] = $row['imageProfile'];
         }
 
+        $result3 = $query3 = $this->connect()->prepare("SELECT * FROM catalog WHERE email = :email");
+        $query3->execute([':email' => $email]);
+        foreach ($result3 as $row) {
+            $data['catalog_id'] = $row['catalog_id'];
+        }
+
         $_SESSION['account_id'] = $data['account_id'];
         $_SESSION['username'] = $data['username'];
         $_SESSION['email'] = $data['email'];
         $_SESSION['firstName'] = $data['firstName'];
         $_SESSION['imageProfile'] = $data['imageProfile'];
+        //$_SESSION['catalogId'] = $data['catalog_id'];
         echo json_encode($data);
 
     }

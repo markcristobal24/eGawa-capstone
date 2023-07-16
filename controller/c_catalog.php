@@ -46,4 +46,47 @@ if (isset($_POST['delete_catalog'])) {
     $catalog = new Account();
     $catalog->delete_catalog($catalog_id);
 }
+
+if (isset($_POST['sessionValue'])) {
+    $_SESSION['catalogId'] = $_POST['sessionValue'];
+
+    $response = 'Success';
+    echo json_encode($response);
+} else {
+    echo "Error";
+}
+
+if (isset($_POST['edit_catalog'])) {
+    $catalog_id = $_POST['catalog_id'];
+
+    $new_catalogImg = $_FILES['catalogImg']['tmp_name'];
+    $image_link = $new_catalogImg;
+    $upload_image = new Image();
+    $generate_name = new Account();
+    $image_filename = $generate_name->generate_imageName(6);
+    $data = $upload_image->upload_image($new_catalogImg, $image_filename, "egawa/freelancer/catalog/");
+    $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+
+    $new_catalogTitle = $_POST['catalogTitleEdit'];
+
+    $new_catalogDesc = $_POST['catalogEditDescription'];
+    $new_catalogDesc = trim($new_catalogDesc);
+    $new_catalogDesc = htmlspecialchars($new_catalogDesc);
+
+    $sql = mysqli_query($con, "SELECT * FROM catalog WHERE catalog_id = '$catalog_id'");
+    if ($sql->num_rows > 0) {
+        $result = $con->prepare("UPDATE catalog SET catalogImage = ?, catalogTitle = ?, catalogDescription = ? WHERE catalog_id = ?");
+        $result->bind_param("ssss", $image_link, $new_catalogTitle, $new_catalogDesc, $catalog_id);
+        $result->execute();
+        if ($result) {
+            $response = array('success' => true, 'message' => 'Catalog updated successfully.');
+
+        } else {
+            $response = array('success' => false, 'message' => 'Error updating catalog.');
+
+        }
+
+        echo json_encode($response);
+    }
+}
 ?>

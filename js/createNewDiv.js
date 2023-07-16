@@ -1,5 +1,6 @@
-let counter = 1;
 var reader = new FileReader();
+/*let counter = 1;
+
 
 function handleClick(element) {
   var itemId = element.id;
@@ -12,7 +13,7 @@ function addContainer() {
   var imageInput = document.getElementById('uploadInput');
   var catalogTitle = document.getElementById('catalogTitle').value;
   var catalogDescription = document.getElementById('catalogDescription').value;
-  
+
   // Check if an image is uploaded
   if (imageInput.files.length === 0 || catalogTitle.trim() === '' || catalogDescription.trim() === '') {
 
@@ -20,54 +21,54 @@ function addContainer() {
 
   } else {
 
-      // Create a new item div
-      var newItem = document.createElement('div');
-      newItem.className = 'item';
-      newItem.id = 'item-' + counter;
-      newItem.onclick = function () {
-        handleClick(this);
-      };
+    // Create a new item div
+    var newItem = document.createElement('div');
+    newItem.className = 'item';
+    newItem.id = 'item-' + counter;
+    newItem.onclick = function () {
+      handleClick(this);
+    };
 
-      //this 2 divs will be appended inside the div created above
-      var newCatalogImgDiv = document.createElement('div');
-      newCatalogImgDiv.className = 'catalogImg';
+    //this 2 divs will be appended inside the div created above
+    var newCatalogImgDiv = document.createElement('div');
+    newCatalogImgDiv.className = 'catalogImg';
 
-      var catalogTextsDiv = document.createElement('div');
-      catalogTextsDiv.className = 'catalogTexts';
+    var catalogTextsDiv = document.createElement('div');
+    catalogTextsDiv.className = 'catalogTexts';
 
 
-      // Create elements for image, title, and description
-      var newImage = document.createElement('img');
-      // newImage.src = 'img/working.png';
-      newImage.src = reader.result;
-      newImage.className = 'imgWork';
-      newImage.alt = 'New Image';
+    // Create elements for image, title, and description
+    var newImage = document.createElement('img');
+    // newImage.src = 'img/working.png';
+    newImage.src = reader.result;
+    newImage.className = 'imgWork';
+    newImage.alt = 'New Image';
 
-      var newTitle = document.createElement('h3');
-      var catalogTitle = document.getElementById('catalogTitle').value;
-      newTitle.textContent = catalogTitle;
+    var newTitle = document.createElement('h3');
+    var catalogTitle = document.getElementById('catalogTitle').value;
+    newTitle.textContent = catalogTitle;
 
-      var newDescription = document.createElement('p');
-      var catalogDescription = document.getElementById('catalogDescription').value;
-      newDescription.textContent = catalogDescription;
+    var newDescription = document.createElement('p');
+    var catalogDescription = document.getElementById('catalogDescription').value;
+    newDescription.textContent = catalogDescription;
 
-      // Append elements to the new item div
-      newCatalogImgDiv.appendChild(newImage);
-      newItem.appendChild(newCatalogImgDiv);
-      catalogTextsDiv.appendChild(newTitle);
-      catalogTextsDiv.appendChild(newDescription);
-      newItem.appendChild(catalogTextsDiv);
+    // Append elements to the new item div
+    newCatalogImgDiv.appendChild(newImage);
+    newItem.appendChild(newCatalogImgDiv);
+    catalogTextsDiv.appendChild(newTitle);
+    catalogTextsDiv.appendChild(newDescription);
+    newItem.appendChild(catalogTextsDiv);
 
-      // Append the new item div to the container
-      container.appendChild(newItem);
+    // Append the new item div to the container
+    container.appendChild(newItem);
 
-      counter++;
-      $('#modalFreelanceAddCatalog').modal('hide');
+    counter++;
+    $('#modalFreelanceAddCatalog').modal('hide');
 
-      clearInputs();
+    clearInputs();
   }
 
-}
+}*/
 
 
 
@@ -93,8 +94,8 @@ function clearInputs() {
 //for image upload in catalog
 function catalogImgUp(event) {
   reader.onload = function () {
-      var uploadedImagecatalog = document.getElementById('uploadedImageCatalog');
-      uploadedImagecatalog.src = reader.result;
+    var uploadedImagecatalog = document.getElementById('uploadedImageCatalog');
+    uploadedImagecatalog.src = reader.result;
   }
   reader.readAsDataURL(event.target.files[0]);
 }
@@ -102,8 +103,8 @@ function catalogImgUp(event) {
 //for image upload in EDIT PROFILE
 function editImgUp(event) {
   reader.onload = function () {
-      var uploadedImageEdit = document.getElementById('uploadedEditImage');
-      uploadedImageEdit.src = reader.result;
+    var uploadedImageEdit = document.getElementById('uploadedEditImage');
+    uploadedImageEdit.src = reader.result;
   }
   reader.readAsDataURL(event.target.files[0]);
 }
@@ -112,36 +113,59 @@ function editImgUp(event) {
 
 var catalog = document.getElementById('addCatalog');
 catalog.addEventListener('click', function () {
-    $('#modalFreelanceAddCatalog').modal('show');
-    $('#cancelSubmit').on("click", function (e) {
-        $('#modalFreelanceAddCatalog').modal('hide');
-    });
+  $('#modalFreelanceAddCatalog').modal('show');
+  $('#cancelSubmit').on("click", function (e) {
+    $('#modalFreelanceAddCatalog').modal('hide');
+  });
 });
 
 
 var edit = document.getElementById('editFreelanceAcc');
 edit.addEventListener('click', function () {
-    $('#modalEditAccount').modal('show');
-    $('#cancelEdit').on("click", function (e) {
-        $('#modalEditAccount').modal('hide');
-    });
+  $('#modalEditAccount').modal('show');
+  $('#cancelEdit').on("click", function (e) {
+    $('#modalEditAccount').modal('hide');
+  });
 });
 
 //==FOR EDIT CATALOG MODAL=====================================
 var editCatalog = document.getElementById('editCatalogBtn');
+let catalogId = editCatalog.getAttribute('data-parameter');
 editCatalog.addEventListener('click', function () {
-    $('#modalFreelanceEditCatalog').modal('show');
-    $('#cancelEditCatalog').on("click", function (e) {
-        $('#modalFreelanceEditCatalog').modal('hide');
-    });
+
+  $('#modalFreelanceEditCatalog').modal('show');
+  let title = document.getElementById('catalogTitleEdit').value = catalogId;
+  $('#cancelEditCatalog').on("click", function (e) {
+    $('#modalFreelanceEditCatalog').modal('hide');
+  });
 });
 
 //for image upload in EDIT CATALOG MODAL
 function catalogEditImgUp(event) {
   reader.onload = function () {
-      var uploadedImageEditCatalog = document.getElementById('uploadedEditImageCatalog');
-      uploadedImageEditCatalog.src = reader.result;
+    var uploadedImageEditCatalog = document.getElementById('uploadedEditImageCatalog');
+    uploadedImageEditCatalog.src = reader.result;
   }
   reader.readAsDataURL(event.target.files[0]);
+}
+
+function edit_catalog() {
+  // var editCatalog = document.getElementById('editCatalogBtn');
+  const title = document.getElementById('catalogTitleEdit');
+  //title.value = catalog_id;
+  $('#modalFreelanceEditCatalog').modal('show');
+
+  $('#cancelEditCatalog').on("click", function (e) {
+    $('#modalFreelanceEditCatalog').modal('hide');
+  });
+  //let catalogId = editCatalog.getAttribute('data-parameter');
+  /*editCatalog.addEventListener('click', function () {
+    
+    
+  });*/
+}
+
+function getConsole(catalogId) {
+  console.log(catalogId);
 }
 
