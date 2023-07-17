@@ -129,16 +129,7 @@ edit.addEventListener('click', function () {
 });
 
 //==FOR EDIT CATALOG MODAL=====================================
-var editCatalog = document.getElementById('editCatalogBtn');
-let catalogId = editCatalog.getAttribute('data-parameter');
-editCatalog.addEventListener('click', function () {
 
-  $('#modalFreelanceEditCatalog').modal('show');
-  let title = document.getElementById('catalogTitleEdit').value = catalogId;
-  $('#cancelEditCatalog').on("click", function (e) {
-    $('#modalFreelanceEditCatalog').modal('hide');
-  });
-});
 
 //for image upload in EDIT CATALOG MODAL
 function catalogEditImgUp(event) {

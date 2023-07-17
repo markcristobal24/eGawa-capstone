@@ -120,6 +120,12 @@ function toLogout() {
     xhr.send();
 }
 
+function reloadWithModal() {
+    localStorage.setItem('showModalFlag', 'true');
+
+    location.reload();
+}
+
 
 
 

@@ -57,7 +57,7 @@ class Account extends DbClass
         $result = $query->execute([':catalog_id' => $catalog_id]);
 
         if ($result) {
-            $output['success'] = 'Catalog Deleted Successfully';
+            $output['success'] = "CatalogDeletedSuccessfully";
         } else {
             $output['error'] = 'Something went wrong! Please try again later.';
         }

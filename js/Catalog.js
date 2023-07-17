@@ -2,7 +2,7 @@ class Catalog {
 
     delete_catalog(catalog_id) {
         if (confirm("Are you sure you want to delete it?")) {
-            let form_data = new FormData();
+            var form_data = new FormData();
             form_data.append('catalog_id', catalog_id);
             form_data.append('delete_catalog', 'delete_catalog');
             fetch('controller/c_catalog.php', {
@@ -27,7 +27,7 @@ class Catalog {
             type: "POST",
             data: { sessionValue: catalog_id },
             success: function (response) {
-                edit_catalog();
+                // reloadWithModal();
             },
             error: function () {
                 alert("Something went wrong!");

@@ -34,10 +34,10 @@ if (isset($_POST['btnAddCatalog'])) {
         $stmt->execute();
 
         ?>
-        <script>
-            window.location.replace('../freelanceHomePage.php');
-        </script>
-        <?php
+<script>
+window.location.replace('../freelanceHomePage.php');
+</script>
+<?php
     }
 }
 
@@ -53,7 +53,7 @@ if (isset($_POST['sessionValue'])) {
     $response = 'Success';
     echo json_encode($response);
 } else {
-    echo "Error";
+    // echo "Error";
 }
 
 if (isset($_POST['edit_catalog'])) {

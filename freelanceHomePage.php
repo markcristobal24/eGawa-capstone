@@ -133,7 +133,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                                     Delete
                                 </button>
 
-                                <button type="button" onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>)"
+                                <button type="button"
+                                    onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
                                     id="editCatalogBtn" class="btn btn-primary">
                                     Edit
                                 </button>
@@ -150,7 +151,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
             </div>
             <div class="catalogButtons">
-                <?php echo $_SESSION['catalogId']; ?>
+
                 <button id="addCatalog" class="">Add Catalog</button>
             </div>
         </div>
@@ -483,8 +484,10 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 
                     <div class="modal-footer">
-                        <button type="button"
-                            onclick="new Catalog().edit_catalog(<?php echo $_SESSION['catalogId']; ?>)"
+                        <?php
+                        $catalogId = $_SESSION['catalogId'];
+                        ?>
+                        <button type="button" onclick="new Catalog().edit_catalog(<?php echo $catalogId; ?>)"
                             name="btnEditCatalog" class="btn btn-primary" id="submitEditCatalog">
                             Submit
                         </button>
@@ -573,6 +576,21 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
     <script src="js/freelance.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var flag = localStorage.getItem('showModalFlag');
+
+        if (flag === 'true') {
+            var isReloaded = performance.navigation.type === 1;
+
+            if (isReloaded) {
+                edit_catalog();
+                localStorage.removeItem('showModalFlag');
+            }
+        }
+    });
+    </script>
 </body>
+
 
 </html>
