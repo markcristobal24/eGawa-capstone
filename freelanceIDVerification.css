@@ -143,7 +143,7 @@ body {
     .containerIDVerification{
         max-width: 1200px;
         max-height: auto;
-        margin: 0 15%;
+        margin: 0 auto;
         padding: 20px;
         border: 1px solid rgb(255, 255, 255);
         background-color: #ddd;
