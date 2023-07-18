@@ -101,20 +101,20 @@
         </div>
     </footer>
 
-        <!---Modal Login-->
-        <div class="modal fade" id="loginModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Warning!</h5>
-                    </div>
-                    <div class="modal-body" id="modal-body">Body</div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="confirm">Ok</button>
-                    </div>
+    <!---Modal Login-->
+    <div class="modal fade" id="loginModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Warning!</h5>
+                </div>
+                <div class="modal-body" id="modal-body">Body</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirm">Ok</button>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

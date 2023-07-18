@@ -46,4 +46,47 @@ if (isset($_POST['btnFchangeEmail'])) {
 <?php
     }
 }
+
+if (isset($_POST['btnFchangePass'])) {
+    $email_identifier = $_SESSION['email'];
+
+    $old_pass = $_POST['currentPass'];
+    $new_pass = $_POST['newPass'];
+    $reNew_pass = $_POST['newPass2'];
+
+    $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email_identifier'");
+    if ($sql->num_rows > 0) {
+        if ($new_pass !== $reNew_pass) {
+            ?>
+    <script>
+        alert('Password was not matched!');
+        window.location.replace('../freelanceChangePass.php');
+    </script>
+    <?php
+        } else {
+            $row = $sql->fetch_assoc();
+            if ($old_pass !== $row['password']) {
+                ?>
+            <script>
+                alert('Incorrect password! Please try again.');
+                window.location.replace('../freelanceChangePass.php');
+            </script>
+            <?php
+            } else {
+                $stmt = $con->prepare("UPDATE account SET password = ? WHERE email = ?");
+                $stmt->bind_param("ss", $new_pass, $email_identifier);
+                $stmt->execute();
+
+                if ($stmt) {
+                    ?>
+                    <script>
+                        window.location.replace('../freelanceHomePage.php');
+                        alert('Password has been changed.');
+                    </script>
+                    <?php
+                }
+            }
+        }
+    }
+}
 ?>

@@ -59,7 +59,7 @@
 
 
     <div class="containerChangePass">
-        <form action="" method="post">
+        <form action="controller/c_Faccount.php" method="POST">
             <h1 class="">Change Password</h1>
 
             <div class="form-floating mb-3">
@@ -74,8 +74,15 @@
                 <label for="newPass">Enter New Password</label>
             </div>
 
+            <div class="form-floating mb-3">
+                <input type="password" id="newPass2" name="newPass2" class="form-control"
+                    placeholder="Enter Current password" required />
+                <label for="newPass">Re-enter New Password</label>
+            </div>
+
+
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" id="">
+                <button type="submit" name="btnFchangePass" class="btn btn-primary" id="">
                     Submit
                 </button>
                 <button type="" class="btn btn-secondary" id="clearChangePass">
@@ -83,9 +90,8 @@
                 </button>
             </div>
         </form>
-        <div id="message"></div>
-
     </div>
+    <div id="message"></div>
 
 
 

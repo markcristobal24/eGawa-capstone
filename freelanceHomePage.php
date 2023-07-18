@@ -51,7 +51,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 </head>
 
 <body>
-    <!---<?php print_r($_SESSION); ?>-->
+    <?php print_r($_SESSION); ?>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
