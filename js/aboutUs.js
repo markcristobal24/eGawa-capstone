@@ -1,5 +1,5 @@
 //this is for the AboutUs Logout button
-var abtUs = document.getElementById('logoutAboutUs');
+var abtUs = document.getElementById('logout1');
 
 abtUs.addEventListener('click', function(){
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/freelanceIDVerification.css">
+    <link rel="stylesheet" href="css/freelanceChangePass.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,7 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <title>eGawa | Freelance Profile Creation</title>
+    <title>eGawa | Change Password</title>
 
 </head>
 
@@ -46,8 +46,8 @@
 
                             </span></a>
                         <div class="dropdown-content">
-                            <a href="#">Change Email Address</a>
-                            <a href="#">Change Password</a>
+                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="freelanceChangePass.php">Change Password</a>
                             <a id="logout1" href="#">Log Out</a>
                         </div>
                     </li>
@@ -56,45 +56,34 @@
         </div>
     </nav>
 
-    <div class="containerIDVerification">
-        <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
-            <div class="div1">
-                <div class="imgUpl1">
-                    <label class="labelImage" for="uploadInput">Upload a Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage1" src="img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadInput1" type="file" accept="image/*" onchange="loadImage1(event)" required>
-                        </div> 
-                </div>
 
-                <div class="imgUpl2">
-                    <label class="labelImage" for="uploadInput">Upload a Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage2" src="img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadInput2" type="file" accept="image/*" onchange="loadImage2(event)" required>
-                        </div> 
-                </div>                
+    <div class="containerChangePass">
+        <form action="" method="post">
+            <h1 class="">Change Password</h1>
+
+            <div class="form-floating mb-3">
+                <input type="password" id="currentPass" name="currentPass" class="form-control" placeholder="Enter Current password"
+                    required />
+                <label for="currentPass">Enter Current password</label>
             </div>
 
+            <div class="form-floating mb-3">
+                <input type="password" id="newPass" name="newPass" class="form-control" placeholder="Enter Current password"
+                    required />
+                <label for="newPass">Enter Current password</label>
+            </div>
 
-            <div class="div2"></div>
-             
-                <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
-
-                    <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
-                        Submit
-                    </button>
-                    <button class="btn btn-secondary">
-                        Clear
-                    </button>
-                </div>
-
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary" id="">
+                    Submit
+                </button>
+                <button type="" class="btn btn-secondary" id="clearChangePass">
+                    Clear
+                </button>
             </div>
         </form>
+        <div id="message"></div>
+
     </div>
 
 

@@ -38,10 +38,18 @@
             <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
           </li>
           <li class="nav-item">
-            <a id="userInbox" class="nav-link" href="userInbox.php">Messages</a>
+            <a id="freeLanceInbox" class="nav-link" href="">Messages</a>
           </li>
-          <li class="nav-item">
-            <a id="logoutAboutUs" class="nav-link" href="#">Logout</a>
+          <li class="nav-item dropdown">
+            <a id="freelanceOption" class="nav-link" href="#">Welcome,
+              <span>
+
+              </span></a>
+              <div class="dropdown-content">
+                <a href="#">Change Email Address</a>
+                <a href="#">Change Password</a>
+                <a id="logout1" href="#">Log Out</a>
+              </div>
           </li>
         </ul>
 
@@ -207,6 +215,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
   <script src="js/aboutUs.js"></script>
+
 
 
 </body>

@@ -70,17 +70,14 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a id="logout1" class="nav-link" href="#">Logout</a>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a id="freelanceOption" class="nav-link" href="#">Welcome,
                             <span>
                                 <?php echo $_SESSION['firstName']; ?>
                             </span></a>
                         <div class="dropdown-content">
-                            <a href="#">Change Email Address</a>
-                            <a href="#">Change Password</a>
+                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="freelanceChangePass.php">Change Password</a>
                             <a id="logout1" href="#">Log Out</a>
                         </div>
                     </li>
@@ -161,9 +158,11 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             <img id="freelancerPic"
                 src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $fetch['imageProfile']; ?>"
                 alt="user profile" title="user profile">
-            <h2 id="freelanceName">
-                <?php echo $fullname; ?>
-            </h2>
+            <div class="freelanceNameContainer">
+                <h2 id="freelanceName">
+                    <?php echo $fullname; ?>
+                </h2>
+            </div>
             <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
                     Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
@@ -589,6 +588,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             }
         }
     });
+
     </script>
 </body>
 

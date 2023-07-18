@@ -1,9 +1,5 @@
-.container {
-    margin-top: 0;
-}
-
-.container2 {
-    display: none;
+#mainContainer {
+    margin-top: 100px;
 }
 
 .navbar {
@@ -35,6 +31,7 @@
 #freeLanceInbox:hover {
     color: #ff6600;
 }
+
 
     /* Dropdown button styles */
     .dropdown-btn {
@@ -76,22 +73,23 @@
         display: block;
       }
 
-#mainContainer {
-    max-width: 1020px;
+
+.containerChangePass{
+    width: 500px;
+    max-height: auto;
     margin: 0 auto;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid rgb(255, 255, 255);
     background-color: #ddd;
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-top: 100px;
-    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-.title {
-    font-family: 'Times New Roman', Times, serif
-}
-.aboutInfo{
-    text-align: justify;
+h1{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 
@@ -115,19 +113,14 @@
     fill: #0073aa;
 }
 
-
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    /* background-color: #0073aa; */
-    /* background: linear-gradient(to bottom, #0074aa0c, #0073aa); */
-    /* box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5); */
     text-align: center;
     padding: 0;
 }
-
 
 .footerInfo {
     font-size: 10px;
@@ -155,112 +148,63 @@ i:hover {
 
 body {
     background-color: hsla(200, 57%, 85%, 0.275);
-    /* background-color: hsla(200, 57%, 85%, 0.275); */
-    /* Desired background color for the whole page */
-    /* background: linear-gradient(to bottom, #ff0000, #00ff00); */
 }
 
 
+
+/*============================FOR MEDIA QUERIES=================================*/
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
 
-    .title {
-        color: rgb(49, 49, 49);
-        font-size: 90px;
-    }
-
-    .aboutInfo {
-        color: rgb(53, 52, 52);
-        font-size: 25px;
-        /* background-color: #57494989; */
-    }
-
-    #col1 {
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #col2 {
-        margin-top: 90px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+} 
 
 
 /*============================ extra large  ===========================*/
-@media (max-width: 1200px) {
-
-    .title {
-        /* color: rgb(20, 237, 38); */
-        font-size: 80px;
-    }
-
-    .aboutInfo {
-        color: rgb(53, 52, 52);
-        font-size: 25px;
-    }
-
-    #mainContainer {
-        margin-top: 50px;
-    }
-}
+@media (max-width: 1200px) {}
 
 
 /*============================ large  ===========================*/
 @media (max-width: 992px) {
 
-    .title {
-        /* color: rgb(255, 242, 0); */
-        font-size: 60px;
-    }
 
-    .aboutInfo {
-        color: rgb(53, 52, 52);
-        font-size: 15px;
-    }
-
-    #col1 {
-        margin-top: 90px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #mainContainer {
-        margin-top: 50px;
-    }
 }
 
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
 
-    #mainContainer {
-        display: none;
+    
+    .containerChangePass{
+        max-width: 400px;
+        max-height: auto;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid rgb(255, 255, 255);
+        background-color: #ddd;
+        box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        margin-top: 100px;
+    }
+    
+    h1{
+        font-size: 20px;
+        font-weight: 500;
     }
 
-    .container2 {
-        display: block;
-        padding: 30px;
-        margin-top: 40px;
-    }
-
-    #col2 {
-        margin-top: 80px;
-    }
-
-    .title {
-        /* color: rgb(255, 247, 8); */
-        font-size: 30px;
-    }
-
-    .aboutInfo {
-        color: rgb(53, 52, 52);
-        font-size: 15px;
-    }
 
     
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+
     #home1,
     #about1,
     #freelanceOption,
@@ -268,6 +212,9 @@ body {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
+    }
+    #logout1{
+        color: black;
     }
 
     .custom-shape-divider-bottom-1687514102 {
@@ -282,34 +229,21 @@ body {
         fill: #0073aa;
     }
 
+
 }
 
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    #mainContainer {
-        display: none;
+
+    
+    h1{
+        font-size: 20px;
+        font-weight: 500;
     }
 
-    .container2 {
-        display: block;
-        padding: 30px 30px 90px 30px;
-        margin-top: 0;
-    }
 
-    #col2 {
-        margin-top: 80px;
-    }
 
-    .title {
-        color: rgb(53, 52, 52);
-        font-size: 30px;
-    }
-
-    .aboutInfo {
-        color: rgb(53, 52, 52);
-        font-size: 15px;
-    }
 
     .footerInfo {
         font-size: 10px;
@@ -323,12 +257,19 @@ body {
 
     #home1,
     #about1,
-    #logoutAboutUs,
-    #userInbox {
+    #logout1,
+    #freeLanceInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
-        color: #f4f4f4
-}
+        color: #f4f4f4;
+    }
+
+    #logout1{
+        color: black;
+    }
+    #logout1:hover{
+        color:#ddd;
+    }
 
     .custom-shape-divider-bottom-1687514102 {
         display: none;
@@ -341,5 +282,6 @@ body {
     .custom-shape-divider-bottom-1687514102 .shape-fill {
         fill: #0073aa;
     }
+
 
 }

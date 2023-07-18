@@ -46,3 +46,25 @@ dateEndedInput.addEventListener('change', function () {
     dateStartedInput.max = this.value;
   });
 
+
+
+//for clear button on change password page
+const clearPass = document.getElementById('clearChangePass');
+const currPassword = document.getElementById('currentPass');
+const newPassword = document.getElementById('newPass');
+
+clearPass.addEventListener('click', function () {
+    currPassword = null;
+    newPassword = null;
+});
+
+//for clear button on change email page
+const clearEmail = document.getElementById('clearChangeEmail');
+const currEmail = document.getElementById('currentEmail');
+const newEmail = document.getElementById('newEmail');
+
+clearEmail.addEventListener('click', function () {
+    currEmail = null;
+    newEmail = null;
+});
+
