@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    header('location: login.php');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +52,7 @@
                     <li class="nav-item dropdown">
                         <a id="freelanceOption" class="nav-link" href="#">Welcome,
                             <span>
-
+                                <?php echo $_SESSION['firstName']; ?>
                             </span></a>
                         <div class="dropdown-content">
                             <a href="freelanceChangeEmail.php">Change Email Address</a>
@@ -58,23 +67,23 @@
 
 
     <div class="containerChangeEmail">
-        <form action="" method="post">
+        <form action="controller/c_Faccount.php" method="POST">
             <h1 class="">Change Email Address</h1>
 
             <div class="form-floating mb-3">
-                <input type="email" id="currentEmail" name="currentEmail" class="form-control" placeholder="Enter Current Email Address"
-                    required />
+                <input type="email" id="currentEmail" name="currentEmail" class="form-control"
+                    placeholder="Enter Current Email Address" required />
                 <label for="currentEmail">Enter Current Email Address</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="email" id="newEmail" name="newEmail" class="form-control" placeholder="Enter New Email Address"
-                    required />
+                <input type="email" id="newEmail" name="newEmail" class="form-control"
+                    placeholder="Enter New Email Address" required />
                 <label for="newEmail">Enter New Email Address</label>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" id="">
+                <button type="submit" name="btnFchangeEmail" class="btn btn-primary" id="">
                     Submit
                 </button>
                 <button type="" class="btn btn-secondary" id="clearChangeEmail">

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +44,7 @@
                     <li class="nav-item dropdown">
                         <a id="freelanceOption" class="nav-link" href="#">Welcome,
                             <span>
-
+                                <?php echo $_SESSION['firstName']; ?>
                             </span></a>
                         <div class="dropdown-content">
                             <a href="freelanceChangeEmail.php">Change Email Address</a>
@@ -62,15 +63,15 @@
             <h1 class="">Change Password</h1>
 
             <div class="form-floating mb-3">
-                <input type="password" id="currentPass" name="currentPass" class="form-control" placeholder="Enter Current password"
-                    required />
-                <label for="currentPass">Enter Current password</label>
+                <input type="password" id="currentPass" name="currentPass" class="form-control"
+                    placeholder="Enter Current password" required />
+                <label for="currentPass">Enter Current Password</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" id="newPass" name="newPass" class="form-control" placeholder="Enter Current password"
-                    required />
-                <label for="newPass">Enter Current password</label>
+                <input type="password" id="newPass" name="newPass" class="form-control"
+                    placeholder="Enter Current password" required />
+                <label for="newPass">Enter New Password</label>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

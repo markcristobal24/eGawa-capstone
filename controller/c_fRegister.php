@@ -16,10 +16,12 @@ $rowCount = mysqli_num_rows($check_query);
 if (!empty($email) && !empty($password)) {
     if ($rowCount > 0) {
         ?>
-<script>
-alert('Email Already Exist!');
-</script>
-<?php
+        <script>
+            alert('Email Already Exist!');
+            window.location.replace('../freelanceRegis1.php');
+        </script>
+        <?php
+        //header("location:../freelanceRegis1.php");
     } else {
         $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) 
         VALUES ('$firstName', '$middleName', '$lastName', '$username', '$email', '$password', '$user_type', 0)");
@@ -52,17 +54,17 @@ alert('Email Already Exist!');
 
             if (!$mail->send()) {
                 ?>
-<script>
-alert('Registration Failed! Invalid Email Address');
-</script>
-<?php
+                <script>
+                    alert('Registration Failed! Invalid Email Address');
+                </script>
+                <?php
             } else {
                 ?>
-<script>
-alert('Registration Successful. OTP sent to <?php echo $email; ?>');
-window.location.replace('../verifyAccount.php');
-</script>
-<?php
+                <script>
+                    alert('Registration Successful. OTP sent to <?php echo $email; ?>');
+                    window.location.replace('../verifyAccount.php');
+                </script>
+                <?php
             }
         }
     }
