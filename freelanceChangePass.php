@@ -47,6 +47,7 @@
                                 <?php echo $_SESSION['firstName']; ?>
                             </span></a>
                         <div class="dropdown-content">
+                            <a href="freelanceHomePage.php">My Profile</a>
                             <a href="freelanceChangeEmail.php">Change Email Address</a>
                             <a href="freelanceChangePass.php">Change Password</a>
                             <a id="logout1" href="#">Log Out</a>

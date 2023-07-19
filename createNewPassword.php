@@ -43,14 +43,22 @@ if (!isset($_SESSION["token"])) {
                     <li class="nav-item">
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="login1" class="nav-link" href="login.php">Login</a>
                     </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
+                    <li class="nav-item">
+                        <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
+                            <span>
+
+                            </span></a>
+                        <div class="dropdown-content">
+                            <a href="freelanceHomePage.php">My Profile</a>
+                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="freelanceChangePass.php">Change Password</a>
+                            <a id="logout1" href="#">Log Out</a>
+                        </div>
+                    </li>
             </div>
         </div>
     </nav>
