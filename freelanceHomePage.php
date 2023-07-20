@@ -42,10 +42,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
     <title>eGawa | Freelance Homepage</title>
 
-    <style>
-
-    </style>
-
 
 
 </head>
@@ -163,6 +159,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <?php echo $fullname; ?>
                 </h2>
             </div>
+            <div class="freelanceUsernameContainer">
+                <h4 id="freelanceUsername">
+                    Sample User name
+                </h4>
+            </div>
+            <div class="rating">
+                <span class="star" data-value="1"></span>
+                <span class="star" data-value="2"></span>
+                <span class="star" data-value="3"></span>
+                <span class="star" data-value="4"></span>
+                <span class="star" data-value="5"></span>
+            </div>
             <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
                     Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
@@ -226,6 +234,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <h2 id="freelanceName">
                     <?php echo $fullname; ?>
                 </h2>
+                <div class="freelanceUsernameContainer">
+                <h4 id="freelanceUsername">
+                    Sample User name
+                </h4>
+                </div>
+                <div class="rating">
+                    <span class="star" data-value="1"></span>
+                    <span class="star" data-value="2"></span>
+                    <span class="star" data-value="3"></span>
+                    <span class="star" data-value="4"></span>
+                    <span class="star" data-value="5"></span>
+                </div>
 
                 <div class="flexDiv">
                     <img src="img/address.png" alt="" class="addressImg" height="20px">

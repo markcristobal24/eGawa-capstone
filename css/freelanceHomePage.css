@@ -96,17 +96,29 @@
     flex-direction: column;
 }
 
-.freelanceNameContainer {
-
+.freelanceNameContainer, .freelanceUsernameContainer {
+    /* margin-top: 10px; */
+    margin-left: auto;
+    margin-right: auto;
 } 
 
-#freelanceName {
-    margin: 10px auto 0;
-}
+.rating {
+    /* display: inline-block; */
+    margin: auto;
+  }
+
+  .star {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('star.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
 
 #freelancerPic {
     max-width: 150px;
-    margin: 10px auto 0;
+    margin: 10px auto;
     border-radius: 73px;
 }
 #verifyFreelanceAccDiv{
@@ -375,6 +387,8 @@ body {
 
 #freelanceName {
     margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .modal-header {
