@@ -1,6 +1,6 @@
 <?php
 session_start();
-require dirname(__FILE__) . "/php/classes/DbConnection.php";
+require dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
 if (!isset($_SESSION['email'])) {
     header('location: login.php');
@@ -32,7 +32,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/freelanceHomePage.css">
+    <link rel="stylesheet" href="../css/freelanceHomePage.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -47,10 +47,10 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 </head>
 
 <body>
-    <?php print_r($_SESSION); ?>
+
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -129,7 +129,16 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             <?php
                         }
                     } else {
-                        echo "<h1>There is no catalog to display</h1>";
+
+                        echo '<div class="item">';
+                        echo '<div class="catalogImg">';
+                        echo '<img class="imgWork" src="../img/box.png">';
+                        echo '</div>';
+                        echo '<div class="catalogTexts">';
+                        echo '<h3>No catalog to display</h3>';
+                        echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
+                        echo '</div>';
+                        echo '</div>';
                     }
                     ?>
                 </div>
@@ -331,7 +340,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedEditImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                            <img id="uploadedEditImage" src="../img/upload.png" alt="Uploaded Image" height="200">
                         </div>
                         <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*"
                             onchange="editImgUp(event)" required>
@@ -411,7 +420,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImageCatalog" src="img/upload.png" alt="Uploaded Image" height="200">
+                            <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
                         </div>
                         <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
                             onchange="catalogImgUp(event)" required>
@@ -574,11 +583,11 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/createNewDiv.js"></script>
-    <script src="js/Catalog.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/validate.js"></script>
-    <script src="js/freelance.js"></script>
+    <script src="../js/createNewDiv.js"></script>
+    <script src="../js/Catalog.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/validate.js"></script>
+    <script src="../js/freelance.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var flag = localStorage.getItem('showModalFlag');

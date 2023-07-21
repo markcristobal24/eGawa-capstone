@@ -9,14 +9,14 @@
 
 #home1,
 #about1,
-#freelanceOption,
-#freeLanceInbox {
+#userOption,
+#userInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#freelanceOption:hover {
+#userOption:hover {
     color: #ff6600;
 }
 
@@ -28,7 +28,7 @@
     color: #ff6600;
 }
 
-#freeLanceInbox:hover {
+#userInbox:hover {
     color: #ff6600;
 }
 
@@ -333,9 +333,18 @@ body {
         margin-left: 15px;
     }
 
+    #logout1 {
+        color: #000000;
+    }
+
+    #logout1:hover {
+        color: #f4f4f4;
+    }
+
+
     #home1,
     #about1,
-    #logout1, 
+    #userOption,
     #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
@@ -409,12 +418,13 @@ body {
 
     #home1,
     #about1,
-    #logout1, 
+    #userOption,
     #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
     }
+
 
     .custom-shape-divider-bottom-1687514102 {
         display: none;

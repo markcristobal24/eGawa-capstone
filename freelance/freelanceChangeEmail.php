@@ -1,6 +1,9 @@
-<?php session_start();
-if (!isset($_SESSION["otp"])) {
-    header('location: error.php');
+<?php
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    header('location: login.php');
+    die();
 }
 ?>
 
@@ -8,26 +11,29 @@ if (!isset($_SESSION["otp"])) {
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Link for Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/verifyAccount.css" />
+    <link rel="stylesheet" href="../css/freelanceChangeEmail.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>eGawa | Account Verification</title>
+
+    <title>eGawa | Change Email Address</title>
+
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,38 +47,58 @@ if (!isset($_SESSION["otp"])) {
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a id="login1" class="nav-link" href="login.php">Login</a>
+                        <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
+                            <span>
+                                <?php echo $_SESSION['firstName']; ?>
+                            </span></a>
+                        <div class="dropdown-content">
+                            <a href="freelanceHomePage.php">My Profile</a>
+                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="freelanceChangePass.php">Change Password</a>
+                            <a id="logout1" href="#">Log Out</a>
+                        </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
-    <div class="containerVerify">
-        <form action="#" method="post">
-            <h1 class="verifyTitle">Verify Account</h1>
+
+    <div class="containerChangeEmail">
+        <form action="controller/c_Faccount.php" method="POST">
+            <h1 class="">Change Email Address</h1>
 
             <div class="form-floating mb-3">
-                <input type="text" id="verificationCode" name="otp_code" class="form-control"
-                    placeholder="Enter verification code" required />
-                <label for="text">Enter verification code</label>
+                <input type="email" id="currentEmail" name="currentEmail" class="form-control"
+                    placeholder="Enter Current Email Address" required />
+                <label for="currentEmail">Enter Current Email Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" id="newEmail" name="newEmail" class="form-control"
+                    placeholder="Enter New Email Address" required />
+                <label for="newEmail">Enter New Email Address</label>
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" name="btnVerify" id="btnVerify">
-                    Verify
+                <button type="submit" name="btnFchangeEmail" class="btn btn-primary" id="">
+                    Submit
+                </button>
+                <button type="" class="btn btn-secondary" id="clearChangeEmail">
+                    Clear
                 </button>
             </div>
-
-            <hr />
-            <p>
-                <span class="infoVerify">Did not received the code?</span>
-                <button id="resendLink" href="#" name="resend">Resend code</button>
-            </p>
-            <div id="message"></div>
         </form>
+        <div id="message"></div>
+
     </div>
+
+
+
+
 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -81,6 +107,7 @@ if (!isset($_SESSION["otp"])) {
                 class="shape-fill"></path>
         </svg>
     </div>
+
 
 
     <footer class="footer">
@@ -96,16 +123,25 @@ if (!isset($_SESSION["otp"])) {
         </div>
     </footer>
 
-    <!---Modal Verify-->
-    <div class="modal fade" id="verifyModal" aria-hidden="true">
+
+
+    <!--Modal for log out-->
+    <div class="modal fade" id="modalLogOut" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Warning!</h5>
+                    <h5 class="modal-title">Logging Out</h5>
                 </div>
-                <div class="modal-body" id="modalbody2">Body</div>
+                <div class="modal-body" id="modalUser">
+                    Are you sure you want to log out?
+                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="verifyConfirm">Ok</button>
+                    <button type="button" class="btn btn-primary" id="logoutBtn">
+                        Log Out
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
@@ -115,35 +151,9 @@ if (!isset($_SESSION["otp"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <script src="js/validate.js"></script>
-
+    <script src="../js/freelance.js"></script>
+    <script src="../js/script.js"></script>
+</body>
 </body>
 
 </html>
-
-<?php
-include('php/classes/DbConnection.php');
-require_once dirname(__FILE__) . '/php/classes/Email.php';
-if (isset($_POST["btnVerify"])) {
-    $otp = $_SESSION['otp'];
-    $email = $_SESSION['mail'];
-    $otp_code = $_POST['otp_code'];
-
-    if ($otp != $otp_code) {
-        ?>
-        <script>
-            invalidOtp();
-        </script>
-        <?php
-    } else {
-        mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
-        ?>
-        <script>
-            alert('sucess otp');
-            window.location.replace("login.php");
-        </script>
-        <?php
-    }
-}
-?>

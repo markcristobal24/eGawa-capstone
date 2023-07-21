@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/F_createProfile.css">
+    <link rel="stylesheet" href="../css/F_createProfile.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,8 +47,8 @@
                             </span></a>
                         <div class="dropdown-content">
                             <a href="freelanceHomePage.php">My Profile</a>
-                            <a href="freelanceChangeEmail.php">Change Email Address</a>
-                            <a href="freelanceChangePass.php">Change Password</a>
+                            <a href="../freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="../freelanceChangePass.php">Change Password</a>
                             <a id="logout1" href="#">Log Out</a>
                         </div>
                     </li>
@@ -63,7 +63,7 @@
                 <div id="imgUpl">
                     <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
                     <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                        <img id="uploadedImage" src="img/upload.png" alt="Uploaded Image" height="200">
+                        <img id="uploadedImage" src="../img/upload.png" alt="Uploaded Image" height="200">
                     </div>
                     <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="loadImage(event)"
                         required>

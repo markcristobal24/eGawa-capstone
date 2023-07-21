@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/userRegistration.css">
+    <link rel="stylesheet" href="../css/freelanceRegis1.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,10 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-
-
-
-    <title>eGawa | User Registration</title>
+    <title>eGawa | Freelance Registration</title>
 
 </head>
 
@@ -27,21 +24,21 @@
 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a id="login1" class="nav-link" href="login.php">Login</a>
+                        <a id="login1" class="nav-link" href="../login.php">Login</a>
                     </li>
                 </ul>
 
@@ -50,8 +47,8 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
-            <h1 class="userRegTitle">User Registration</h1>
+        <form action="controller/c_fRegister.php" method="POST" onsubmit="return validateFreelanceForm();">
+            <h1 class="userRegTitle">Freelance Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
 
@@ -65,7 +62,7 @@
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="middleName" name="mName" class="form-control"
                         placeholder="Enter Middle Name">
-                    <label id="sName" for="middleName">Enter Middle Name</label>
+                    <label id="mName" for="middleName">Enter Middle Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
@@ -74,10 +71,15 @@
                     <label id="sName" for="surName">Enter Surname</label>
                 </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                <!-- <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
-                    <label id="addr" for="address">Enter Address</label>
+                    <label for="address">Enter Address</label>
                 </div>
+
+                <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                    <input type="text" id="mobileNum" name="mobileNum" class="form-control" placeholder="Enter Mobile Number">
+                    <label for="address">Enter Mobile Number</label>
+                </div> -->
 
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
@@ -105,15 +107,17 @@
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="submit" id="btnUserReg" class="btn btn-primary">
-                    Register
+                <button type="submit" id="btnFreelanceReg" class="btn btn-primary">
+                    Continue
                 </button>
-                <button id="btnUserRegClear" class="btn btn-secondary">Clear</button>
+                <button class="btn btn-secondary">Clear</button>
             </div>
             <hr>
-            <p class="infoUserReg">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+            <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
         </form>
+
     </div>
+
 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -141,15 +145,15 @@
 
 
     <!--Modal for incomplete details-->
-    <div class="modal fade" id="modalUserReg" aria-hidden="true">
+    <div class="modal fade" id="modalFreelanceReg" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Warning!</h5>
                 </div>
-                <div class="modal-body" id="modalUser">Incomplete Details</div>
+                <div class="modal-body" id="modalFreelance">Incomplete Details</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="yesReg">
+                    <button type="button" class="btn btn-primary" id="yesFReg">
                         Understood
                     </button>
                 </div>
@@ -162,8 +166,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <script src="js/validate.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/validate.js"></script>
 </body>
 
 </html>

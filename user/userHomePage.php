@@ -25,7 +25,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,13 +42,14 @@
                         <a id="userInbox" class="nav-link" href="userInbox.php">Messages</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
+                        <a id="userOption" class="nav-link" href="#">Welcome,
                             <span>
 
                             </span></a>
                         <div class="dropdown-content">
                             <a href="freelanceChangeEmail.php">Change Email Address</a>
                             <a href="freelanceChangePass.php">Change Password</a>
+                            <a href="">Edit Account</a>
                             <a id="logout1" href="#">Log Out</a>
                         </div>
                     </li>
@@ -150,24 +151,24 @@
         </div>
 
         <div class="div1">
-            <img id="userPic" src="img/profile.png" alt="user profile" title="user profile">
+            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
             <h2 id="userName">User Name</h2>
             <div id="verifyUserAcc">Verify Account</div>
 
 
             <div class="flexDiv">
-                <img src="img/address.png" alt="" class="addressImg" height="20px">
+                <img src="../img/address.png" alt="" class="addressImg" height="20px">
                 <div class="freelanceAddress">Bagna, Malolos, Bulacan</div>
             </div>
             <div class="flexDiv flexDivBot">
-                <img src="img/email.png" alt="" class="emailImg" height="20px">
+                <img src="../img/email.png" alt="" class="emailImg" height="20px">
                 <div class="freelanceEmail">Sulitin@gmail.com</div>
             </div>
 
 
-            <div class="editContainer">
+            <!-- <div class="editContainer">
                 <div id="editUserAcc">Edit Account</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
