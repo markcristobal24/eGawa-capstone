@@ -9,14 +9,14 @@
 
 #home1,
 #about1,
-#logout1,
-#userInbox {
+#freelanceOption,
+#freeLanceInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#logout1:hover {
+#freelanceOption:hover {
     color: #ff6600;
 }
 
@@ -28,9 +28,50 @@
     color: #ff6600;
 }
 
-#userInbox:hover {
+#freeLanceInbox:hover {
     color: #ff6600;
 }
+
+    /* Dropdown button styles */
+    .dropdown-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+  
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        width: 190px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+  
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+  
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #0074aa95;
+        color: rgb(255, 255, 255);
+      }
+  
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
 
 .containerUserHome {
     display: flex;

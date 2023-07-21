@@ -87,15 +87,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         <div class="div2">
             <div class="containerCatalog">
                 <div id="container">
-                    <!-- <div class="item" id="item-1" onclick="handleClick(this)">
-                        <div class="catalogImg">
-                            <img class="imgWork" src="img/working.png"  alt="Image 1">
-                        </div>
-                        <div class="catalogTexts">
-                            <h3>Title 1</h3>
-                            <p>Description 1</p>
-                        </div>                        
-                    </div> -->
                     <?php
                     $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
                     if ($displayCatalog->num_rows > 0) {
@@ -161,7 +152,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
             <div class="freelanceUsernameContainer">
                 <h4 id="freelanceUsername">
-                    Sample User name
+                Sample Username
                 </h4>
             </div>
             <div class="rating">
@@ -175,11 +166,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
-                <!-- <li class="job one">Sample Job1</li>
-                <li class="job two"></li>
-                <li class="job three"></li>
-                <li class="job four"></li>
-                <li class="job five"></li> -->
                 <?php
                 $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
                 if ($query->num_rows > 0) {
@@ -213,9 +199,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             <div>
 
             </div>
-            <!-- <div class="editContainer">
-                <div id="editFreelanceAcc">Edit Account</div>
-            </div> -->
+
         </div>
     </div>
 
@@ -236,7 +220,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </h2>
                 <div class="freelanceUsernameContainer">
                 <h4 id="freelanceUsername">
-                    Sample User name
+                    Sample Username
                 </h4>
                 </div>
                 <div class="rating">
