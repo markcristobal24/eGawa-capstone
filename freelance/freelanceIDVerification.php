@@ -35,7 +35,7 @@
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
@@ -47,8 +47,8 @@
                             </span></a>
                         <div class="dropdown-content">
                             <a href="freelanceHomePage.php">My Profile</a>
-                            <a href="#">Change Email Address</a>
-                            <a href="#">Change Password</a>
+                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="freelanceChangePass.php">Change Password</a>
                             <a id="logout1" href="#">Log Out</a>
                         </div>
                     </li>
@@ -58,44 +58,44 @@
     </nav>
 
     <div class="containerIDVerification">
-        <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
+        <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
             <div class="div1">
                 <div class="imgUpl1">
                     <label class="labelImage" for="uploadInput">Upload a Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage1" src="../img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadInput1" type="file" accept="image/*" onchange="loadImage1(event)" required>
-                        </div> 
+                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                        <img id="uploadedImage1" src="../img/upload.png" alt="Uploaded Image" height="200">
+                    </div>
+                    <div>
+                        <input id="uploadInput1" type="file" accept="image/*" onchange="loadImage1(event)" required>
+                    </div>
                 </div>
 
                 <div class="imgUpl2">
                     <label class="labelImage" for="uploadInput">Upload a Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage2" src="../img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadInput2" type="file" accept="image/*" onchange="loadImage2(event)" required>
-                        </div> 
-                </div>                
+                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                        <img id="uploadedImage2" src="../img/upload.png" alt="Uploaded Image" height="200">
+                    </div>
+                    <div>
+                        <input id="uploadInput2" type="file" accept="image/*" onchange="loadImage2(event)" required>
+                    </div>
+                </div>
             </div>
 
 
             <div class="div2"></div>
-             
-                <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
-                        Submit
-                    </button>
-                    <button class="btn btn-secondary">
-                        Clear
-                    </button>
-                </div>
+            <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
+                <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
+                    Submit
+                </button>
+                <button class="btn btn-secondary">
+                    Clear
+                </button>
             </div>
-        </form>
+
+    </div>
+    </form>
     </div>
 
 

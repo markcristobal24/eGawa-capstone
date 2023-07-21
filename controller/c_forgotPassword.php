@@ -12,17 +12,17 @@ if (isset($_POST["btnSubmit"])) {
 
     if (mysqli_num_rows($sql) <= 0) {
         ?>
-<script>
-alert("Sorry, no email address exist");
-</script>
-<?php
+        <script>
+            alert("Sorry, no email address exist");
+        </script>
+        <?php
     } else if ($fetch["status"] == 0) {
         ?>
-<script>
-alert("Sorry, your account must verify first before you recover your password!");
-window.location.replace("../index.php");
-</script>
-<?php
+            <script>
+                alert("Sorry, your account must verify first before you recover your password!");
+                window.location.replace("../login.php");
+            </script>
+            <?php
     } else {
         $token = bin2hex(random_bytes(50));
 
@@ -55,16 +55,16 @@ window.location.replace("../index.php");
 
         if (!$mail->send()) {
             ?>
-<script>
-alert("Invalid Email");
-</script>
-<?php
+                <script>
+                    alert("Invalid Email");
+                </script>
+                <?php
         } else {
             ?>
-<script>
-window.location.replace("../forgotPassword2.php");
-</script>
-<?php
+                <script>
+                    window.location.replace("../forgotPassword2.php");
+                </script>
+                <?php
         }
 
     }

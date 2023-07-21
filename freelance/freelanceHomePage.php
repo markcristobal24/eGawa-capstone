@@ -3,7 +3,7 @@ session_start();
 require dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
 if (!isset($_SESSION['email'])) {
-    header('location: login.php');
+    header('location: ../login.php');
     die();
 }
 
@@ -61,7 +61,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
@@ -96,37 +96,37 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             //$_SESSION['catalogId'] = $catalogId;
                     
                             ?>
-                            <div class="item">
-                                <div class="catalogImg">
-                                    <img class="imgWork"
-                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                </div>
-                                <div class="catalogTexts">
-                                    <h3>
-                                        <?php echo $row['catalogTitle']; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $row['catalogDescription'] ?>
-                                    </p>
-                                </div>
+                    <div class="item">
+                        <div class="catalogImg">
+                            <img class="imgWork"
+                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                        </div>
+                        <div class="catalogTexts">
+                            <h3>
+                                <?php echo $row['catalogTitle']; ?>
+                            </h3>
+                            <p>
+                                <?php echo $row['catalogDescription'] ?>
+                            </p>
+                        </div>
 
-                                <div id="collapseExample">
-                                    <div id="catalogItemButton">
-                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                            Delete
-                                        </button>
+                        <div id="collapseExample">
+                            <div id="catalogItemButton">
+                                <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                    id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                    Delete
+                                </button>
 
-                                        <button type="button"
-                                            onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                            id="editCatalogBtn" class="btn btn-primary">
-                                            Edit
-                                        </button>
+                                <button type="button"
+                                    onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
+                                    id="editCatalogBtn" class="btn btn-primary">
+                                    Edit
+                                </button>
 
-                                    </div>
-                                </div>
                             </div>
-                            <?php
+                        </div>
+                    </div>
+                    <?php
                         }
                     } else {
 
@@ -161,7 +161,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
             <div class="freelanceUsernameContainer">
                 <h4 id="freelanceUsername">
-                Sample Username
+                    Sample Username
                 </h4>
             </div>
             <div class="rating">
@@ -228,9 +228,9 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <?php echo $fullname; ?>
                 </h2>
                 <div class="freelanceUsernameContainer">
-                <h4 id="freelanceUsername">
-                    Sample Username
-                </h4>
+                    <h4 id="freelanceUsername">
+                        Sample Username
+                    </h4>
                 </div>
                 <div class="rating">
                     <span class="star" data-value="1"></span>
@@ -336,7 +336,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3 class="modalTitles">Edit Profile</h3>
                 </div>
 
-                <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data" required>
+                <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -416,7 +416,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3 class="modalTitles">Add Catalog</h3>
                 </div>
 
-                <form action="controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
+                <form action="../controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -589,18 +589,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="../js/validate.js"></script>
     <script src="../js/freelance.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var flag = localStorage.getItem('showModalFlag');
+    document.addEventListener('DOMContentLoaded', function() {
+        var flag = localStorage.getItem('showModalFlag');
 
-            if (flag === 'true') {
-                var isReloaded = performance.navigation.type === 1;
+        if (flag === 'true') {
+            var isReloaded = performance.navigation.type === 1;
 
-                if (isReloaded) {
-                    edit_catalog();
-                    localStorage.removeItem('showModalFlag');
-                }
+            if (isReloaded) {
+                edit_catalog();
+                localStorage.removeItem('showModalFlag');
             }
-        });
+        }
+    });
     </script>
 </body>
 

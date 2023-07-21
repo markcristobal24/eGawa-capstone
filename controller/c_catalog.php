@@ -34,10 +34,10 @@ if (isset($_POST['btnAddCatalog'])) {
         $stmt->execute();
 
         ?>
-<script>
-window.location.replace('../freelanceHomePage.php');
-</script>
-<?php
+        <script>
+            window.location.replace('../freelance/freelanceHomePage.php');
+        </script>
+        <?php
     }
 }
 

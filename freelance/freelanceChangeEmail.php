@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-    header('location: login.php');
+    header('location: ../login.php');
     die();
 }
 ?>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['email'])) {
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) {
 
 
     <div class="containerChangeEmail">
-        <form action="controller/c_Faccount.php" method="POST">
+        <form action="../controller/c_Faccount.php" method="POST">
             <h1 class="">Change Email Address</h1>
 
             <div class="form-floating mb-3">

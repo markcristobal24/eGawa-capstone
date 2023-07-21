@@ -50,7 +50,7 @@ if (isset($_POST['btnCreateFreelanceProfile']) && is_array($_POST['jobRole'])) {
 
         $result = mysqli_query($con, "UPDATE account SET profileStatus = 1 WHERE email = '$email'");
         if ($result) {
-            header('location: ../freelanceHomePage.php');
+            header('location: ../freelance/freelanceHomePage.php');
         }
     }
 }
@@ -85,11 +85,11 @@ if (isset($_POST['btnEditFreelanceProfile']) && is_array($_POST['jobRole'])) {
 
         if ($sql) {
             ?>
-            <script>
-                alert('Profile Updated Successfully');
-            </script>
-            <?php
-            header('location: ../freelanceHomePage.php');
+<script>
+alert('Profile Updated Successfully');
+</script>
+<?php
+            header('location: ../freelance/freelanceHomePage.php');
         }
     }
 }

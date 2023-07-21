@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["token"])) {
-    header('location: error.php');
+    header('location: ../error.php');
     die();
 }
 ?>
@@ -17,7 +17,7 @@ if (!isset($_SESSION["token"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/createNewPassword.css" />
+    <link rel="stylesheet" href="../css/createNewPassword.css" />
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -41,7 +41,7 @@ if (!isset($_SESSION["token"])) {
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     </li>
                     <li class="nav-item">
@@ -64,7 +64,7 @@ if (!isset($_SESSION["token"])) {
     </nav>
 
     <div class="containerNewPass">
-        <form action="controller/c_newPassword.php" method="post">
+        <form action="../controller/c_newPassword.php" method="post">
             <h1 class="newPassTitle">Create New Password</h1>
 
             <div class="form-floating mb-3 col-12 g-2">
@@ -129,8 +129,8 @@ if (!isset($_SESSION["token"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <script src="js/validate.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/validate.js"></script>
 
 </body>
 

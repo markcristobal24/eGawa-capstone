@@ -35,7 +35,7 @@
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
+                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
@@ -58,7 +58,7 @@
     </nav>
 
     <div class="containerFreelanceCreate">
-        <form action="controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
+        <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
             <div class="div1">
                 <div id="imgUpl">
                     <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
@@ -212,7 +212,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="js/freelance.js"></script>
+    <script src="../js/freelance.js"></script>
 </body>
 </body>
 

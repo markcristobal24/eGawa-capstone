@@ -1,6 +1,6 @@
 <?php session_start();
 if (!isset($_SESSION["otp"])) {
-    header('location: error.php');
+    header('location: ../error.php');
 }
 ?>
 
@@ -123,8 +123,8 @@ if (!isset($_SESSION["otp"])) {
 </html>
 
 <?php
-include('php/classes/DbConnection.php');
-require_once dirname(__FILE__) . '/php/classes/Email.php';
+include('../php/classes/DbConnection.php');
+require_once dirname(__FILE__) . '/../php/classes/Email.php';
 if (isset($_POST["btnVerify"])) {
     $otp = $_SESSION['otp'];
     $email = $_SESSION['mail'];
@@ -141,7 +141,7 @@ if (isset($_POST["btnVerify"])) {
         ?>
         <script>
             alert('sucess otp');
-            window.location.replace("login.php");
+            window.location.replace("../login.php");
         </script>
         <?php
     }

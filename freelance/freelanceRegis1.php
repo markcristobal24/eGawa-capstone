@@ -47,7 +47,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_fRegister.php" method="POST" onsubmit="return validateFreelanceForm();">
+        <form action="../controller/c_fRegister.php" method="POST" onsubmit="return validateFreelanceForm();">
             <h1 class="userRegTitle">Freelance Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -113,7 +113,8 @@
                 <button class="btn btn-secondary">Clear</button>
             </div>
             <hr>
-            <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+            <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="../login.php">Login here</a>
+            </p>
         </form>
 
     </div>
