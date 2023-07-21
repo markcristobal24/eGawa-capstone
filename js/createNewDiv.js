@@ -80,7 +80,7 @@ function clearInputs() {
 
   // Reset the image input
   imageInput.value = null;
-  imageCleared.src = 'img/upload.png';
+  imageCleared.src = '../img/upload.png';
 
   // Reset the title and description inputs
   catalogTitle.value = '';

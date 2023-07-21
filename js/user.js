@@ -1,6 +1,6 @@
 var userVerifyBtn = document.getElementById('verifyUserAcc');
 
-userVerifyBtn.addEventListener('click', function(){
+userVerifyBtn.addEventListener('click', function () {
     $('#modaluserIdVerification').modal('show');
 
 });
@@ -16,11 +16,11 @@ function loadImageUser(event) {
 }
 
 //for clear button 
-function clearUserID(){
+function clearUserID() {
     var imageInput = document.getElementById('uploadedImageUser1');
     var imageCleared = document.getElementById('uploadedImageUser');
     imageInput.value = null;
-    imageCleared.src = 'img/upload.png';
+    imageCleared.src = '../img/upload.png';
 }
 
 //for logout button
@@ -53,7 +53,7 @@ function editUserImg(event) {
 }
 
 //for clear button in the edit user modal
-function clearUserEdit(){
+function clearUserEdit() {
     var imageInputEdit = document.getElementById('uploadedImageUserEdit');
     var imageClearedEdit = document.getElementById('uploadedEditProfileIMG');
 
@@ -61,7 +61,7 @@ function clearUserEdit(){
     var clearUserEmailAddress = document.getElementById('editUserEmailAddress');
 
     imageInputEdit.value = null;
-    imageClearedEdit.src = 'img/upload.png';
+    imageClearedEdit.src = '../img/upload.png';
     clearUserAddress.value = '';
     clearUserEmailAddress.value = '';
 }

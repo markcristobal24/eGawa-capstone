@@ -16,6 +16,7 @@ class Account extends DbClass
             $data['email'] = $row['email'];
             $data['firstName'] = $row['firstName'];
             $data['userType'] = $row['userType'];
+            $data['username'] = $row['username'];
         }
 
         $result2 = $query2 = $this->connect()->prepare("SELECT * FROM profile WHERE email = :email");
@@ -36,6 +37,7 @@ class Account extends DbClass
         $_SESSION['firstName'] = $data['firstName'];
         $_SESSION['imageProfile'] = $data['imageProfile'];
         $_SESSION['userType'] = $data['userType'];
+        $_SESSION['username'] = $data['username'];
         //$_SESSION['catalogId'] = $data['catalog_id'];
         echo json_encode($data);
 

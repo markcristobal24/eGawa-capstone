@@ -5,7 +5,7 @@ class Catalog {
             var form_data = new FormData();
             form_data.append('catalog_id', catalog_id);
             form_data.append('delete_catalog', 'delete_catalog');
-            fetch('controller/c_catalog.php', {
+            fetch('../controller/c_catalog.php', {
                 method: "POST",
                 body: form_data
             }).then(function (response) {
@@ -23,7 +23,7 @@ class Catalog {
     get_catalogId(catalog_id) {
         console.log(catalog_id);
         $.ajax({
-            url: "controller/c_catalog.php",
+            url: "../controller/c_catalog.php",
             type: "POST",
             data: { sessionValue: catalog_id },
             success: function (response) {
@@ -39,7 +39,7 @@ class Catalog {
         var form_data = new FormData(document.getElementById('catalog_form'));
         form_data.append('catalog_id', catalog_id);
         form_data.append('edit_catalog', 'edit_catalog');
-        fetch('controller/c_catalog.php', {
+        fetch('../controller/c_catalog.php', {
             method: "POST",
             body: form_data
         }).then(function (response) {

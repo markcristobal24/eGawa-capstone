@@ -96,37 +96,37 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             //$_SESSION['catalogId'] = $catalogId;
                     
                             ?>
-                    <div class="item">
-                        <div class="catalogImg">
-                            <img class="imgWork"
-                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                        </div>
-                        <div class="catalogTexts">
-                            <h3>
-                                <?php echo $row['catalogTitle']; ?>
-                            </h3>
-                            <p>
-                                <?php echo $row['catalogDescription'] ?>
-                            </p>
-                        </div>
+                            <div class="item">
+                                <div class="catalogImg">
+                                    <img class="imgWork"
+                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                </div>
+                                <div class="catalogTexts">
+                                    <h3>
+                                        <?php echo $row['catalogTitle']; ?>
+                                    </h3>
+                                    <p>
+                                        <?php echo $row['catalogDescription'] ?>
+                                    </p>
+                                </div>
 
-                        <div id="collapseExample">
-                            <div id="catalogItemButton">
-                                <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                    id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                    Delete
-                                </button>
+                                <div id="collapseExample">
+                                    <div id="catalogItemButton">
+                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                            Delete
+                                        </button>
 
-                                <button type="button"
-                                    onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                    id="editCatalogBtn" class="btn btn-primary">
-                                    Edit
-                                </button>
+                                        <button type="button"
+                                            onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
+                                            id="editCatalogBtn" class="btn btn-primary">
+                                            Edit
+                                        </button>
 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                         }
                     } else {
 
@@ -161,7 +161,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
             <div class="freelanceUsernameContainer">
                 <h4 id="freelanceUsername">
-                    Sample Username
+                    <?php echo "@" . $_SESSION['username']; ?>
                 </h4>
             </div>
             <div class="rating">
@@ -193,13 +193,13 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </ul>
 
             <div class="flexDiv">
-                <img src="img/address.png" alt="" class="addressImg" height="20px">
+                <img src="../img/address.png" alt="" class="addressImg" height="20px">
                 <div class="freelanceAddress">
                     <?php echo $fetch['address']; ?>
                 </div>
             </div>
             <div class="flexDiv">
-                <img src="img/email.png" alt="" class="emailImg" height="20px">
+                <img src="../img/email.png" alt="" class="emailImg" height="20px">
                 <div class="freelanceEmail">
                     <?php echo $email; ?>
                 </div>
@@ -229,7 +229,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </h2>
                 <div class="freelanceUsernameContainer">
                     <h4 id="freelanceUsername">
-                        Sample Username
+                        <?php echo "@" . $_SESSION['username']; ?>
                     </h4>
                 </div>
                 <div class="rating">
@@ -241,13 +241,13 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
 
                 <div class="flexDiv">
-                    <img src="img/address.png" alt="" class="addressImg" height="20px">
+                    <img src="../img/address.png" alt="" class="addressImg" height="20px">
                     <div class="freelanceAddress">
                         <?php echo $fetch['address']; ?>
                     </div>
                 </div>
                 <div class="flexDiv">
-                    <img src="img/email.png" alt="" class="emailImg" height="20px">
+                    <img src="../img/email.png" alt="" class="emailImg" height="20px">
                     <div class="freelanceEmail">
                         <?php echo $email; ?>
                     </div>
@@ -589,18 +589,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="../js/validate.js"></script>
     <script src="../js/freelance.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var flag = localStorage.getItem('showModalFlag');
+        document.addEventListener('DOMContentLoaded', function () {
+            var flag = localStorage.getItem('showModalFlag');
 
-        if (flag === 'true') {
-            var isReloaded = performance.navigation.type === 1;
+            if (flag === 'true') {
+                var isReloaded = performance.navigation.type === 1;
 
-            if (isReloaded) {
-                edit_catalog();
-                localStorage.removeItem('showModalFlag');
+                if (isReloaded) {
+                    edit_catalog();
+                    localStorage.removeItem('showModalFlag');
+                }
             }
-        }
-    });
+        });
     </script>
 </body>
 
