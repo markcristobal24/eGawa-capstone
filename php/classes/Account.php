@@ -39,7 +39,7 @@ class Account extends DbClass
         $_SESSION['userType'] = $data['userType'];
         $_SESSION['username'] = $data['username'];
         //$_SESSION['catalogId'] = $data['catalog_id'];
-        echo json_encode($data);
+        json_encode($data);
 
     }
 
