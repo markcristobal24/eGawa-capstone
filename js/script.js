@@ -12,7 +12,7 @@ function sendData() {
     if (selectedChoice !== "") {
         var data = selectedChoice;
         var encodedData = encodeURIComponent(data);
-        window.location.href = encodedData;
+        window.location.href = data;
     } else {
         alert("Please Select a choice first.");
         //showWarningModal();
@@ -28,12 +28,12 @@ function selectChoice(choice) {
         choice1.classList.add('selected');
         choice2.classList.remove('selected');
         button.textContent = "Continue as User";
-        selectedChoice = "userRegistration.php";
+        selectedChoice = "/user/userRegistration.php";
     } else if (choice === 'choice2') {
         choice2.classList.add('selected');
         choice1.classList.remove('selected');
         button.textContent = "Continue as Freelancer";
-        selectedChoice = "freelanceRegis1.php";
+        selectedChoice = "freelance/freelanceRegis1.php";
     }
 }
 
