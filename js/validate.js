@@ -72,9 +72,10 @@ function validateRegForm() {
     const username = document.getElementById('username').value;
     const email = document.getElementById('emailAddress').value;
     const address = document.getElementById('address').value;
+    const terms = document.getElementById('checkboxId').checked;
     const modalBody = document.getElementById('modalUser');
 
-    if (fName === "" || mName === "" || lName === "" || address === "" || username === "" || email === "" || pass === "" || rpass === "") {
+    if (fName === "" || mName === "" || lName === "" || address === "" || username === "" || email === "" || pass === "" || rpass === "" || !terms) {
         modalBody.innerHTML = "Incomplete Details!";
         $('#modalUserReg').modal('show');
         $('#yesReg').on("click", function (e) {

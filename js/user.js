@@ -65,3 +65,40 @@ function clearUserEdit() {
     clearUserAddress.value = '';
     clearUserEmailAddress.value = '';
 }
+
+
+
+function termsNCond(){
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("fName").style.display = "none";
+    document.getElementById("mName").style.display = "none";
+    document.getElementById("sName").style.display = "none";
+    document.getElementById("addr").style.display = "none";
+    document.getElementById("uName").style.display = "none";
+    document.getElementById("eAdd").style.display = "none";
+    document.getElementById("pass1Label").style.display = "none";
+    document.getElementById("pass2Label").style.display = "none";
+}
+
+function closeTerms(){
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("fName").style.display = "block";
+    document.getElementById("mName").style.display = "block";
+    document.getElementById("sName").style.display = "block";
+    document.getElementById("addr").style.display = "block";
+    document.getElementById("uName").style.display = "block";
+    document.getElementById("eAdd").style.display = "block";
+    document.getElementById("pass1Label").style.display = "block";
+    document.getElementById("pass2Label").style.display = "block";
+}
+
+function clearFields(){
+    document.getElementById("firstName").value = null;
+    document.getElementById("middleName").value = null;
+    document.getElementById("surName").value = null;
+    document.getElementById("address").value = null;
+    document.getElementById("username").value = null;
+    document.getElementById("emailAddress").value = null;
+    document.getElementById("pass1").value = null;
+    document.getElementById("pass2").value = null;
+}

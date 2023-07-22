@@ -26,7 +26,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="home1" class="nav-link" href="#">Home</a>
@@ -42,7 +42,7 @@
                     </li>
                 </ul>
 
-            </div>
+            </div> -->
         </div>
     </nav>
 
