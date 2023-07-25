@@ -62,62 +62,70 @@
         </div>
     </nav>
 
-    <div class="containerUserHome">
+    <div class="containerViewFreelance">
 
     <div class="div2">
+        <div class="containerCatalog">
+
         <div class="item">
             <div class="catalogImg">
                 <img class="imgWork" src="../img/box.png">'
             </div>
             <div class="catalogTexts">
                 <h3>No catalog to display</h3>
-                <p>The freelancer has not yet posted a catalog <br></p>
+                <h4>The freelancer has not yet posted a catalog <br></h4>
             </div>
+        </div>
+
+
         </div>
     </div>
 
-<div class="div1">
-    <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-    <h2 id="userName">
-        Freelance Name
-    </h2>
-    <div id="verifyUserAcc">
-        Verified Account
+    <div class="div1">
+        <img id="freelancerPic" src="../img/profile.png" alt="user profile" title="user profile">
+        <div id="freelancerMainInfo" class="toFlex">
+            <div id="freelanceMainInfoInside" class="toMid">
+                <h2 id="freelancerName">
+                    John Paulo Sulit
+                </h2>
+                <img id="verifiedImg" src="../img/verified.png" alt="" title="Verified">
+            </div>
+        </div>
+
+        
+        
+        <div class="rating">
+            <span class="star" data-value="1"></span>
+            <span class="star" data-value="2"></span>
+            <span class="star" data-value="3"></span>
+            <span class="star" data-value="4"></span>
+            <span class="star" data-value="5"></span>
+        </div>
+
+        <a class="toMid" id="viewMoreFreelance1" href="">Ratings</a>
+
+        <div  class="flexDiv" id="jobsAndRole1">Jobs and Roles:</div>
+            <ul>
+                <li>Web Developer</li>
+                <li>Mobile Developer</li>
+            </ul>
+        <div class="flexDiv">
+            <img src="../img/address.png" alt="" class="addressImg" height="20px">
+            <div class="freelanceAddress">Bagna, Malolos, Bulacan</div>
+        </div>
+        <div class="flexDiv flexDivBot">
+            <img src="../img/email.png" alt="" class="emailImg" height="20px">
+            <div class="freelanceEmail">Sulitin@gmail.com</div>
+        </div>
+
+        <div class="toFlex freelanceButtons">
+            <div class="toMid">
+                <a id="viewMoreFreelance1" href="">View more</a>
+                <a id="messageFreelance1" href="">Message</a>
+            </div> 
+        </div> 
     </div>
 
-    <h3 class="toMid">Ratings</h3>
-    <div class="rating">
-        <span class="star" data-value="1"></span>
-        <span class="star" data-value="2"></span>
-        <span class="star" data-value="3"></span>
-        <span class="star" data-value="4"></span>
-        <span class="star" data-value="5"></span>
-    </div>
-
-    <div  class="flexDiv" id="jobsAndRole1">Jobs and Roles:</div>
-        <ul>
-            <li>Web Developer</li>
-            <li>Putanginamo</li>
-        </ul>
-    <div class="flexDiv">
-        <img src="../img/address.png" alt="" class="addressImg" height="20px">
-        <div class="freelanceAddress">Bagna, Malolos, Bulacan</div>
-    </div>
-    <div class="flexDiv flexDivBot">
-        <img src="../img/email.png" alt="" class="emailImg" height="20px">
-        <div class="freelanceEmail">Sulitin@gmail.com</div>
-    </div>
-
-    <div id="rateFreelance">
-        <a id="rateFreelance1" href="userrating.php">Rate this Freelancer</a>
-    </div
-
-
-
-    
-
-</div>
-</div>
 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -166,11 +174,14 @@
         </div>
     </div>
 
+    
+
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    
     <script src="../js/userrating.js "></script>
+    <script src="../js/script.js "></script>
 
 </body>
 
