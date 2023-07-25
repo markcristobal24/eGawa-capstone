@@ -46,7 +46,7 @@
 
               </span></a>
               <div class="dropdown-content">
-                <a href="freelanceHomePage.php">My Profile</a>
+                <a href="freelance/freelanceHomePage.php">My Profile</a>
                 <a href="#">Change Email Address</a>
                 <a href="#">Change Password</a>
                 <a id="logout1" href="#">Log Out</a>
