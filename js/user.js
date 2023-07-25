@@ -67,7 +67,6 @@ function clearUserEdit() {
 }
 
 
-
 function termsNCond(){
     document.getElementById("overlay").style.display = "block";
     document.getElementById("fName").style.display = "none";

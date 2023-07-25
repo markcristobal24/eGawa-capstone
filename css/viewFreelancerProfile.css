@@ -129,6 +129,7 @@
   }
 
   .toMid{
+    display: flex;
     margin-left: auto;
     margin-right: auto;
   }
@@ -140,8 +141,11 @@
     display: flex;
 }
 
-/* #freelancerName {
-} */
+.freelanceUsernameContainer {
+    /* margin-top: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+} 
 
 #verifiedImg{
     height: 20px;
@@ -334,12 +338,7 @@ body {
 #uploadedImageUser1, .labelImage{
     margin-left: 10px;
 }
-/*============================FOR USER EDIT PROFILE MODAL=================================*/
-#uploadedEditProfileIMG{
-    margin-left: auto;
-    margin-right: auto;
-}
-/*============================END OF USER EDIT PROFILE MODAL=================================*/
+
 
 
 
@@ -437,16 +436,6 @@ body {
     }
 
 }
-    /* ====For User ID verification modal */
-    #modaluserIdVerification{
-        margin-top: 10%;
-    }
-    #uploadedImageUser{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
 
 
 /*============================ small  ===========================*/

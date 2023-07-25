@@ -205,3 +205,4 @@ $(document).ready(function(){
         }
     reader.readAsDataURL(event.target.files[0]);
     }
+
