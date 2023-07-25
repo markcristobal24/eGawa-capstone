@@ -48,6 +48,11 @@ if ($query <= 0) {
                     $verifyEmail->sendEmail("E-Gawa", $email, $subject, $body);
         } else {
             //rekta login
+            ?>
+                    <script>
+                        window.location.href = "../user/userHomePage.php";
+                    </script>
+                    <?php
         }
     } else if ($fetch["userType"] == 'freelancer') {
         if ($fetch["status"] == 0) {
@@ -57,10 +62,11 @@ if ($query <= 0) {
             $_SESSION['mail'] = $email;
             $_SESSION['email'] = $email;
             $_SESSION['account_id'] = $fetch['account_id'];
-            $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
-            <br><br>
-            <p>With Regards,</p>
-            <b>eGawa</b>";
+            $body = "<p>Dear user, </p>
+<h3>Your verification code is $otp</h3>
+<br><br>
+<p>With Regards,</p>
+<b>eGawa</b>";
             $subject = "Your verification code";
 
             ?>

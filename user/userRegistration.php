@@ -46,7 +46,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
+        <form action="../controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
             <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -98,9 +98,10 @@
                     <label id="pass2Label" for="pass2">Re-enter Password</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue" >
+                    <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
                     <label class="termsTitle" for="checkboxId"><span>I agree to the </span></label>
-                    <span class="termsTitle" href="" id="tAndC" style="color: blue" onclick="termsNCond()">terms and conditions</span>
+                    <span class="termsTitle" href="" id="tAndC" style="color: blue" onclick="termsNCond()">terms and
+                        conditions</span>
                 </div>
 
             </div>
@@ -161,17 +162,17 @@
 
     <!--Modal terms and condition-->
     <div id="overlay">
-    <div id="modalTerms">
-      <h2 id="termsTitle">Terms and Conditions</h2>
-        <span>
-            <!-- Add your terms and conditions content here -->
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at posuere ligula.
-            Phasellus vitae dolor ac odio euismod facilisis.
-        </span>
+        <div id="modalTerms">
+            <h2 id="termsTitle">Terms and Conditions</h2>
+            <span>
+                <!-- Add your terms and conditions content here -->
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at posuere ligula.
+                Phasellus vitae dolor ac odio euismod facilisis.
+            </span>
 
-      <button id="closeModalBtn" onclick="closeTerms()">Close</button>
+            <button id="closeModalBtn" onclick="closeTerms()">Close</button>
+        </div>
     </div>
-  </div>
 
 
 
@@ -182,9 +183,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-        <script src="../js/user.js"></script>
-        <script src="../js/script.js"></script>
-        <script src="../js/validate.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/validate.js"></script>
 
 </body>
 

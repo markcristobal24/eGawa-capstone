@@ -68,7 +68,9 @@ if (!isset($_SESSION["otp"])) {
             <hr />
             <p>
                 <span class="infoVerify">Did not received the code?</span>
-                <button id="resendLink" href="#" name="resend">Resend code</button>
+                <button type="button" id="resendLink" name="resend"
+                    onclick="resendOtp('<?php echo $_SESSION['mail']; ?>');">Resend
+                    code</button>
             </p>
             <div id="message"></div>
         </form>

@@ -29,20 +29,20 @@ if (isset($_POST['btnFchangeEmail'])) {
                 if ($stmt2) {
                     $_SESSION['email'] = $new_email;
                     ?>
-<script>
-window.location.replace('../freelance/freelanceHomePage.php');
-alert('Email address updated successfully');
-</script>
-<?php
+                    <script>
+                        window.location.replace('../freelance/freelanceHomePage.php');
+                        alert('Email address updated successfully');
+                    </script>
+                    <?php
                 }
             }
         }
     } else if ($sql->num_rows < 0) {
         ?>
-<script>
-alert('Email address does not match!');
-window.location.replace('../freelance/freelanceChangeEmail.php');
-</script>
+            <script>
+                alert('Email address does not match!');
+                window.location.replace('../freelance/freelanceChangeEmail.php');
+            </script>
 <?php
     }
 }
@@ -58,20 +58,20 @@ if (isset($_POST['btnFchangePass'])) {
     if ($sql->num_rows > 0) {
         if ($new_pass !== $reNew_pass) {
             ?>
-<script>
-alert('Password was not matched!');
-window.location.replace('../freelance/freelanceChangePass.php');
-</script>
-<?php
+    <script>
+        alert('Password was not matched!');
+        window.location.replace('../freelance/freelanceChangePass.php');
+    </script>
+    <?php
         } else {
             $row = $sql->fetch_assoc();
             if ($old_pass !== $row['password']) {
                 ?>
-<script>
-alert('Incorrect password! Please try again.');
-window.location.replace('../freelance/freelanceChangePass.php');
-</script>
-<?php
+            <script>
+                alert('Incorrect password! Please try again.');
+                window.location.replace('../freelance/freelanceChangePass.php');
+            </script>
+            <?php
             } else {
                 $stmt = $con->prepare("UPDATE account SET password = ? WHERE email = ?");
                 $stmt->bind_param("ss", $new_pass, $email_identifier);
@@ -79,14 +79,32 @@ window.location.replace('../freelance/freelanceChangePass.php');
 
                 if ($stmt) {
                     ?>
-<script>
-window.location.replace('../freelance/freelanceHomePage.php');
-alert('Password has been changed.');
-</script>
-<?php
+                    <script>
+                        window.location.replace('../freelance/freelanceHomePage.php');
+                        alert('Password has been changed.');
+                    </script>
+                    <?php
                 }
             }
         }
     }
+}
+
+if (isset($_POST['resendOtp'])) {
+    $_SESSION['mail'] = $_POST['email'];
+    $verifyEmail = new Email();
+    $otp = $verifyEmail->generate_code();
+    $_SESSION['otp'] = $otp;
+    $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
+            <br><br>
+            <p>With Regards,</p>
+            <b>eGawa</b>";
+    $subject = "Your verification code";
+
+    $verifyEmail->sendEmail("E-Gawa", $_SESSION['mail'], $subject, $body);
+
+    $output['success'] = 'OTP sent successfully';
+
+    echo json_encode($output);
 }
 ?>

@@ -112,6 +112,25 @@ function reloadWithModal() {
     location.reload();
 }
 
+function resendOtp(email) {
+    var form_data = new FormData();
+    form_data.append('email', email);
+    form_data.append('resendOtp', 'resendOtp');
+    fetch('../controller/c_Faccount.php', {
+        method: "POST",
+        body: form_data
+    }).then(function (response) {
+        return response.json();
+    }).then(function (response_data) {
+        console.log(response_data);
+        if (response_data.success) {
+            alert('OTP resend to ' + email);
+            window.location.replace('verifyAccount.php');
+        }
+    });
+}
+
+
 
 
 
