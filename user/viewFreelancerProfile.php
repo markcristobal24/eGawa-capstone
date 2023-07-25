@@ -91,7 +91,11 @@
                 <img id="verifiedImg" src="../img/verified.png" alt="" title="Verified">
             </div>
         </div>
-
+        <div class="freelanceUsernameContainer">
+            <h4 id="freelanceUsername">
+                @lethimcook69
+            </h4>
+        </div>
         
         
         <div class="rating">
@@ -120,8 +124,8 @@
 
         <div class="toFlex freelanceButtons">
             <div class="toMid">
-                <a id="viewMoreFreelance1" href="">View more</a>
-                <a id="messageFreelance1" href="">Message</a>
+                <div id="viewMoreFreelance1" onclick="tryModal()">View more</div>
+                <div id="messageFreelance1">Message</div>
             </div> 
         </div> 
     </div>
@@ -174,13 +178,115 @@
         </div>
     </div>
 
+        <!-- this modal is for freelance profile if you click "view more" -->
+    <div class="modal " id="modalViewMore1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="titles" id="">User Profile</div>
+                </div>
+
+                <img id="freelancerPic" src="../img/profile.png" alt="user profile" title="user profile">
+                <div id="freelancerMainInfo" class="toFlex">
+                    <div id="freelanceMainInfoInside" class="toMid">
+                        <h2 id="freelancerName">
+                            John Paulo Sulit
+                        </h2>
+                        <img id="verifiedImg" src="../img/verified.png" alt="" title="Verified">
+                    </div>
+                </div>
+                <div class="freelanceUsernameContainer">
+                    <h4 id="freelanceUsername">
+                        @lethimcook69
+                    </h4>
+                </div>
+
+                <div class="rating">
+                    <span class="star" data-value="1"></span>
+                    <span class="star" data-value="2"></span>
+                    <span class="star" data-value="3"></span>
+                    <span class="star" data-value="4"></span>
+                    <span class="star" data-value="5"></span>
+                </div>
+
+                <div class="flexDiv">
+                    <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                    <div class="freelanceAddress">
+                        Bagna, Malolos, Bulacan
+                    </div>
+                </div>
+                <div class="flexDiv">
+                    <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                    <div class="freelanceEmail">
+                        sulitin@gmail.com
+                    </div>
+                </div>
+
+                <div class="titles">Jobs and Roles:</div>
+                <ul>
+                    <li>Web Developer</li>
+                    <li>Mobile Developer</li>
+                </ul>
+
+                <hr>
+                <div class="titles">Work Experience</div>
+                <div class="flexDiv" id="workExpi1">
+                    <div class="companyNameModal1">Company Name:&nbsp;</div>
+                    <div class="companyNameModal1Data">
+                        
+                    </div>
+                </div>
+                <div class="flexDiv">
+                    <div class="dateStartedModal1">Date Started:&nbsp;</div>
+                    <div class="dateStartedModal1Data">
+                        
+                    </div>
+                </div>
+                <div class="flexDiv">
+                    <div class="dateEndedModal1">Date Ended:&nbsp;</div>
+                    <div class="dateEndedModal1Data">
+                        
+                    </div>
+                </div>
+
+
+                <div class="flexDiv" id="workExpi2">
+                    <div class="companyNameModal2"></div>
+                    <div class="companyNameModal2Data"></div>
+                </div>
+                <div class="flexDiv">
+                    <div class="dateStartedModal2"></div>
+                    <div class="dateStartedModal2Data"></div>
+                </div>
+                <div class="flexDiv">
+                    <div class="dateEndedModal2"></div>
+                    <div class="dateEndedModal2Data"></div>
+                </div>
+
+                <hr>
+                <div class="titles">Job Description</div>
+                <p id="jobDescModal">
+                Lorem ipsum dolor sit amet . The graphic and typographic operators know this well, in reality all the professions dealing with the universe of communication have a stable relationship with these words, but what is it? Lorem ipsum is a dummy text without any sense.
+                </p>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="cancelViewMore">
+                        Report
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelViewMore">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   
-    <script src="../js/userrating.js "></script>
+
     <script src="../js/script.js "></script>
 
 </body>
