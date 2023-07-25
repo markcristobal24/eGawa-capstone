@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <title>eGawa | User Homepage</title>
+    <title>eGawa | Freelancer profile</title>
     <style>
 
 
