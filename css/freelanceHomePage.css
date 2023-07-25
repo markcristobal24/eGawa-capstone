@@ -243,10 +243,10 @@
     background-color: rgb(157, 157, 157);
 }
 
-  .item p, h3 {
+.item p, h3 {
     color: #f4f4f4;
     text-align: justify;
-  }
+}
 
 
 #insideItem{
@@ -440,6 +440,7 @@ body {
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
+    
     .containerFreelanceHome {
         max-width: 420px;
         margin: 0 auto;

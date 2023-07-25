@@ -73,7 +73,7 @@
       }
 
 
-.containerUserHome {
+.containerViewFreelance {
     display: flex;
     max-width: auto;
     max-height: auto;
@@ -86,8 +86,28 @@
     margin-top: 100px;
 }
 
+.item {
+    background-color: #0074aa95;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+  }
 
-.containerUserHome .div1 {
+.item:hover{
+    background-color: rgb(157, 157, 157);
+}
+
+.item p, h3 {
+    color: #f4f4f4;
+    text-align: justify;
+}
+
+
+.containerViewFreelance .div1 {
     margin: 10px;
     width: 30%;
     border: 1px solid rgb(255, 255, 255);
@@ -113,33 +133,42 @@
     margin-right: auto;
   }
 
-#userName {
-    margin: 10px auto 0;
+#freelancerMainInfo{
+    margin-top: 20px;
+}
+#freelanceMainInfoInside{
+    display: flex;
 }
 
-#userPic {
+/* #freelancerName {
+} */
+
+#verifiedImg{
+    height: 20px;
+    margin: auto;
+    padding-left: 5px;
+}
+
+#freelancerPic {
     max-width: 150px;
     margin: 10px auto 0;
     border-radius: 73px;
 }
 
-#verifyUserAcc ,#rateFreelance{
-    margin: 10px auto 10px;
-    background-color: #079040;
-    color: #ddd;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 3px 10px;
+
+.toFlex{
+    display: flex;
 }
-#rateFreelance1{
+
+.freelanceButtons{
+    margin: auto auto 5px;
+}
+
+#messageFreelance1, #viewMoreFreelance1{
     color: #ddd;
     text-decoration: none;
 }
 
-#verifyUserAcc:hover {
-    background-color: #044c22;
-    cursor: pointer;
-}
 #rateFreelance:hover {
     background-color: #044c22;
     cursor: pointer;
@@ -159,8 +188,21 @@
     margin-right: 20px;
 }
 
-#viewmore {
-    margin: 10px auto 10px;
+#messageFreelance1 {
+    /* margin: 10px auto 10px; */
+    background-color: #079040;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+#messageFreelance1:hover {
+    background-color: #044c22;
+    cursor: pointer;
+}
+#viewMoreFreelance1 {
+    /* margin: 10px auto 10px; */
     background-color: #079040;
     color: #ddd;
     font-weight: 400;
@@ -168,37 +210,26 @@
     padding: 3px 10px;
 }
 
-#viewmore:hover {
+#viewMoreFreelance1:hover {
     background-color: #044c22;
     cursor: pointer;
 }
 
 
-.editContainer {
-    position: relative;
-    background-color: lightgray;
-    margin-top: 20px;
-}
-
-#editUserAcc {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: rgb(149, 92, 92);
-    padding-right: 3px;
-}
-
-#editUserAcc:hover {
-    color: #ff6600;
-    cursor: pointer;
-}
-
-.containerUserHome .div2 {
+.containerViewFreelance .div2 {
     margin: 10px;
     width: 70%;
     max-height: auto;
     border: 1px solid rgb(255, 255, 255);
 }
+
+.containerCatalog{
+    width: auto;
+    height: 540px;
+    overflow: auto;
+    padding: 5px;
+}
+
 .containerPost{
     border: 1px solid rgb(255, 255, 255);
     margin-bottom: 10px;
@@ -208,6 +239,18 @@
     height: 500px;
     overflow: auto;
     padding: 5px;
+}
+.imgWork{
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+}
+.item{
+    display: flex;
+}
+
+.catalogTexts{
+    padding: 20px;
 }
 
 p {
@@ -318,7 +361,7 @@ body {
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
 
-    .containerUserHome {
+    .containerViewFreelance {
         flex-direction: column;
         max-width: 440px;
         margin: 0 auto;
@@ -330,7 +373,7 @@ body {
         background-color: #ddd;
     }
 
-    .containerUserHome .div1 {
+    .containerViewFreelance .div1 {
         order: -1;
         margin: 10px auto 10px;
         width: 90%;
@@ -340,11 +383,16 @@ body {
         flex-direction: column;
     }
 
-    .containerUserHome .div2 {
+    .containerViewFreelance .div2 {
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
         border: 1px solid rgb(255, 255, 255);
+    }
+
+    .item{
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -399,9 +447,12 @@ body {
     }
 
 
+
+
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    .containerUserHome {
+
+    .containerViewFreelance {
         flex-direction: column;
         max-width: 440px;
         margin: 0 auto;
@@ -413,7 +464,7 @@ body {
         background-color: #ddd;
     }
 
-    .containerUserHome .div1 {
+    .containerViewFreelance .div1 {
         order: -1;
         margin: 10px auto 10px;
         width: 90%;
@@ -423,7 +474,7 @@ body {
         flex-direction: column;
     }
 
-    .containerUserHome .div2 {
+    .containerViewFreelance .div2 {
         margin: 10px auto 10px;
         width: 90%;
         max-height: auto;
@@ -462,6 +513,15 @@ body {
     .custom-shape-divider-bottom-1687514102 .shape-fill {
         fill: #0073aa;
     }
+
+    .catalogImg{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .catalogTexts h3, h4{
+        font-size: 15px;
+    }
+
 
 
 }
