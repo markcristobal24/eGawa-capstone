@@ -52,10 +52,13 @@ dateEndedInput.addEventListener('change', function () {
 const clearPass = document.getElementById('clearChangePass');
 const currPassword = document.getElementById('currentPass');
 const newPassword = document.getElementById('newPass');
+const newPassword2 = document.getElementById('newPass2');
+
 
 clearPass.addEventListener('click', function () {
-    currPassword = null;
-    newPassword = null;
+    currPassword.value ='';
+    newPassword.value ='';
+    newPassword2.value ='';
 });
 
 //for clear button on change email page
@@ -67,4 +70,15 @@ clearEmail.addEventListener('click', function () {
     currEmail = null;
     newEmail = null;
 });
+
+
+// //for clear button on change email page
+// const clearEmail = document.getElementById('clearChangeEmail');
+// const currEmail = document.getElementById('currentEmail');
+// const newEmail = document.getElementById('newEmail');
+
+// clearEmail.addEventListener('click', function () {
+//     currEmail = null;
+//     newEmail = null;
+// });
 

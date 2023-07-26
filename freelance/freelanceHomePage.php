@@ -353,13 +353,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <label id="editAddressLabel" for="editAddress">Edit your address</label>
                     </div>
 
-                    <!-- <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                        <input type="text" id="editEmailAddress" name="editEmailAddress" class="form-control"
-                            placeholder="Edit your email address" required>
-                        <label id="editEmailAddressLabel" for="editEmailAddress">Edit your email address</label>
-                    </div> -->
-
-
                     <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
                         <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
                         <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"

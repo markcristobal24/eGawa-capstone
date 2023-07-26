@@ -86,7 +86,7 @@
                 <button type="submit" name="btnFchangePass" class="btn btn-primary" id="">
                     Submit
                 </button>
-                <button type="" class="btn btn-secondary" id="clearChangePass">
+                <button type="button" class="btn btn-secondary" id="clearChangePass">
                     Clear
                 </button>
             </div>
@@ -151,6 +151,11 @@
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/freelance.js"></script>
     <script src="../js/script.js"></script>
+
+    <script>
+
+
+    </script>
 </body>
 </body>
 
