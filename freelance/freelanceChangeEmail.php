@@ -87,7 +87,7 @@ if (!isset($_SESSION['email'])) {
                 <button type="submit" name="btnFchangeEmail" class="btn btn-primary" id="">
                     Submit
                 </button>
-                <button type="" class="btn btn-secondary" id="clearChangeEmail">
+                <button type="button" class="btn btn-secondary" id="clearChangeEmail" onclick="resetInputEmail()">
                     Clear
                 </button>
             </div>

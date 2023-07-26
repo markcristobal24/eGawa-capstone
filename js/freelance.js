@@ -49,36 +49,60 @@ dateEndedInput.addEventListener('change', function () {
 
 
 //for clear button on change password page
-const clearPass = document.getElementById('clearChangePass');
-const currPassword = document.getElementById('currentPass');
-const newPassword = document.getElementById('newPass');
-const newPassword2 = document.getElementById('newPass2');
+function resetInputPass(){
 
+    var currPassword = document.getElementById('currentPass');
+    var newPassword = document.getElementById('newPass');
+    var newPassword2 = document.getElementById('newPass2');
 
-clearPass.addEventListener('click', function () {
     currPassword.value ='';
     newPassword.value ='';
     newPassword2.value ='';
-});
+}
 
 //for clear button on change email page
-const clearEmail = document.getElementById('clearChangeEmail');
-const currEmail = document.getElementById('currentEmail');
-const newEmail = document.getElementById('newEmail');
+function resetInputEmail(){
 
-clearEmail.addEventListener('click', function () {
-    currEmail = null;
-    newEmail = null;
-});
+    var currEmail = document.getElementById('currentEmail');
+    var newEmail = document.getElementById('newEmail');
 
+    currEmail.value ='';
+    newEmail.value ='';
 
-// //for clear button on change email page
-// const clearEmail = document.getElementById('clearChangeEmail');
-// const currEmail = document.getElementById('currentEmail');
-// const newEmail = document.getElementById('newEmail');
+}
 
-// clearEmail.addEventListener('click', function () {
-//     currEmail = null;
-//     newEmail = null;
-// });
+function clearInputs(){
+    var img = document.getElementById('uploadedEditImage');
+    var setImg = '../img/upload.png';
+    var imgFile = document.getElementById('uploadInputEdit');
+    var addr = document.getElementById('editAddress');
+    var webDesignCB = document.getElementById('webDesign');
+    var webDevCB = document.getElementById('webDev');
+    var mobAppDevCB = document.getElementById('mobAppDev');
+    var brandDesignCB = document.getElementById('brandDesign');
+    var hostingMaintenanceCB = document.getElementById('hostingMaintenance');
+    
 
+    img.src = setImg;
+    imgFile.value = '';
+    addr.value = '';
+    webDesignCB.checked = false;
+    webDevCB.checked = false;
+    mobAppDevCB.checked = false;
+    brandDesignCB.checked = false;
+    hostingMaintenanceCB.checked = false;
+
+}
+
+function cancelAddCatalog(){
+    var img = document.getElementById('uploadedImageCatalog');
+    var setImg = '../img/upload.png';
+    var imgFile = document.getElementById('uploadInput');
+    var catalogTitle = document.getElementById('catalogTitle');
+    var catalogDesc = document.getElementById('catalogDescription');
+
+    img.src = setImg;
+    imgFile.value = '';
+    catalogTitle.value = '';
+    catalogDesc.value = '';
+}

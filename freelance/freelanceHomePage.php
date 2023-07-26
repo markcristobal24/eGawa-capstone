@@ -386,7 +386,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <button type="submit" class="btn btn-primary" name="btnEditFreelanceProfile" id="submitEdit">
                             Save
                         </button>
-                        <button class="btn btn-secondary" id="cancelEdit">
+                        <button type="button" class="btn btn-secondary" id="cancelEdit" onclick="clearInputs()">
                             Cancel
                         </button>
                     </div>
@@ -439,7 +439,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <button type="submit" name="btnAddCatalog" class="btn btn-primary" id="submitUserID">
                             Submit
                         </button>
-                        <button class="btn btn-secondary" id="cancelSubmit">
+                        <button type="button" class="btn btn-secondary" id="cancelSubmit" onclick="cancelAddCatalog()">
                             Cancel
                         </button>
                     </div>

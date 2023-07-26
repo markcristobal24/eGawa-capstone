@@ -86,7 +86,7 @@
                 <button type="submit" name="btnFchangePass" class="btn btn-primary" id="">
                     Submit
                 </button>
-                <button type="button" class="btn btn-secondary" id="clearChangePass">
+                <button type="button" class="btn btn-secondary" id="clearChangePass" onclick="resetInputPass()">
                     Clear
                 </button>
             </div>
@@ -153,7 +153,6 @@
     <script src="../js/script.js"></script>
 
     <script>
-
 
     </script>
 </body>
