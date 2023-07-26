@@ -168,9 +168,10 @@
     margin: auto auto 5px;
 }
 
-#messageFreelance1, #viewMoreFreelance1{
+#messageFreelance1, #viewMoreFreelance1, #freelanceRating{
     color: #ddd;
     text-decoration: none;
+    margin: 5px;
 }
 
 #rateFreelance:hover {
@@ -215,6 +216,20 @@
 }
 
 #viewMoreFreelance1:hover {
+    background-color: #044c22;
+    cursor: pointer;
+}
+
+#freelanceRating {
+    /* margin: 10px auto 10px; */
+    background-color: #079040;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+#freelanceRating:hover {
     background-color: #044c22;
     cursor: pointer;
 }
@@ -330,16 +345,34 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
-/* ====For User ID verification modal */
-#modaluserIdVerification{
-    margin-top: 10%;
+/*==========================FOR MODAL - VIEW MORE============================*/
+.modalTitles, .titles,
+#jobsAndRole {
+    font-size: 30px;
+    font-weight: 600;
+    color: #0073aa;
+    padding: 10px;
 }
 
-#uploadedImageUser1, .labelImage{
-    margin-left: 10px;
+#freelanceName {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.modal-header {
+    padding: 0;
+    padding: 10px;
+}
 
+.job {
+    color: black;
+}
+
+#jobDescModal {
+    color: black;
+    padding: 5px 10px;
+} 
 
 
 

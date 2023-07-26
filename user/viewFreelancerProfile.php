@@ -93,7 +93,7 @@
         </div>
         <div class="freelanceUsernameContainer">
             <h4 id="freelanceUsername">
-                @lethimcook69
+                @lethimcook
             </h4>
         </div>
         
@@ -106,7 +106,11 @@
             <span class="star" data-value="5"></span>
         </div>
 
-        <a class="toMid" id="viewMoreFreelance1" href="">Ratings</a>
+        <div class="toFlex">
+            <div class="toMid">
+                <a id="freelanceRating" href="">Ratings</a>
+            </div>
+        </div>
 
         <div  class="flexDiv" id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
@@ -197,7 +201,7 @@
                 </div>
                 <div class="freelanceUsernameContainer">
                     <h4 id="freelanceUsername">
-                        @lethimcook69
+                        @lethimcook
                     </h4>
                 </div>
 
@@ -222,14 +226,14 @@
                     </div>
                 </div>
 
-                <div class="titles">Jobs and Roles:</div>
-                <ul>
-                    <li>Web Developer</li>
-                    <li>Mobile Developer</li>
-                </ul>
-
-                <hr>
+                <div class="titles" id="jobsAndRole1">Jobs and Roles:</div>
+                    <ul>
+                        <li>Web Developer</li>
+                        <li>Mobile Developer</li>
+                    </ul>
+                    <hr>
                 <div class="titles">Work Experience</div>
+
                 <div class="flexDiv" id="workExpi1">
                     <div class="companyNameModal1">Company Name:&nbsp;</div>
                     <div class="companyNameModal1Data">
@@ -266,11 +270,14 @@
                 <hr>
                 <div class="titles">Job Description</div>
                 <p id="jobDescModal">
-                Lorem ipsum dolor sit amet . The graphic and typographic operators know this well, in reality all the professions dealing with the universe of communication have a stable relationship with these words, but what is it? Lorem ipsum is a dummy text without any sense.
+                Lorem ipsum dolor sit amet . The graphic and typographic operators know this well, 
+                in reality all the professions dealing with the universe of communication have a 
+                stable relationship with these words, but what is it? Lorem ipsum is a dummy text without 
+                any sense.
                 </p>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="cancelViewMore">
+                    <button type="button" class="btn btn-danger" id="">
                         Report
                     </button>
                     <button type="button" class="btn btn-secondary" id="cancelViewMore">
