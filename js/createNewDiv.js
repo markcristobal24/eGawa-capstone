@@ -116,6 +116,7 @@ catalog.addEventListener('click', function () {
   $('#modalFreelanceAddCatalog').modal('show');
   $('#cancelSubmit').on("click", function (e) {
     $('#modalFreelanceAddCatalog').modal('hide');
+    clearInputs();
   });
 });
 

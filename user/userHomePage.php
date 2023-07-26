@@ -47,10 +47,13 @@
 
                             </span></a>
                         <div class="dropdown-content">
-                            <a href="freelanceChangeEmail.php">Change Email Address</a>
+                            <a href="userChangeEmail.php">Change Email Address</a>
                             <a href="freelanceChangePass.php">Change Password</a>
-                            <a href="">Edit Account</a>
-                            <a id="logout1" href="#">Log Out</a>
+                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Launch demo modal
+                            </button> -->
+                            <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdropYow">Edit Account</a>
+                            <a id="logout1" href="#" >Log Out</a>
                         </div>
                     </li>
                 </ul>
@@ -82,7 +85,7 @@
                         <td>Completed</td>
                     </tr>
                     <tr>
-                        <td>Collin Sexton</td>
+                        <td>Collin Holland</td>
                         <td>04/20/20</td>
                         <td>Incomplete</td>
                     </tr>
@@ -92,60 +95,17 @@
                         <td>Completed</td>
                     </tr>
                     <tr>
-                        <td>Johnny Sins</td>
+                        <td>Johnny Santos</td>
                         <td>02/14/69</td>
                         <td>Completed</td>
                     </tr>
                     <tr>
-                        <td>Johnny Sins</td>
+                        <td>Johnny Santos</td>
                         <td>02/14/69</td>
                         <td>Completed</td>
                     </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sins</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
+
+                    
                 </table>
 		    </div>
         </div>
@@ -208,7 +168,7 @@
                 <div class="imgUpl1">
                     <label class="labelImage" for="uploadInput">Upload 1(one) Valid ID</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImageUser" src="img/upload.png" alt="Uploaded Image" height="200">
+                            <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
                         </div>
                         <div>
                             <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
@@ -227,47 +187,48 @@
     </div>
         
     <!--Modal for USER EDIT ACCOUNT-->
-    <div class="modal fade" id="modaluserEditProfile" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Edit Profile</h3>
-                </div>
+    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content mt-5">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <form action="" method="POST" enctype="multipart/form-data" required>
+                            <div id="imgUpl">
+                                <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
+                                <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
+                                </div>
+                                <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                                    onchange="catalogImgUp(event)" >
+                            </div>
 
-                <div class="userEditImg">
-                    <label class="labelImage" for="uploadInput">Change Profile Picture</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedEditProfileIMG" src="img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                            <input id="uploadedImageUserEdit" type="file" accept="image/*" onchange="editUserImg(event)" required>
-                        </div> 
-                </div>
+                            <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
+                                <!-- Gap on all sides is 2 -->
+                                <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                                    placeholder="Address" >
+                                <label id="catalogTitleLabel" for="companyName">Address</label>
+                            </div>
 
-                <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                        <!-- Gap on all sides is 2 -->
-                        <input type="text" id="editUserAddress" name="editUserAddress" class="form-control"
-                            placeholder="Edit your address" required>
-                        <label id="editAddressLabel" for="editUserAddress">Edit your address</label>
-                    </div>
-                    <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-                        <!-- Gap on all sides is 2 -->
-                        <input type="text" id="editUserEmailAddress" name="editUserEmailAddress" class="form-control"
-                            placeholder="Edit your email address" required>
-                        <label id="editEmailAddressLabel" for="editUserEmailAddress">Edit your email address</label>
-                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="submitUserID">
-                        Submit
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="clearUserID" onclick="clearUserEdit()">
-                        Clear
-                    </button>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
+
 
 
     <!--Modal for log out-->
@@ -293,12 +254,16 @@
         </div>
     </div>
 
+
+    <script src="../js/script.js "></script>
+    <script src="../js/user.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    
-    <script src="js/validate.js"></script>
-    <script src="js/user.js"></script>
+    
+
 
 </body>
 

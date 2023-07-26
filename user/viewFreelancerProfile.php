@@ -128,7 +128,7 @@
 
         <div class="toFlex freelanceButtons">
             <div class="toMid">
-                <div id="viewMoreFreelance1" onclick="tryModal()">View more</div>
+                <div id="viewMoreFreelance1" onclick="modalFreelanceViewMore()">View more</div>
                 <div id="messageFreelance1">Message</div>
             </div> 
         </div> 
@@ -277,9 +277,10 @@
                 </p>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="">
+                    <!-- <button type="button" class="btn btn-danger" id="">
                         Report
-                    </button>
+                    </button> -->
+                    <button type="button" class="btn btn-outline-danger">Report</button>
                     <button type="button" class="btn btn-secondary" id="cancelViewMore">
                         Close
                     </button>
@@ -295,6 +296,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="../js/script.js "></script>
+    <script src="../js/userpovfreelance.js "></script>
 
 </body>
 

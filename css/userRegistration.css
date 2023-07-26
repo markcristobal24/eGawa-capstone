@@ -90,6 +90,9 @@
 .userRegTitle {
     color: #0073aa;
 }
+#tAndC:hover{
+    cursor: pointer;
+}
 
 #btnUserReg,
 #btnUserRegClear {

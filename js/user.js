@@ -1,5 +1,4 @@
 var userVerifyBtn = document.getElementById('verifyUserAcc');
-
 userVerifyBtn.addEventListener('click', function () {
     $('#modaluserIdVerification').modal('show');
 
@@ -23,24 +22,8 @@ function clearUserID() {
     imageCleared.src = '../img/upload.png';
 }
 
-//for logout button
-var logout = document.getElementById('logout1');
-logout.addEventListener('click', function () {
-    $('#modalLogOut').modal('show');
-    $('#cancelLogOutBtn').on("click", function () {
-        $('#modalLogOut').modal('hide');
-    });
-});
 
 
-//for edit profile of user
-var userEdit = document.getElementById('editUserAcc');
-userEdit.addEventListener('click', function () {
-    $('#modaluserEditProfile').modal('show');
-    $('#cancelLogOutBtn').on("click", function () {
-        $('#modaluserEditProfile').modal('hide');
-    });
-});
 
 //for edit profile picture of user
 function editUserImg(event) {
@@ -101,3 +84,4 @@ function clearFields(){
     document.getElementById("pass1").value = null;
     document.getElementById("pass2").value = null;
 }
+
