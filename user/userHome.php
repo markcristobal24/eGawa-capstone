@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <title>eGawa | User Homepage</title>
+    <title>eGawa | Home</title>
 
 </head>
 
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home1" class="nav-link" href="userHome.php">Home</a>
+                        <a id="home1" class="nav-link" href="usertHome.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
@@ -47,9 +47,9 @@
 
                             </span></a>
                         <div class="dropdown-content">
+                            <a href="userHomePage.php">My Profile</a>
                             <a href="userChangeEmail.php">Change Email Address</a>
                             <a href="userChangePass.php">Change Password</a>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdropYow">Edit Account</a>
                             <a id="logout1" href="#" >Log Out</a>
                         </div>
                     </li>
