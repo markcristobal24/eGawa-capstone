@@ -9,14 +9,14 @@
 
 #home1,
 #about1,
-#freelanceOption,
-#freeLanceInbox {
+#userOption,
+#userInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#freelanceOption:hover {
+#userOption:hover {
     color: #ff6600;
 }
 
@@ -28,7 +28,7 @@
     color: #ff6600;
 }
 
-#freeLanceInbox:hover {
+#userInbox:hover {
     color: #ff6600;
 }
 
@@ -207,12 +207,14 @@ body {
 
     #home1,
     #about1,
-    #freelanceOption,
-    #freeLanceInbox {
+    #userOption,
+    #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
     }
+
+
     #logout1{
         color: black;
     }
@@ -242,9 +244,6 @@ body {
         font-weight: 500;
     }
 
-
-
-
     .footerInfo {
         font-size: 10px;
         color: #0073aa
@@ -257,16 +256,18 @@ body {
 
     #home1,
     #about1,
-    #logout1,
-    #freeLanceInbox {
+    #userOption,
+    #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
     }
 
+
     #logout1{
         color: black;
     }
+
     #logout1:hover{
         color:#ddd;
     }

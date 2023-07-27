@@ -154,6 +154,5 @@ if (!isset($_SESSION['email'])) {
     <script src="../js/freelance.js"></script>
     <script src="../js/script.js"></script>
 </body>
-</body>
 
 </html>

@@ -85,3 +85,13 @@ function clearFields(){
     document.getElementById("pass2").value = null;
 }
 
+//for clear button on change email page
+function resetInputEmail(){
+
+    var currEmail = document.getElementById('currentEmail');
+    var newEmail = document.getElementById('newEmail');
+
+    currEmail.value ='';
+    newEmail.value ='';
+
+}
