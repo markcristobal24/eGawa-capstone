@@ -48,10 +48,7 @@
                             </span></a>
                         <div class="dropdown-content">
                             <a href="userChangeEmail.php">Change Email Address</a>
-                            <a href="freelanceChangePass.php">Change Password</a>
-                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Launch demo modal
-                            </button> -->
+                            <a href="userChangePass.php">Change Password</a>
                             <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdropYow">Edit Account</a>
                             <a id="logout1" href="#" >Log Out</a>
                         </div>
