@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/userHomePage.css">
+    <link rel="stylesheet" href="../css/userHome.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -60,14 +60,32 @@
 
     <div class="containerUserHome">
 
+        <div class="div1">
+                <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+                <h2 id="userName">User Name</h2>
+                <div id="verifyUserAcc">Verified Account</div>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Web Development</a></li>
+                        <li><a class="dropdown-item" href="#">Mobile Development</a></li>
+                        <li><a class="dropdown-item" href="#">MultiMedia</a></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+
         <div class="div2">
 
             <h2 class="userHistoryTitle">Your Transaction History</h2>
             <div class="containerHistory">
-            
-                <!--  table-striped or table-striped-columns   
-                    table-color(primary, secondary, success, danger, warning, info, light, dark)
-                    table-hover makes the table hoverable -->
 
                 <table class="table table-striped table-light table-hover">
                     <tr>
@@ -107,27 +125,7 @@
 		    </div>
         </div>
 
-        <div class="div1">
-            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-            <h2 id="userName">User Name</h2>
-            <div id="verifyUserAcc">Verify Account</div>
 
-
-            <div class="flexDiv">
-                <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                <div class="freelanceAddress">Bagna, Malolos, Bulacan</div>
-            </div>
-            <div class="flexDiv flexDivBot">
-                <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                <div class="freelanceEmail">Sulitin@gmail.com</div>
-            </div>
-
-
-            <!-- <div class="editContainer">
-                <div id="editUserAcc">Edit Account</div>
-            </div> -->
-        </div>
-    </div>
 
 
 
@@ -153,79 +151,6 @@
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
     </footer>
-
-    <!--Modal for user account verification-->
-    <div class="modal fade" id="modaluserIdVerification" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>User verification</h3>
-                </div>
-
-                <div class="imgUpl1">
-                    <label class="labelImage" for="uploadInput">Upload 1(one) Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
-                        </div> 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="submitUserID">
-                        Submit
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="clearUserID" onclick="clearUserID()">
-                        Clear
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-    <!--Modal for USER EDIT ACCOUNT-->
-    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content mt-5">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Profile</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-                <div class="modal-body">
-                    <form action="" method="POST" enctype="multipart/form-data" required>
-                            <div id="imgUpl">
-                                <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
-                                <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                    <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
-                                </div>
-                                <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
-                                    onchange="catalogImgUp(event)" >
-                            </div>
-
-                            <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
-                                <!-- Gap on all sides is 2 -->
-                                <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                                    placeholder="Address" >
-                                <label id="catalogTitleLabel" for="companyName">Address</label>
-                            </div>
-
-
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
 
 
     <!--Modal for log out-->
