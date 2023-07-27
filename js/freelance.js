@@ -106,3 +106,18 @@ function cancelAddCatalog(){
     catalogTitle.value = '';
     catalogDesc.value = '';
 }
+
+function clearUploadedID(){
+    var img1 = document.getElementById('uploadedImage1');
+    var img2 = document.getElementById('uploadedImage2');
+    var setImg = '../img/upload.png';
+    var imgFile1 = document.getElementById('uploadInput1');
+    var imgFile2 = document.getElementById('uploadInput2');
+
+    img1.src = setImg;
+    img2.src = setImg;
+
+    imgFile1.value = '';
+    imgFile2.value = '';
+    
+}

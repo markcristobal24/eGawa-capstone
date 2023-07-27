@@ -89,7 +89,7 @@
                 <button type="submit" id="btnFreelanceProfile" class="btn btn-primary">
                     Submit
                 </button>
-                <button class="btn btn-secondary">
+                <button type="button" class="btn btn-secondary" onclick="clearUploadedID()">
                     Clear
                 </button>
             </div>
