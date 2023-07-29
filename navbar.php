@@ -16,17 +16,17 @@
                 <li class="nav-item">
                     <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a id="freelanceOption" class="nav-link" href="#">Welcome,
                         <span>
-                            <?php echo $_SESSION['firstName']; ?>
+                            
                         </span></a>
                     <div class="dropdown-content">
                         <a href="freelanceChangeEmail.php">Change Email Address</a>
                         <a href="freelanceChangePass.php">Change Password</a>
                         <a id="logout1" href="#">Log Out</a>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </div>
