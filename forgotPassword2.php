@@ -9,8 +9,10 @@
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
-     <!-- Link for CSS -->
-     <link rel="stylesheet" href="css/forgotPassword2.css" />
+    <!-- Link for CSS -->
+    <link rel="stylesheet" href="css/forgotPassword2.css" />
+
+    <link rel="stylesheet" href="css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -21,6 +23,7 @@
 </head>
 
 <body>
+    <div class="toast_notif" id="toast_notif"></div>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
@@ -29,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a id="home1" class="nav-link" href="#">Home</a>
                     </li>
@@ -48,15 +51,15 @@
     <div class="containerForgot">
         <form action="#" method="post">
             <h1 class="forgotPageTitle">Email Sent!</h1>
-                <img id="check" src="img/check.png" alt="check">
-                <p>Link has been sent to your email address to create your new password!</p>
-                <hr />
-                <p>
-                    <span class="infoForgot">Email not received?</span>
-                    <a id="resendEmail" href="#">Resend Email</a>
-                </p>
+            <img id="check" src="img/check.png" alt="check">
+            <p>Link has been sent to your email address to create your new password!</p>
+            <hr />
+            <p>
+                <span class="infoForgot">Email not received?</span>
+                <a id="resendEmail" href="#">Resend Email</a>
+            </p>
         </form>
-        
+
         <div id="message"></div>
     </div>
 
@@ -102,10 +105,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="classJS/Account.js"></script>
+    <script src="classJS/Notification.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
 
 </body>
 
 </html>
-

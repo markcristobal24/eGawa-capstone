@@ -43,11 +43,11 @@
         </ul>
     </div>
     <script>
-        let message = "Toast showed successfully";
-        let header = "neutral";
+    let message = "Toast showed successfully";
+    let header = "neutral";
     </script>
 
-    <button type="button" onclick="new Notification().showNotification(message, header)">Click me for Toast
+    <button type="button" onclick="new Notification().create_notification(message, header)">Click me for Toast
         Notif</button>
 
     <?php include "../footer.php"; ?>
