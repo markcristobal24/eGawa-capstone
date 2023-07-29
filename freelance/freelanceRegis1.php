@@ -9,7 +9,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/freelanceRegis1.css">
-
+    <link rel="stylesheet" href="../css/notification.css">
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -47,7 +47,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="../controller/c_fRegister.php" method="POST" onsubmit="return validateFreelanceForm();">
+        <form id="account_form" method="POST" onsubmit="return validateFreelanceForm();">
             <h1 class="userRegTitle">Freelance Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -107,7 +107,8 @@
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="submit" id="btnFreelanceReg" class="btn btn-primary">
+                <button type="button" id="btnFreelanceReg" class="btn btn-primary"
+                    onclick="new Account().registerFreelance();">
                     Continue
                 </button>
                 <button class="btn btn-secondary">Clear</button>
@@ -167,6 +168,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/validate.js"></script>
 </body>
