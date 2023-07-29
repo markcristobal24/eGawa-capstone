@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <!-- Link for CSS -->
-  <link rel="stylesheet" href="css/aboutUs.css">
+  <link rel="stylesheet" href="../css/aboutUs.css">
 
   <!-- For social icons in the footer -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,7 +22,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark">
+  <!-- <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -56,7 +56,8 @@
 
       </div>
     </div>
-  </nav>
+  </nav> -->
+  <?php include "navbar.php"?>
 
   <div class="container" id="mainContainer">
     <div class="row">
@@ -81,19 +82,19 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/1.jpg" class="d-block w-100" alt="Image 1">
+              <img src="../img/1.jpg" class="d-block w-100" alt="Image 1">
             </div>
             <div class="carousel-item">
-              <img src="img/2.jpg" class="d-block w-100" alt="Image 2">
+              <img src="../img/2.jpg" class="d-block w-100" alt="Image 2">
             </div>
             <div class="carousel-item">
-              <img src="img/3.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/3.jpg" class="d-block w-100" alt="Image 3">
             </div>
             <div class="carousel-item">
-              <img src="img/4.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/4.jpg" class="d-block w-100" alt="Image 3">
             </div>
             <div class="carousel-item">
-              <img src="img/5.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/5.jpg" class="d-block w-100" alt="Image 3">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -135,19 +136,19 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="img/1.jpg" class="d-block w-100" alt="Image 1">
+              <img src="../img/1.jpg" class="d-block w-100" alt="Image 1">
             </div>
             <div class="carousel-item">
-              <img src="img/2.jpg" class="d-block w-100" alt="Image 2">
+              <img src="../img/2.jpg" class="d-block w-100" alt="Image 2">
             </div>
             <div class="carousel-item">
-              <img src="img/3.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/3.jpg" class="d-block w-100" alt="Image 3">
             </div>
             <div class="carousel-item">
-              <img src="img/4.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/4.jpg" class="d-block w-100" alt="Image 3">
             </div>
             <div class="carousel-item">
-              <img src="img/5.jpg" class="d-block w-100" alt="Image 3">
+              <img src="../img/5.jpg" class="d-block w-100" alt="Image 3">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
