@@ -55,42 +55,93 @@ if (isset($_POST['btnCreateFreelanceProfile']) && is_array($_POST['jobRole'])) {
     }
 }
 
-if (isset($_POST['btnEditFreelanceProfile']) && is_array($_POST['jobRole'])) {
+if (isset($_POST['btnEditFreelanceProfile'])) {
     //declare account identifier
     $email_identifier = $_SESSION['email'];
+    $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
+    $fetch = $sql->fetch_assoc();
 
-    //get the content of the image and upload it to cloud storage
-    $profile_img = $_FILES['imageProfile']['tmp_name'];
-    $image_link = $profile_img;
-    if ($profile_img != $_SESSION['imageProfile']) {
-        $upload_image = new Image();
-        $filename = new Account();
-        $image_name = $filename->generate_imageName(6);
-        $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
-        $image_link = "v" . $data['version'] . "/" . $data['public_id'];
-    }
+    if (isset($_POST['editAddress'])) {
+        $new_address = $_POST['editAddress'];
+        $old_address = $fetch['address'];
 
-    $new_address = $_POST['editAddress'];
-
-    //get all the selected checkbox in job role section
-    $selectedData = $_POST['jobRole'];
-    $jobRole = implode(',', $selectedData);
-
-    $stmt = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
-
-    if ($stmt->num_rows > 0) {
-        $sql = $con->prepare("UPDATE profile SET imageProfile = ?, address = ?, jobRole = ? WHERE email = ?");
-        $sql->bind_param("ssss", $image_link, $new_address, $jobRole, $email_identifier);
-        $sql->execute();
-
-        if ($sql) {
-            ?>
-<script>
-alert('Profile Updated Successfully');
-</script>
-<?php
-            header('location: ../freelance/freelanceHomePage.php');
+        if ($new_address != $old_address) {
+            $stmt = $con->prepare("UPDATE profile SET address = ? WHERE email = ?");
+            $stmt->bind_param("ss", $new_address, $email_identifier);
+            $stmt->execute();
         }
     }
+
+    if (isset($_FILES['imageProfile']['tmp_name'])) {
+        $profile_img = $_FILES['imageProfile']['tmp_name'];
+        $image_link = $profile_img;
+        if (!empty($profile_img)) {
+            $upload_image = new Image();
+            $filename = new Account();
+            $image_name = $filename->generate_imageName(6);
+            $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
+            $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+
+            $stmt = $con->prepare("UPDATE profile SET imageProfile = ? WHERE email = ?");
+            $stmt->bind_param("ss", $image_link, $email_identifier);
+            $stmt->execute();
+        }
+    }
+
+    if (isset($_POST['jobRole'])) {
+        $selectedData = $_POST['jobRole'];
+        $jobRole = implode(',', $selectedData);
+
+        if ($jobRole != $fetch['jobRole']) {
+            $stmt = $con->prepare("UPDATE profile SET jobRole = ? WHERE email = ?");
+            $stmt->bind_param("ss", $jobRole, $email_identifier);
+            $stmt->execute();
+        }
+    }
+
+    if ($stmt) {
+        ?>
+        <script>
+            alert('Profile Updated Successfully');
+        </script>
+        <?php
+        header('Refresh: 0; url = ../freelance/freelanceHomePage.php');
+    } else {
+        header('Refresh: 0; url = ../freelance/freelanceHomePage.php');
+    }
+
+    //get the content of the image and upload it to cloud storage
+    /* $profile_img = $_FILES['imageProfile']['tmp_name'];
+     $image_link = $profile_img;
+     if ($profile_img != $_SESSION['imageProfile']) {
+         $upload_image = new Image();
+         $filename = new Account();
+         $image_name = $filename->generate_imageName(6);
+         $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
+         $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+     }
+
+     $new_address = $_POST['editAddress'];
+
+     //get all the selected checkbox in job role section
+     $selectedData = $_POST['jobRole'];
+     $jobRole = implode(',', $selectedData);
+
+     $stmt = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
+
+     if ($stmt->num_rows > 0) {
+         $sql = $con->prepare("UPDATE profile SET imageProfile = ?, address = ?, jobRole = ? WHERE email = ?");
+         $sql->bind_param("ssss", $image_link, $new_address, $jobRole, $email_identifier);
+         $sql->execute();
+
+         if ($sql) {
+             ?>
+             <script>
+                 alert('Profile Updated Successfully');
+             </script>
+             <?php
+             header('location: ../freelance/freelanceHomePage.php');
+         }
+     }*/
 }
 ?>

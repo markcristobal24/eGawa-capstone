@@ -22,6 +22,7 @@ class Account extends DbClass
         $result2 = $query2 = $this->connect()->prepare("SELECT * FROM profile WHERE email = :email");
         $query2->execute([':email' => $email]);
         foreach ($result2 as $row) {
+            $data['address'] = $row['address'];
             $data['imageProfile'] = $row['imageProfile'];
         }
 
@@ -38,6 +39,7 @@ class Account extends DbClass
         $_SESSION['imageProfile'] = $data['imageProfile'];
         $_SESSION['userType'] = $data['userType'];
         $_SESSION['username'] = $data['username'];
+        $_SESSION['address'] = $data['address'];
         //$_SESSION['catalogId'] = $data['catalog_id'];
         json_encode($data);
 

@@ -47,7 +47,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 </head>
 
 <body>
-
+    <?php print_r($_SESSION); ?>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -336,20 +336,20 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3 class="modalTitles">Edit Profile</h3>
                 </div>
 
-                <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data" >
+                <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                             <img id="uploadedEditImage" src="../img/upload.png" alt="Uploaded Image" height="200">
                         </div>
                         <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*"
-                            onchange="editImgUp(event)" >
+                            onchange="editImgUp(event)">
                     </div>
 
                     <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
                         <!-- Gap on all sides is 2 -->
                         <input type="text" id="editAddress" name="editAddress" class="form-control"
-                            placeholder="Edit your address" >
+                            placeholder="Edit your address" value="<?php echo $_SESSION['address']; ?>">
                         <label id="editAddressLabel" for="editAddress">Edit your address</label>
                     </div>
 
