@@ -14,7 +14,7 @@ class Account {
             if (response_data.success) {
                 console.log(response_data.success);
 
-                window.location.href = 'verifyAccount.php';
+                window.location.replace('verifyAccount.php');
                 new Notification().create_notification(response_data.success, "success");
             }
             else if (response_data.error) {
@@ -37,8 +37,9 @@ class Account {
             console.log(response_data);
             if (response_data.success) {
                 console.log(response_data.success);
-                new Notification().create_notification(response_data.success, "success");
-                window.location.href = 'forgotPassword2.php';
+                // new Notification().create_notification(response_data.success, "success");
+                window.location.replace('forgotPassword2.php');
+                alert(response_data.success);
             }
             else if (response_data.error) {
                 new Notification().create_notification(response_data.error, "error");
