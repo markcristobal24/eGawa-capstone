@@ -3,7 +3,7 @@ session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require dirname(__FILE__) . "/../php/PHPMailer/PHPMailerAutoload.php";
 
-if (isset($_POST["btnSubmit"])) {
+if (isset($_POST["forgot_password"])) {
     $email = $_POST["sendEmail"];
 
     $sql = mysqli_query($con, "SELECT * FROM account WHERE email='$email'");
@@ -11,18 +11,7 @@ if (isset($_POST["btnSubmit"])) {
     $fetch = mysqli_fetch_assoc($sql);
 
     if (mysqli_num_rows($sql) <= 0) {
-        ?>
-        <script>
-            alert("Sorry, no email address exist");
-        </script>
-        <?php
-    } else if ($fetch["status"] == 0) {
-        ?>
-            <script>
-                alert("Sorry, your account must verify first before you recover your password!");
-                window.location.replace("../login.php");
-            </script>
-            <?php
+        $output['error'] = "Sorry, no email address exist.";
     } else {
         $token = bin2hex(random_bytes(50));
 
@@ -48,25 +37,17 @@ if (isset($_POST["btnSubmit"])) {
         $mail->Body = "<b>Dear User</b>
         <h3>We received a request to reset your password.</h3>
         <p>Kindly click the link below to reset your password</p>
-        http://localhost/eGawa-capstone/createNewPassword.php
+        http://localhost/eGawa-capstone/freelance/createNewPassword.php
         <br><br>
         <p>With Regards,</p>
         <b>E-Gawa</b>";
 
         if (!$mail->send()) {
-            ?>
-                <script>
-                    alert("Invalid Email");
-                </script>
-                <?php
+            $output['error'] = "Invalid Email Address!";
         } else {
-            ?>
-                <script>
-                    window.location.replace("../forgotPassword2.php");
-                </script>
-                <?php
+            $output['success'] = "Link sent successfully!";
         }
-
     }
+    echo json_encode($output);
 }
 ?>

@@ -9,6 +9,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -19,6 +20,7 @@
 </head>
 
 <body>
+    <div class="toast_notif" id="toast_notif"></div>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
@@ -121,6 +123,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+    <script src="classJS/Account.js"></script>
+    <script src="classJS/Notification.js"></script>
     <script src="js/validate.js"></script>
 
 </body>

@@ -11,6 +11,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="css/forgotPassword.css" />
+    <link rel="stylesheet" href="css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+    <div class="toast_notif" id="toast_notif"></div>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
@@ -46,7 +48,7 @@
     </nav>
 
     <div class="containerForgot">
-        <form action="controller/c_forgotPassword.php" method="post" onsubmit="return validateForgotPass()">
+        <form id="account_form" method="post" onsubmit="return validateForgotPass()">
             <h1 class="forgotPageTitle">Forgot Password</h1>
 
             <div class="form-floating mb-3">
@@ -56,7 +58,8 @@
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" name="btnSubmit" id="btnSubmit">
+                <button type="button" class="btn btn-primary" name="btnSubmit" id="btnSubmit"
+                    onclick="new Account().forgot_password();">
                     Submit
                 </button>
             </div>
@@ -107,6 +110,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="classJS/Account.js"></script>
+    <script src="classJS/Notification.js"></script>
     <script src="js/script.js"></script>
     <script src="js/validate.js"></script>
 

@@ -2,8 +2,9 @@
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 
-if (isset($_POST["btnNewPassword"])) {
+if (isset($_POST["new_password"])) {
     $psw = $_POST["password"];
+    $repsw = $_POST["re-pass"];
 
     $token = $_SESSION['token'];
     $Email = $_SESSION['email'];
@@ -12,20 +13,22 @@ if (isset($_POST["btnNewPassword"])) {
     $query = mysqli_num_rows($sql);
     $fetch = mysqli_fetch_assoc($sql);
 
-    if ($Email) {
-        mysqli_query($con, "UPDATE account SET password='$psw' WHERE email='$Email'");
-        ?>
-<script>
-window.location.replace("../login.php");
-alert("Your password has been successfully reset");
-</script>
-<?php
+    // if ($Email) {
+    //     mysqli_query($con, "UPDATE account SET password='$psw' WHERE email='$Email'");
+    //     $output['success'] = "Password Updated.";
+    // } else if ($psw !== $repsw) {
+    //     $output['error'] = "Password do not match!";
+    // } else {
+    //     $output['error'] = "Please try again";
+    // }
+
+    if ($psw !== $repsw) {
+        $output['error'] = "Password do not match!";
     } else {
-        ?>
-<script>
-alert("Please try again");
-</script>
-<?php
+        mysqli_query($con, "UPDATE account SET password='$psw' WHERE email='$Email'");
+        $output['success'] = "Password Updated.";
     }
+
+    echo json_encode($output);
 }
 ?>
