@@ -1,232 +1,369 @@
 #mainContainer {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .navbar {
-    background-color: #0073aa;
-    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+  background-color: #0073aa;
+  box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 #home1,
 #about1,
 #logout1,
 #freeLanceInbox {
-    font-size: 18px;
-    font-family: 'roboto', sans-serif;
-    color: #f4f4f4;
+  font-size: 18px;
+  font-family: "roboto", sans-serif;
+  color: #f4f4f4;
 }
 
 #logout1:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 #about1:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 #home1:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 #freeLanceInbox:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 .containerFreelanceHome {
-    display: flex;
-    max-width: auto;
-    max-height: auto;
-    margin: 0 15%;
-    padding: 20px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: #ddd;
-    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    margin-top: 100px;
+  display: flex;
+  max-width: auto;
+  max-height: auto;
+  margin: 0 15%;
+  padding: 20px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #ddd;
+  box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin-top: 100px;
 }
 
-
 .containerFreelanceHome .div1 {
-    background-color: #0e8cc687;
-    margin: 10px;
-    width: 30%;
-    max-height: auto;
-    border: 1px solid rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
+  background-color: #0e8cc687;
+  margin: 10px;
+  width: 30%;
+  max-height: auto;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
 }
 
 #freelanceName {
-    margin: 10px auto 0;
+  margin: 10px auto 0;
 }
 
 #freelancerPic {
-    max-width: 150px;
-    margin: 10px auto 0;
-    border-radius: 73px;
+  max-width: 150px;
+  margin: 10px auto 0;
+  border-radius: 73px;
 }
 
 #verifyFreelanceAcc {
-    margin: 10px auto 10px;
-    background-color: #079040;
-    color: #ddd;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 3px 10px;
+  margin: 10px auto 10px;
+  background-color: #079040;
+  color: #ddd;
+  font-weight: 400;
+  border-radius: 10px;
+  padding: 3px 10px;
 }
 
 #verifyFreelanceAcc:hover {
-    background-color: #044c22;
-    cursor: pointer;
+  background-color: #044c22;
+  cursor: pointer;
 }
 
 #jobsAndRole {
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 .job {
-    list-style-type: none;
-    /* Remove the default bullet dot */
-    font-size: 15px;
-    color: #ddd;
+  list-style-type: none;
+  /* Remove the default bullet dot */
+  font-size: 15px;
+  color: #ddd;
 }
 
 .flexDiv {
-    display: flex;
-    margin-left: 20px;
+  display: flex;
+  margin-left: 20px;
 }
 
 .telnoImg,
 .addressImg,
 .emailImg {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 #viewmore {
-    margin: 10px auto 10px;
-    background-color: #079040;
-    color: #ddd;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 3px 10px;
+  margin: 10px auto 10px;
+  background-color: #079040;
+  color: #ddd;
+  font-weight: 400;
+  border-radius: 10px;
+  padding: 3px 10px;
 }
 
 #viewmore:hover {
-    background-color: #044c22;
-    cursor: pointer;
+  background-color: #044c22;
+  cursor: pointer;
 }
 
-
 .editContainer {
-    position: relative;
-    background-color: lightgray;
-    margin-top: 20px;
+  position: relative;
+  background-color: lightgray;
+  margin-top: 20px;
 }
 
 #editFreelanceAcc {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #ddd;
-    padding-right: 3px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #ddd;
+  padding-right: 3px;
 }
 
 #editFreelanceAcc:hover {
-    color: #ff6600;
-    cursor: pointer;
+  color: #ff6600;
+  cursor: pointer;
 }
 
 .containerFreelanceHome .div2 {
-    background-color: #0e8cc687;
-    margin: 10px;
-    width: 70%;
-    max-height: auto;
-    border: 1px solid rgb(255, 255, 255);
+  background-color: #0e8cc687;
+  margin: 10px;
+  width: 70%;
+  max-height: auto;
+  border: 1px solid rgb(255, 255, 255);
 }
 
-
 p {
-    color: rgb(220, 220, 220);
-    padding: 5px;
+  color: rgb(220, 220, 220);
+  padding: 5px;
 }
 
 #checkboxInfo {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .btn {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-
 .labelImage {
-    color: #ddd;
-    font-size: 30px;
+  color: #ddd;
+  font-size: 30px;
 }
 
 .custom-shape-divider-bottom-1687514102 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
 .custom-shape-divider-bottom-1687514102 svg {
-    position: relative;
-    display: block;
-    width: calc(158% + 1.3px);
-    height: 190px;
+  position: relative;
+  display: block;
+  width: calc(158% + 1.3px);
+  height: 190px;
 }
 
 .custom-shape-divider-bottom-1687514102 .shape-fill {
-    fill: #0073aa;
+  fill: #0073aa;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0;
 }
 
 .footerInfo {
-    font-size: 10px;
-    color: #f4f4f4
+  font-size: 10px;
+  color: #f4f4f4;
 }
 
 i {
-    color: #f4f4f4;
-    font-size: larger;
-    margin-left: 15px;
+  color: #f4f4f4;
+  font-size: larger;
+  margin-left: 15px;
 }
 
 i:hover {
-    color: #ff6600;
+  color: #ff6600;
 }
 
 .navbar-brand img {
-    max-height: 50px;
+  max-height: 50px;
 }
 
 .text-center {
-    font-family: 'roboto', Arial, sans-serif;
-
+  font-family: "roboto", Arial, sans-serif;
 }
 
 body {
-    background-color: hsla(200, 57%, 85%, 0.275);
+  background-color: hsla(200, 57%, 85%, 0.275);
 }
 
 /* ==============================This is for the modal================================== */
 /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
 #myModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#myModalContent {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jobDescription {
+  color: #0073aa;
+}
+
+#imgUpl {
+  margin-bottom: 10px;
+}
+
+.pickRoles {
+  margin-bottom: 50px;
+}
+
+.title {
+  color: #0073aa;
+}
+
+/* ==============================end of modal================================== */
+
+/*=============media queries===================================================*/
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+}
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1200px) {
+}
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {
+}
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {
+  .containerFreelanceHome {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background-color: #ddd;
+  }
+
+  .containerFreelanceHome {
+    flex-direction: column;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background-color: #ddd;
+  }
+
+  .containerFreelanceHome .div1 {
+    background-color: #0e8cc687;
+    order: -1;
+    margin: 10px auto 10px;
+    width: 90%;
+    max-height: auto;
+    border: 1px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .containerFreelanceHome .div2 {
+    background-color: #ff6600;
+    margin: 10px auto 10px;
+    width: 90%;
+    max-height: auto;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  .footerInfo {
+    font-size: 10px;
+    color: #0073aa;
+  }
+
+  i {
+    color: #0073aa;
+    margin-left: 15px;
+  }
+
+  #home1,
+  #about1,
+  #login1 {
+    font-size: 15px;
+    font-family: "roboto", sans-serif;
+    color: #f4f4f4;
+  }
+
+  .custom-shape-divider-bottom-1687514102 {
+    display: none;
+  }
+
+  .custom-shape-divider-bottom-1687514102 svg {
+    display: none;
+  }
+
+  .custom-shape-divider-bottom-1687514102 .shape-fill {
+    fill: #0073aa;
+  }
+
+  /* ==============================This is for the modal================================== */
+  /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
+  #myModal {
     display: none;
     position: fixed;
     z-index: 999;
@@ -236,366 +373,344 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-}
+  }
 
-#myModalContent {
+  .title {
+    font-size: 15px;
+  }
+
+  .labelImage {
+    font-size: 15px;
+  }
+
+  #imgUpl {
+    margin-bottom: 10px;
+  }
+
+  #uploadedImage {
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  #uploadInput {
+    font-size: 13px;
+  }
+
+  .form-check {
+    font-size: 13px;
+  }
+
+  #addressLabel,
+  #companyNameLabel,
+  #workTitleLabel,
+  #dateStartedLabel,
+  #dateEndedLabel,
+  #comment {
+    font-size: 13px;
+  }
+
+  .pickRoles {
+    margin-bottom: 10px;
+  }
+
+  #myModalContent {
     background-color: #fefefe;
     margin: 5% auto;
-    padding: 30px;
+    padding: 10px 30px 20px 30px;
     border: 1px solid #888;
-    width: 50%;
-}
+    width: 90%;
+  }
 
-.close {
+  .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-}
+  }
 
-.close:hover,
-.close:focus {
+  .close:hover,
+  .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
+  }
 
-.jobDescription {
+  .title {
     color: #0073aa;
+  }
 }
-
-#imgUpl {
-    margin-bottom: 10px;
-}
-
-.pickRoles {
-    margin-bottom: 50px;
-}
-
-.title {
-    color: #0073aa;
-}
-
-/* ==============================end of modal================================== */
-
-
-
-/*=============media queries===================================================*/
-/*============================ extra extra large  ===========================*/
-@media (max-width: 5000px) {}
-
-
-/*============================ extra large  ===========================*/
-@media (max-width: 1200px) {}
-
-
-/*============================ large  ===========================*/
-@media (max-width: 992px) {}
-
-
-/*============================ medium  ===========================*/
-@media (max-width: 768px) {
-    .containerFreelanceHome {
-        max-width: 420px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        background-color: #ddd;
-    }
-
-    .containerFreelanceHome {
-        flex-direction: column;
-        max-width: 440px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        background-color: #ddd;
-    }
-
-    .containerFreelanceHome .div1 {
-        background-color: #0e8cc687;
-        order: -1;
-        margin: 10px auto 10px;
-        width: 90%;
-        max-height: auto;
-        border: 1px solid rgb(255, 255, 255);
-        display: flex;
-        flex-direction: column;
-    }
-
-    .containerFreelanceHome .div2 {
-        background-color: #ff6600;
-        margin: 10px auto 10px;
-        width: 90%;
-        max-height: auto;
-        border: 1px solid rgb(255, 255, 255);
-    }
-
-
-    .footerInfo {
-        font-size: 10px;
-        color: #0073aa
-    }
-
-    i {
-        color: #0073aa;
-        margin-left: 15px;
-    }
-
-    #home1,
-    #about1,
-    #login1 {
-        font-size: 15px;
-        font-family: 'roboto', sans-serif;
-        color: #f4f4f4;
-    }
-
-    .custom-shape-divider-bottom-1687514102 {
-        display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 svg {
-        display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 .shape-fill {
-        fill: #0073aa;
-    }
-
-    /* ==============================This is for the modal================================== */
-    /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
-    #myModal {
-        display: none;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .title {
-        font-size: 15px;
-    }
-
-    .labelImage {
-        font-size: 15px;
-    }
-
-    #imgUpl {
-        margin-bottom: 10px;
-    }
-
-    #uploadedImage {
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-    }
-
-    #uploadInput {
-        font-size: 13px;
-    }
-
-    .form-check {
-        font-size: 13px;
-    }
-
-    #addressLabel,
-    #companyNameLabel,
-    #workTitleLabel,
-    #dateStartedLabel,
-    #dateEndedLabel,
-    #comment {
-        font-size: 13px;
-    }
-
-
-    .pickRoles {
-        margin-bottom: 10px;
-    }
-
-    #myModalContent {
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 10px 30px 20px 30px;
-        border: 1px solid #888;
-        width: 90%;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .title {
-        color: #0073aa;
-    }
-}
-
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    .containerFreelanceHome {
-        flex-direction: column;
-        max-width: 440px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        background-color: #ddd;
-    }
+  .containerFreelanceHome {
+    flex-direction: column;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background-color: #ddd;
+  }
 
-    .containerFreelanceHome .div1 {
-        order: -1;
-        background-color: #0e8cc687;
-        margin: 10px auto 10px;
-        width: 90%;
-        max-height: auto;
-        border: 1px solid rgb(255, 255, 255);
-        display: flex;
-        flex-direction: column;
-    }
+  .containerFreelanceHome .div1 {
+    order: -1;
+    background-color: #0e8cc687;
+    margin: 10px auto 10px;
+    width: 90%;
+    max-height: auto;
+    border: 1px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+  }
 
-    .containerFreelanceHome .div2 {
-        background-color: #ff6600;
-        margin: 10px auto 10px;
-        width: 90%;
-        max-height: auto;
-        border: 1px solid rgb(255, 255, 255);
-    }
+  .containerFreelanceHome .div2 {
+    background-color: #ff6600;
+    margin: 10px auto 10px;
+    width: 90%;
+    max-height: auto;
+    border: 1px solid rgb(255, 255, 255);
+  }
 
+  .footerInfo {
+    font-size: 10px;
+    color: #0073aa;
+  }
 
-    .footerInfo {
-        font-size: 10px;
-        color: #0073aa
-    }
+  i {
+    color: #0073aa;
+    margin-left: 15px;
+  }
 
-    i {
-        color: #0073aa;
-        margin-left: 15px;
-    }
+  #home1,
+  #about1,
+  #logout1 {
+    font-size: 15px;
+    font-family: "roboto", sans-serif;
+    color: #f4f4f4;
+  }
 
-    #home1,
-    #about1,
-    #logout1 {
-        font-size: 15px;
-        font-family: 'roboto', sans-serif;
-        color: #f4f4f4;
-    }
+  .custom-shape-divider-bottom-1687514102 {
+    display: none;
+  }
 
-    .custom-shape-divider-bottom-1687514102 {
-        display: none;
-    }
+  .custom-shape-divider-bottom-1687514102 svg {
+    display: none;
+  }
 
-    .custom-shape-divider-bottom-1687514102 svg {
-        display: none;
-    }
+  .custom-shape-divider-bottom-1687514102 .shape-fill {
+    fill: #0073aa;
+  }
 
-    .custom-shape-divider-bottom-1687514102 .shape-fill {
-        fill: #0073aa;
-    }
+  /* ==============================This is for the modal================================== */
+  /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
+  #myModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
-    /* ==============================This is for the modal================================== */
-    /* IF THE FREELANCER HAS NOT YET FILLED UP HIS PROFILE THIS MODAL WILL SHOW */
-    #myModal {
-        display: none;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+  .title {
+    font-size: 15px;
+  }
 
-    .title {
-        font-size: 15px;
-    }
+  .labelImage {
+    font-size: 15px;
+  }
 
-    .labelImage {
-        font-size: 15px;
-    }
+  #imgUpl {
+    margin-bottom: 10px;
+  }
 
-    #imgUpl {
-        margin-bottom: 10px;
-    }
+  #uploadedImage {
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
 
-    #uploadedImage {
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-    }
+  #uploadInput {
+    font-size: 13px;
+  }
 
-    #uploadInput {
-        font-size: 13px;
-    }
+  .form-check {
+    font-size: 13px;
+  }
 
-    .form-check {
-        font-size: 13px;
-    }
+  #addressLabel,
+  #companyNameLabel,
+  #workTitleLabel,
+  #dateStartedLabel,
+  #dateEndedLabel,
+  #comment {
+    font-size: 13px;
+  }
 
-    #addressLabel,
-    #companyNameLabel,
-    #workTitleLabel,
-    #dateStartedLabel,
-    #dateEndedLabel,
-    #comment {
-        font-size: 13px;
-    }
+  .pickRoles {
+    margin-bottom: 10px;
+  }
 
+  #myModalContent {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 10px 30px 20px 30px;
+    border: 1px solid #888;
+    width: 90%;
+  }
 
-    .pickRoles {
-        margin-bottom: 10px;
-    }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-    #myModalContent {
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 10px 30px 20px 30px;
-        border: 1px solid #888;
-        width: 90%;
-    }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
+  .title {
+    color: #0073aa;
+  }
+}
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.toast_notif {
+  position: fixed;
+  top: -10px;
+  right: 13px;
+  min-width: 350px;
+  max-width: 350px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* background-color: aqua; */
+  pointer-events: none;
+  z-index: 1000000000000 !important;
+}
 
-    .title {
-        color: #0073aa;
-    }
+.toast_notif .toast_notif_dialog {
+  position: relative;
+  padding: 30px 50px 30px 70px;
+  background: rgb(255, 255, 255);
+  color: #000000;
+  font-family: "Raleway";
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 5px 0px;
+  opacity: 0;
+  left: 20px;
+  animation: show_toast_notif_dialog 500ms ease-in-out forwards;
+  pointer-events: fill !important;
+  word-wrap: break-word;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.success::after {
+  content: url('data:image/svg+xml; utf8, <svg height="33" width="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path style="fill: %2321A67A" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>');
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  transform: translate(0%, -50%);
+  padding: 7px 0px 0px 8px;
+  border-radius: 15px;
+}
+
+.success::before {
+  content: url('data:image/svg+xml; utf8, <svg height="33" width="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path style="fill: %2321A67A" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>');
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  transform: translate(0%, -50%);
+  width: 4px;
+  height: 80%;
+  background-color: #21a67a;
+  border-radius: 99px;
+}
+
+.error::after {
+  content: url('data:image/svg+xml; utf8, <svg  height="33" width="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path  style="fill: %23ED4F2B" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zm32 224c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32z"/></svg>');
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  transform: translate(0%, -50%);
+  padding: 7px 0px 0px 8px;
+  border-radius: 15px;
+}
+.error::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  transform: translate(0%, -50%);
+  width: 4px;
+  height: 80%;
+  background-color: #ed4f2b;
+  border-radius: 99px;
+}
+
+.neutral::after {
+  content: url('data:image/svg+xml; utf8, <svg height="33" width="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path  style="fill: %23EE9400" d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z"/></svg>');
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  transform: translate(0%, -50%);
+  padding: 7px 0px 0px 8px;
+  border-radius: 15px;
+}
+
+.neutral::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  transform: translate(0%, -50%);
+  width: 4px;
+  height: 80%;
+  background-color: #ee9400;
+  border-radius: 99px;
+}
+
+.toast_notif_close {
+  color: #626262;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0%, -50%);
+  font-weight: 900;
+  font-size: 16px;
+}
+
+@keyframes show_toast_notif_dialog {
+  to {
+    opacity: 1;
+    left: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .toast_notif {
+    min-width: 95% !important;
+    max-width: 95% !important;
+    position: fixed;
+    top: 49%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
 }
