@@ -1,6 +1,75 @@
 class Account {
 
     /* ------------------- Freelancer Section */
+    login() {
+        let button_value = new Account().get_button_value("btnLogin");
+        new Account().button_loading("btnLogin", "loading", "");
+
+        var form_data = new FormData(document.getElementById('account_form'));
+        form_data.append('login', 'login');
+        fetch('controller/c_login.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                if (response_data.success == "super_admin") {
+                    new Notification().create_notification(response_data.message, "success");
+                    let tID = setTimeout(function () {
+                        window.location.replace('pages/dashboard.php');
+                        window.clearTimeout(tID);
+                    }, 3000);
+                }
+                else if (response_data.success == "freelancer") {
+                    if (response_data.status == "11") {
+                        new Notification().create_notification(response_data.message, "success");
+                        let tID = setTimeout(function () {
+                            window.location.replace('freelance/freelanceHomePage.php');
+                            window.clearTimeout(tID);
+                        }, 3000);
+                    }
+                    else if (response_data.status == "10") {
+                        new Notification().create_notification(response_data.message, "success");
+                        let tID = setTimeout(function () {
+                            window.location.replace('freelance/createProfile.php');
+                            window.clearTimeout(tID);
+                        }, 3000);
+                    }
+                    else if (response_data.status == "0") {
+                        new Notification().create_notification(response_data.message, "success");
+                        let tID = setTimeout(function () {
+                            window.location.replace('freelance/verifyAccount.php');
+                            window.clearTimeout(tID);
+                        }, 3000);
+                    }
+                }
+                else if (response_data.success == "user") {
+                    if (response_data.status == "0") {
+                        new Notification().create_notification(response_data.message, "success");
+                        let tID = setTimeout(function () {
+                            window.location.replace('freelance/verifyAccount.php');
+                            window.clearTimeout(tID);
+                        }, 3000);
+                    }
+                    else if (response_data.status == "1") {
+                        new Notification().create_notification(response_data.message, "success");
+                        let tID = setTimeout(function () {
+                            window.location.replace('user/userHomePage.php');
+                            window.clearTimeout(tID);
+                        }, 3000);
+                    }
+                }
+            } else if (response_data.error) {
+                console.log(response_data.error);
+                new Account().button_loading("btnLogin", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     registerFreelance() {
         let button_value = new Account().get_button_value("btnFreelanceReg");
         new Account().button_loading("btnFreelanceReg", "loading", "");

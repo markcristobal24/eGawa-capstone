@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once dirname(__FILE__) . "/DbClass.php";
 
 class Account extends DbClass
@@ -43,6 +43,37 @@ class Account extends DbClass
         //$_SESSION['catalogId'] = $data['catalog_id'];
         json_encode($data);
 
+    }
+
+    public function user_information($email)
+    {
+        $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");
+        $query->execute([':email' => $email]);
+        $data = array();
+        foreach ($result1 as $row) {
+            $data['account_id'] = $row['account_id'];
+            $data['username'] = $row['username'];
+            $data['email'] = $row['email'];
+            $data['firstName'] = $row['firstName'];
+            $data['userType'] = $row['userType'];
+            $data['username'] = $row['username'];
+        }
+        $_SESSION['account_id'] = $data['account_id'];
+        $_SESSION['username'] = $data['username'];
+        $_SESSION['email'] = $data['email'];
+        $_SESSION['firstName'] = $data['firstName'];
+        $_SESSION['userType'] = $data['userType'];
+        $_SESSION['username'] = $data['username'];
+        $_SESSION['address'] = $data['address'];
+
+        if ($data['imageProfile'] !== null) {
+            $_SESSION['imageProfile'] = $data['imageProfile'];
+        }
+
+        if ($data['address'] !== null) {
+            $_SESSION['address'] = $data['address'];
+        }
+        json_encode($data);
     }
 
     public function generate_imageName($length)

@@ -52,7 +52,7 @@
     </nav>
 
     <div class="containerLogin">
-        <form action="controller/c_login.php" method="post">
+        <form id="account_form" method="post">
             <h1 class="loginTitle">Login</h1>
 
             <div class="form-floating mb-3">
@@ -71,7 +71,7 @@
             <p><a id="forgotPasswordLink" href="forgotPassword.php">Forgot password?</a></p>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" id="btnLogin">
+                <button type="button" class="btn btn-primary" id="btnLogin" onclick="new Account().login();">
                     Login
                 </button>
             </div>

@@ -1,16 +1,16 @@
 <?php
-//session_start();
+session_start();
 
 class DbClass
 {
     public $dbHost = "localhost";
-    
+
     public $dbUser = "root";
-    
+
     public $dbPassword = "";
     public $dbName = "egawa";
 
-    
+
     public $con;
 
     function connect()
