@@ -55,7 +55,7 @@ if (isset($_POST['btnCreateFreelanceProfile']) && is_array($_POST['jobRole'])) {
     }
 }
 
-if (isset($_POST['btnEditFreelanceProfile'])) {
+if (isset($_POST['edit_fprofile'])) {
     //declare account identifier
     $email_identifier = $_SESSION['email'];
     $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
@@ -100,48 +100,10 @@ if (isset($_POST['btnEditFreelanceProfile'])) {
     }
 
     if ($stmt) {
-        ?>
-        <script>
-            alert('Profile Updated Successfully');
-        </script>
-        <?php
-        header('Refresh: 0; url = ../freelance/freelanceHomePage.php');
+        $output['success'] = "Profile Updated Successfully";
     } else {
-        header('Refresh: 0; url = ../freelance/freelanceHomePage.php');
+        $output['error'] = "Something went wrong. Please try again.";
     }
-
-    //get the content of the image and upload it to cloud storage
-    /* $profile_img = $_FILES['imageProfile']['tmp_name'];
-     $image_link = $profile_img;
-     if ($profile_img != $_SESSION['imageProfile']) {
-         $upload_image = new Image();
-         $filename = new Account();
-         $image_name = $filename->generate_imageName(6);
-         $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
-         $image_link = "v" . $data['version'] . "/" . $data['public_id'];
-     }
-
-     $new_address = $_POST['editAddress'];
-
-     //get all the selected checkbox in job role section
-     $selectedData = $_POST['jobRole'];
-     $jobRole = implode(',', $selectedData);
-
-     $stmt = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
-
-     if ($stmt->num_rows > 0) {
-         $sql = $con->prepare("UPDATE profile SET imageProfile = ?, address = ?, jobRole = ? WHERE email = ?");
-         $sql->bind_param("ssss", $image_link, $new_address, $jobRole, $email_identifier);
-         $sql->execute();
-
-         if ($sql) {
-             ?>
-             <script>
-                 alert('Profile Updated Successfully');
-             </script>
-             <?php
-             header('location: ../freelance/freelanceHomePage.php');
-         }
-     }*/
+    echo json_encode($output);
 }
 ?>

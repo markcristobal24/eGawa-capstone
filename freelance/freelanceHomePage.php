@@ -33,11 +33,15 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/freelanceHomePage.css">
+    <link rel="stylesheet" href="../css/notification.css">
+
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
 
 
     <title>eGawa | Freelance Homepage</title>
@@ -48,6 +52,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 <body>
     <?php //print_r($_SESSION); ?>
+    <div class="toast_notif" id="toast_notif"></div>
     <?php include "../other/navbar.php"; ?>
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
@@ -153,7 +158,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         <div class="div1">
 
             <img id="freelancerPic"
-                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $fetch['imageProfile']; ?>"
+                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
                 alt="user profile" title="user profile">
             <div class="freelanceNameContainer">
                 <h2 id="freelanceName">
@@ -223,7 +228,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
 
                 <img id="freelancerPic"
-                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $fetch['imageProfile']; ?>"
+                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
                     alt="user profile" title="user profile">
                 <h2 id="freelanceName">
                     <?php echo $fullname; ?>
@@ -337,7 +342,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3 class="modalTitles">Edit Profile</h3>
                 </div>
 
-                <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
+                <form id="edit_profile" method="POST" enctype="multipart/form-data">
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -384,7 +389,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="btnEditFreelanceProfile" id="submitEdit">
+                        <button type="button" class="btn btn-primary" name="btnEditFreelanceProfile" id="edit_fprofile"
+                            onclick="new Account().edit_fprofile();">
                             Save
                         </button>
                         <button type="button" class="btn btn-secondary" id="cancelEdit" onclick="clearInputs()">
@@ -582,6 +588,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/createNewDiv.js"></script>
     <script src="../classJS/Catalog.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/validate.js"></script>
     <script src="../js/freelance.js"></script>

@@ -154,6 +154,33 @@ class Account {
         });
     }
 
+    edit_fprofile() {
+        let button_value = new Account().get_button_value("edit_fprofile");
+        new Account().button_loading("edit_fprofile", "loading", "");
+
+        var form_data = new FormData(document.getElementById('edit_profile'));
+        form_data.append('edit_fprofile', 'edit_fprofile');
+        fetch('../controller/c_createProfile.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 3000);
+            }
+            else if (response_data.error) {
+                new Account().button_loading("btnNewPassword", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     button_loading(element, type, text) {
         if (type == "loading") {
             document.getElementById(element).innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
