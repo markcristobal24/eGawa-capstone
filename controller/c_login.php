@@ -12,7 +12,13 @@ if (isset($_POST['login'])) {
     $query = mysqli_num_rows($sql);
     $fetch = mysqli_fetch_assoc($sql);
 
-    if ($query <= 0) {
+    if ($email == "" && $password == "") {
+        $output['error'] = "Incomplete Details!";
+    } else if ($email == "") {
+        $output['error'] = "Please enter your email address!";
+    } else if ($password == "") {
+        $output['error'] = "Please enter your password!";
+    } else if ($sql->num_rows == 0) {
         $output['error'] = "Email Address do not exist!";
     } else if ($password !== $fetch['password'] || $email !== $fetch['email']) {
         $output['error'] = "Email address and password are not matched!";
