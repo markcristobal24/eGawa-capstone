@@ -1,6 +1,7 @@
 <?php
 // session_start();
 require_once dirname(__FILE__) . "/DbClass.php";
+require_once dirname(__FILE__) . "/Email.php";
 
 class Account extends DbClass
 {
@@ -99,6 +100,11 @@ class Account extends DbClass
             $output['error'] = 'Something went wrong! Please try again later.';
         }
         echo json_encode($output);
+    }
+
+    public function encrypt_password($password)
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 }
 ?>
