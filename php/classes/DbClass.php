@@ -4,9 +4,13 @@
 class DbClass
 {
     public $dbHost = "localhost";
+    
     public $dbUser = "root";
+    
     public $dbPassword = "";
     public $dbName = "egawa";
+
+    
     public $con;
 
     function connect()

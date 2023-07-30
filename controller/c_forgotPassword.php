@@ -45,7 +45,7 @@ if (isset($_POST["forgot_password"])) {
         if (!$mail->send()) {
             $output['error'] = "Invalid Email Address!";
         } else {
-            $output['success'] = "Link sent successfully!";
+            $output['success'] = "Link sent to $email!";
         }
     }
     echo json_encode($output);
