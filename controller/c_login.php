@@ -69,6 +69,7 @@ if (isset($_POST['login'])) {
                 $output['status'] = "0";
                 $output['message'] = "Please verify your email address first. Redirecting...";
             } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 0) {
+                $_SESSION['email'] = $email;
                 // $session = new Account();
                 // $session->fetch_information($email);
                 $output['status'] = "10";

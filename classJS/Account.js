@@ -70,6 +70,35 @@ class Account {
         });
     }
 
+    logout() {
+        let button_value = new Account().get_button_value("logoutBtn");
+        new Account().button_loading("logoutBtn", "loading", "");
+
+        var form_data = new FormData();
+        form_data.append('logout', 'logout');
+        fetch('../controller/c_logout.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.replace('../login.php');
+                    window.clearTimeout(tID);
+                }, 2000);
+            }
+            else if (response_data.error) {
+                console.log(response_data.error);
+                new Account().button_loading("logoutBtn", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     registerFreelance() {
         let button_value = new Account().get_button_value("btnFreelanceReg");
         new Account().button_loading("btnFreelanceReg", "loading", "");
@@ -149,6 +178,34 @@ class Account {
                 }, 3000);
             } else if (response_data.error) {
                 new Account().button_loading("btnNewPassword", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
+    create_fprofile() {
+        let button_value = new Account().get_button_value("create_profile");
+        new Account().button_loading("create_profile", "loading", "");
+
+        var form_data = new FormData(document.getElementById('create_profile'));
+        form_data.append('create_fprofile', 'create_fprofile');
+        fetch('../controller/c_createProfile.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.replace('../freelance/freelanceHomePage.php');
+                    window.clearTimeout(tID);
+                }, 3000);
+            }
+            else if (response_data.error) {
+                new Account().button_loading("create_profile", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
         });

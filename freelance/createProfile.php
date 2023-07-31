@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,13 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/F_createProfile.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
 
     <title>eGawa | Freelance Profile Creation</title>
@@ -21,7 +24,8 @@
 </head>
 
 <body>
-
+    <div class="toast_notif" id="toast_notif"></div>
+    <?php //print_r($_SESSION); ?>
     <?php include "../other/navbar.php"; ?>
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
@@ -59,7 +63,7 @@
     </nav> -->
 
     <div class="containerFreelanceCreate">
-        <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
+        <form id="create_profile" method="POST" enctype="multipart/form-data">
             <div class="div1">
                 <div id="imgUpl">
                     <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
@@ -145,8 +149,8 @@
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="submit" id="btnFreelanceProfile" name="btnCreateFreelanceProfile"
-                        class="btn btn-primary">
+                    <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary"
+                        onclick="new Account().create_fprofile();">
                         Continue
                     </button>
                     <button class="btn btn-secondary">
@@ -161,7 +165,7 @@
 
 
 
-    
+
     <!-- <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
@@ -188,7 +192,7 @@
 
 
     <!--Modal for log out-->
-    <div class="modal fade" id="modalLogOut" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalLogOut" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -207,13 +211,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/freelance.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
 </body>
 </body>
 

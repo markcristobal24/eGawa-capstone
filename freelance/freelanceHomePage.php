@@ -1,6 +1,10 @@
 <?php
-session_start();
+// session_start();
 require dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
+
+$data = new Account();
+$data->fetch_information($_SESSION['email']);
 
 if (!isset($_SESSION['email'])) {
     header('location: ../login.php');
@@ -102,37 +106,37 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             //$_SESSION['catalogId'] = $catalogId;
                     
                             ?>
-                    <div class="item">
-                        <div class="catalogImg">
-                            <img class="imgWork"
-                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                        </div>
-                        <div class="catalogTexts">
-                            <h3>
-                                <?php echo $row['catalogTitle']; ?>
-                            </h3>
-                            <p>
-                                <?php echo $row['catalogDescription'] ?>
-                            </p>
-                        </div>
+                            <div class="item">
+                                <div class="catalogImg">
+                                    <img class="imgWork"
+                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                </div>
+                                <div class="catalogTexts">
+                                    <h3>
+                                        <?php echo $row['catalogTitle']; ?>
+                                    </h3>
+                                    <p>
+                                        <?php echo $row['catalogDescription'] ?>
+                                    </p>
+                                </div>
 
-                        <div id="collapseExample">
-                            <div id="catalogItemButton">
-                                <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                    id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                    Delete
-                                </button>
+                                <div id="collapseExample">
+                                    <div id="catalogItemButton">
+                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                            Delete
+                                        </button>
 
-                                <button type="button"
-                                    onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                    id="editCatalogBtn" class="btn btn-primary">
-                                    Edit
-                                </button>
+                                        <button type="button"
+                                            onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
+                                            id="editCatalogBtn" class="btn btn-primary">
+                                            Edit
+                                        </button>
 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <?php
+                            <?php
                         }
                     } else {
 
@@ -393,7 +397,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             onclick="new Account().edit_fprofile();">
                             Save
                         </button>
-                        <button type="button" class="btn btn-secondary" id="cancelEdit" onclick="clearInputs()">
+                        <button type="button" class="btn btn-secondary" id="cancelEdit">
                             Cancel
                         </button>
                     </div>
@@ -543,24 +547,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 
     <!--Modal for log out-->
-    <div class="modal fade" id="modalLogOut" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Logging Out</h5>
-                </div>
-                <div class="modal-body" id="modalUser">Are you sure you want to log out?</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn" onclick="toLogout();">
-                        Log Out
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="modal" id="deleteModal">
         <div class="modal-dialog">
@@ -594,18 +581,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="../js/validate.js"></script>
     <script src="../js/freelance.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var flag = localStorage.getItem('showModalFlag');
+        document.addEventListener('DOMContentLoaded', function () {
+            var flag = localStorage.getItem('showModalFlag');
 
-        if (flag === 'true') {
-            var isReloaded = performance.navigation.type === 1;
+            if (flag === 'true') {
+                var isReloaded = performance.navigation.type === 1;
 
-            if (isReloaded) {
-                edit_catalog();
-                localStorage.removeItem('showModalFlag');
+                if (isReloaded) {
+                    edit_catalog();
+                    localStorage.removeItem('showModalFlag');
+                }
             }
-        }
-    });
+        });
     </script>
 </body>
 

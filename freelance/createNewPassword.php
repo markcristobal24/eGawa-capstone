@@ -31,8 +31,8 @@ if (!isset($_SESSION["token"])) {
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-    <?php include"../navbar.php" ?>
-    
+    <?php include "../other/navbar.php" ?>
+
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
@@ -96,7 +96,7 @@ if (!isset($_SESSION["token"])) {
     </div>
 
 
-    <?php include"../footer.php" ?>
+    <?php include "../footer.php" ?>
     <!-- <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path

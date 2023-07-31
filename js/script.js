@@ -93,19 +93,6 @@ viewmore.addEventListener('click', function () {
     });
 });
 
-function toLogout() {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', '../controller/c_logout.php', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            let response = xhr.responseText;
-            console.log(response);
-            window.location.href = "../login.php";
-        }
-    };
-    xhr.send();
-}
-
 function reloadWithModal() {
     localStorage.setItem('showModalFlag', 'true');
 
@@ -132,7 +119,7 @@ function resendOtp(email) {
 
 
 
-     
+
 
 
 

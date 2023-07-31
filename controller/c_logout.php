@@ -1,7 +1,14 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
 
-echo "logout successfully";
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+
+    $output['success'] = "Logging out...";
+    echo json_encode($output);
+}
+
+
+
 ?>

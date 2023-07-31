@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Image.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
-if (isset($_POST['btnCreateFreelanceProfile']) && is_array($_POST['jobRole'])) {
+if (isset($_POST['create_fprofile'])) {
     $email = $_SESSION['email'];
     $profileImg = $_FILES['imageProfile']['tmp_name'];
     //$imageData = file_get_contents($profileImg);
@@ -50,9 +50,27 @@ if (isset($_POST['btnCreateFreelanceProfile']) && is_array($_POST['jobRole'])) {
 
         $result = mysqli_query($con, "UPDATE account SET profileStatus = 1 WHERE email = '$email'");
         if ($result) {
-            header('location: ../freelance/freelanceHomePage.php');
+            $output['success'] = "Profile Created. Redirecting...";
+            //header('location: ../freelance/freelanceHomePage.php');
         }
+
+    } else if ($profile_img == null) {
+        $output['error'] = "Please upload your profile picture!";
+    } else if ($selectedData == "") {
+        $output['error'] = "Please select your job role!";
+    } else if ($address == "") {
+        $output['error'] = "Please provide your complete address!";
+    } else if ($company == "") {
+        $output['error'] = "Please provide your company name!";
+    } else if ($workTitle == "") {
+        $output['error'] = "Please provide your work title!";
+    } else if ($jobDesc == "") {
+        $output['error'] = "Please provide your job description!";
+    } else {
+        $output['error'] = "Incomplete Details!";
     }
+
+    echo json_encode($output);
 }
 
 if (isset($_POST['edit_fprofile'])) {
