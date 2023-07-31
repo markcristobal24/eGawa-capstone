@@ -108,15 +108,16 @@ p {
   color: #f4f4f4
 }
 
-i {
+.icons {
   color: #f4f4f4;
   font-size: larger;
   margin-left: 15px;
 }
 
-i:hover {
+.icons:hover {
   color: #ff6600;
 }
+
 
 .navbar-brand img {
   max-height: 50px;
@@ -135,7 +136,27 @@ body {
 @media (max-width: 5000px) {}
 
 /*============================ extra large  ===========================*/
-@media (max-width: 1200px) {}
+@media (max-width: 1366px) {
+  .custom-shape-divider-bottom-1687514102 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  
+  .custom-shape-divider-bottom-1687514102 svg {
+    position: relative;
+    display: block;
+    width: calc(158% + 1.3px);
+    height: 150px;
+  }
+  
+  .custom-shape-divider-bottom-1687514102 .shape-fill {
+    fill: #0073aa;
+  }
+}
 
 /*============================ large  ===========================*/
 @media (max-width: 992px) {}
@@ -184,7 +205,7 @@ body {
     color: #0073aa
   }
 
-  i {
+  .icons {
     color: #0073aa;
     margin-left: 15px;
   }

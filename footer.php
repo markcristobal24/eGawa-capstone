@@ -7,14 +7,14 @@
 </div>
 
 <footer class="footer">
-    <div class="containerFooter">
-        <div class="socialIcons">
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+        <div class="containerFooter">
+            <div class="socialIcons">
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook icons"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter icons"></i></a>
+                <a href="https://www.gmail.com/"><i class="fa-brands fa-google icons"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram icons"></i></a>
+                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp icons"></i></a>
+            </div>
+            <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
-        <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
-    </div>
 </footer>

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/login.css" />
+    
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -27,27 +28,6 @@
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a id="home1" class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="inbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="login1" class="nav-link" href="login.php">Login</a>
-                    </li>
-                </ul>
-
-            </div> -->
         </div>
     </nav>
 
@@ -96,11 +76,11 @@
     <footer class="footer">
         <div class="containerFooter">
             <div class="socialIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook icons"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter icons"></i></a>
+                <a href="https://www.gmail.com/"><i class="fa-brands fa-google icons"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram icons"></i></a>
+                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp icons"></i></a>
             </div>
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
