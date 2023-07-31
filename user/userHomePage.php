@@ -65,10 +65,6 @@
             <h2 class="userHistoryTitle">Your Transaction History</h2>
             <div class="containerHistory">
             
-                <!--  table-striped or table-striped-columns   
-                    table-color(primary, secondary, success, danger, warning, info, light, dark)
-                    table-hover makes the table hoverable -->
-
                 <table class="table table-striped table-light table-hover">
                     <tr>
                         <th>Freelancer</th>
@@ -121,11 +117,6 @@
                 <img src="../img/email.png" alt="" class="emailImg" height="20px">
                 <div class="freelanceEmail">Sulitin@gmail.com</div>
             </div>
-
-
-            <!-- <div class="editContainer">
-                <div id="editUserAcc">Edit Account</div>
-            </div> -->
         </div>
     </div>
 
