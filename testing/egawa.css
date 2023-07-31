@@ -1,0 +1,414 @@
+
+ body{
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+
+    .container{
+        display: flex;
+        margin: 200px auto;
+        max-width: fit-content;
+    }
+
+    .toFlex{
+        display: flex;
+    }
+
+    p{
+        color: white;
+    }
+    i{
+        color: white;
+        font-size: 13px;
+        padding: 0 4px;
+    }
+    i:hover{
+        color: #b616eb;
+    }
+    .socialIcons{
+        margin-left: 5px;
+    }
+
+    #imgWork{
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .left{
+        width: 50%;
+        padding-left: 200px;
+    }
+
+    .title1{
+        font-weight: 700;
+        font-size: 250px;
+        position: fixed;
+        top: 0;
+        left: 130px;
+        margin-top: 60px;
+        padding-left: 50px;
+        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
+    }
+    .title2{
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 90px;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    .aboutInfo{
+        text-align: justify;
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .right{
+        width: 50%;
+        display: flex;
+    }
+    .imgContainer{
+        margin: 0 auto;
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 251px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    .btn {
+    width: 140px;
+    height: 50px;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    color: #fff;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+
+    .btn span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: top 0.5s;
+    }
+
+    .btn-text-one {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    }
+
+    .btn-text-two {
+    position: absolute;
+    width: 100%;
+    top: 150%;
+    left: 0;
+    color: #fff;
+    transform: translateY(-50%);
+    }
+
+    .btn:hover .btn-text-one {
+    top: -100%;
+    }
+
+    .btn:hover .btn-text-two {
+    top: 50%;
+    }
+
+    /* for egawa animation */
+    .title1 {
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    overflow: hidden; /* Hide any text that overflows the container */
+    animation: scrollLeftToRight .69s linear ; /* Adjust the animation duration as needed */
+    }
+
+    @keyframes scrollLeftToRight {
+    from {
+        transform: translateX(-100%); /* Start position, 100% to the right */
+    }
+    to {
+        transform: translateX(1%); /* End position, 100% to the left */
+    }
+    }
+
+    /* for image animation */
+    .imgContainer {
+    width: 350px; /* Adjust container size as needed */
+    overflow: hidden; /* Hide any overflow from the image */
+    }
+
+    #imgWork{
+    animation: zoomOutAnimation 1.1s ease; 
+    }
+
+    @keyframes zoomOutAnimation {
+    from {
+        transform: scale(1.5); 
+    }
+    to {
+        transform: scale(1);
+    }
+    }
+}
+
+
+/*============================ LAPTOP ===========================*/
+@media (max-width: 1366px) {
+
+    .container{
+        display: flex;
+        margin: 100px auto;
+        max-width: fit-content;
+    }
+
+    .toFlex{
+        display: flex;
+    }
+
+    p{
+        color: white;
+    }
+    i{
+        color: white;
+        font-size: 13px;
+        padding: 0 4px;
+    }
+    i:hover{
+        color: #b616eb;
+    }
+    .socialIcons{
+        margin-left: 5px;
+    }
+
+    #imgWork{
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .left{
+        width: 50%;
+        padding-left: 50px;
+    }
+
+    .title1{
+        font-weight: 700;
+        font-size: 200px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 10px;
+        padding-left: 50px;
+        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
+    }
+    .title2{
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 90px;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    .aboutInfo{
+        text-align: justify;
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .right{
+        width: 50%;
+        display: flex;
+    }
+    .imgContainer{
+        margin: 0 auto;
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 251px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    .btn {
+    width: 140px;
+    height: 50px;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    color: #fff;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+
+    .btn span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: top 0.5s;
+    }
+
+    .btn-text-one {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    }
+
+    .btn-text-two {
+    position: absolute;
+    width: 100%;
+    top: 150%;
+    left: 0;
+    color: #fff;
+    transform: translateY(-50%);
+    }
+
+    .btn:hover .btn-text-one {
+    top: -100%;
+    }
+
+    .btn:hover .btn-text-two {
+    top: 50%;
+    }
+
+    /* for egawa animation */
+    .title1 {
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    overflow: hidden; /* Hide any text that overflows the container */
+    animation: scrollLeftToRight .69s linear ; /* Adjust the animation duration as needed */
+    }
+
+    @keyframes scrollLeftToRight {
+    from {
+        transform: translateX(-100%); /* Start position, 100% to the right */
+    }
+    to {
+        transform: translateX(1%); /* End position, 100% to the left */
+    }
+    }
+
+    /* for image animation */
+    .imgContainer {
+    width: 350px; /* Adjust container size as needed */
+    overflow: hidden; /* Hide any overflow from the image */
+    }
+
+    #imgWork{
+    animation: zoomOutAnimation 1.1s ease; /* Adjust the animation duration as needed */
+    }
+
+    @keyframes zoomOutAnimation {
+    from {
+        transform: scale(1.5); /* Start with normal size (1) */
+    }
+    to {
+        transform: scale(1); /* End with 80% size (0.8) */
+    }
+    }
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+
+    .container{
+        flex-direction: column;
+    }
+
+    .title1{
+        font-weight: 700;
+        font-size: 100px;
+        position: fixed;
+        top: 0;
+        margin-top: 50px;
+        padding: 0 20px;
+        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
+    }
+
+    .aboutInfo{
+        text-align: justify;
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .title2{
+        margin-top: 30px;
+    }
+    
+    .left{
+        width: 100%;
+        padding: 0;
+    }
+    .right{
+        width: 100%;
+        padding: 0;
+    }
+
+    .custom-shape-divider-bottom-1690684253{
+        display: none;
+    }
+}
+
