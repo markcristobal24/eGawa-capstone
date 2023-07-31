@@ -92,6 +92,11 @@
                     <div class="containerPost">
                         <span class="titlePost">Website Developer</span>
                         <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
                             <span class="locationPost">Malolos, Bulacan</span>
                             <span class="datePost">Posted on July 03, 2023</span>
                         </div>
@@ -103,6 +108,11 @@
                     <div class="containerPost">
                         <span class="titlePost">Bootstrap Gods</span>
                         <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
                             <span class="locationPost">Plaridel, Bulacan</span>
                             <span class="datePost">Posted on May 03, 2023</span>
                         </div>
@@ -110,48 +120,14 @@
                             I have a work for freelancers who can do bootstrap
                         </span>
                     </div>
+
                     <div class="containerPost">
                         <span class="titlePost">Website Developer</span>
                         <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span class="datePost">Posted on July 03, 2023</span>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
                         </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP!
-                        </span>
-                    </div>
-                    <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP!
-                        </span>
-                    </div>
-                    <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP!
-                        </span>
-                    </div>
-                    <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP!
-                        </span>
-                    </div>
-                    <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
                             <span class="datePost">Posted on July 03, 2023</span>
@@ -166,8 +142,14 @@
                 </div>
 
                 <div id="option2Div" style="display: none;">
+
                     <div class="containerPost">
                         <span class="titlePost">Mobile Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
                             <span class="datePost">Posted on March 03, 2023</span>
@@ -176,8 +158,14 @@
                             Need Android Apps developer
                         </span>
                     </div>
+
                     <div class="containerPost">
                         <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
                             <span class="datePost">Posted on June 03, 2023</span>
@@ -186,11 +174,17 @@
                             Need Android Apps developer
                         </span>
                     </div>
+
                 </div>
 
                 <div id="option3Div" style="display: none;">
                 <div class="containerPost">
                         <span class="titlePost">Mobile Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
                             <span class="datePost">Posted on March 03, 2023</span>
@@ -199,8 +193,14 @@
                             Need Android Apps developer
                         </span>
                     </div>
+
                     <div class="containerPost">
                         <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
                             <span class="datePost">Posted on June 03, 2023</span>
@@ -215,6 +215,11 @@
                 <div class="containerPost">
                         <span class="titlePost">Mobile Developer</span>
                         <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
                             <span class="locationPost">Malolos, Bulacan</span>
                             <span class="datePost">Posted on March 03, 2023</span>
                         </div>
@@ -222,8 +227,14 @@
                             Need Android Apps developer
                         </span>
                     </div>
+
                     <div class="containerPost">
                         <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
                             <span class="datePost">Posted on June 03, 2023</span>
