@@ -349,13 +349,13 @@
         color: #f4f4f4
     }
     
-    i {
+    .icons {
         color: #f4f4f4;
         font-size: larger;
         margin-left: 15px;
     }
     
-    i:hover {
+    .icons:hover {
         color: #ff6600;
     }
     
@@ -421,7 +421,7 @@
 }
 
 
-/*============================ extra large  ===========================*/
+/*============================ LAPTOP  ===========================*/
 @media (max-width: 1366px) {
 
     #home1,
@@ -610,13 +610,13 @@
         color: #f4f4f4
     }
     
-    i {
+    .icons {
         color: #f4f4f4;
         font-size: 13px;
         margin-left: 15px;
     }
     
-    i:hover {
+    .icons:hover {
         color: #ff6600;
     }
     

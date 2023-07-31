@@ -24,27 +24,10 @@
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
+
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a id="home1" class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="login1" class="nav-link" href="../login.php">Login</a>
-                    </li>
-                </ul>
-
-            </div>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
         </div>
     </nav>
 
@@ -72,17 +55,6 @@
                     <input type="text" id="surName" name="lName" class="form-control" placeholder="Enter Surname">
                     <label id="sName" for="surName">Enter Surname</label>
                 </div>
-
-                <!-- <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
-                    <label for="address">Enter Address</label>
-                </div>
-
-                <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                    <input type="text" id="mobileNum" name="mobileNum" class="form-control" placeholder="Enter Mobile Number">
-                    <label for="address">Enter Mobile Number</label>
-                </div> -->
-
 
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
@@ -123,7 +95,8 @@
     </div>
 
 
-    <div class="custom-shape-divider-bottom-1687514102">
+    <?php include"../footer.php" ?>
+    <!-- <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
                 d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
@@ -144,7 +117,7 @@
             </div>
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 
 
 
