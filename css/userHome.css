@@ -77,13 +77,33 @@
     display: flex;
     max-width: auto;
     max-height: auto;
-    margin: 0 15%;
+    margin: 80px 15%;
     padding: 20px;
     border: 1px solid rgb(255, 255, 255);
     background-color: #ddd;
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    margin-top: 100px;
+}
+
+.containerPost{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px 5px;
+}
+.containerPost{
+    padding: 10px;
+}
+.titlePost{
+    font-size: larger;
+    font-weight: 700;
+}
+.datePost{
+    font-style: italic;
+}
+.descPost{
+    font-size: 13px;
+}
+.search{
+    display: flex;
 }
 
 
@@ -94,10 +114,7 @@
     display: flex;
     flex-direction: column;
 }
-.dropdown{
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 #userName {
     margin: 10px auto 0;
@@ -183,7 +200,7 @@
 }
 .containerHistory{
     width: auto;
-    height: 500px;
+    height: 600px;
     overflow: auto;
     padding: 5px;
 }
@@ -286,7 +303,25 @@ body {
 
 
 /*============================ extra large  ===========================*/
-@media (max-width: 1200px) {}
+@media (max-width: 12366px) {
+    .containerUserHome {
+        display: flex;
+        max-width: auto;
+        max-height: auto;
+        margin: 50px 15%;
+        padding: 20px;
+        border: 1px solid rgb(255, 255, 255);
+        background-color: #ddd;
+        box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    .containerHistory{
+        width: auto;
+        height: 500px;
+        overflow: auto;
+        padding: 5px;
+    }
+}
 
 
 /*============================ large  ===========================*/

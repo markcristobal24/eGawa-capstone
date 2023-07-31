@@ -102,13 +102,13 @@ p {
     color: #f4f4f4
 }
 
-i {
+.icons {
     color: #f4f4f4;
     font-size: larger;
     margin-left: 15px;
 }
 
-i:hover {
+.icons:hover {
     color: #ff6600;
 }
 
@@ -199,7 +199,7 @@ body {
         color: #0073aa
     }
 
-    i {
+    .icons {
         color: #0073aa;
         margin-left: 15px;
     }

@@ -31,7 +31,9 @@ if (!isset($_SESSION["token"])) {
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <?php include"../navbar.php" ?>
+    
+    <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -64,7 +66,7 @@ if (!isset($_SESSION["token"])) {
                     </li>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="containerNewPass">
         <form id="account_form" method="post">
@@ -93,7 +95,9 @@ if (!isset($_SESSION["token"])) {
         </form>
     </div>
 
-    <div class="custom-shape-divider-bottom-1687514102">
+
+    <?php include"../footer.php" ?>
+    <!-- <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
                 d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
@@ -112,7 +116,7 @@ if (!isset($_SESSION["token"])) {
             </div>
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 
     <!---Modal Login-->
     <div class="modal fade" id="loginModal" aria-hidden="true">

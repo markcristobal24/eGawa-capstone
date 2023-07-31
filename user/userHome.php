@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <title>eGawa | Home</title>
+    <title>eGawa | User Home</title>
 
 </head>
 
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home1" class="nav-link" href="usertHome.php">Home</a>
+                        <a id="home1" class="nav-link" href="userHome.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
@@ -47,9 +47,9 @@
 
                             </span></a>
                         <div class="dropdown-content">
-                            <a href="userHomePage.php">My Profile</a>
                             <a href="userChangeEmail.php">Change Email Address</a>
                             <a href="userChangePass.php">Change Password</a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdropYow">Edit Account</a>
                             <a id="logout1" href="#" >Log Out</a>
                         </div>
                     </li>
@@ -60,97 +60,233 @@
 
     <div class="containerUserHome">
 
-        <div class="div1">
-                <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-                <h2 id="userName">User Name</h2>
-                <div id="verifyUserAcc">Verified Account</div>
-
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">All</a></li>
-                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                        <li><a class="dropdown-item" href="#">Mobile Development</a></li>
-                        <li><a class="dropdown-item" href="#">MultiMedia</a></li>
-                    </ul>
-                </div>
-
-
-
-            </div>
-        </div>
-
         <div class="div2">
 
-            <h2 class="userHistoryTitle">Your Transaction History</h2>
+                <div class="containerPost">
+                    <div class="row">
+                        <div class="col-6"> <!-- 6 columns for the dropdown button -->
+                            <div class="dropdown">
+                                <button id="dropdownBTN" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Website Development
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 1')">Website Development</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 2')">Mobile Development</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 3')">Website Hosting</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 4')">Multimedia</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end"> <!-- 6 columns for the search button -->
+                            <form class="d-flex ">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             <div class="containerHistory">
 
-                <table class="table table-striped table-light table-hover">
-                    <tr>
-                        <th>Freelancer</th>
-                        <th>Date</th>
-                        <th>Info</th>
-                    </tr>
-                    
-                    <tr class="table-group-divider"><!-- Adds horizontal line, can be used on any row-->
-                        <td>Marila Offenda</td>
-                        <td>01/01/22</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Collin Holland</td>
-                        <td>04/20/20</td>
-                        <td>Incomplete</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sulit</td>
-                        <td>07/14/15</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Santos</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Santos</td>
-                        <td>02/14/69</td>
-                        <td>Completed</td>
-                    </tr>
+                <div id="option1Div">
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
 
-                    
-                </table>
+                    <div class="containerPost">
+                        <span class="titlePost">Bootstrap Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Plaridel, Bulacan</span>
+                            <span class="datePost">Posted on May 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I have a work for freelancers who can do bootstrap
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
+
+
+
+                </div>
+
+                <div id="option2Div" style="display: none;">
+
+                    <div class="containerPost">
+                        <span class="titlePost">Mobile Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span class="datePost">Posted on March 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Paombong, Bulacan</span>
+                            <span class="datePost">Posted on June 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+
+                </div>
+
+                <div id="option3Div" style="display: none;">
+                <div class="containerPost">
+                        <span class="titlePost">Mobile Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span class="datePost">Posted on March 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Paombong, Bulacan</span>
+                            <span class="datePost">Posted on June 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+                </div>
+
+                <div id="option4Div" style="display: none;">
+                <div class="containerPost">
+                        <span class="titlePost">Mobile Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span class="datePost">Posted on March 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Android Studio Gods</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Paombong, Bulacan</span>
+                            <span class="datePost">Posted on June 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            Need Android Apps developer
+                        </span>
+                    </div>
+                </div>
+
 		    </div>
         </div>
 
+        <div class="div1">
+            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+            <h2 id="userName">User Name</h2>
 
+            <h4 class="">Post Something</h4>
 
-
-
-
-    <div class="custom-shape-divider-bottom-1687514102">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                class="shape-fill"></path>
-        </svg>
-    </div>
-
-
-    <footer class="footer">
-        <div class="containerFooter">
-            <div class="socialIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+            <div class="dropdown">
+                <button id="dropdownBTNPost" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Website Development
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 1')">Website Development</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 2')">Mobile Development</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 3')">Website Hosting</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 4')">Multimedia</a></li>
+                </ul>
             </div>
-            <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
+
+            <form >
+
+                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title">
+                    <label id="addr" for="title">Enter Title</label>
+                </div>
+                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
+                    <input type="text" id="desc" name="desc" class="form-control" placeholder="Enter Description">
+                    <label id="addr" for="desc">Enter Description</label>
+                </div>
+                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
+                    <input type="text" id="tags" name="tags" class="form-control" placeholder="Enter Tags">
+                    <label id="addr" for="tags">Enter Tags</label>
+                </div>
+                <button type="submit" id="" class="btn btn-primary">
+                    Submit
+                </button>
+        </form>
+
         </div>
-    </footer>
+    </div>
 
 
     <!--Modal for log out-->
@@ -175,6 +311,69 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function changeOption(option) {
+        const btn = document.getElementById('dropdownBTN');
+        const option1Div = document.getElementById('option1Div');
+        const option2Div = document.getElementById('option2Div');
+        const option3Div = document.getElementById('option3Div');
+        const option4Div = document.getElementById('option4Div');
+
+        if (option === 'Option 1') {
+            option1Div.style.display = 'block';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'none';
+            btn.innerText = 'Website Development'; 
+
+        } else if (option === 'Option 2') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'block';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'none';
+            btn.innerText = 'Mobile Development'; 
+
+        } else if (option === 'Option 3') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'block';
+            option4Div.style.display = 'none';
+            btn.innerText = 'Website Hosting'; 
+
+        } else if (option === 'Option 4') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'block';
+            btn.innerText = 'Multimedia'; 
+
+        }
+    }
+
+    function changeOptionPost(optionPost) {
+        const btnPost = document.getElementById('dropdownBTNPost');
+
+
+        if (optionPost === 'Option 1') {
+
+            btnPost.innerText = 'Website Development'; 
+
+        } else if (optionPost === 'Option 2') {
+
+            btnPost.innerText = 'Mobile Development'; 
+
+        } else if (optionPost === 'Option 3') {
+
+            btnPost.innerText = 'Website Hosting'; 
+
+        } else if (optionPost === 'Option 4') {
+ 
+            btnPost.innerText = 'Multimedia'; 
+
+        }
+    }
+    </script>
 
 
     <script src="../js/script.js "></script>

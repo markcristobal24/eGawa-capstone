@@ -25,7 +25,13 @@ if (!isset($_SESSION["otp"])) {
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
+        </div>
+    </nav>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -47,7 +53,7 @@ if (!isset($_SESSION["otp"])) {
 
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="containerVerify">
         <form action="#" method="post">

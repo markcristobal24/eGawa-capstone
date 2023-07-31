@@ -22,7 +22,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <?php include "../other/navbar.php"; ?>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -55,7 +56,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <div class="containerIDVerification">
         <form action="../controller/c_createProfile.php" method="POST" enctype="multipart/form-data">
@@ -100,8 +101,9 @@
 
 
 
+    <?php include"../footer.php" ?>
 
-
+<!-- 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
@@ -109,8 +111,6 @@
                 class="shape-fill"></path>
         </svg>
     </div>
-
-
 
     <footer class="footer">
         <div class="containerFooter">
@@ -123,7 +123,7 @@
             </div>
             <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 
 
 
