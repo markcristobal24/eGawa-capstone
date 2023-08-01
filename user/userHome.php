@@ -62,11 +62,11 @@
 
         <div class="div2">
 
-                <div class="containerPost">
+                <div class="containerPost1">
                     <div class="row">
                         <div class="col-6"> <!-- 6 columns for the dropdown button -->
                             <div class="dropdown">
-                                <button id="dropdownBTN" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button id="dropdownBTN" class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Website Development
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -80,7 +80,7 @@
                         <div class="col-6 d-flex justify-content-end"> <!-- 6 columns for the search button -->
                             <form class="d-flex ">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
+                                <button class="btn btn-success" type="submit">Search</button>
                             </form>
                         </div>
                     </div>
@@ -98,6 +98,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on July 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -114,6 +115,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Plaridel, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on May 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -130,6 +132,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on July 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -152,6 +155,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on March 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -168,6 +172,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on June 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -187,6 +192,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on March 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -203,6 +209,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on June 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -221,6 +228,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on March 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -237,6 +245,7 @@
                         </div>
                         <div>
                             <span class="locationPost">Paombong, Bulacan</span>
+                            <span>&#8226;</span> 
                             <span class="datePost">Posted on June 03, 2023</span>
                         </div>
                         <span class="descPost">
@@ -252,38 +261,61 @@
             <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
             <h2 id="userName">User Name</h2>
 
-            <h4 class="">Post Something</h4>
+            <div class="userPostTitleContainer">
 
-            <div class="dropdown">
-                <button id="dropdownBTNPost" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Website Development
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 1')">Website Development</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 2')">Mobile Development</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 3')">Website Hosting</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 4')">Multimedia</a></li>
-                </ul>
+                <h4 class="userPostTitle">Post Something</h4>
+
+                <div class="">
+                    <div class="dropdown dropDownContainer">
+                        <button id="dropdownBTNPost" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Website Development
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 1')">Website Development</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 2')">Mobile Development</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 3')">Website Hosting</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeOptionPost('Option 4')">Multimedia</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formPostContainer">
+                    <form class="formPost">
+
+                        <div class="form-floating mb-2 col-10 gx-2 gy-2 mx-auto">
+                            <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" required>
+                            <label id="addr" for="title">Enter Title</label>
+                        </div>
+
+                        <div class="form-floating mb-2 col-10 gx-2 gy-2 mx-auto">
+                        <!-- Gap on all sides is 2 -->
+                        <textarea class="form-control" id="desc" name="desc" rows="10"
+                            placeholder="Enter Catalog Description" required></textarea>
+                        <label id="postDesc" for="desc">Enter Description</label>
+                        </div>
+
+                        <div class="form-floating mb-2 col-10 gx-2 gy-2 mx-auto">
+                            <input type="text" id="tags" name="tags" class="form-control" placeholder="Enter Tags" required>
+                            <label id="addr" for="tags">Enter Tags</label>
+                        </div>
+
+                        <div class="userBtnPostCont">
+                            <div class="btn">
+                                <button type="submit" id="" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <button type="button" id="" class="btn btn-secondary">
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
             </div>
 
-            <form >
 
-                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
-                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title">
-                    <label id="addr" for="title">Enter Title</label>
-                </div>
-                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
-                    <input type="text" id="desc" name="desc" class="form-control" placeholder="Enter Description">
-                    <label id="addr" for="desc">Enter Description</label>
-                </div>
-                <div class="form-floating col-10 gx-2 gy-2 justify-content-end">
-                    <input type="text" id="tags" name="tags" class="form-control" placeholder="Enter Tags">
-                    <label id="addr" for="tags">Enter Tags</label>
-                </div>
-                <button type="submit" id="" class="btn btn-primary">
-                    Submit
-                </button>
-        </form>
+        
 
         </div>
     </div>
