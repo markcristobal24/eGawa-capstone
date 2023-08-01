@@ -1,6 +1,3 @@
-#mainContainer {
-    margin-top: 100px;
-}
 
 .navbar {
     background-color: #0073aa;
@@ -85,9 +82,20 @@
     border-radius: 5px;
 }
 
+.containerPost1{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px 5px;
+    background-color: #0074aa95;
+}
 .containerPost{
     border: 1px solid rgb(255, 255, 255);
     padding: 10px 5px;
+    background-color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.containerPost:hover{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #0074aa71;
 }
 .containerPost{
     padding: 10px;
@@ -106,6 +114,32 @@
     display: flex;
 }
 
+/* user side post */
+.userPostTitleContainer{
+    display: flex;
+    flex-direction: column;
+}
+.dropDownContainer{
+    display: flex;
+}
+.userBtnPostCont{
+    display: flex;
+}
+.btn{
+    margin: 0 auto;
+}
+.userPostTitle{
+    margin: 0 auto;
+}
+#dropdownBTNPost{
+    margin: 0 auto;
+}
+#dropdownBTN{
+    border: none;
+    font-size: 20px;
+    width: 250px;
+    background-color: #0074aa95;
+}
 
 .containerUserHome .div1 {
     margin: 10px;
@@ -278,23 +312,6 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
-/* ====For User ID verification modal */
-#modaluserIdVerification{
-    margin-top: 10%;
-}
-
-#uploadedImageUser1, .labelImage{
-    margin-left: 10px;
-}
-/*============================FOR USER EDIT PROFILE MODAL=================================*/
-#uploadedEditProfileIMG{
-    margin-left: auto;
-    margin-right: auto;
-}
-/*============================END OF USER EDIT PROFILE MODAL=================================*/
-
-
-
 
 
 /*============================FOR MEDIA QUERIES=================================*/
@@ -303,7 +320,7 @@ body {
 
 
 /*============================ extra large  ===========================*/
-@media (max-width: 12366px) {
+@media (max-width: 1366px) {
     .containerUserHome {
         display: flex;
         max-width: auto;
