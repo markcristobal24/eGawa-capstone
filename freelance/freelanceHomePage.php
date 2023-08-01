@@ -106,37 +106,37 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                             //$_SESSION['catalogId'] = $catalogId;
                     
                             ?>
-                            <div class="item">
-                                <div class="catalogImg">
-                                    <img class="imgWork"
-                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                </div>
-                                <div class="catalogTexts">
-                                    <h3>
-                                        <?php echo $row['catalogTitle']; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $row['catalogDescription'] ?>
-                                    </p>
-                                </div>
+                    <div class="item">
+                        <div class="catalogImg">
+                            <img class="imgWork"
+                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                        </div>
+                        <div class="catalogTexts">
+                            <h3>
+                                <?php echo $row['catalogTitle']; ?>
+                            </h3>
+                            <p>
+                                <?php echo $row['catalogDescription'] ?>
+                            </p>
+                        </div>
 
-                                <div id="collapseExample">
-                                    <div id="catalogItemButton">
-                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                            Delete
-                                        </button>
+                        <div id="collapseExample">
+                            <div id="catalogItemButton">
+                                <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                    id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                    Delete
+                                </button>
 
-                                        <button type="button"
-                                            onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                            id="editCatalogBtn" class="btn btn-primary">
-                                            Edit
-                                        </button>
+                                <button type="button"
+                                    onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
+                                    id="editCatalogBtn" class="btn btn-primary">
+                                    Edit
+                                </button>
 
-                                    </div>
-                                </div>
                             </div>
-                            <?php
+                        </div>
+                    </div>
+                    <?php
                         }
                     } else {
 
@@ -420,7 +420,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                     <h3 class="modalTitles">Add Catalog</h3>
                 </div>
 
-                <form action="../controller/c_catalog.php" method="POST" enctype="multipart/form-data" required>
+                <form id="catalog_form" method="POST" enctype="multipart/form-data" required>
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
@@ -447,7 +447,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
 
                     <div class="modal-footer">
-                        <button type="submit" name="btnAddCatalog" class="btn btn-primary" id="submitUserID">
+                        <button type="button" name="btnAddCatalog" class="btn btn-primary" id="add_catalog"
+                            onclick="new Catalog().add_catalog();">
                             Submit
                         </button>
                         <button type="button" class="btn btn-secondary" id="cancelSubmit" onclick="cancelAddCatalog()">
@@ -581,18 +582,18 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <script src="../js/validate.js"></script>
     <script src="../js/freelance.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var flag = localStorage.getItem('showModalFlag');
+    document.addEventListener('DOMContentLoaded', function() {
+        var flag = localStorage.getItem('showModalFlag');
 
-            if (flag === 'true') {
-                var isReloaded = performance.navigation.type === 1;
+        if (flag === 'true') {
+            var isReloaded = performance.navigation.type === 1;
 
-                if (isReloaded) {
-                    edit_catalog();
-                    localStorage.removeItem('showModalFlag');
-                }
+            if (isReloaded) {
+                edit_catalog();
+                localStorage.removeItem('showModalFlag');
             }
-        });
+        }
+    });
     </script>
 </body>
 
