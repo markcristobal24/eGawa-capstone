@@ -3,7 +3,7 @@ session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Email.php";
 
-if (isset($_POST['btnFchangeEmail'])) {
+if (isset($_POST['change_email'])) {
     $email_identifier = $_SESSION['email'];
 
     $old_email = $_POST['currentEmail'];
@@ -11,7 +11,13 @@ if (isset($_POST['btnFchangeEmail'])) {
 
     $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email_identifier'");
 
-    if ($sql->num_rows > 0) {
+    if ($old_email === "" && $new_email === "") {
+        $output['error'] = "Incomplete Details!";
+    } else if ($old_email !== $email_identifier) {
+        $output['error'] = "Email address does not match!";
+    } else if ($new_email === $email_identifier || $new_email === "") {
+        $output['error'] = "Please provide new email address!";
+    } else if ($sql->num_rows > 0) {
         $stmt = $con->prepare("UPDATE account SET email = ? WHERE email = ?");
         $stmt->bind_param("ss", $new_email, $old_email);
         $stmt->execute();
@@ -28,26 +34,17 @@ if (isset($_POST['btnFchangeEmail'])) {
 
                 if ($stmt2) {
                     $_SESSION['email'] = $new_email;
-                    ?>
-                    <script>
-                        window.location.replace('../freelance/freelanceHomePage.php');
-                        alert('Email address updated successfully');
-                    </script>
-                    <?php
+                    $output['success'] = "Email address updated successfully";
                 }
             }
         }
     } else if ($sql->num_rows < 0) {
-        ?>
-            <script>
-                alert('Email address does not match!');
-                window.location.replace('../freelance/freelanceChangeEmail.php');
-            </script>
-<?php
+        $output['error'] = "Email address does not match!";
     }
+    echo json_encode($output);
 }
 
-if (isset($_POST['btnFchangePass'])) {
+if (isset($_POST['change_password'])) {
     $email_identifier = $_SESSION['email'];
 
     $old_pass = $_POST['currentPass'];
@@ -57,37 +54,25 @@ if (isset($_POST['btnFchangePass'])) {
     $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email_identifier'");
     if ($sql->num_rows > 0) {
         if ($new_pass !== $reNew_pass) {
-            ?>
-    <script>
-        alert('Password was not matched!');
-        window.location.replace('../freelance/freelanceChangePass.php');
-    </script>
-    <?php
+            $output['error'] = "Password was not matched!";
+        } else if ($old_pass === "" && $new_pass === "" && $reNew_pass === "") {
+            $output['error'] = "Incomplete Details!";
         } else {
             $row = $sql->fetch_assoc();
             if ($old_pass !== $row['password']) {
-                ?>
-            <script>
-                alert('Incorrect password! Please try again.');
-                window.location.replace('../freelance/freelanceChangePass.php');
-            </script>
-            <?php
+                $output['error'] = "Incorrect password! Please try again.";
             } else {
                 $stmt = $con->prepare("UPDATE account SET password = ? WHERE email = ?");
                 $stmt->bind_param("ss", $new_pass, $email_identifier);
                 $stmt->execute();
 
                 if ($stmt) {
-                    ?>
-                    <script>
-                        window.location.replace('../freelance/freelanceHomePage.php');
-                        alert('Password has been changed.');
-                    </script>
-                    <?php
+                    $output['success'] = "Password has been changed.";
                 }
             }
         }
     }
+    echo json_encode($output);
 }
 
 if (isset($_POST['resendOtp'])) {

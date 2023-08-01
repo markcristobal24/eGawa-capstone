@@ -18,11 +18,13 @@ if (!isset($_SESSION['email'])) {
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/freelanceChangeEmail.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
 
     <title>eGawa | Change Email Address</title>
@@ -30,8 +32,8 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
-
-<?php include "../other/navbar.php"; ?>
+    <div class="toast_notif" id="toast_notif"></div>
+    <?php include "../other/navbar.php"; ?>
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -69,7 +71,7 @@ if (!isset($_SESSION['email'])) {
 
 
     <div class="containerChangeEmail">
-        <form action="../controller/c_Faccount.php" method="POST">
+        <form id="change_email_form" method="POST">
             <h1 class="">Change Email Address</h1>
 
             <div class="form-floating mb-3">
@@ -85,7 +87,8 @@ if (!isset($_SESSION['email'])) {
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" name="btnFchangeEmail" class="btn btn-primary" id="">
+                <button type="button" name="btnFchangeEmail" class="btn btn-primary" id="change_email"
+                    onclick="new Account().change_email();">
                     Submit
                 </button>
                 <button type="button" class="btn btn-secondary" id="clearChangeEmail" onclick="resetInputEmail()">
@@ -100,7 +103,7 @@ if (!isset($_SESSION['email'])) {
 
 
 
-    <?php include"../footer.php" ?>
+    <?php include "../footer.php" ?>
 
     <!-- <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -128,7 +131,7 @@ if (!isset($_SESSION['email'])) {
 
 
     <!--Modal for log out-->
-    <div class="modal fade" id="modalLogOut" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalLogOut" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -147,13 +150,15 @@ if (!isset($_SESSION['email'])) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/freelance.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
 </body>
 
