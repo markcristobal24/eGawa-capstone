@@ -12,33 +12,13 @@
 
     .container{
         display: flex;
-        margin: 200px auto;
+        margin: 160px auto;
         max-width: fit-content;
-    }
-
-    .toFlex{
-        display: flex;
     }
 
     p{
         color: white;
         font-size: 20px;
-    }
-    i{
-        color: white;
-        font-size: 15px;
-        padding: 0 4px;
-    }
-    i:hover{
-        color: #b616eb;
-    }
-    .socialIcons{
-        margin-left: 5px;
-    }
-
-    #imgWork{
-        height: 350px;
-        margin: 0 auto;
     }
 
     .left{
@@ -51,41 +31,29 @@
         font-size: 250px;
         position: fixed;
         top: 0;
-        left: 50px;
-        margin-top: 60px;
+        left: 60px;
+        margin-top: 120px;
         padding-left: 50px;
         color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
     }
+
     #logoImage{
         opacity: 0.5;
-    }
-    .title2{
-        color: white;
-        font-size: 40px;
-        font-weight: 500;
-        margin-top: 90px;
-        padding-left: 20px;
-        margin-bottom: 10px;
-        visibility: hidden;
-    }
-    .hidden{
-        text-align: justify;
-        margin-top: 0;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 1.5;
-        visibility: hidden;
+        height: 300px;
     }
 
     .right{
         width: 50%;
+        padding-left: 130px;
         display: flex;
     }
-    .imgContainer{
-        margin: 0 auto;
-        padding: 30px 25px;
-        box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37);
+    .formContainer{
+        margin: 20px auto 0 70px;
+        padding: 50px 30px;
+        width: 900px;
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
+
     .loginTitle{
         font-size: 80px;
     }
@@ -124,7 +92,7 @@
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 251px;
+        height: 190px;
         transform: rotateY(180deg);
     }
 
@@ -155,33 +123,13 @@
 
     .container{
         display: flex;
-        margin: 100px auto;
+        margin: 80px auto;
         max-width: fit-content;
-    }
-
-    .toFlex{
-        display: flex;
     }
 
     p{
         color: white;
         font-size: 20px;
-    }
-    i{
-        color: white;
-        font-size: 15px;
-        padding: 0 4px;
-    }
-    i:hover{
-        color: #b616eb;
-    }
-    .socialIcons{
-        margin-left: 5px;
-    }
-
-    #imgWork{
-        height: 350px;
-        margin: 0 auto;
     }
 
     .left{
@@ -194,44 +142,32 @@
         font-size: 250px;
         position: fixed;
         top: 0;
-        left: 50px;
-        margin-top: 10px;
+        left: 45px;
+        margin-top: 20px;
         padding-left: 50px;
         color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
     }
+
     #logoImage{
-        height: 200px;
         opacity: 0.5;
-    }
-    .title2{
-        /* color: white;
-        font-size: 40px;
-        font-weight: 500;
-        margin-top: 0;
-        padding-left: 20px;
-        margin-bottom: 0; */
-        visibility: hidden;
-    }
-    .hidden{
-        /* text-align: justify;
-        margin-top: 0;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 1.5; */
-        visibility: hidden;
+        height: 200px;
     }
 
     .right{
         width: 50%;
+        padding-left: 130px;
         display: flex;
     }
-    .imgContainer{
-        margin: 0 auto;
-        padding: 30px 25px;
-        box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37);
+    .formContainer{
+        margin: 20px auto 0 0;
+        padding: 40px 25px;
+        width: 700px;
+        /* box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37); */
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
+
     .loginTitle{
-        font-size: 30px;
+        font-size: 40px;
     }
     #forgotPasswordLink{
         font-size: 15px;
@@ -244,6 +180,10 @@
     }
     .infoLogin{
         font-size: 15px;
+    }
+
+    hr{
+        color: #fff;
     }
     #registerLink{
         font-size: 15px;
@@ -268,7 +208,7 @@
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 200px;
+        height: 150px;
         transform: rotateY(180deg);
     }
 
@@ -294,10 +234,124 @@
 
 }
 
+/*============================ LAPTOP (1311) ===========================*/
+@media (max-width: 1311px) {
+
+    .container{
+        display: flex;
+        margin: 60px auto;
+        max-width: fit-content;
+    }
+
+    p{
+        color: white;
+        font-size: 20px;
+    }
+
+    .left{
+        width: 50%;
+        padding-left: 200px;
+    }
+
+    .title1{
+        font-weight: 700;
+        font-size: 250px;
+        position: fixed;
+        top: 0;
+        left: 45px;
+        margin-top: 20px;
+        padding-left: 50px;
+        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
+    }
+
+    #logoImage{
+        opacity: 0.5;
+        height: 200px;
+    }
+
+    .right{
+        width: 50%;
+        padding-left: 130px;
+        display: flex;
+    }
+    .formContainer{
+        margin: 20px auto 0 0;
+        padding: 40px 25px;
+        width: 700px;
+        /* box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37); */
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    }
+
+    .loginTitle{
+        font-size: 30px;
+    }
+    #forgotPasswordLink{
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    #forgotPasswordLink:hover{
+        color: rgb(235, 140, 32);
+    }
+    .infoLogin{
+        font-size: 15px;
+    }
+
+    hr{
+        color: #fff;
+    }
+    #registerLink{
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+    }
+    #registerLink:hover{
+        color: rgb(79, 235, 32);
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 120px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    .btn {
+    width: 100px;
+    height: 40px;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+
+
+
+}
 
 /*============================ large  ===========================*/
 @media (max-width: 992px) {}
-
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {}
@@ -318,10 +372,11 @@
         top: 0;
         margin-top: 5px;
         padding: 0;
-        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
+        color: rgba(255, 255, 255, 0.3); 
     }
     
     #logoImage{
+        opacity: 0.8;
         height: 100px;
     }
 
@@ -331,9 +386,6 @@
         font-weight: 300;
         font-size: 13px;
         line-height: 1.5;
-    }
-    .title2{
-        margin-top: 30px;
     }
     
     .left{
@@ -351,7 +403,7 @@
     .left{
         width: 50%;
         padding-left: 200px;
-        display: none;
+        /* display: none; */
     }
 }
 

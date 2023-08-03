@@ -35,33 +35,16 @@
 <body>
     <div class="toast_notif" id="toast_notif"></div>
 
-    <p class="title1"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage"></p>
+    
     <div class="container">
         <div class="left">
-            <p class="title2">eGawa</p>
-            <p class="aboutInfo hidden"> Online Freelance Services Platform that aims to be a space for freelancers to
-                connect,
-                share and sell their crafts to the client. The freelancers are given wider customization and
-                information for their products or services package which may vary according to the price,
-                quality or difficulty of the work to lessen the hassle in communicating. </p>
-
-            <span class="toFlex">
-                <p class="aboutInfo">contact us here -
-                <div class="containerFooter">
-                    <div class="socialIcons">
-                        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                </p>
-            </span>
+            <p class="title1">
+                <img src="img/eGAWAwhite.png" alt="Logo" id="logoImage">
+            </p>
         </div>
 
         <div class="right">
-            <div class="imgContainer">
+            <div class="formContainer">
                 <form id="account_form" method="post">
                     <p class="loginTitle">Login</p>
 
@@ -85,12 +68,12 @@
                             Login
                         </button>
                     </div>
+                    <hr />
+                    <p>
+                        <span class="infoLogin">Don't have an account?</span>
+                        <a id="registerLink" href="register.php">Register here</a>
+                    </p>
                 </form>
-                <hr />
-                <p>
-                    <span class="infoLogin">Don't have an account?</span>
-                    <a id="registerLink" href="register.php">Register here</a>
-                </p>
                 <div id="message"></div>
             </div>
         </div>
