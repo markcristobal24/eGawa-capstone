@@ -1,0 +1,284 @@
+
+body{
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+
+    .containerRegis {
+    max-width: 600px;
+    margin: 200px auto;
+    padding: 20px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    border-radius: 5px;
+    }
+
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    p{
+        color: white;
+        font-size: 20px;
+    }
+    .userRegTitle{
+        font-size: 50px;
+    }
+
+    #loginLink{
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+    #loginLink:hover{
+        color: rgb(79, 235, 32);
+    }
+    
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 120px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    #btnFreelanceReg {
+    width: 100px;
+    height: 40px;
+    /* background-image: linear-gradient(to right, #0073aa, #8000aa); */
+    background-color: #8000aa;
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    /* position: relative; */
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+    /* overflow: hidden; */
+    }
+
+}
+
+/*============================ LAPTOP ===========================*/
+@media (max-width: 1366px) {
+
+    .containerRegis {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    border-radius: 5px;
+    }
+
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    p{
+        color: white;
+        font-size: 14px;
+    }
+    .userRegTitle{
+        font-size: 40px;
+    }
+    #loginLink{
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+    }
+    #loginLink:hover{
+        color: rgb(79, 235, 32);
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 120px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    #btnLogin {
+    width: 100px;
+    height: 40px;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+
+}
+
+/*============================ LAPTOP (1311) ===========================*/
+@media (max-width: 1311px) {
+
+    .containerRegis {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    border-radius: 5px;
+    }
+
+    p{
+        color: white;
+        font-size: 14px;
+    }
+    .userRegTitle{
+        font-size: 40px;
+    }
+    #loginLink{
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+    }
+    #loginLink:hover{
+        color: rgb(79, 235, 32);
+    }
+
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 120px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    #btnLogin {
+    width: 100px;
+    height: 40px;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    }
+
+
+
+}
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+    .userRegTitle{
+        font-size: 30px;
+    }
+
+    .containerRegis {
+        max-width: 360px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 100px;
+        
+    }
+    #fName,
+    #mName,
+    #sName,
+    #addr,
+    #uName,
+    #eAdd,
+    #pass1,
+    #pass2 {
+        font-size: 10px;
+    }
+
+    .custom-shape-divider-bottom-1690684253{
+        display: none;
+    }
+
+}
+
