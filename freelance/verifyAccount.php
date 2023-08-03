@@ -28,7 +28,7 @@ if (!isset($_SESSION["otp"])) {
 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
+            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage" /></a>
         </div>
     </nav>
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
