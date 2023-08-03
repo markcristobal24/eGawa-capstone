@@ -74,7 +74,8 @@
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
+                    <input type="password" id="pass2" name="password2" class="form-control"
+                        placeholder="Re-enter Password">
                     <label id="pass2" for="pass2">Re-enter Password</label>
                 </div>
 
