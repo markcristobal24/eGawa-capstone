@@ -95,7 +95,7 @@
 
 
     <!---Modal Login-->
-    <div class="modal fade" id="loginModal" aria-hidden="true">
+    <!-- <div class="modal fade" id="loginModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
