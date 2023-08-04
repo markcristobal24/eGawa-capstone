@@ -30,15 +30,16 @@ class Catalog {
                 new Notification().create_notification(response_data.error, "error");
             }
         });
-
-        if (status !== 0) {
-
-        }
-
     }
 
     delete_catalog(catalog_id) {
         if (confirm("Are you sure you want to delete it?")) {
+            // let button_value = new Account().get_button_value("deleteCatalogBtn");
+            // new Account().button_loading("deleteCatalogBtn", "loading", "");
+
+            let msg = "Deleting catalog....";
+            new Notification().create_notification(msg, "neutral");
+
             var form_data = new FormData();
             form_data.append('catalog_id', catalog_id);
             form_data.append('delete_catalog', 'delete_catalog');
@@ -50,8 +51,16 @@ class Catalog {
             }).then(function (response_data) {
                 console.log(response_data);
                 if (response_data.success) {
-                    alert('Catalog Deleted Successfully');
-                    location.reload();
+                    console.log(response_data.success);
+                    new Notification().create_notification(response_data.success, "success");
+                    let tID = setTimeout(function () {
+                        window.location.reload();
+                        window.clearTimeout(tID);
+                    }, 1000);
+                }
+                else if (response_data.error) {
+                    // new Account().button_loading("add_catalog", "", button_value);
+                    new Notification().create_notification(response_data.error, "error");
                 }
             });
         }
@@ -73,7 +82,11 @@ class Catalog {
     }
 
     edit_catalog(catalog_id) {
-        var form_data = new FormData(document.getElementById('catalog_form'));
+
+        let button_value = new Account().get_button_value("submitEditCatalog");
+        new Account().button_loading("submitEditCatalog", "loading", "");
+
+        var form_data = new FormData(document.getElementById('edit_catalog'));
         form_data.append('catalog_id', catalog_id);
         form_data.append('edit_catalog', 'edit_catalog');
         fetch('../controller/c_catalog.php', {
@@ -85,10 +98,16 @@ class Catalog {
             console.log(response_data);
             if (response_data.success) {
                 console.log(response_data.success);
-                window.location.href = 'freelanceHomePage.php';
-                alert('Catalog Updated Successfully');
-
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
             }
-        })
+            else if (response_data.error) {
+                new Account().button_loading("submitEditCatalog", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
     }
 }
