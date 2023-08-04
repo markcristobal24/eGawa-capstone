@@ -90,7 +90,7 @@
                     onclick="new Account().registerFreelance();">
                     Continue
                 </button>
-                <button class="btn btn-secondary">Clear</button>
+                <button class="btn btn-secondary" id="btnFreelanceClear" >Clear</button>
             </div>
             <hr>
             <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="../login.php">Login here</a>
