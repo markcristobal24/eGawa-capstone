@@ -1,6 +1,6 @@
 
 .navbar {
-    background-color: #0073aa;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -29,16 +29,6 @@
     color: #ff6600;
 }
 
-    /* Dropdown button styles */
-    .dropdown-btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-      }
-  
       /* Dropdown content (hidden by default) */
       .dropdown-content {
         display: none;
@@ -69,7 +59,14 @@
         display: block;
       }
 
-
+#filterOption{
+    color: #ddd;
+    font-size: 20px;
+    border-radius: 20px;
+    border-color: #f9f9f9;
+    padding: 5px 8px;
+    background-color: #0073aa;
+}
 .containerUserHome {
     display: flex;
     max-width: auto;
@@ -83,9 +80,8 @@
 }
 
 .containerPost1{
-    border: 1px solid rgb(255, 255, 255);
+    background-color:  #0073aa;
     padding: 10px 5px;
-    background-color: #0074aa95;
 }
 .containerPost{
     border: 1px solid rgb(255, 255, 255);

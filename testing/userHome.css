@@ -1,0 +1,280 @@
+body{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#userOption,
+#userInbox {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#userOption:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
+}
+
+#userInbox:hover {
+    color: #ff6600;
+}
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        width: 190px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+  
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+  
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #0074aa95;
+        color: rgb(255, 255, 255);
+      }
+  
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+body {
+    background-color: hsla(200, 57%, 85%, 0.275);
+}
+
+
+
+/*============================FOR MEDIA QUERIES=================================*/
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+    .containerUserHome{
+        display: flex;
+        height: 90vh;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .containerLeft{
+        flex: 70%;
+        background-color: #ddd;
+        margin: 20px;
+    }
+    
+    .containerLeft-Nav{
+        display: flex;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #0073aa;
+    }
+    .left-nav-dropdown{
+        margin: auto auto auto 0;
+    }
+    #filterOption{
+        font-size: 30px;
+        padding: 5px 9px;
+        margin-left: 30px;
+        color: #f9f9f9;
+        border: none;
+        background-color: #0073aa;
+        cursor: pointer;
+    }
+
+    .search{
+        height: 50px;
+    }
+
+    .left-nav-search{
+        margin: 0 0 0 auto;
+    }
+    .containerLeft-Feed{
+        overflow: scroll;
+        height: 90%;
+        padding: 10px;
+
+    }
+    .containerPost{
+        margin: 20px 50px;
+        padding: 30px 50px;
+        font-size: 15px;
+        background-color: #f4f4f4ee;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    .containerPost:hover{
+        cursor: pointer;
+        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
+        margin: 20px 50px;
+        padding: 30px 50px;
+        font-size: 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        color: #f4f4f4;
+    }
+    .titlePost{
+        font-weight: 400;
+        font-size: 25px;
+    }
+
+    .containerRight{
+        flex: 30%;
+        background-color: #ddd;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        margin: 20px;
+    }
+    .containerRight-Nav{
+        padding: 10px;
+        border-radius: 5px;
+        height: 75px;
+        background-color: #0073aa;
+    }
+    .userProfile{
+        /* height: 50%; */
+        width: 100%;
+        
+    }
+    .userPost{
+        height: 50%;
+    }
+    
+    .userProfileChild{
+        display: flex;
+        margin: 20px 50px;
+        padding: 30px 50px;
+        flex-direction: column;
+        background-color: #f4f4f4ee;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
+    #userPic{
+        height: 150px;
+        margin: 0px auto;
+    }
+    #userName{
+        font-weight: 400;
+        font-size: 25px;
+        color: #000000;
+        margin: auto;
+    }
+    .userPostChild{
+        margin: 20px 50px;
+        padding: 30px 50px;
+        background-color: #f4f4f4ee;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
+    .dropdownOptionPost{
+        margin: 10px auto;
+    }
+}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+
+    .navbar-brand img {
+        max-height: 40px;
+    }
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+    .containerUserHome {
+        flex-direction: column;
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        background-color: #ddd;
+    }
+
+    .containerUserHome .div1 {
+        order: -1;
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerUserHome .div2 {
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #home1,
+    #about1,
+    #userOption,
+    #userInbox {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
+    }
+
+
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
+
+
+}

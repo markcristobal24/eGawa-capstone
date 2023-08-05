@@ -66,15 +66,14 @@
                     <div class="row">
                         <div class="col-6"> <!-- 6 columns for the dropdown button -->
                             <div class="dropdown">
-                                <button id="dropdownBTN" class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Website Development
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 1')">Website Development</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 2')">Mobile Development</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 3')">Website Hosting</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="changeOption('Option 4')">Multimedia</a></li>
-                                </ul>
+                                <form action="">
+                                    <select id="filterOption" name="filterOption" onchange="updateDivContent()">
+                                        <option value="webdev" >Website Development</option>
+                                        <option value="mobiledev" >Mobile Development</option>
+                                        <option value="webhost" >Website Hosting</option>
+                                        <option value="multi" >Multimedia</option>
+                                    </select>
+                                </form>
                             </div>
                         </div>
                         <div class="col-6 d-flex justify-content-end"> <!-- 6 columns for the search button -->
@@ -140,6 +139,74 @@
                         </span>
                     </div>
 
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
+
+                    <div class="containerPost">
+                        <span class="titlePost">Website Developer</span>
+                        <div>
+                            <span class="userPost">
+                                - john Paulo Sulit
+                            </span>
+                        </div>
+                        <div>
+                            <span class="locationPost">Malolos, Bulacan</span>
+                            <span>&#8226;</span> 
+                            <span class="datePost">Posted on July 03, 2023</span>
+                        </div>
+                        <span class="descPost">
+                            I need a freelancer who can make a responsive website ASAP!
+                        </span>
+                    </div>
+
 
 
                 </div>
@@ -184,7 +251,7 @@
 
                 <div id="option3Div" style="display: none;">
                 <div class="containerPost">
-                        <span class="titlePost">Mobile Developer</span>
+                        <span class="titlePost">web hostess</span>
                         <div>
                             <span class="userPost">
                                 - john Paulo Sulit
@@ -220,7 +287,7 @@
 
                 <div id="option4Div" style="display: none;">
                 <div class="containerPost">
-                        <span class="titlePost">Mobile Developer</span>
+                        <span class="titlePost">multimedia</span>
                         <div>
                             <span class="userPost">
                                 - john Paulo Sulit
@@ -298,6 +365,7 @@
                             <input type="text" id="tags" name="tags" class="form-control" placeholder="Enter Tags" required>
                             <label id="addr" for="tags">Enter Tags</label>
                         </div>
+                        
 
                         <div class="userBtnPostCont">
                             <div class="btn">
@@ -313,9 +381,6 @@
 
                 </div>
             </div>
-
-
-        
 
         </div>
     </div>
@@ -345,6 +410,46 @@
     </div>
 
     <script>
+
+        window.onload = function() {
+            updateDivContent();
+        };
+
+        function updateDivContent() {
+            var selectedOption = document.getElementById("filterOption").value;
+
+            if (selectedOption === 'webdev') {
+            option1Div.style.display = 'block';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'none';
+
+
+
+        } else if (selectedOption === 'mobiledev') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'block';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'none';
+
+
+        } else if (selectedOption === 'webhost') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'block';
+            option4Div.style.display = 'none';
+
+
+        } else if (selectedOption === 'multi') {
+            option1Div.style.display = 'none';
+            option2Div.style.display = 'none';
+            option3Div.style.display = 'none';
+            option4Div.style.display = 'block';
+            btn.innerText = 'Multimedia'; 
+
+        }
+        }
+
         function changeOption(option) {
         const btn = document.getElementById('dropdownBTN');
         const option1Div = document.getElementById('option1Div');
