@@ -90,7 +90,7 @@ body {
 
     .containerLeft{
         flex: 70%;
-        background-color: #ddd;
+        /* background-color: #ddd; */
         margin: 20px;
     }
     
@@ -125,8 +125,9 @@ body {
         height: 93%;
         padding: 10px;
     }
+    
     .containerPost{
-        margin: 20px 50px;
+        margin: 20px 0;
         padding: 30px 50px;
         height: 200px;
         font-size: 15px;
@@ -171,8 +172,8 @@ body {
 
     .containerRight{
         flex: 30%;
-        background-color: #ddd;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        /* background-color: #ddd; */
+        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
         height: fit-content;
         margin: 20px;
     }
@@ -278,7 +279,7 @@ body {
 
     .containerLeft{
         flex: 70%;
-        background-color: #ddd;
+        /* background-color: #ddd; */
         margin: 20px;
     }
     .containerLeft-Feed{
@@ -320,7 +321,7 @@ body {
 
     }
     .containerPost{
-        margin: 15px 50px;
+        margin: 15px 0;
         padding: 10px 30px;
         height: 150px;
         font-size: 15px;
@@ -365,8 +366,8 @@ body {
 
     .containerRight{
         flex: 30%;
-        background-color: #ddd;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        /* background-color: #ddd; */
+        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
         height: fit-content;
         margin: 20px;
     }
