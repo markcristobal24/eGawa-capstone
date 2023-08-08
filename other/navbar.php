@@ -19,15 +19,16 @@
                 </li>
                 <li class="nav-item dropdown">
                     <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
-                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
-                            <span>
-                                <?php echo $_SESSION['firstName']; ?>
-                            </span></a>
-                        <div class="dropdown-content">
-                            <a href="../freelance/freelanceChangeEmail.php">Change Email Address</a>
-                            <a href="../freelance/freelanceChangePass.php">Change Password</a>
-                            <a id="logout1" href="#">Log Out</a>
-                        </div>
+                    <a id="freelanceOption" class="nav-link" href="#">Welcome,
+                        <span>
+                            <?php echo $_SESSION['firstName']; ?>
+                        </span></a>
+                    <div class="dropdown-content">
+                        <a href="../freelance/freelanceHomePage.php">My Profile</a>
+                        <a href="../freelance/freelanceChangeEmail.php">Change Email Address</a>
+                        <a href="../freelance/freelanceChangePass.php">Change Password</a>
+                        <a id="logout1" href="#">Log Out</a>
+                    </div>
                     <?php endif; ?>
                 </li>
             </ul>
