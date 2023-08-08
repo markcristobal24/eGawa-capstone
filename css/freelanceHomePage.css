@@ -1,4 +1,8 @@
-
+body{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
 /*============================FOR MEDIA QUERIES=================================*/
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
@@ -7,7 +11,8 @@
     } */
     
     .navbar {
-        background-color: #0073aa;
+        /* background-color: #0073aa; */
+        background-image: linear-gradient(to right, #0073aa, #8000aa);
         box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
     }
     

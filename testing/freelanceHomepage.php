@@ -36,7 +36,7 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/freelanceHomePage.css">
+    <link rel="stylesheet" href="freelanceHomePage.css">
     <link rel="stylesheet" href="../css/notification.css">
 
 
@@ -58,130 +58,105 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <?php //print_r($_SESSION); ?>
     <div class="toast_notif" id="toast_notif"></div>
     <?php include "../other/navbar.php"; ?>
-    <!-- <nav class="navbar navbar-expand-md navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a id="home1" class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
-                            <span>
-                                <?php //echo $_SESSION['firstName']; ?>
-                            </span></a>
-                        <div class="dropdown-content">
-                            <a href="freelanceChangeEmail.php">Change Email Address</a>
-                            <a href="freelanceChangePass.php">Change Password</a>
-                            <a id="logout1" href="#">Log Out</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
 
-    <div class="containerFreelanceHome">
-
-        <div class="div2">
-            <div class="containerCatalog">
-                <div id="container">
-                    <?php
-                    $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
-                    if ($displayCatalog->num_rows > 0) {
-                        // while ($row = $displayCatalog->fetch_assoc()) {
-                        foreach ($displayCatalog as $row) {
-                            $catalogId = $row['catalog_id'];
-                            //$_SESSION['catalogId'] = $catalogId;
-                    
-                            ?>
-                            <div class="item">
-                                <div class="catalogImg">
-                                    <img class="imgWork"
-                                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                </div>
-                                <div class="catalogTexts">
-                                    <h3>
-                                        <?php echo $row['catalogTitle']; ?>
-                                    </h3>
-                                    <p>
-                                        <?php echo $row['catalogDescription'] ?>
-                                    </p>
-                                </div>
-
-                                <div id="collapseExample">
-                                    <div id="catalogItemButton">
-                                        <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                            id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                            Delete
-                                        </button>
-
-                                        <button type="button"
-                                            onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                            id="editCatalogBtn" class="btn btn-primary">
-                                            Edit
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                    } else {
-
-                        echo '<div class="item">';
-                        echo '<div class="catalogImg">';
-                        echo '<img class="imgWork" src="../img/box.png">';
-                        echo '</div>';
-                        echo '<div class="catalogTexts">';
-                        echo '<h3>No catalog to display</h3>';
-                        echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                    ?>
+    <div class="containerUserHome">
+        <div class="containerLeft">
+            <div class="containerLeft-Nav">
+                <div class="left-nav-dropdown">
+                    FOR CATALOGS
                 </div>
             </div>
-            <div class="catalogButtons">
 
-                <button id="addCatalog" class="">Add Catalog</button>
-            </div>
+            <div class="containerLeft-Feed">
+            
+                <div class="containerPost">
+                    <div class="descPost">
+                        <?php
+                        $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
+                        if ($displayCatalog->num_rows > 0) {
+                            // while ($row = $displayCatalog->fetch_assoc()) {
+                            foreach ($displayCatalog as $row) {
+                                $catalogId = $row['catalog_id'];
+                                //$_SESSION['catalogId'] = $catalogId;
+                        
+                                ?>
+                                
+                                <div class="item">
+                                    <div class="catalogImg">
+                                        <img class="imgWork"
+                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
+                                    </div>
+                                    <div class="catalogTexts">
+                                        <h3>
+                                            <?php echo $row['catalogTitle']; ?>
+                                        </h3>
+                                        <p>
+                                            <?php echo $row['catalogDescription'] ?>
+                                        </p>
+                                    </div>
+
+                                    <div id="collapseExample">
+                                        <div id="catalogItemButton">
+                                            <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
+                                                id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
+                                                Delete
+                                            </button>
+
+                                            <button type="button"
+                                                onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
+                                                id="editCatalogBtn" class="btn btn-primary">
+                                                Edit
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+                            }
+                        } else {
+
+                            echo '<div class="item">';
+                            echo '<div class="catalogImg">';
+                            echo '<img class="imgWork" src="../img/box.png">';
+                            echo '</div>';
+                            echo '<div class="catalogTexts">';
+                            echo '<h3>No catalog to display</h3>';
+                            echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+ 
+                </div>
         </div>
 
-        <div class="div1">
+        <div class="containerRight">
+            <div class="containerRight-Nav">
 
-            <img id="freelancerPic"
-                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
-                alt="user profile" title="user profile">
-            <div class="freelanceNameContainer">
-                <h2 id="freelanceName">
+            </div>
+            <div class="userProfile">
+                <div class="userProfileChild">
+                    <!-- <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile"> -->
+                    <img id="freelancerPic"
+                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                    alt="user profile" title="user profile">
+                    <!-- <p id="userName">John Paulo Sulit</p> -->
+                    <h2 id="freelanceName">
                     <?php echo $fullname; ?>
-                </h2>
-            </div>
-            <div class="freelanceUsernameContainer">
-                <h4 id="freelanceUsername">
+                    </h2>
+                    <h4 id="freelanceUsername">
                     <?php echo "@" . $_SESSION['username']; ?>
-                </h4>
-            </div>
-            <div class="rating">
-                <span class="star" data-value="1"></span>
-                <span class="star" data-value="2"></span>
-                <span class="star" data-value="3"></span>
-                <span class="star" data-value="4"></span>
-                <span class="star" data-value="5"></span>
-            </div>
-            <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
+                    </h4>
+                    <div class="rating">
+                        <span class="star" data-value="1"></span>
+                        <span class="star" data-value="2"></span>
+                        <span class="star" data-value="3"></span>
+                        <span class="star" data-value="4"></span>
+                        <span class="star" data-value="5"></span>
+                    </div>
+                    <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
                     Account</a></div>
             <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
@@ -215,12 +190,15 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 </div>
             </div>
             <div id="viewmore">View More</div>
-            <div>
-
+                </div>
             </div>
-
+            <div class="userPost">
+                
+            </div>
         </div>
     </div>
+
+
 
 
     <!-- this modal is for freelance profile if you click "view more" -->
@@ -517,37 +495,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
             </div>
         </div>
     </div>
-
-
-
-
-
-    <!-- <div class="custom-shape-divider-bottom-1687514102">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                class="shape-fill"></path>
-        </svg>
-    </div>
-
-
-    <footer class="footer">
-        <div class="containerFooter">
-            <div class="socialIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
-        </div>
-    </footer> -->
-
-    <?php //include "../footer.php"; ?>
-
-
-    <!--Modal for log out-->
 
 
     <div class="modal" id="deleteModal">
