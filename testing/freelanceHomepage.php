@@ -51,6 +51,8 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <title>eGawa | Freelance Homepage</title>
 
 
+    
+
 
 </head>
 
