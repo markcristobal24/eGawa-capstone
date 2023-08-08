@@ -81,111 +81,138 @@
                         </form>
                 </div>
             </div>
+
             <div class="containerLeft-Feed">
             
                 <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="author">
-                                Author: 
-                            </span>
-                            <span class="userPost">
-                                John Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                    <span class="titlePost">Website Developer</span>
+                    <div>
+                        <span class="author">
+                            Author: 
                         </span>
-                        <div>
-                        </div>
+                        <span class="userPost">
+                            John Paulo Sulit
+                        </span>
+                    </div>      
+                    <div>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span>&#8226;</span> 
+                        <span class="datePost">Posted on July 03, 2023</span>
+                    </div>
+
+                    <p class="descPost">
+                        I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        «Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo 
+                    </p>
+                    <div>
+                        <button id="viewPostBTN">View post</button>
+                    </div>
                 </div>
+
                 <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="userPost">
-                                - john Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                    <span class="titlePost">Website Developer</span>
+                    <div>
+                        <span class="author">
+                            Author: 
                         </span>
+                        <span class="userPost">
+                            John Paulo Sulit
+                        </span>
+                    </div>      
+                    <div>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span>&#8226;</span> 
+                        <span class="datePost">Posted on July 03, 2023</span>
+                    </div>
+
+                    <p class="descPost">
+                        I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        «Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo 
+                    </p>
+                    <div>
+                        <button id="viewPostBTN">View post</button>
+                    </div>
                 </div>
+
                 <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="userPost">
-                                - john Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                    <span class="titlePost">Website Developer</span>
+                    <div>
+                        <span class="author">
+                            Author: 
                         </span>
+                        <span class="userPost">
+                            John Paulo Sulit
+                        </span>
+                    </div>      
+                    <div>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span>&#8226;</span> 
+                        <span class="datePost">Posted on July 03, 2023</span>
+                    </div>
+
+                    <p class="descPost">
+                        I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        «Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo 
+                    </p>
+                    <div>
+                        <button id="viewPostBTN">View post</button>
+                    </div>
                 </div>
+
                 <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="userPost">
-                                - john Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                    <span class="titlePost">Website Developer</span>
+                    <div>
+                        <span class="author">
+                            Author: 
                         </span>
+                        <span class="userPost">
+                            John Paulo Sulit
+                        </span>
+                    </div>      
+                    <div>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span>&#8226;</span> 
+                        <span class="datePost">Posted on July 03, 2023</span>
+                    </div>
+
+                    <p class="descPost">
+                        I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        «Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo 
+                    </p>
+                    <div>
+                        <button id="viewPostBTN">View post</button>
+                    </div>
                 </div>
+
                 <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="userPost">
-                                - john Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                    <span class="titlePost">Website Developer</span>
+                    <div>
+                        <span class="author">
+                            Author: 
                         </span>
-                </div>
-                <div class="containerPost">
-                        <span class="titlePost">Website Developer</span>
-                        <div>
-                            <span class="userPost">
-                                - john Paulo Sulit
-                            </span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Malolos, Bulacan</span>
-                            <span>&#8226;</span> 
-                            <span class="datePost">Posted on July 03, 2023</span>
-                        </div>
-                        <span class="descPost">
-                            I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        <span class="userPost">
+                            John Paulo Sulit
                         </span>
+                    </div>      
+                    <div>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span>&#8226;</span> 
+                        <span class="datePost">Posted on July 03, 2023</span>
+                    </div>
+
+                    <p class="descPost">
+                        I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
+                        «Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo 
+                    </p>
+                    <div>
+                        <button id="viewPostBTN">View post</button>
+                    </div>
                 </div>
+                
             </div>
+            
         </div>
+
         <div class="containerRight">
             <div class="containerRight-Nav">
 
@@ -199,28 +226,34 @@
             </div>
             <div class="userPost">
                 <div class="userPostChild">
-                    <div class="dropdownOptionPost">
-                        <form action="">
-                            <select id="filterOption" name="filterOption" onchange="updateDivContent()">
-                                <option value="webdev" >Website Development</option>
-                                <option value="mobiledev" >Mobile Development</option>
-                                <option value="webhost" >Website Hosting</option>
-                                <option value="multi" >Multimedia</option>
-                            </select>
-                        </form>
+                    <div class="toFlex">
+                        <p class="postTitle">Post a Job</p>
                     </div>
-                    <form action="/submit" method="post">
+                    <div class="toFlex">
+                        <div class="dropdownOptionPost">
+                            <form action="">
+                                <select id="filterOptionPost" name="filterOption" onchange="updateDivContent()">
+                                    <option value="webdev" >Website Development</option>
+                                    <option value="mobiledev" >Mobile Development</option>
+                                    <option value="webhost" >Website Hosting</option>
+                                    <option value="multi" >Multimedia</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <form id="formPost"action="/submit" method="post">
                         <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" required><br>
+                        <input type="text" id="title" name="title" required>
 
                         <label for="description">Description:</label>
-                        <input type="text" id="description" name="description" required><br>
+                        <!-- <input type="text" id="description" name="description" required><br> -->
+                        <textarea id="description" name="description" rows="3" required></textarea>
 
                         <label for="tags">Tags:</label>
-                        <input type="text" id="tags" name="tags"><br>
+                        <input type="text" id="tags" name="tags">
 
-                        <input type="submit" value="Submit">
-                        <input type="button" value="Clear">
+                        <input id="submitPost" type="submit" value="Submit">
+                        <input id="clearPost" type="button" value="Clear">
                     </form>
                 </div>
             </div>
