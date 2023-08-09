@@ -24,40 +24,6 @@
 
 <body>
 
-    <!-- <nav class="navbar navbar-expand-md navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a id="home1" class="nav-link" href="userHome.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="aboutUs.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="userInbox" class="nav-link" href="userInbox.php">Messages</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="userOption" class="nav-link" href="#">Welcome,
-                            <span>
-
-                            </span></a>
-                        <div class="dropdown-content">
-                            <a href="userChangeEmail.php">Change Email Address</a>
-                            <a href="userChangePass.php">Change Password</a>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdropYow">Edit Account</a>
-                            <a id="logout1" href="#" >Log Out</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
 
     <?php include "../other/navbar.php"; ?>
 
@@ -216,9 +182,9 @@
         </div>
 
         <div class="containerRight">
-            <div class="containerRight-Nav">
+            <!-- <div class="containerRight-Nav">
 
-            </div>
+            </div> -->
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">

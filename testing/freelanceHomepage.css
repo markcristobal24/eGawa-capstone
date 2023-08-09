@@ -14,8 +14,6 @@ body{
 /*============================FOR MEDIA QUERIES=================================*/
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
-
-    
     
     #home1,
     #about1,
@@ -40,6 +38,12 @@ body{
     
     #freeLanceInbox:hover {
         color: #ff6600;
+    }
+    #welcomeName:hover #welcomeName:hover{
+        color: #ff6600;
+    }
+    #welcomeName{
+        font-size: 18px;
     }
     
       
@@ -103,6 +107,7 @@ body{
         background-color: aquamarine;
     }
     #freelancerPic{
+        border-radius: 100px;
         display: flex;
         height: 150px;
         margin: 0 auto;
