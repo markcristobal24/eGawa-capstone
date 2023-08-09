@@ -3,15 +3,17 @@ body{
     padding: 0;
     margin: 0;
 }
+.navbar-brand img {
+    max-height: 50px;
+}
+.navbar {
+    /* background-color: #0073aa; */
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
 /*============================FOR MEDIA QUERIES=================================*/
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
-
-    .navbar {
-        /* background-color: #0073aa; */
-        background-image: linear-gradient(to right, #0073aa, #8000aa);
-        box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
-    }
     
     #home1,
     #about1,
@@ -36,6 +38,12 @@ body{
     
     #freeLanceInbox:hover {
         color: #ff6600;
+    }
+    #welcomeName:hover #welcomeName:hover{
+        color: #ff6600;
+    }
+    #welcomeName{
+        font-size: 18px;
     }
     
       
@@ -68,202 +76,60 @@ body{
           .dropdown:hover .dropdown-content {
             display: block;
           }
+    
+ /* ================================================================================================================== */
 
+    .mainContainer{
+        background-color: #8000aa;
+        display: flex;
+        height: 90vh;
+        width: 95%;
+        margin: 15px auto;
+    }
+    p, span{
+        font-size: 15px;
+    }
+    /* -----Left Div----- */
+    .left{
+        /* display: flex; */
+        background-color: #ff6600;
+    }
+    .leftNav{
+        display: flex;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #0073aa;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
 
-        .containerUserHome{
-            display: flex;
-            height: 90vh;
-            width: 95%;
-            margin: 0 auto;
-        }
-
-        p, span{
-            font-size: 15px;
-        }
+    /* -----Right Div----- */
+    .right{
+        background-color: aquamarine;
+    }
+    #freelancerPic{
+        border-radius: 100px;
+        display: flex;
+        height: 150px;
+        margin: 0 auto;
+    }
+    .freelanceNameContainer{
+        display: flex;
+    }
+    #freelanceName {
+        margin: 0 auto;
+    }
+    .freelanceUsernameContainer{
+        display: flex;
+    }
+    #freelanceUsername{
+        display: flex;
+        margin: 0 auto;
+    }
     
-        .containerLeft{
-            flex: 70%;
-            margin: 20px;
-        }
-        .item{
-            display: flex;
-        }
-        .imgWork{
-            height: 150px;
-        }
-        .containerLeft-Nav{
-            display: flex;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #0073aa;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        }
-        .left-nav-dropdown{
-            margin: auto auto auto 0;
-        }
-        #filterOption{
-            font-size: 30px;
-            padding: 5px 9px;
-            margin-left: 30px;
-            color: #f9f9f9;
-            border: none;
-            background-color: #0073aa;
-            cursor: pointer;
-        }
-    
-        .search{
-            height: 50px;
-        }
-    
-        .left-nav-search{
-            margin: 0 0 0 auto;
-        }
-        .containerLeft-Feed{
-            overflow: scroll;
-            height: 93%;
-            padding: 10px;
-        }
-        
-        .containerPost{
-            margin: 20px 0;
-            padding: 30px 50px;
-            height: 200px;
-            font-size: 15px;
-            background-color: #f4f4f4ee;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-        .containerPost:hover{
-            cursor: pointer;
-            background-image: linear-gradient(to right, #0074aa81, #8000aa83);
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-            color: #f4f4f4;
-        }
-        .containerPost:hover #viewPostBTN{
-            background-color:rgba(30, 185, 64, 0.918);
-        }
-        .containerPost:hover #viewPostBTN:hover{
-            background-color:rgba(26, 139, 51, 0.918);
-        }
-        .titlePost{
-            font-weight: 400;
-            font-size: 25px;
-        }
-    
-        /* .descPost{
-            max-width: 900px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        } */
-    
-        #viewPostBTN{
-            border: none;
-            border-radius: 5px;
-            color: #ddd;
-            font-weight: 500;
-            font-size: 16px;
-            background-color: #0074aad8;
-            padding: 2px 10px;
-            transition: background-color 0.2s ease-in-out;
-        }
-    
-        .containerRight{
-            flex: 30%;
-            /* background-color: #ddd; */
-            /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
-            height: fit-content;
-            margin: 20px;
-        }
-        .containerRight-Nav{
-            padding: 10px;
-            border-radius: 5px;
-            height: 75px;
-            background-color: #0073aa;
-        }
-        .userProfile{
-            /* height: 50%; */
-            width: 100%; 
-        }
-        #freelancerPic{
-            height: 150px;
-            width: 150px;
-        }
-        .userPost{
-            height: 50%;
-        }
-        
-        .userProfileChild{
-            display: flex;
-            margin: 20px 50px;
-            padding: 30px 50px;
-            flex-direction: column;
-            background-color: #f4f4f4ee;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        }
-        #userPic{
-            height: 150px;
-            margin: 0px auto;
-        }
-        #userName{
-            font-weight: 400;
-            font-size: 25px;
-            color: #000000;
-            margin: auto;
-        }
-        .userPostChild{
-            margin: 20px 50px;
-            padding: 20px 50px;
-            background-color: #f4f4f4ee;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        }
-        .toFlex{
-            display: flex;
-        }
-        .postTitle{
-            font-size: 25px;
-            margin: 0 auto 0;
-        }
-        .dropdownOptionPost{
-            margin: 10px auto;
-        }
-        #filterOptionPost{
-            font-size: 20px;
-            padding: 5px 9px;
-            color: #f9f9f9;
-            border: none;
-            border-radius: 12px;
-            background-color: #0073aa;
-            cursor: pointer;
-        }
-        #formPost {
-            display: flex;
-            flex-direction: column;
-            max-width: 300px; /* Adjust as needed */
-            margin: 0 auto; /* Center the form horizontally */
-        }
-        #submitPost{
-            margin: 5px 0 5px;
-            border: none;
-            border-radius: 2px;
-            color: #f4f4f4;
-            background-color: #0073aa;
-        }
-        #clearPost{
-            margin: 0 0 5px;
-            border: none;
-            border-radius: 2px;
-            color: #f4f4f4;
-            background-color: #808080;
-        }
-    
-    
-
-    
-
-    
+    .ratingContainer{
+        display: flex;
+    }
     .rating {
-        /* display: inline-block; */
         margin: 0 auto;
     }
     
@@ -275,13 +141,6 @@ body{
         background-size: contain;
         cursor: pointer;
     }
-    
- 
-
-    .navbar-brand img {
-        max-height: 50px;
-    }
-    
 
     
     /*==========================FOR MODAL - VIEW MORE============================*/
@@ -293,11 +152,7 @@ body{
         padding: 10px;
     }
     
-    #freelanceName {
-        margin-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    
     
     .modal-header {
         padding: 0;

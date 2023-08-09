@@ -61,96 +61,57 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
     <div class="toast_notif" id="toast_notif"></div>
     <?php include "../other/navbar.php"; ?>
 
-    <div class="containerUserHome">
-        <div class="containerLeft">
-            <div class="containerLeft-Nav">
-                <div class="left-nav-dropdown">
-                    FOR CATALOGS
+    <div class="mainContainer">
+
+        <div class="left">
+
+            <div class="leftNav">
+                <div class="catalogFeedTitle">
+                    Your Catalogs
+                </div>
+                <div class="addCatalogDiv">
+                    <button class="addCatalog">
+                        Add Catalog
+                    </button>
                 </div>
             </div>
 
-            <div class="containerLeft-Feed">
-            
-                <div class="containerPost">
-                    <div class="descPost">
-                        <?php
-                        $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
-                        if ($displayCatalog->num_rows > 0) {
-                            // while ($row = $displayCatalog->fetch_assoc()) {
-                            foreach ($displayCatalog as $row) {
-                                $catalogId = $row['catalog_id'];
-                                //$_SESSION['catalogId'] = $catalogId;
-                        
-                                ?>
-                                
-                                <div class="item">
-                                    <div class="catalogImg">
-                                        <img class="imgWork"
-                                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>">
-                                    </div>
-                                    <div class="catalogTexts">
-                                        <h3>
-                                            <?php echo $row['catalogTitle']; ?>
-                                        </h3>
-                                        <p>
-                                            <?php echo $row['catalogDescription'] ?>
-                                        </p>
-                                    </div>
-
-                                    <div id="collapseExample">
-                                        <div id="catalogItemButton">
-                                            <button type="button" onclick="new Catalog().delete_catalog(<?php echo $catalogId; ?>)"
-                                                id="deleteCatalogBtn" class="btn btn-primary" name="btnDeleteCatalog">
-                                                Delete
-                                            </button>
-
-                                            <button type="button"
-                                                onclick="new Catalog().get_catalogId(<?php echo $catalogId; ?>); reloadWithModal();"
-                                                id="editCatalogBtn" class="btn btn-primary">
-                                                Edit
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <?php
-                            }
-                        } else {
-
-                            echo '<div class="item">';
-                            echo '<div class="catalogImg">';
-                            echo '<img class="imgWork" src="../img/box.png">';
-                            echo '</div>';
-                            echo '<div class="catalogTexts">';
-                            echo '<h3>No catalog to display</h3>';
-                            echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                        ?>
+            <div class="leftFeed">
+                <div class="item">
+                    <div class="catalogImg">
+                        <img class="imgWork" src="../img/box.png">
                     </div>
- 
+                    <div class="catalogTexts">
+                        <h3>No catalog to display</h3>
+                        <p>There is no catalog available at the moment. <br> Please add one</p>
+                    </div>
                 </div>
+            </div>
+            
         </div>
 
-        <div class="containerRight">
-            <div class="containerRight-Nav">
 
-            </div>
-            <div class="userProfile">
-                <div class="userProfileChild">
-                    <!-- <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile"> -->
-                    <img id="freelancerPic"
+        <div class="right">
+            <div class="rightFreelanceProfile">
+            <div class="div1">
+
+                <img id="freelancerPic"
                     src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
                     alt="user profile" title="user profile">
-                    <!-- <p id="userName">John Paulo Sulit</p> -->
-                    <h2 id="freelanceName">
-                    <?php echo $fullname; ?>
-                    </h2>
-                    <h4 id="freelanceUsername">
-                    <?php echo "@" . $_SESSION['username']; ?>
-                    </h4>
+
+                <div class="freelanceNameContainer">
+                    <p id="freelanceName">
+                        <?php echo $fullname; ?>
+                    </p>
+                </div>
+
+                <div class="freelanceUsernameContainer">
+                    <p id="freelanceUsername">
+                        <?php echo "@" . $_SESSION['username']; ?>
+                    </p>
+                </div>
+
+                <div class="ratingContainer">
                     <div class="rating">
                         <span class="star" data-value="1"></span>
                         <span class="star" data-value="2"></span>
@@ -158,48 +119,50 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                         <span class="star" data-value="4"></span>
                         <span class="star" data-value="5"></span>
                     </div>
-                    <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
-                    Account</a></div>
-            <div id="jobsAndRole1">Jobs and Roles:</div>
-            <ul>
-                <?php
-                $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                if ($query->num_rows > 0) {
-                    $roleValues = array();
+                </div>
 
-                    while ($row = $query->fetch_assoc()) {
-                        $values = explode(',', $row['jobRole']);
-                        $roleValues = array_merge($roleValues, $values);
+                <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
+                        Account</a></div>
+                <div id="jobsAndRole1">Jobs and Roles:</div>
+                <ul>
+                    <?php
+                    $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                    if ($query->num_rows > 0) {
+                        $roleValues = array();
+
+                        while ($row = $query->fetch_assoc()) {
+                            $values = explode(',', $row['jobRole']);
+                            $roleValues = array_merge($roleValues, $values);
+                        }
+
+                        foreach ($roleValues as $value) {
+                            echo "<li>$value</li>";
+                        }
                     }
+                    ?>
+                </ul>
 
-                    foreach ($roleValues as $value) {
-                        echo "<li>$value</li>";
-                    }
-                }
-                ?>
-            </ul>
+                <div class="flexDiv">
+                    <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                    <div class="freelanceAddress">
+                        <?php echo $fetch['address']; ?>
+                    </div>
+                </div>
+                <div class="flexDiv">
+                    <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                    <div class="freelanceEmail">
+                        <?php echo $email; ?>
+                    </div>
+                </div>
+                <div id="viewmore">View More</div>
+                <div>
 
-            <div class="flexDiv">
-                <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                <div class="freelanceAddress">
-                    <?php echo $fetch['address']; ?>
                 </div>
+
             </div>
-            <div class="flexDiv">
-                <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                <div class="freelanceEmail">
-                    <?php echo $email; ?>
-                </div>
-            </div>
-            <div id="viewmore">View More</div>
-                </div>
-            </div>
-            <div class="userPost">
-                
             </div>
         </div>
     </div>
-
 
 
 

@@ -1,4 +1,5 @@
 <!-- <?php session_start(); ?> -->
+
 <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -20,7 +21,7 @@
                 <li class="nav-item dropdown">
                     <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
                     <a id="freelanceOption" class="nav-link" href="#">Welcome,
-                        <span>
+                        <span id="welcomeName">
                             <?php echo $_SESSION['firstName']; ?>
                         </span></a>
                     <div class="dropdown-content">
