@@ -24,7 +24,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -57,7 +57,9 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <?php include "../other/navbar.php"; ?>
 
     <div class="containerUserHome">
         <div class="containerLeft">

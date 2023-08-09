@@ -20,7 +20,7 @@
                 <li class="nav-item dropdown">
                     <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
                     <a id="freelanceOption" class="nav-link" href="#">Welcome,
-                        <span>
+                        <span id="welcomeName">
                             <?php echo $_SESSION['firstName']; ?>
                         </span></a>
                     <div class="dropdown-content">

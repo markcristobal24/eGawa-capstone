@@ -12,14 +12,14 @@ body{
 
 #home1,
 #about1,
-#userOption,
-#userInbox {
+#freelanceOption,
+#freeLanceInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#userOption:hover {
+#freelanceOption:hover {
     color: #ff6600;
 }
 
@@ -31,9 +31,16 @@ body{
     color: #ff6600;
 }
 
-#userInbox:hover {
+#freeLanceInbox:hover {
     color: #ff6600;
 }
+#welcomeName:hover #welcomeName:hover{
+    color: #ff6600;
+}
+#welcomeName{
+    font-size: 18px;
+}
+
 
       /* Dropdown content (hidden by default) */
       .dropdown-content {
@@ -544,11 +551,14 @@ body {
 
     #home1,
     #about1,
-    #userOption,
-    #userInbox {
+    #freelanceOption,
+    #freeLanceInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
+    }
+    #welcomeName{
+        font-size: 15px;
     }
 
 
