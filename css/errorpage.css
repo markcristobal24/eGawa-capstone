@@ -1,160 +1,159 @@
-.container {
-    margin-top: 0;
-}
 
-.navbar {
-    background-color: #0073aa;
-    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-
-#mainContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: #ddd;
-    border-radius: 5px;
-    margin-top: 100px;
-    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.errorPageImg {
-    max-width: 200px;
-    margin: 20px auto 20px;
-}
-
-.errorMsg {
-    color: #298ab7;
-}
-
-#errorMsg1 {
-    font-size: 50px;
-}
-
-#errorMsg2 {
-    font-size: 25px;
-}
-
-.goBackCont {
-    position: relative;
-    margin-top: 20px;
-}
-
-.goBack {
-    font-size: 25px;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: #ddd;
-    background-color: rgb(70, 185, 32);
-    padding: 2px 8px 2px;
-    border-radius: 10px;
-}
-
-.goBack:hover {
-    background-color: rgb(37, 104, 15);
-}
-
-
-
-.custom-shape-divider-bottom-1687514102 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-bottom-1687514102 svg {
-    position: relative;
-    display: block;
-    width: calc(158% + 1.3px);
-    height: 190px;
-}
-
-.custom-shape-divider-bottom-1687514102 .shape-fill {
-    fill: #0073aa;
-}
-
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+ body{
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    font-family: 'Inter', sans-serif;
     padding: 0;
-}
-
-
-.footerInfo {
-    font-size: 10px;
-    color: #f4f4f4
-}
-
-i {
-    color: #f4f4f4;
-    font-size: larger;
-    margin-left: 15px;
-}
-
-i:hover {
-    color: #ff6600;
-}
-
-.navbar-brand img {
-    max-height: 50px;
-}
-
-.text-center {
-    font-family: 'roboto', Arial, sans-serif;
-
-}
-
-body {
-    background-color: hsla(200, 57%, 85%, 0.275);
-    /* background-color: hsla(200, 57%, 85%, 0.275); */
-    /* Desired background color for the whole page */
-    /* background: linear-gradient(to bottom, #ff0000, #00ff00); */
+    margin: 0;
 }
 
 
 /*============================ extra extra large  ===========================*/
-@media (max-width: 5000px) {}
-
-
-/*============================ extra large  ===========================*/
-@media (max-width: 1200px) {
-
-    .title {
-        color: rgb(20, 237, 38);
-        font-size: 80px;
-    }
-
-    .aboutInfo {
-        color: rgb(201, 201, 201);
-        font-size: 25px;
-    }
-
-    #mainContainer {
+@media (max-width: 5000px) {
+    .logoConatiner{
+        display: flex;
         margin-top: 50px;
+        justify-content: center;
     }
+    #logoImage{
+        opacity: .5;
+        height: 250px;
+    }
+    #mainContainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 40vw;
+        margin: 0 auto;
+        padding: 30px;
+
+        box-shadow: 5px 8px 16px 5px rgba(221, 221, 221, 0.37);
+    }
+    p{
+        color: #FFFFFF;
+        opacity: .7;
+    }
+    #errorMsg1{
+        color: #dd7a37;
+    }
+    .goBackCont{
+        display: flex;
+        justify-content: end;
+    }
+    .goBack{
+        color: #FFFFFF;
+        background-color: #0073aa;
+        padding: 5px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .goBack:hover{
+        color: #cfcfcf;
+        background-color: #015a83;
+    }
+    
+    .errorPageImg {
+        max-width: 200px;
+        margin: 20px auto 20px;
+    }
+    
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 251px;
+        transform: rotateY(180deg);
+    }
+    
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
 }
 
+
+/*============================ LAPTOP ===========================*/
+@media (max-width: 1366px) {
+    .logoConatiner{
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+    }
+    #logoImage{
+        opacity: .5;
+        height: 160px;
+    }
+    #mainContainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 40vw;
+        margin: 0 auto;
+        padding: 0 30px 20px;
+        box-shadow: 5px 8px 16px 5px rgba(221, 221, 221, 0.37);
+    }
+    p{
+        color: #FFFFFF;
+        opacity: .7;
+    }
+    #errorMsg1{
+        color: #dd7a37;
+    }
+    .goBackCont{
+        display: flex;
+        justify-content: end;
+    }
+    .goBack{
+        color: #FFFFFF;
+        background-color: #0073aa;
+        padding: 5px 12px;
+        border-radius: 10px;
+    }
+    
+    .errorPageImg {
+        max-width: 200px;
+        margin: 10px auto 20px;
+    }
+    
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+    
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 150px;
+        transform: rotateY(180deg);
+    }
+    
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+}
+
+/*============================ LAPTOP (1311) ===========================*/
+@media (max-width: 1311px) {
+
+
+}
 
 /*============================ large  ===========================*/
-@media (max-width: 992px) {
-
-    #mainContainer {
-        margin-top: 50px;
-    }
-}
-
+@media (max-width: 992px) {}
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {}
@@ -163,77 +162,68 @@ body {
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
 
+    .logoConatiner{
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+    }
+    #logoImage{
+        opacity: .5;
+        height: 90px;
+    }
     #mainContainer {
         display: flex;
         flex-direction: column;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 30px;
-        border: 1px solid rgb(255, 255, 255);
-        background-color: #ddd;
-        border-radius: 5px;
-        margin-top: 100px;
-        box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+        max-width: 90vw;
+        margin: 20px auto;
+        padding: 0 30px 20px;
+        box-shadow: 5px 8px 16px 5px rgba(221, 221, 221, 0.37);
     }
-
-    .errorPageImg {
-        max-width: 130px;
-        margin: 20px auto 20px;
+    p{
+        color: #FFFFFF;
+        opacity: .7;
     }
-
-    .errorMsg {
-        color: #298ab7;
+    #errorMsg1{
+        color: #dd7a37;
     }
-
-    #errorMsg1 {
-        font-size: 30px;
+    .goBackCont{
+        display: flex;
+        justify-content: end;
     }
-
-    #errorMsg2 {
-        font-size: 15px;
-    }
-
-    .goBackCont {
-        position: relative;
-        margin-top: 20px;
-    }
-
-    .goBack {
-        font-size: 15px;
-        cursor: pointer;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: #ddd;
-        background-color: rgb(70, 185, 32);
-        padding: 2px 8px 2px;
+    .goBack{
+        color: #FFFFFF;
+        background-color: #0073aa;
+        padding: 5px 12px;
         border-radius: 10px;
     }
-
-    .goBack:hover {
-        background-color: rgb(37, 104, 15);
+    
+    .errorPageImg {
+        max-width: 200px;
+        margin: 10px auto 20px;
     }
-
-    .footerInfo {
-        font-size: 10px;
-        color: #0073aa
+    
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
     }
-
-    i {
-        color: #0073aa;
-        margin-left: 15px;
+    
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 150px;
+        transform: rotateY(180deg);
     }
-
-    .custom-shape-divider-bottom-1687514102 {
+    
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
         display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 svg {
-        display: none;
-    }
-
-    .custom-shape-divider-bottom-1687514102 .shape-fill {
-        fill: #0073aa;
     }
 
 }
+
