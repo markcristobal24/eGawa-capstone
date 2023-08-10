@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+
+$user_id = $_SESSION['account_id'];
+$sql = mysqli_query($con, "SELECT * FROM account WHERE account_id = '$user_id'");
+$fetch = $sql->fetch_all();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +42,10 @@ require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
                             <select id="filterOption" name="filterOption"
                                 onchange="new Posts().filter_post(this.value);">
                                 <option value="all">All</option>
-                                <option value="webdev">Website Development</option>
-                                <option value="mobiledev">Mobile Development</option>
-                                <option value="webhost">Website Hosting</option>
-                                <option value="multi">Multimedia</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="Website Hosting">Website Hosting</option>
+                                <option value="Multimedia">Multimedia</option>
                             </select>
                         </form>
                     </div>
@@ -79,7 +83,7 @@ require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
                         ' . $row['post_description'] . '
                     </p>
                     <div>
-                        <button id="viewPostBTN">View Post</button>
+                        <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                     </div>
                 </div> ';
                 }
@@ -95,7 +99,9 @@ require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-                    <p id="userName">John Paulo Sulit</p>
+                    <p id="userName">
+                        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                    </p>
                     <p id="userName">other info</p>
                 </div>
             </div>
@@ -109,10 +115,10 @@ require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
                         <div class="toFlex">
                             <div class="dropdownOptionPost">
                                 <select id="filterOptionPost" name="post_category">
-                                    <option value="webdev">Website Development</option>
-                                    <option value="mobiledev">Mobile Development</option>
-                                    <option value="webhost">Website Hosting</option>
-                                    <option value="multi">Multimedia</option>
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile Development">Mobile Development</option>
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="Multimedia">Multimedia</option>
                                 </select>
                             </div>
                         </div>

@@ -59,7 +59,7 @@ if (isset($_POST['filter_post'])) {
                     ' . $row['post_description'] . '
                 </p>
                 <div>
-                    <button id="viewPostBTN">View Post</button>
+                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
             ';
@@ -89,7 +89,7 @@ if (isset($_POST['filter_post'])) {
                     ' . $row['post_description'] . '
                 </p>
                 <div>
-                    <button id="viewPostBTN">View Post</button>
+                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
             ';
@@ -98,5 +98,30 @@ if (isset($_POST['filter_post'])) {
         $output['error'] = "There is no post.";
     }
     echo json_encode($output);
+}
+
+if (isset($_POST['view_post'])) {
+    $post_id = $_POST['id'];
+
+    $result = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_id = '$post_id'");
+    $data = array();
+
+    foreach ($result as $row) {
+        $data['post_id'] = $row['post_id'];
+        $data['account_id'] = $row['account_id'];
+        $data['post_title'] = $row['post_title'];
+        $data['firstName'] = $row['firstName'];
+        $data['lastName'] = $row['lastName'];
+        $data['category'] = $row['category'];
+        $data['post_tags'] = $row['post_tags'];
+        $currentDateTime = $row['posted_date'];
+        $dateTimeObj = new DateTime($currentDateTime);
+        $posted_date = $dateTimeObj->format("F d, Y h:i A");
+        $data['posted_date'] = $posted_date;
+        $data['address'] = $row['address'];
+        $data['post_description'] = $row['post_description'];
+        $data['rate'] = 'PHP' . ' ' . $row['rate'];
+    }
+    echo json_encode($data);
 }
 ?>

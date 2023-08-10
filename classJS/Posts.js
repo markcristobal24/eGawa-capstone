@@ -50,4 +50,20 @@ class Posts {
             }
         });
     }
+
+    view_post(id) {
+        let form_data = new FormData();
+        form_data.append('id', id);
+        form_data.append('view_post', 'view_post');
+        fetch('../controller/c_jobPosts.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            const encodedData = encodeURIComponent(JSON.stringify(response_data));
+            window.location.href = `userViewPost.php?data=${encodedData}`;
+        });
+    }
 }
