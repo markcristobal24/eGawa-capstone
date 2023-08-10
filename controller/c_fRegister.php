@@ -1,6 +1,9 @@
 <?php
-session_start();
+// session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
+
+$acc = new Account();
 
 if (isset($_POST['registerFreelance'])) {
     $firstName = $_POST["fName"];
@@ -11,6 +14,7 @@ if (isset($_POST['registerFreelance'])) {
     $password = $_POST["password"];
     $password2 = $_POST["password2"];
     $user_type = "freelancer";
+    $encrypted = $acc->encrypt_password($password);
 
     $check_query = mysqli_query($con, "SELECT * FROM account WHERE email = '$email'");
     $rowCount = mysqli_num_rows($check_query);
@@ -26,7 +30,7 @@ if (isset($_POST['registerFreelance'])) {
         $output['error'] = "Username already exist!";
     } else {
         $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) 
-        VALUES ('$firstName', '$middleName', '$lastName', '$username', '$email', '$password', '$user_type', 0)");
+        VALUES ('$firstName', '$middleName', '$lastName', '$username', '$email', '$encypted', '$user_type', 0)");
 
         if ($result) {
             $otp = rand(100000, 999999);

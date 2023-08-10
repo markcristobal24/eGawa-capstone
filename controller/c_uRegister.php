@@ -1,6 +1,9 @@
 <?php
-session_start();
+// session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
+
+$acc = new Account();
 
 $firstName = $_POST["fName"];
 $middleName = $_POST["mName"];
@@ -10,6 +13,7 @@ $username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $usertype = "user";
+$encrypted = $acc->encrypt_password($password);
 
 $check_query = mysqli_query($con, "SELECT * FROM account where email = '$email'");
 $rowCount = mysqli_num_rows($check_query);
@@ -25,7 +29,7 @@ window.location.replace('../user/userRegistration.php');
 </script>
 <?php
     } else {
-        $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status) VALUES ('$firstName', '$middleName', '$lastName', '$address', '$username', '$email', '$password', '$usertype', 0)");
+        $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status) VALUES ('$firstName', '$middleName', '$lastName', '$address', '$username', '$email', '$encrypted', '$usertype', 0)");
 
         if ($result) {
             $otp = rand(100000, 999999);
