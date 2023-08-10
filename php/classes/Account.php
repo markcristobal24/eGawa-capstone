@@ -6,6 +6,32 @@ require_once dirname(__FILE__) . "/Email.php";
 class Account extends DbClass
 {
     /* Saves all information in $_SESSION variable */
+    public function fetch_user($email)
+    {
+        $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");
+        $query->execute([':email' => $email]);
+        $data = array();
+        foreach ($result1 as $row) {
+            $data['account_id'] = $row['account_id'];
+            $data['username'] = $row['username'];
+            $data['email'] = $row['email'];
+            $data['firstName'] = $row['firstName'];
+            $data['middleName'] = $row['middleName'];
+            $data['lastName'] = $row['lastName'];
+            $data['userType'] = $row['userType'];
+            $data['address'] = $row['address'];
+        }
+        $_SESSION['account_id'] = $data['account_id'];
+        $_SESSION['username'] = $data['username'];
+        $_SESSION['email'] = $data['email'];
+        $_SESSION['firstName'] = $data['firstName'];
+        $_SESSION['middleName'] = $data['middleName'];
+        $_SESSION['lastName'] = $data['lastName'];
+        $_SESSION['userType'] = $data['userType'];
+        $_SESSION['address'] = $data['address'];
+        json_encode($data);
+    }
+
     public function fetch_information($email)
     {
         $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");

@@ -34,6 +34,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['otp'] = $otp;
                 $_SESSION['mail'] = $email;
                 $_SESSION['email'] = $email;
+                $_SESSION['userType'] = $fetch["userType"];
                 $_SESSION['account_id'] = $fetch['account_id'];
                 $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
@@ -47,6 +48,8 @@ if (isset($_POST['login'])) {
                 //rekta login
                 // $session = new Account();
                 // $session->fetch_information($email);
+                $session = new Account();
+                $session->fetch_user($email);
                 $output['status'] = "1";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
             }

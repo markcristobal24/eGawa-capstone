@@ -8,6 +8,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a id="home1" class="nav-link" href="#">Home</a>
@@ -19,7 +20,7 @@
                     <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
+
                     <a id="freelanceOption" class="nav-link" href="#">Welcome,
                         <span id="welcomeName">
                             <?php echo $_SESSION['firstName']; ?>
@@ -30,9 +31,35 @@
                         <a href="../freelance/freelanceChangePass.php">Change Password</a>
                         <a id="logout1" href="#">Log Out</a>
                     </div>
-                    <?php endif; ?>
+
                 </li>
             </ul>
+            <?php elseif (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user"): ?>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a id="home1" class="nav-link" href="user/userHome.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                </li>
+                <li class="nav-item dropdown">
+
+                    <a id="freelanceOption" class="nav-link" href="#">Welcome,
+                        <span id="welcomeName">
+                            <?php echo $_SESSION['firstName']; ?>
+                        </span></a>
+                    <div class="dropdown-content">
+                        <a href="../freelance/freelanceHomePage.php">My Profile</a>
+                        <a href="../freelance/freelanceChangeEmail.php">Change Email Address</a>
+                        <a href="../freelance/freelanceChangePass.php">Change Password</a>
+                        <a id="logout1" href="#">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

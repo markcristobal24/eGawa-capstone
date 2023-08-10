@@ -57,7 +57,7 @@ class Account {
                     else if (response_data.status == "1") {
                         new Notification().create_notification(response_data.message, "success");
                         let tID = setTimeout(function () {
-                            window.location.replace('user/userHomePage.php');
+                            window.location.replace('user/userHome.php');
                             window.clearTimeout(tID);
                         }, 3000);
                     }

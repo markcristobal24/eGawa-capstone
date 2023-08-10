@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,15 +66,16 @@
 
             <h2 class="userHistoryTitle">Your Transaction History</h2>
             <div class="containerHistory">
-            
+
                 <table class="table table-striped table-light table-hover">
                     <tr>
                         <th>Freelancer</th>
                         <th>Date</th>
                         <th>Info</th>
                     </tr>
-                    
-                    <tr class="table-group-divider"><!-- Adds horizontal line, can be used on any row-->
+
+                    <tr class="table-group-divider">
+                        <!-- Adds horizontal line, can be used on any row-->
                         <td>Marila Offenda</td>
                         <td>01/01/22</td>
                         <td>Completed</td>
@@ -100,9 +101,9 @@
                         <td>Completed</td>
                     </tr>
 
-                    
+
                 </table>
-		    </div>
+            </div>
         </div>
 
         <div class="div1">
@@ -123,7 +124,7 @@
     </div>
 
 
-<!-- 
+    <!-- 
 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -157,12 +158,13 @@
 
                 <div class="imgUpl1">
                     <label class="labelImage" for="uploadInput">Upload 1(one) Valid ID</label>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
-                        </div>
-                        <div>
-                            <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
-                        </div> 
+                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                        <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
+                    </div>
+                    <div>
+                        <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)"
+                            required>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="submitUserID">
@@ -175,39 +177,41 @@
             </div>
         </div>
     </div>
-        
+
     <!--Modal for USER EDIT ACCOUNT-->
-    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content mt-5">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Profile</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                 <div class="modal-body">
                     <form action="" method="POST" enctype="multipart/form-data" required>
-                            <div id="imgUpl">
-                                <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
-                                <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                    <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
-                                </div>
-                                <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
-                                    onchange="catalogImgUp(event)" >
+                        <div id="imgUpl">
+                            <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
+                            <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                                <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image"
+                                    height="200">
                             </div>
+                            <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                                onchange="catalogImgUp(event)">
+                        </div>
 
-                            <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
-                                <!-- Gap on all sides is 2 -->
-                                <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                                    placeholder="Address" >
-                                <label id="catalogTitleLabel" for="companyName">Address</label>
-                            </div>
+                        <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
+                            <!-- Gap on all sides is 2 -->
+                            <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                                placeholder="Address">
+                            <label id="catalogTitleLabel" for="companyName">Address</label>
+                        </div>
 
 
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -228,17 +232,18 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Logging Out</h5>
                 </div>
-                <div class="modal-body" id="modalLogOutConfirmation"> <!-- Updated ID -->
+                <div class="modal-body" id="modalLogOutConfirmation">
+                    <!-- Updated ID -->
                     <!-- ...modal content for log out confirmation -->
                     Are you sure you want to log out?
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn">
-                        Log Out
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
-                        Cancel
-                    </button>
-                </div>
+                        <button type="button" class="btn btn-primary" id="logoutBtn">
+                            Log Out
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
+                            Cancel
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -247,12 +252,12 @@
 
     <script src="../js/script.js "></script>
     <script src="../js/user.js"></script>
-    
+
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   
-    
+
+
 
 
 </body>
