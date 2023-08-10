@@ -265,6 +265,17 @@
                         <label for="tags">Tags:</label>
                         <input type="text" id="tags" name="tags">
 
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text">&#8369;</span>
+                            <!-- <select id="currency" name="" >
+                                <option value="dollar">&#36; Dollar</option>
+                                <option value="peso">&#8369; Peso</option>
+                            </select> -->
+
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" required>
+                            <span class="input-group-text">.00</span>
+                        </div>
+
                         <input id="submitPost" type="submit" value="Submit">
                         <input id="clearPost" type="button" value="Clear">
                     </form>
