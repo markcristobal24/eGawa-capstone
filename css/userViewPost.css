@@ -91,43 +91,34 @@ body {
         width: 95%;
         margin: 0 auto;
     }
+    
     p, span{
         font-size: 15px;
     }
 
     .containerLeft{
         flex: 70%;
-        /* background-color: #ddd; */
         margin: 20px;
     }
     
     .containerLeft-Nav{
         display: flex;
-        padding: 10px;
+        padding: 5px;
         border-radius: 5px;
         background-color: #0073aa;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
     }
-    .left-nav-dropdown{
-        margin: auto auto auto 0;
-    }
-    #filterOption{
+
+    .viewPostTitle{
         font-size: 30px;
-        padding: 5px 9px;
-        margin-left: 30px;
+        padding: 8px 9px;
+        margin-left: 50px;
         color: #f9f9f9;
         border: none;
         background-color: #0073aa;
         cursor: pointer;
     }
 
-    .search{
-        height: 50px;
-    }
-
-    .left-nav-search{
-        margin: 0 0 0 auto;
-    }
     .containerLeft-Feed{
         overflow: scroll;
         height: 93%;
@@ -137,52 +128,63 @@ body {
     .containerPost{
         margin: 20px 0;
         padding: 30px 50px;
-        height: 200px;
+        border-radius: 10px;
+        height: fit-content;
         font-size: 15px;
-        background-color: #f4f4f4ee;
+        background-color: #f9f9f9;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-    .containerPost:hover{
-        cursor: pointer;
-        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        color: #f4f4f4;
-    }
-    .containerPost:hover #viewPostBTN{
-        background-color:rgba(30, 185, 64, 0.918);
-    }
-    .containerPost:hover #viewPostBTN:hover{
-        background-color:rgba(26, 139, 51, 0.918);
-    }
-    .titlePost{
-        font-weight: 400;
-        font-size: 25px;
     }
 
-    .descPost{
-        max-width: 900px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+    .title, .author, .info, .category, .tags {
+        margin-bottom: 10px;
     }
-
-    #viewPostBTN{
+    .label {
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .content {
+        color: #666;
+    }
+    
+    .separator {
+        margin: 0 5px;
+    }
+    
+    .datePost {
+        color: #777;
+    }
+    
+    .descPost {
+        margin-top: 20px;
+        color: #333;
+        line-height: 1.5;
+    }
+    
+    .backButton {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #back {
+        background-color: #00aaff;
+        color: white;
         border: none;
+        padding: 10px 20px;
         border-radius: 5px;
-        color: #ddd;
-        font-weight: 500;
-        font-size: 16px;
-        background-color: #0074aad8;
-        padding: 2px 10px;
-        transition: background-color 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    #backAnchor{
+        text-decoration: none;
+        color: white;
+    }
+    
+    #back:hover {
+        background-color: #0077cc;
     }
 
     .containerRight{
         flex: 30%;
-        /* background-color: #ddd; */
-        /* background-color: #0074aa81; */
-        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
         height: fit-content;
         margin: 20px;
     }
@@ -193,12 +195,8 @@ body {
         background-color: #0073aa;
     }
     .userProfile{
-        /* height: 50%; */
         width: 100%;
         
-    }
-    .userPost{
-        height: 50%;
     }
     
     .userProfileChild{
@@ -221,53 +219,9 @@ body {
         color: #000000;
         margin: auto;
     }
-    .userPostChild{
-        border-radius: 5px;
-        margin: 20px 50px;
-        padding: 20px 50px;
-        background-color: #f4f4f4ee;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-    }
     .toFlex{
         display: flex;
     }
-    .postTitle{
-        font-size: 25px;
-        margin: 0 auto 0;
-    }
-    .dropdownOptionPost{
-        margin: 10px auto;
-    }
-    #filterOptionPost{
-        font-size: 20px;
-        padding: 5px 9px;
-        color: #f9f9f9;
-        border: none;
-        border-radius: 12px;
-        background-color: #0073aa;
-        cursor: pointer;
-    }
-    #formPost {
-        display: flex;
-        flex-direction: column;
-        max-width: 300px; /* Adjust as needed */
-        margin: 0 auto; /* Center the form horizontally */
-    }
-    #submitPost{
-        margin: 5px 0 5px;
-        border: none;
-        border-radius: 2px;
-        color: #f4f4f4;
-        background-color: #0073aa;
-    }
-    #clearPost{
-        margin: 0 0 5px;
-        border: none;
-        border-radius: 2px;
-        color: #f4f4f4;
-        background-color: #808080;
-    }
-
 
 }/*============================ LAPTOP ===========================*/
 @media (max-width: 1366px) {
@@ -288,13 +242,7 @@ body {
 
     .containerLeft{
         flex: 70%;
-        /* background-color: #ddd; */
         margin: 20px;
-    }
-    .containerLeft-Feed{
-        overflow: scroll;
-        height: 50%;
-        padding: 10px;
     }
 
     .containerLeft-Nav{
@@ -303,26 +251,16 @@ body {
         border-radius: 5px;
         background-color: #0073aa;
     }
-    .left-nav-dropdown{
-        margin: auto auto auto 0;
-    }
-    #filterOption{
+    .viewPostTitle{
         font-size: 20px;
-        padding: 5px 9px;
-        margin-left: 30px;
+        padding: 8px 9px;
+        margin-left: 50px;
         color: #f9f9f9;
         border: none;
         background-color: #0073aa;
         cursor: pointer;
     }
 
-    .search{
-        height: 40px;
-    }
-
-    .left-nav-search{
-        margin: 0 0 0 auto;
-    }
     .containerLeft-Feed{
         overflow: scroll;
         height: 90%;
@@ -332,46 +270,13 @@ body {
     .containerPost{
         margin: 15px 0;
         padding: 10px 30px;
-        height: 150px;
+        height: fit-content;
         font-size: 15px;
-        background-color: #f4f4f4ee;
+        background-color: #f9f9f9;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    }
-    .containerPost:hover{
-        cursor: pointer;
-        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        color: #f4f4f4;
-    }
-    .containerPost:hover #viewPostBTN{
-        background-color:rgba(30, 185, 64, 0.918);
-    }
-    .containerPost:hover #viewPostBTN:hover{
-        background-color:rgba(26, 139, 51, 0.918);
-    }
-    .titlePost{
-        font-weight: 400;
-        font-size: 18px;
-    }
-    .descPost{
-        max-width: 500px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
     }
 
 
-    #viewPostBTN{
-        border: none;
-        border-radius: 5px;
-        color: #ddd;
-        font-weight: 500;
-        font-size: 14px;
-        background-color: #0074aad8;
-        padding: 2px 10px;
-        transition: background-color 0.2s ease-in-out;
-    }
 
     .containerRight{
         flex: 30%;
@@ -390,9 +295,6 @@ body {
         /* height: 50%; */
         width: 100%;
 
-    }
-    .userPost{
-        height: 50%;
     }
 
     .userProfileChild{
@@ -422,47 +324,7 @@ body {
     .toFlex{
         display: flex;
     }
-    .postTitle{
-        font-size: 18px;
-        margin: 0 auto 0;
-    }
-    .dropdownOptionPost{
-        margin: 10px auto;
-    }
-    #filterOptionPost{
-        font-size: 16px;
-        padding: 5px 9px;
-        color: #f9f9f9;
-        border: none;
-        border-radius: 12px;
-        background-color: #0073aa;
-        cursor: pointer;
-    }
-    #formPost {
-        display: flex;
-        flex-direction: column;
-        max-width: 300px; /* Adjust as needed */
-        margin: 0 auto; /* Center the form horizontally */
-    }
-    #formPost label {
-        font-size: 15px;
-    }
-    #submitPost{
-        margin: 5px 0 5px;
-        font-size: 10px;
-        border: none;
-        border-radius: 2px;
-        color: #f4f4f4;
-        background-color: #0073aa;
-    }
-    #clearPost{
-        margin: 0 0 5px;
-        font-size: 10px;
-        border: none;
-        border-radius: 2px;
-        color: #f4f4f4;
-        background-color: #808080;
-    }
+
 }
 
 
@@ -482,7 +344,7 @@ body {
         display: flex;
         height: 200px;
         width: 95%;
-        margin: 0 auto;
+        margin: 20px auto;
     }
 
     .userProfileChild{
@@ -495,7 +357,7 @@ body {
         background-color: #0073aa;
     }
     .containerLeft{
-        height: 500px;
+        height: fit-content;
         background-color: #ddd;
         margin: 5px;
     }
@@ -508,7 +370,7 @@ body {
     }
     .containerLeft-Feed{
         overflow: scroll;
-        height: 80%;
+        height: fit-content;
         padding: 10px;
     }
 
@@ -516,33 +378,18 @@ body {
         margin: 5px 0px;
         padding: 10px 30px;
         height: 150px;
+        height: fit-content;
         font-size: 15px;
         background-color: #f4f4f4ee;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
     }
-    .containerPost:hover{
-        cursor: pointer;
-        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
-        color: #f4f4f4;
-    }
-    .containerPost:hover #viewPostBTN{
-        background-color:rgba(30, 185, 64, 0.918);
-    }
-    .containerPost:hover #viewPostBTN:hover{
-        background-color:rgba(26, 139, 51, 0.918);
-    }
+
     .titlePost{
         font-weight: 400;
         font-size: 18px;
     }
-    .descPost{
-        max-width: 500px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+
     .userPostChild{
         margin: 0px 0px;
         padding: 20px 50px;

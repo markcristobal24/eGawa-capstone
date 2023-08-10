@@ -1,22 +1,19 @@
-#mainContainer {
-    margin-top: 100px;
-}
 
 .navbar {
-    background-color: #0073aa;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 #home1,
 #about1,
-#freelanceOption,
-#freeLanceInbox {
+#userOption,
+#userInbox {
     font-size: 18px;
     font-family: 'roboto', sans-serif;
     color: #f4f4f4;
 }
 
-#freelanceOption:hover {
+#userOption:hover {
     color: #ff6600;
 }
 
@@ -28,20 +25,10 @@
     color: #ff6600;
 }
 
-#freeLanceInbox:hover {
+#userInbox:hover {
     color: #ff6600;
 }
 
-    /* Dropdown button styles */
-    .dropdown-btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-      }
-  
       /* Dropdown content (hidden by default) */
       .dropdown-content {
         display: none;
@@ -72,20 +59,83 @@
         display: block;
       }
 
-
+#filterOption{
+    color: #ddd;
+    font-size: 20px;
+    border-radius: 20px;
+    border-color: #f9f9f9;
+    padding: 5px 8px;
+    background-color: #0073aa;
+}
 .containerUserHome {
     display: flex;
     max-width: auto;
     max-height: auto;
-    margin: 0 15%;
+    margin: 80px 15%;
     padding: 20px;
     border: 1px solid rgb(255, 255, 255);
     background-color: #ddd;
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    margin-top: 100px;
 }
 
+.containerPost1{
+    background-color:  #0073aa;
+    padding: 10px 5px;
+}
+.containerPost{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 10px 5px;
+    background-color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.containerPost:hover{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #0074aa71;
+}
+.containerPost{
+    padding: 10px;
+}
+.titlePost{
+    font-size: larger;
+    font-weight: 700;
+}
+.datePost{
+    font-style: italic;
+}
+.descPost{
+    font-size: 13px;
+}
+.search{
+    display: flex;
+}
+
+/* user side post */
+.userPostTitleContainer{
+    display: flex;
+    flex-direction: column;
+}
+.dropDownContainer{
+    display: flex;
+}
+.userBtnPostCont{
+    display: flex;
+}
+.btn{
+    margin: 0 auto;
+}
+.userPostTitle{
+    margin: 0 auto;
+}
+#dropdownBTNPost{
+    margin: 0 auto;
+}
+#dropdownBTN{
+    border: none;
+    font-size: 20px;
+    width: 250px;
+    background-color: #0074aa95;
+}
 
 .containerUserHome .div1 {
     margin: 10px;
@@ -180,7 +230,7 @@
 }
 .containerHistory{
     width: auto;
-    height: 500px;
+    height: 600px;
     overflow: auto;
     padding: 5px;
 }
@@ -258,23 +308,6 @@ body {
     background-color: hsla(200, 57%, 85%, 0.275);
 }
 
-/* ====For User ID verification modal */
-#modaluserIdVerification{
-    margin-top: 10%;
-}
-
-#uploadedImageUser1, .labelImage{
-    margin-left: 10px;
-}
-/*============================FOR USER EDIT PROFILE MODAL=================================*/
-#uploadedEditProfileIMG{
-    margin-left: auto;
-    margin-right: auto;
-}
-/*============================END OF USER EDIT PROFILE MODAL=================================*/
-
-
-
 
 
 /*============================FOR MEDIA QUERIES=================================*/
@@ -283,7 +316,25 @@ body {
 
 
 /*============================ extra large  ===========================*/
-@media (max-width: 1200px) {}
+@media (max-width: 1366px) {
+    .containerUserHome {
+        display: flex;
+        max-width: auto;
+        max-height: auto;
+        margin: 50px 15%;
+        padding: 20px;
+        border: 1px solid rgb(255, 255, 255);
+        background-color: #ddd;
+        box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    .containerHistory{
+        width: auto;
+        height: 500px;
+        overflow: auto;
+        padding: 5px;
+    }
+}
 
 
 /*============================ large  ===========================*/
@@ -418,14 +469,11 @@ body {
 
     #home1,
     #about1,
-    #freelanceOption,
-    #freeLanceInbox {
+    #userOption,
+    #userInbox {
         font-size: 15px;
         font-family: 'roboto', sans-serif;
         color: #f4f4f4;
-    }
-    #welcomeName{
-        font-size: 15px;
     }
 
 

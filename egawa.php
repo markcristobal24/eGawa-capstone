@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="egawa.css">
+    <link rel="stylesheet" href="css/egawa.css">
 
     
 </head>
@@ -54,15 +54,17 @@
                 </span>
 
                 <button class="btn">
-                    <span class="btn-text-one">Join Us</span>
-                    <span class="btn-text-two">Let's go!</span>
+                    <a href="login.php">
+                        <span class="btn-text-one">Join Us</span>
+                        <span class="btn-text-two">Let's go!</span>
+                    </a>
                 </button>
                 
             </div>
 
             <div class="right">
                 <div class="imgContainer">
-                    <img id="imgWork" src="../img/work2.png" alt="">
+                    <img id="imgWork" src="img/work2.png" alt="">
                 </div>
             </div>
         </div>

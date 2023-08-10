@@ -1,74 +1,51 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>eGawa | Create Profile</title>
+
+    <!-- start -- links for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- end --links for fonts -->
+
 
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/F_createProfile.css">
-    <link rel="stylesheet" href="../css/notification.css">
+    <!-- Link for CSS -->
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/createProfile.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script> -->
 
-    <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-
-
-    <title>eGawa | Freelance Profile Creation</title>
 
 </head>
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-    <?php //print_r($_SESSION); ?>
-    <?php //include "../other/navbar.php"; ?>
-    <!-- <nav class="navbar navbar-expand-md navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a id="home1" class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="about1" id="about" class="nav-link" href="../aboutUs.php">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="freelanceOption" class="nav-link" href="#">Welcome,
-                            <span>
 
-                            </span></a>
-                        <div class="dropdown-content">
-                            <a href="freelanceHomePage.php">My Profile</a>
-                            <a href="../freelanceChangeEmail.php">Change Email Address</a>
-                            <a href="../freelanceChangePass.php">Change Password</a>
-                            <a id="logout1" href="#">Log Out</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
+    
+    
+    <div class="container">
 
-    <div class="containerFreelanceCreate">
+        <p class="createProfileTitle">Create Profile</p>
+        <hr>
         <form id="create_profile" method="POST" enctype="multipart/form-data">
+            
             <div class="div1">
                 <div id="imgUpl">
-                    <label class="labelImage" for="uploadInput">Upload Profile Picture</label>
+                    <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
                     <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                        <img id="uploadedImage" src="../img/upload.png" alt="Uploaded Image" height="200">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
                     </div>
                     <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="loadImage(event)"
                         required>
@@ -82,7 +59,7 @@
                 </div>
 
                 <div class="pickRoles">
-                    <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
+                    <p id="pickRole" class="title">Please Pick a Job or Role</p>
                     <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
                             id="webDesign" value="Web Designer">
                         <label class="form-check-label" for="webDesign">Web Designer</label>
@@ -113,11 +90,11 @@
 
 
             <div class="div2">
-                <h3 class="userRegTitle title">Work Experience</h3>
+                <p class="userRegTitle title">Work Experience</p>
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
                     <input type="text" id="companyName" name="companyName" class="form-control"
-                        placeholder="Enter Company Name">
+                        placeholder="Enter Company Namess">
                     <label id="companyNameLabel" for="companyName">Enter Company Name</label>
                 </div>
 
@@ -142,86 +119,54 @@
                     </div>
                 </div>
 
-                <h3 class="jobDescription" for="comment">Job Description</h3>
+                <p class="jobDescription" for="comment">Job Description</p>
                 <div>
                     <textarea class="form-control" id="comment" name="jobDesc" rows="5"
                         placeholder="Enter job description"></textarea>
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary"
+                    <button type="button" id="" name="btnCreateFreelanceProfile" class="btn btn-primary"
                         onclick="new Account().create_fprofile();">
                         Continue
                     </button>
-                    <button class="btn btn-secondary">
+                    <button type="button" class="btn btn-secondary" onclick="clearInputsProfile()">
                         Clear
                     </button>
                 </div>
 
             </div>
         </form>
+
     </div>
 
-
-
-
-
-    <!-- <div class="custom-shape-divider-bottom-1687514102">
+    <div class="custom-shape-divider-bottom-1690684253">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                opacity=".25" class="shape-fill"></path>
+            <path
+                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                opacity=".5" class="shape-fill"></path>
+            <path
+                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
                 class="shape-fill"></path>
         </svg>
     </div>
 
 
 
-    <footer class="footer">
-        <div class="containerFooter">
-            <div class="socialIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
-        </div>
-    </footer> -->
-
-
-
-    <!--Modal for log out-->
-    <!-- <div class="modal fade" id="modalLogOut" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Logging Out</h5>
-                </div>
-                <div class="modal-body" id="modalUser">
-                    Are you sure you want to log out?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="logoutBtn">
-                        Log Out
-                    </button>
-                    <button type="button" class="btn btn-secondary" id="cancelLogOutBtn">
-                        Cancel
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+
+
     <script src="../js/freelance.js"></script>
     <script src="../js/script.js"></script>
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
-</body>
+
 </body>
 
 </html>

@@ -15,6 +15,14 @@ body{
         max-width: fit-content;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
+    #imgUpl{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-holder{
+        justify-content: center;
+    }
 
     #create_profile{
         display: flex;
@@ -25,6 +33,10 @@ body{
         color: white;
         font-size: 20px;
     }
+    #uploadInput{
+
+        color: #FFFFFF;
+    }
 
     .div1{
         width: fit-content;
@@ -32,6 +44,7 @@ body{
     }
     .createProfileTitle{
         font-size: 50px;
+        margin: auto;
     }
     #uploadedImage{
         margin: 15px;
@@ -40,9 +53,14 @@ body{
     #uploadInput:hover{
         cursor: pointer;
     }
-    .form-check-label:hover{
+    .form-check-label{
         cursor: pointer;
+        color: #fff;
     }
+    /* .form-check-label:hover{
+        cursor: pointer;
+    } */
+
     .div2{
         width: fit-content;
         padding: 10px;
@@ -95,11 +113,30 @@ body{
 @media (max-width: 1366px) {
 
     .container{
-        margin: 160px auto;
+        margin: 70px auto;
         max-width: fit-content;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
 
+    hr{
+        margin: 10px;
+    }
+    #uploadInput{
+        font-size: 10px;
+        color: #FFFFFF;
+    }
+    #address, #companyName, #workTitle, #dateStarted, #dateEnded, #comment{
+        font-size: 10px;
+    }
+
+    label{
+        font-size: 10px;
+    }   
+    .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+        height: calc(1rem + calc(var(--bs-border-width) * 2));
+        min-height: calc(2.5rem + calc(var(--bs-border-width) * 2));
+        line-height: 1.25;
+    }
     #create_profile{
         display: flex;
         flex-direction: row;
@@ -112,7 +149,7 @@ body{
 
     .div1{
         width: fit-content;
-        padding: 10px;
+        padding: 0 10px 10px;
     }
     .createProfileTitle{
         font-size: 30px;
@@ -129,7 +166,7 @@ body{
     }
     .div2{
         width: fit-content;
-        padding: 10px;
+        padding: 0 10px 10px;
     }
     .date{
         display: flex;
@@ -149,12 +186,15 @@ body{
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 190px;
+        height: 140px;
         transform: rotateY(180deg);
     }
 
     .custom-shape-divider-bottom-1690684253 .shape-fill {
         fill: #FFFFFF;
+    }
+    .btn{
+        font-size: 10px;
     }
 
     #btnLogin {
@@ -176,60 +216,6 @@ body{
 /*============================ LAPTOP (1311) ===========================*/
 @media (max-width: 1311px) {
 
-    .container{
-        /* display: flex;
-        margin: 160px auto;
-        max-width: fit-content; */
-    }
-
-    #create_profile{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .div1{
-        width: fit-content;
-    }
-    .div2{
-        width: fit-content;
-    }
-
-    .custom-shape-divider-bottom-1690684253 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg);
-    }
-
-    .custom-shape-divider-bottom-1690684253 svg {
-        position: relative;
-        display: block;
-        width: calc(236% + 1.3px);
-        height: 190px;
-        transform: rotateY(180deg);
-    }
-
-    .custom-shape-divider-bottom-1690684253 .shape-fill {
-        fill: #FFFFFF;
-    }
-
-    #btnLogin {
-    width: 140px;
-    height: 50px;
-    background-image: linear-gradient(to right, #0073aa, #8000aa);
-    color: #fff;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    }
-
 
 }
 
@@ -244,49 +230,26 @@ body{
 @media (max-width: 576px) {
 
     .container{
-        flex-direction: column;
-        margin: 180px auto;
-    }
-
-    .title1{
-        font-weight: 0;
-        font-size: 100px;
-        position: fixed;
-        top: 0;
-        margin-top: 5px;
-        padding: 0;
-        color: rgba(255, 255, 255, 0.3); 
-    }
-    
-    #logoImage{
-        opacity: 0.8;
-        height: 100px;
-    }
-
-    .aboutInfo{
-        text-align: justify;
-        margin-top: 0;
-        font-weight: 300;
-        font-size: 13px;
-        line-height: 1.5;
-    }
-    
-    .left{
+        margin: 30px auto;
         width: 100%;
-        padding: 0;
     }
-    .right{
-        width: 100%;
-        padding: 0;
+    #create_profile{
+        display: block;
+        width: 90%;
+        /* margin: 20px; */
+    }
+    .div1 {
+        width: 350px;
     }
 
+    .div2 {
+        width: 350px;
+    }
+
+    
     .custom-shape-divider-bottom-1690684253{
         display: none;
     }
-    .left{
-        width: 50%;
-        padding-left: 200px;
-        /* display: none; */
-    }
+
 }
 

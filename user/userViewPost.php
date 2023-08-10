@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="userViewPost.css">
+    <link rel="stylesheet" href="../css/userViewPost.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -46,11 +46,6 @@
                         <span class="label">Author:</span>
                         <span class="content">John Paulo Sulit</span>
                     </div>
-                    <div class="info">
-                        <span class="locationPost">Malolos, Bulacan</span>
-                        <span class="separator">&#8226;</span>
-                        <span class="datePost">Posted on July 03, 2023</span>
-                    </div>
                     <div class="category">
                         <span class="label">Category:</span>
                         <span class="content">Web Development</span>
@@ -58,6 +53,12 @@
                     <div class="tags">
                         <span class="label">Tags:</span>
                         <span class="content">#web, #css, #html</span>
+                    </div>
+                    <div class="info">
+                        <span class="label">Date & Time:</span>
+                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span class="separator">&#8226;</span>
+                        <span class="datePost">Posted on July 03, 2023</span>
                     </div>
                     <p class="descPost">
                         I need a freelancer who can make a responsive website ASAP! kjsdhkasjhdkjashdjkashdkjh
@@ -69,7 +70,7 @@
                         <span class="content">69,000</span>
                     </div>
                     <div class="backButton">
-                        <button id="back">Go Back</button>
+                        <button id="back"><a href="userHome.php" id="backAnchor">Go Back</a></button>
                     </div>
                 </div>
 

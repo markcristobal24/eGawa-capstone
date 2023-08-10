@@ -121,3 +121,36 @@ function clearUploadedID(){
     imgFile2.value = '';
     
 }
+
+function clearInputsProfile(){
+    var img = document.getElementById('uploadedImage');
+    var setImg = '../img/uploadIMG.png';
+    var imgFile = document.getElementById('uploadInput');
+    var addr = document.getElementById('address');
+    var webDesignCB = document.getElementById('webDesign');
+    var webDevCB = document.getElementById('webDev');
+    var mobAppDevCB = document.getElementById('mobAppDev');
+    var brandDesignCB = document.getElementById('brandDesign');
+    var hostingMaintenanceCB = document.getElementById('hostingMaintenance');
+    var compName = document.getElementById('companyName');
+    var workTitle = document.getElementById('workTitle');
+    var started = document.getElementById('dateStarted');
+    var ended = document.getElementById('dateEnded');
+    var desc = document.getElementById('comment');
+    
+
+    img.src = setImg;
+    imgFile.value = '';
+    addr.value = '';
+    webDesignCB.checked = false;
+    webDevCB.checked = false;
+    mobAppDevCB.checked = false;
+    brandDesignCB.checked = false;
+    hostingMaintenanceCB.checked = false;
+    compName.value = '';
+    workTitle.value = '';
+    started.value = '';
+    ended.value = '';
+    desc.value = '';
+
+}

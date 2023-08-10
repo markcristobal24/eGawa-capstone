@@ -23,6 +23,8 @@
 
 <body>
 
+<?php include "../other/navbar.php"; ?>
+<!-- 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -55,7 +57,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
 
     <div class="containerChangePass">
