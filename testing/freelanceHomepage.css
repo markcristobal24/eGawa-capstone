@@ -83,47 +83,31 @@ body{
         background-color: #8000aa;
         display: flex;
         height: 90vh;
-        width: 95%;
+        width: 90%;
         margin: 15px auto;
     }
-    p, span{
-        font-size: 15px;
-    }
+
     /* -----Left Div----- */
     .left{
-        /* display: flex; */
-        background-color: #ff6600;
-    }
-    .leftNav{
-        display: flex;
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #0073aa;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        margin: auto;
+        height: 90%;
+        width: 60%;
+        background-color: #4adfa6;
     }
 
     /* -----Right Div----- */
     .right{
-        background-color: aquamarine;
+        margin: auto;
+        height: 90%;
+        width: 40%;
+        background-color: #4aa8df;
     }
-    #freelancerPic{
-        border-radius: 100px;
+    .imgContainer{
         display: flex;
+    }
+    .imgProfile{
+        margin: 0 auto;
         height: 150px;
-        margin: 0 auto;
-    }
-    .freelanceNameContainer{
-        display: flex;
-    }
-    #freelanceName {
-        margin: 0 auto;
-    }
-    .freelanceUsernameContainer{
-        display: flex;
-    }
-    #freelanceUsername{
-        display: flex;
-        margin: 0 auto;
     }
     
     .ratingContainer{

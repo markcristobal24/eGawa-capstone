@@ -1,30 +1,3 @@
-<?php
-// session_start();
-require dirname(__FILE__) . "/../php/classes/DbConnection.php";
-require_once dirname(__FILE__) . "/../php/classes/Account.php";
-
-$data = new Account();
-$data->fetch_information($_SESSION['email']);
-
-if (!isset($_SESSION['email'])) {
-    header('location: ../login.php');
-    die();
-}
-
-
-
-$email = $_SESSION['email'];
-$sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-$check_rows = mysqli_num_rows($sql);
-$fetch = mysqli_fetch_assoc($sql);
-
-$sql2 = mysqli_query($con, "SELECT * FROM account WHERE email ='$email'");
-$check_rows2 = mysqli_num_rows($sql2);
-$fetch2 = mysqli_fetch_assoc($sql2);
-$fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['lastName'];
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +23,6 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
     <title>eGawa | Freelance Homepage</title>
 
-
-    
-
-
 </head>
 
 <body>
@@ -65,103 +34,20 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
 
         <div class="left">
 
-            <div class="leftNav">
-                <div class="catalogFeedTitle">
-                    Your Catalogs
-                </div>
-                <div class="addCatalogDiv">
-                    <button class="addCatalog">
-                        Add Catalog
-                    </button>
-                </div>
-            </div>
-
-            <div class="leftFeed">
-                <div class="item">
-                    <div class="catalogImg">
-                        <img class="imgWork" src="../img/box.png">
-                    </div>
-                    <div class="catalogTexts">
-                        <h3>No catalog to display</h3>
-                        <p>There is no catalog available at the moment. <br> Please add one</p>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-
-
         <div class="right">
-            <div class="rightFreelanceProfile">
-            <div class="div1">
 
-                <img id="freelancerPic"
-                    src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
-                    alt="user profile" title="user profile">
-
-                <div class="freelanceNameContainer">
-                    <p id="freelanceName">
-                        <?php echo $fullname; ?>
-                    </p>
-                </div>
-
-                <div class="freelanceUsernameContainer">
-                    <p id="freelanceUsername">
-                        <?php echo "@" . $_SESSION['username']; ?>
-                    </p>
-                </div>
-
-                <div class="ratingContainer">
-                    <div class="rating">
-                        <span class="star" data-value="1"></span>
-                        <span class="star" data-value="2"></span>
-                        <span class="star" data-value="3"></span>
-                        <span class="star" data-value="4"></span>
-                        <span class="star" data-value="5"></span>
-                    </div>
-                </div>
-
-                <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
-                        Account</a></div>
-                <div id="jobsAndRole1">Jobs and Roles:</div>
-                <ul>
-                    <?php
-                    $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                    if ($query->num_rows > 0) {
-                        $roleValues = array();
-
-                        while ($row = $query->fetch_assoc()) {
-                            $values = explode(',', $row['jobRole']);
-                            $roleValues = array_merge($roleValues, $values);
-                        }
-
-                        foreach ($roleValues as $value) {
-                            echo "<li>$value</li>";
-                        }
-                    }
-                    ?>
-                </ul>
-
-                <div class="flexDiv">
-                    <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                    <div class="freelanceAddress">
-                        <?php echo $fetch['address']; ?>
-                    </div>
-                </div>
-                <div class="flexDiv">
-                    <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                    <div class="freelanceEmail">
-                        <?php echo $email; ?>
-                    </div>
-                </div>
-                <div id="viewmore">View More</div>
-                <div>
-
-                </div>
-
+            <div class="imgContainer">
+                <img class="imgProfile" src="../img/profile.png" alt="">
             </div>
+            <div class="freelanceInfoCOntainter">
+                
             </div>
+
         </div>
+
+
+
     </div>
 
 
