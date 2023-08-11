@@ -77,7 +77,7 @@ if (isset($_GET['data'])) {
                         </span>
                     </div>
                     <div class="info">
-                        <span class="label">Date & Time:</span>
+                        <!-- <span class="label">Date & Time:</span> -->
                         <span class="locationPost" id="address">
                             <?php echo $address; ?>
                         </span>

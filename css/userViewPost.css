@@ -159,8 +159,8 @@ body {
   .descPost {
     margin-top: 20px;
     color: #333;
-    line-height: 1.5;
-    white-space: pre;
+    width: 100%;
+    text-align: justify;
   }
 
   .backButton {
