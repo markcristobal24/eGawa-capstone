@@ -39,6 +39,7 @@ if (isset($_POST['user_register'])) {
         if ($result) {
             $_SESSION['mail'] = $email;
             $otp = $sendEmail->generate_code();
+            $_SESSION['otp'] = $otp;
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>

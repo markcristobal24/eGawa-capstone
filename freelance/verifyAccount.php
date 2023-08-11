@@ -1,4 +1,3 @@
-
 <?php session_start();
 if (!isset($_SESSION["otp"])) {
     header('location: ../error.php');
@@ -33,7 +32,7 @@ if (!isset($_SESSION["otp"])) {
 </head>
 
 <body>
-
+    <?php print_r($_SESSION); ?>
     <div class="containerVerify">
         <form action="#" method="post">
             <p class="verifyTitle">Verify Account</p>
@@ -113,18 +112,18 @@ if (isset($_POST["btnVerify"])) {
 
     if ($otp != $otp_code) {
         ?>
-        <script>
-            invalidOtp();
-        </script>
-        <?php
+<script>
+//invalidOtp();
+</script>
+<?php
     } else {
         mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
         ?>
-        <script>
-            alert('sucess otp');
-            window.location.replace("../login.php");
-        </script>
-        <?php
+<script>
+alert('sucess otp');
+window.location.replace("../login.php");
+</script>
+<?php
     }
 }
 ?>
