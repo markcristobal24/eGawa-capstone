@@ -3,116 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Registration Form</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: center;
+        /* Style for the textarea */
+        textarea {
+            resize: none; /* Disable default textarea resizing */
+            overflow: hidden; /* Hide overflowing content */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            height: auto; /* Set initial height to auto */
+            min-height: 50px; /* Set minimum height */
+            max-height: 300px; /* Set maximum height */
+            width: 500px;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
         }
 
-        .registration-form {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+        /* Style for the scrollbar */
+        textarea::-webkit-scrollbar {
+            width: 5px; /* Set the width of the scrollbar */
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        /* Track */
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1; /* Color of the track */
         }
 
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
+        /* Handle */
+        textarea::-webkit-scrollbar-thumb {
+            background: #0074aa95; /* Color of the handle */
         }
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .submit-button {
-            background-color: #00aaff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .submit-button:hover {
-            background-color: #0077cc;
+        /* Handle on hover */
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Color of the handle when hovered */
         }
     </style>
+    <title>Auto-Resizing Textarea</title>
 </head>
 <body>
-    <div class="registration-form">
-        <h2>Registration Form</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-group">
-                <label for="second-name">Second Name:</label>
-                <input type="text" id="second-name" name="second-name" required>
-            </div>
-            <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
-            </div>
-            <div class="form-group">
-                <label for="house-number">House Number:</label>
-                <input type="text" id="house-number" name="house-number" required>
-            </div>
-            <div class="form-group">
-                <label for="street">Street:</label>
-                <input type="text" id="street" name="street" required>
-            </div>
-            <div class="form-group">
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" required>
-            </div>
-            <div class="form-group">
-                <label for="state">State/Province:</label>
-                <input type="text" id="state" name="state" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Re-enter Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-            </div>
-            <button type="submit" class="submit-button">Register</button>
-        </form>
-    </div>
+    <textarea id="myTextarea" placeholder="Type your text here..."></textarea>
+
+    <script>
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('myTextarea');
+
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
+    </script>
 </body>
 </html>

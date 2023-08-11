@@ -180,9 +180,6 @@ body {
 
     .containerRight{
         flex: 30%;
-        /* background-color: #ddd; */
-        /* background-color: #0074aa81; */
-        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
         height: fit-content;
         margin: 20px;
     }
@@ -193,7 +190,6 @@ body {
         background-color: #0073aa;
     }
     .userProfile{
-        /* height: 50%; */
         width: 100%;
         
     }
@@ -228,6 +224,26 @@ body {
         background-color: #f4f4f4ee;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
     }
+
+    #description {
+        resize: none; /* Disable default textarea resizing */
+        overflow: hidden; /* Hide overflowing content */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        height: auto; /* Set initial height to auto */
+        min-height: 50px; /* Set minimum height */
+        max-height: 300px; /* Set maximum height */
+        width: 100%;
+        margin: 0 auto;
+    }
+    #title, #tags{
+        width: 100%;
+        border: 1px solid rgba(87, 86, 86, 0.575);
+        border-radius: 5px;
+        margin: 8px 0 8px 0;
+    }
+    .descContainer{
+        display: flex;
+    }
     .toFlex{
         display: flex;
     }
@@ -237,6 +253,9 @@ body {
     }
     .dropdownOptionPost{
         margin: 10px auto;
+    }
+    #post_form{
+        width: 100%;
     }
 
     #filterOptionPost{
@@ -255,18 +274,24 @@ body {
         margin: 0 auto; /* Center the form horizontally */
     }
     #submitPost{
-        margin: 5px 0 5px;
+        margin: 0 5px 0 0;
         border: none;
-        border-radius: 2px;
+        border-radius: 5px;
         color: #f4f4f4;
         background-color: #0073aa;
     }
     #clearPost{
-        margin: 0 0 5px;
         border: none;
-        border-radius: 2px;
+        border-radius: 5px;
         color: #f4f4f4;
         background-color: #808080;
+    }
+    .btns{
+        display: flex;
+        justify-content: end;
+    }
+    .btn:hover{
+        opacity: 0.8;
     }
 
 
@@ -420,6 +445,28 @@ body {
         background-color: #f4f4f4ee;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
     }
+
+    #description {
+        resize: none; /* Disable default textarea resizing */
+        overflow: hidden; /* Hide overflowing content */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        height: auto; /* Set initial height to auto */
+        min-height: 50px; /* Set minimum height */
+        max-height: 250px; /* Set maximum height */
+        width: 100%;
+        font-size: 10px;
+        margin: 0 auto;
+    }
+    #title, #tags{
+        width: 100%;
+        border: 1px solid rgba(87, 86, 86, 0.575);
+        border-radius: 5px;
+        margin: 8px 0 8px 0;
+        font-size: 10px;
+    }
+    .form-control, .input-group-text{
+        font-size: 10px;
+    }
     .toFlex{
         display: flex;
     }
@@ -450,7 +497,7 @@ body {
         font-size: 15px;
     }
     #submitPost{
-        margin: 5px 0 5px;
+        /* margin: 5px 0 5px; */
         font-size: 10px;
         border: none;
         border-radius: 2px;
@@ -458,7 +505,7 @@ body {
         background-color: #0073aa;
     }
     #clearPost{
-        margin: 0 0 5px;
+        /* margin: 0 0 5px; */
         font-size: 10px;
         border: none;
         border-radius: 2px;

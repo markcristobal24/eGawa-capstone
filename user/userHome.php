@@ -27,10 +27,14 @@ $fetch = $sql->fetch_all();
 
     <title>eGawa | User Home</title>
 
+    <style>
+        
+    </style>
+
 </head>
 
 <body>
-    <?php print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -102,7 +106,7 @@ $fetch = $sql->fetch_all();
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
-                    <p id="userName">other info</p>
+                    <!-- <p id="userName">other info</p> -->
                 </div>
             </div>
             <div class="userPost">
@@ -122,30 +126,27 @@ $fetch = $sql->fetch_all();
                                 </select>
                             </div>
                         </div>
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="post_title" required>
 
-                        <label for="description">Description:</label>
-                        <!-- <input type="text" id="description" name="description" required><br> -->
-                        <textarea id="description" name="post_description" rows="3" required></textarea>
+                        <input type="text" id="title" name="post_title" placeholder="Job Title" required>
 
-                        <label for="tags">Tags:</label>
-                        <input type="text" id="tags" name="post_tags">
+                        <div class="descContainer">
+                            <textarea id="description" placeholder="Job Description"></textarea>
+                        </div>
 
-                        <div class="input-group mb-3 mt-3">
+                        <input type="text" id="tags" name="post_tags" placeholder="Tags" required>
+
+                        <div class="rateInput input-group mb-3 mt-2">
+                            
                             <span class="input-group-text">&#8369;</span>
-                            <!-- <select id="currency" name="" >
-                                <option value="dollar">&#36; Dollar</option>
-                                <option value="peso">&#8369; Peso</option>
-                            </select> -->
-
                             <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                                name="rate" required>
+                                name="rate" placeholder="Enter rate" required>
                             <span class="input-group-text">.00</span>
                         </div>
 
-                        <input id="submitPost" type="button" value="Submit" onclick="new Posts().post();">
-                        <input id="clearPost" type="button" value="Clear">
+                        <div class="btns">
+                            <input id="submitPost" class="btn" type="button" value="Submit" onclick="new Posts().post();">
+                            <input id="clearPost" class="btn"  type="button" value="Clear">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -176,108 +177,16 @@ $fetch = $sql->fetch_all();
             </div>
         </div>
     </div>
-    <!-- 
+
     <script>
-        window.onload = func tion() {
-            updateDivContent();
-        };
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('description');
 
-        function updateDivContent() {
-            var selectedOption = document.getElementById("filterOption").value;
-
-            if (selectedOption === 'webdev') {
-                option1Div.style.display = 'block';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'none';
-
-
-
-            } else if (selectedOption === 'mobiledev') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'block';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'none';
-
-
-            } else if (selectedOption === 'webhost') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'block';
-                option4Div.style.display = 'none';
-
-
-            } else if (selectedOption === 'multi') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'block';
-                btn.innerText = 'Multimedia';
-
-            }
-        }
-
-        function changeOption(option) {
-            const btn = document.getElementById('dropdownBTN');
-            const option1Div = document.getElementById('option1Div');
-            const option2Div = document.getElementById('option2Div');
-            const option3Div = document.getElementById('option3Div');
-            const option4Div = document.getElementById('option4Div');
-
-            if (option === 'Option 1') {
-                option1Div.style.display = 'block';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'none';
-                btn.innerText = 'Website Development';
-
-            } else if (option === 'Option 2') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'block';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'none';
-                btn.innerText = 'Mobile Development';
-
-            } else if (option === 'Option 3') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'block';
-                option4Div.style.display = 'none';
-                btn.innerText = 'Website Hosting';
-
-            } else if (option === 'Option 4') {
-                option1Div.style.display = 'none';
-                option2Div.style.display = 'none';
-                option3Div.style.display = 'none';
-                option4Div.style.display = 'block';
-                btn.innerText = 'Multimedia';
-
-            }
-        }
-
-        function changeOptionPost(optionPost) {
-            const btnPost = document.getElementById('dropdownBTNPost');
-
-
-            if (optionPost === 'Option 1') {
-
-                btnPost.innerText = 'Website Development';
-
-            } else if (optionPost === 'Option 2') {
-
-                btnPost.innerText = 'Mobile Development';
-
-            } else if (optionPost === 'Option 3') {
-
-                btnPost.innerText = 'Website Hosting';
-
-            } else if (optionPost === 'Option 4') {
-
-                btnPost.innerText = 'Multimedia';
-
-            }
-        }
-    </script> -->
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
+    </script>
 
 
     <script src="../js/script.js "></script>
