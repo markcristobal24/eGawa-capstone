@@ -8,9 +8,11 @@ if (isset($_POST['login'])) {
     $email = $_POST["email"];
     $password = $_POST["pass"];
 
+
     $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email'");
     $query = mysqli_num_rows($sql);
     $fetch = mysqli_fetch_assoc($sql);
+    $fetch_password = $fetch['password'];
 
     if ($email == "" && $password == "") {
         $output['error'] = "Incomplete Details!";
@@ -20,9 +22,9 @@ if (isset($_POST['login'])) {
         $output['error'] = "Please enter your password!";
     } else if ($sql->num_rows == 0) {
         $output['error'] = "Email Address do not exist!";
-    } else if ($password !== $fetch['password'] || $email !== $fetch['email']) {
+    } else if (!password_verify($password, $fetch_password) || $email !== $fetch['email']) {
         $output['error'] = "Email address and password are not matched!";
-    } else if ($query > 0) {
+    } else if (password_verify($password, $fetch_password)) {
         if ($fetch["userType"] == 'super_admin') {
             $output['success'] = "super_admin";
             $output['message'] = "Logging in as Super Admin";
@@ -52,6 +54,7 @@ if (isset($_POST['login'])) {
                 $session->fetch_user($email);
                 $output['status'] = "1";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
+
             }
         } else if ($fetch["userType"] == 'freelancer') {
             $output['success'] = "freelancer";
