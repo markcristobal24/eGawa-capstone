@@ -28,7 +28,7 @@ $fetch = $sql->fetch_all();
     <title>eGawa | User Home</title>
 
     <style>
-        
+
     </style>
 
 </head>
@@ -130,13 +130,13 @@ $fetch = $sql->fetch_all();
                         <input type="text" id="title" name="post_title" placeholder="Job Title" required>
 
                         <div class="descContainer">
-                            <textarea id="description" placeholder="Job Description"></textarea>
+                            <textarea id="description" placeholder="Job Description" name="post_description"></textarea>
                         </div>
 
                         <input type="text" id="tags" name="post_tags" placeholder="Tags" required>
 
                         <div class="rateInput input-group mb-3 mt-2">
-                            
+
                             <span class="input-group-text">&#8369;</span>
                             <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
                                 name="rate" placeholder="Enter rate" required>
@@ -144,8 +144,9 @@ $fetch = $sql->fetch_all();
                         </div>
 
                         <div class="btns">
-                            <input id="submitPost" class="btn" type="button" value="Submit" onclick="new Posts().post();">
-                            <input id="clearPost" class="btn"  type="button" value="Clear">
+                            <input id="submitPost" class="btn" type="button" value="Submit"
+                                onclick="new Posts().post();">
+                            <input id="clearPost" class="btn" type="button" value="Clear">
                         </div>
                     </form>
                 </div>
@@ -179,13 +180,13 @@ $fetch = $sql->fetch_all();
     </div>
 
     <script>
-        // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('description');
+    // JavaScript to make the textarea auto-resize
+    const textarea = document.getElementById('description');
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
+    textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto'; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+    });
     </script>
 
 
