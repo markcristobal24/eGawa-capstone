@@ -9,6 +9,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/userRegistration.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -46,7 +47,7 @@
     </nav>
 
     <div class="containerRegis">
-        <form action="../controller/c_uRegister.php" method="POST" onsubmit="return validateRegForm()">
+        <form id="account_form" method="POST">
             <h1 class="userRegTitle">User Registration</h1>
             <div class="row">
                 <!--Each row is based on a 12 column system-->
@@ -94,7 +95,8 @@
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
+                    <input type="password" id="pass2" class="form-control" name="password2"
+                        placeholder="Re-enter Password">
                     <label id="pass2Label" for="pass2">Re-enter Password</label>
                 </div>
                 <div>
@@ -107,7 +109,7 @@
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="submit" id="btnUserReg" class="btn btn-primary">
+                <button type="button" id="btnUserReg" class="btn btn-primary" onclick="new Account().user_register();">
                     Register
                 </button>
                 <button id="btnUserRegClear" class="btn btn-secondary" onclick="clearFields()">Clear</button>
@@ -184,6 +186,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/user.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/validate.js"></script>
 
