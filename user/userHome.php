@@ -56,9 +56,10 @@ $fetch = $sql->fetch_all();
                 </div>
                 <div class="left-nav-search">
                     <form class="d-flex">
-                        <input class="form-control me-2 search" type="search" placeholder="Search a tag"
+                        <input class="form-control me-2 search" type="text" id="search_post"
+                            onkeyup="new Posts().search_post(this.value);" placeholder="Search a tag"
                             aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <!-- <button class="btn btn-success" type="submit">Search</button> -->
                     </form>
                 </div>
             </div>

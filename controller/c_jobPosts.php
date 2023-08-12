@@ -103,7 +103,7 @@ if (isset($_POST['filter_post'])) {
 if (isset($_POST['view_post'])) {
     $post_id = $_POST['id'];
 
-    $result = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_id = '$post_id'");
+    $result = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_id = '$post_id' ORDER BY posted_date DESC");
     $data = array();
 
     foreach ($result as $row) {
@@ -123,5 +123,41 @@ if (isset($_POST['view_post'])) {
         $data['rate'] = 'PHP' . ' ' . $row['rate'];
     }
     echo json_encode($data);
+}
+
+if (isset($_POST['search_post'])) {
+    $search_input = $_POST['keyword'];
+    $filteredResult = $query = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' ORDER BY posted_date DESC");
+    $output = array();
+    $output['success'] = '';
+    while ($row = $filteredResult->fetch_assoc()) {
+        $currentDateTime = $row['posted_date'];
+        $dateTimeObj = new DateTime($currentDateTime);
+        $posted_date = $dateTimeObj->format("F d, Y h:i A");
+        $output['success'] .= '
+            <div class="containerPost">
+                <span class="titlePost">' . $row['post_title'] . '</span>
+                <div>
+                    <span class="author">Author: </span>
+                    <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
+                </div>
+                <div>
+                    <span class="locationPost">' . $row['address'] . '</span>
+                    <span>•</span>
+                    <span class="datePost">Posted on ' . $posted_date . '</span>
+                </div>
+
+                <p class="descPost">
+                    ' . $row['post_description'] . '
+                </p>
+                <div>
+                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
+                </div>
+            </div>
+            ';
+    }
+    $output['error'] = "There is no post with that tag!";
+
+    echo json_encode($output);
 }
 ?>
