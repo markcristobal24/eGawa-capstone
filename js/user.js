@@ -95,3 +95,12 @@ function resetInputEmail(){
     newEmail.value ='';
 
 }
+
+function editUserIMG(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var uploadedEditImg = document.getElementById('imgUpload');
+        uploadedEditImg.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}

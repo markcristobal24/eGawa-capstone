@@ -1,0 +1,304 @@
+
+ body{
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+
+
+    .mainContainer{
+        width: fit-content;
+        margin: 150px auto;
+        padding-top: 10px;
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    }
+    .editTitle{
+        color: #FFFFFF;
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    hr{
+        margin: 5px 30px;
+        color: #FFFFFF;
+    }
+    .left{
+        width: fit-content;
+    }
+    .leftChild{
+        padding: 20px 20px 0 20px;
+    }
+    .imgCont{
+        display: flex;
+    }
+    .imgUpload{
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+    }
+    .rightChild{
+        height: auto;
+    }
+    .right{
+        height: auto;
+        width: fit-content;
+        padding-right: 50px;
+    }
+    .infoTitle{
+        margin-bottom: 20px;
+    }
+    input{
+        border: navajowhite;
+        border-radius: 10px;
+        width: 280px;
+        margin: 10px;
+        padding: 5px;
+    }
+    .personalInfoTitle{
+        color: #FFFFFF;
+        font-size: 20px;
+    }
+    .right label{
+        color: #FFFFFF;
+    }
+    label{
+        display: block;
+    }
+    .formContainer{
+        display: flex;
+    }
+
+    form{
+        padding: 10px 20px 30px 20px;
+        display: flex;
+        height: fit-content;
+    }
+    .btns{
+        display: flex;
+        margin-top: 20px;
+        justify-content: end;
+    }
+    .btns button{
+        margin-left: 5px;
+        color: #FFFFFF;
+        border: none;
+        padding: 3px 10px;
+        border-radius: 5px;
+        
+    }
+
+    .submitBTN{
+        background-color: #0073aa;
+    }
+    .backBTN{
+        background-color: dimgrey;
+    }
+
+    .submitBTN:hover{
+        background-color: #0074aaad;
+    }
+    .backBTN:hover{
+        background-color: rgba(105, 105, 105, 0.671);
+    }
+
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 251px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 1366px) {
+    
+    .mainContainer{
+        width: fit-content;
+        margin: 120px auto;
+        padding-top: 10px;
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    }
+    .editTitle{
+        color: #FFFFFF;
+        margin-left: 20px;
+        font-size: 25px;
+    }
+    hr{
+        margin: 5px 30px;
+        color: #FFFFFF;
+    }
+    .left{
+        width: 50%;
+    }
+    .leftChild{
+        padding: 20px 0 0 0;
+    }
+    .imgCont{
+        display: flex;
+    }
+    .imgUpload{
+        border-radius: 50%;
+        height: 130px;
+        width: 130px;
+        margin: 0 auto;
+    }
+    .rightChild{
+        height: auto;
+    }
+    .right{
+        height: auto;
+        width: fit-content;
+        padding-right: 30px;
+    }
+    .infoTitle{
+        margin-bottom: 20px;
+    }
+    input{
+        border: navajowhite;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 5px;
+    }
+    #imageInput{
+        padding: 2px;
+    }
+    .personalInfoTitle{
+        color: #FFFFFF;
+        font-size: 15px;
+    }
+    .right label{
+        color: #FFFFFF;
+        font-size: 13px;
+    }
+    label{
+        display: block;
+    }
+    .formContainer{
+        display: flex;
+    }
+
+    form{
+        padding: 0 0 15px;
+        display: flex;
+        height: fit-content;
+        width: 600px;
+    }
+    .btns{
+        display: flex;
+        margin-top: 20px;
+        justify-content: end;
+    }
+    .btns button{
+        margin-left: 5px;
+        color: #FFFFFF;
+        border: none;
+        padding: 3px 10px;
+        border-radius: 5px;
+        
+    }
+
+    .submitBTN{
+        background-color: #0073aa;
+    }
+    .backBTN{
+        background-color: dimgrey;
+    }
+
+    .submitBTN:hover{
+        background-color: #0074aaad;
+    }
+    .backBTN:hover{
+        background-color: rgba(105, 105, 105, 0.671);
+    }
+
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 150px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+
+    .mainContainer{
+        width: 90vw;
+        margin: 90px auto;
+        padding-top: 10px;
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    }
+    .left{
+        width: 100%;
+    }
+    .leftChild{
+        padding: 20px 50px 0;
+    }
+
+    .right{
+        width: fit-content;
+        padding-right: 0;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .rightChild{
+        width: 100%;
+    }
+
+
+    form{
+        display: block;
+    }
+
+
+    .custom-shape-divider-bottom-1690684253{
+        display: none;
+    }
+}
+
