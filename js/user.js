@@ -96,6 +96,7 @@ function resetInputEmail(){
 
 }
 
+//FOR EDITING USER PROFILE (PICTURE)
 function editUserIMG(event) {
     var reader = new FileReader();
     reader.onload = function () {
