@@ -3,27 +3,16 @@
 require dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
-$data = new Account();
-$data->fetch_information($_SESSION['email']);
 
 if (!isset($_SESSION['email'])) {
     header('location: ../login.php');
     die();
 }
-
-
-
 $email = $_SESSION['email'];
-$sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+$sql = mysqli_query($con, "SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = '$email'");
 $check_rows = mysqli_num_rows($sql);
 $fetch = mysqli_fetch_assoc($sql);
-
-$sql2 = mysqli_query($con, "SELECT * FROM account WHERE email ='$email'");
-$check_rows2 = mysqli_num_rows($sql2);
-$fetch2 = mysqli_fetch_assoc($sql2);
-$fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['lastName'];
-
-
+$fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 ?>
 
 <!DOCTYPE html>
@@ -294,13 +283,22 @@ $fullname = $fetch2['firstName'] . ' ' . $fetch2['middleName'] . ' ' . $fetch2['
                 <div class="flexDiv">
                     <div class="dateStartedModal1">Date Started:&nbsp;</div>
                     <div class="dateStartedModal1Data">
-                        <?php echo $fetch['startDate']; ?>
+                        <?php
+                        $date = $fetch['startDate'];
+                        $dateObj = new DateTime($date);
+                        $startDate = $dateObj->format("F d, Y");
+                        echo $startDate;
+                        ?>
                     </div>
                 </div>
                 <div class="flexDiv">
                     <div class="dateEndedModal1">Date Ended:&nbsp;</div>
                     <div class="dateEndedModal1Data">
-                        <?php echo $fetch['endDate']; ?>
+                        <?php
+                        $date = $fetch['endDate'];
+                        $dateObj = new DateTime($date);
+                        $endDate = $dateObj->format("F d, Y");
+                        echo $endDate; ?>
                     </div>
                 </div>
 

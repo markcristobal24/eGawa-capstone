@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . "/Email.php";
 class Account extends DbClass
 {
     /* Saves all information in $_SESSION variable */
-    public function fetch_user($email)
+    public function fetch_account($email)
     {
         $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");
         $query->execute([':email' => $email]);
@@ -28,78 +28,35 @@ class Account extends DbClass
         $_SESSION['middleName'] = $data['middleName'];
         $_SESSION['lastName'] = $data['lastName'];
         $_SESSION['userType'] = $data['userType'];
-        $_SESSION['address'] = $data['address'];
-        json_encode($data);
-    }
-
-    public function fetch_information($email)
-    {
-        $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");
-        $query->execute([':email' => $email]);
-        $data = array();
-        foreach ($result1 as $row) {
-            $data['account_id'] = $row['account_id'];
-            $data['username'] = $row['username'];
-            $data['email'] = $row['email'];
-            $data['firstName'] = $row['firstName'];
-            $data['userType'] = $row['userType'];
-            $data['username'] = $row['username'];
-        }
-
-        $result2 = $query2 = $this->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-        $query2->execute([':email' => $email]);
-        foreach ($result2 as $row) {
-            $data['address'] = $row['address'];
-            $data['imageProfile'] = $row['imageProfile'];
-        }
-
-        $result3 = $query3 = $this->connect()->prepare("SELECT * FROM catalog WHERE email = :email");
-        $query3->execute([':email' => $email]);
-        foreach ($result3 as $row) {
-            $data['catalog_id'] = $row['catalog_id'];
-        }
-
-        $_SESSION['account_id'] = $data['account_id'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['firstName'] = $data['firstName'];
-        $_SESSION['imageProfile'] = $data['imageProfile'];
-        $_SESSION['userType'] = $data['userType'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['address'] = $data['address'];
-        //$_SESSION['catalogId'] = $data['catalog_id'];
-        json_encode($data);
-
-    }
-
-    public function user_information($email)
-    {
-        $result1 = $query = $this->connect()->prepare("SELECT * FROM account WHERE email = :email");
-        $query->execute([':email' => $email]);
-        $data = array();
-        foreach ($result1 as $row) {
-            $data['account_id'] = $row['account_id'];
-            $data['username'] = $row['username'];
-            $data['email'] = $row['email'];
-            $data['firstName'] = $row['firstName'];
-            $data['userType'] = $row['userType'];
-            $data['username'] = $row['username'];
-        }
-        $_SESSION['account_id'] = $data['account_id'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['firstName'] = $data['firstName'];
-        $_SESSION['userType'] = $data['userType'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['address'] = $data['address'];
-
-        if ($data['imageProfile'] !== null) {
-            $_SESSION['imageProfile'] = $data['imageProfile'];
-        }
-
-        if ($data['address'] !== null) {
+        if ($data['address'] != "") {
             $_SESSION['address'] = $data['address'];
         }
+        json_encode($data);
+    }
+
+    public function fetch_profile($email)
+    {
+        $result = $query = $this->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+        $query->execute([':email' => $email]);
+        $data = array();
+        foreach ($result as $row) {
+            $data['profileID'] = $row['profileID'];
+            $data['imageProfile'] = $row['imageProfile'];
+            $data['jobRole'] = $row['jobRole'];
+            $data['address'] = $row['address'];
+            $data['companyName'] = $row['companyName'];
+            $data['workTitle'] = $row['workTitle'];
+            $data['startDate'] = $row['startDate'];
+            $data['endDate'] = $row['endDate'];
+        }
+        $_SESSION['profileID'] = $data['profileID'];
+        $_SESSION['imageProfile'] = $data['imageProfile'];
+        $_SESSION['jobRole'] = $data['jobRole'];
+        $_SESSION['address'] = $data['address'];
+        $_SESSION['companyName'] = $data['companyName'];
+        $_SESSION['workTitle'] = $data['workTitle'];
+        $_SESSION['startDate'] = $data['startDate'];
+        $_SESSION['endDate'] = $data['endDate'];
         json_encode($data);
     }
 

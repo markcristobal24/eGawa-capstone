@@ -51,7 +51,7 @@ if (isset($_POST['login'])) {
                 // $session = new Account();
                 // $session->fetch_information($email);
                 $session = new Account();
-                $session->fetch_user($email);
+                $session->fetch_account($email);
                 $output['status'] = "1";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
 
@@ -85,7 +85,8 @@ if (isset($_POST['login'])) {
                 //$_SESSION['email'] = $email;
                 // $_SESSION['account_id'] = $fetch['account_id'];
                 $session = new Account();
-                $session->fetch_information($email);
+                $session->fetch_account($email);
+                $session->fetch_profile($email);
                 $output['status'] = "11";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
             }
