@@ -1,6 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
+        <?php
+        if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer") {
+            ?>
+            <a class="navbar-brand" href="../freelance/freelanceHome.php"><img src="../img/eGAWAwhite.png" alt="Logo"
+                    id="logoImage"></a>
+            <?php
+        } else if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user") {
+            ?>
+                <a class="navbar-brand" href="../user/userHome.php"><img src="../img/eGAWAwhite.png" alt="Logo"
+                        id="logoImage"></a>
+            <?php
+        }
+        ?>
+        <!-- <a class="navbar-brand" href="../user/userHome.php"><img src="../img/eGAWAwhite.png" alt="Logo" -->
+        <!-- id="logoImage"></a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,7 +49,7 @@
             <?php elseif (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user"): ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home1" class="nav-link" href="user/userHome.php">Home</a>
+                        <a id="home1" class="nav-link" href="../user/userHome.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>

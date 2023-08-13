@@ -108,17 +108,23 @@
 
         <div class="div1">
             <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-            <h2 id="userName">User Name</h2>
+            <h2 id="userName">
+                <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
+            </h2>
             <div id="verifyUserAcc">Verify Account</div>
 
 
             <div class="flexDiv">
                 <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                <div class="freelanceAddress">Bagna, Malolos, Bulacan</div>
+                <div class="freelanceAddress">
+                    <?php echo $_SESSION['address']; ?>
+                </div>
             </div>
             <div class="flexDiv flexDivBot">
                 <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                <div class="freelanceEmail">Sulitin@gmail.com</div>
+                <div class="freelanceEmail">
+                    <?php echo $_SESSION['email']; ?>
+                </div>
             </div>
         </div>
     </div>
