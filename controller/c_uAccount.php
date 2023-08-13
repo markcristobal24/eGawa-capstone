@@ -69,4 +69,41 @@ if (isset($_POST['change_pass'])) {
     }
     echo json_encode($output);
 }
+
+if (isset($_POST['fetch_user'])) {
+    $user_id = $_SESSION['account_id'];
+    $query = mysqli_query($con, "SELECT * FROM account WHERE account_id = '$user_id'");
+    $data = array();
+
+    //  if ($query) {
+    //     $row = mysqli_fetch_assoc($query);
+        
+    //     // Check if the row was fetched successfully
+    //     if ($row) {
+    //         $data['username'] = $row['username'];
+    //         $data['address'] = $row['address'];
+    //         $data['imageProfile'] = $row['imageProfile'];
+
+    //         $_SESSION['username'] = $data['username'];
+    //         $_SESSION['address'] = $data['address'];
+    //         $_SESSION['imageProfile'] = $data['imageProfile'];
+    //     }
+    // }
+
+    foreach ($query as $row) {
+        $data['username'] = $row['username'];
+        $data['address'] = $row['address'];
+        $data['user_image'] = $row['user_image'];
+    }
+    $_SESSION['username'] = $data['username'];
+    $_SESSION['address'] = $data['address'];
+    $_SESSION['user_image'] = $data['user_image'];
+    if ($data['user_image'] != "") {
+        $_SESSION['user_image'] = $data['user_image']; 
+    }
+    
+  
+    echo json_encode($data);
+
+}
 ?>

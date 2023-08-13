@@ -381,6 +381,29 @@ class Account {
 
     }
 
+    fetch_user() {
+        console.log('function call');
+        let form_data = new FormData();
+        form_data.append('fetch_user', 'fetch_user');
+        return fetch('../controller/c_uAccount.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let user = response_data;
+            document.getElementById('addr').value = `${user.address}`;
+            document.getElementById('uname').value = `${user.username}`;
+
+            if (user.user_image != "") {
+                document.getElementById('imgUpload').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/${user.user_image}`;
+            } else {
+                document.getElementById('imgUpload').src = `../img/uploadIMG.png`;
+            }
+        });
+    }
+
     button_loading(element, type, text) {
         if (type == "loading") {
             document.getElementById(element).innerHTML = '<i class="fas fa-spinner fa-spin"></i>';

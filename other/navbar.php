@@ -66,6 +66,7 @@
                         </span></a>
                     <div class="dropdown-content">
                         <a href="../user/userHomePage.php">My Profile</a>
+                        <a href="../user/userEditProfile.php">Edit Profile</a>
                         <a href="../user/userChangeEmail.php">Change Email Address</a>
                         <a href="../user/userChangePass.php">Change Password</a>
                         <a id="logout1" href="#">Log Out</a>
