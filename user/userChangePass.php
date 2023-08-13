@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +9,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/userChangePass.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -22,9 +22,9 @@
 </head>
 
 <body>
-
-<?php include "../other/navbar.php"; ?>
-<!-- 
+    <div class="toast_notif" id="toast_notif"></div>
+    <?php include "../other/navbar.php"; ?>
+    <!-- 
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="../img/eGAWAwhite.png" alt="Logo" id="logoImage"></a>
@@ -61,7 +61,7 @@
 
 
     <div class="containerChangePass">
-        <form action="../controller/c_Faccount.php" method="POST">
+        <form id="account_form" method="POST">
             <h1 class="">Change Password</h1>
 
             <div class="form-floating mb-3">
@@ -84,7 +84,8 @@
 
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" name="btnFchangePass" class="btn btn-primary" id="">
+                <button type="button" name="btnFchangePass" class="btn btn-primary" id="user_changePass"
+                    onclick="new Account().user_changePass();">
                     Submit
                 </button>
                 <button type="button" class="btn btn-secondary" id="clearChangePass" onclick="resetInputPass()">
@@ -151,12 +152,12 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/freelance.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
 
-    <script>
 
-    </script>
-</body>
+
 </body>
 
 </html>
