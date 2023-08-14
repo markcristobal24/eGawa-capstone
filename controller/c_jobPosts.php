@@ -95,7 +95,16 @@ if (isset($_POST['filter_post'])) {
             ';
         }
     } else {
-        $output['error'] = "There is no post.";
+        $output['error'] = '<div class="noResult">
+                                <div class="noResultIMG">
+                                    <img id="noIMG" src="../img/search.png" alt="">
+                                </div>
+                                <div class="noResultText">
+                                    <span>
+                                    No post available
+                                    </span>
+                                </div>
+                            </div>';
     }
     echo json_encode($output);
 }
@@ -156,7 +165,16 @@ if (isset($_POST['search_post'])) {
             </div>
             ';
     }
-    $output['error'] = "There is no post with that tag!";
+    $output['error'] = '<div class="noResult">
+    <div class="noResultIMG">
+        <img id="noIMG" src="../img/search.png" alt="">
+    </div>
+    <div class="noResultText">
+        <span>
+        No post available
+        </span>
+    </div>
+</div>';
 
     echo json_encode($output);
 }
