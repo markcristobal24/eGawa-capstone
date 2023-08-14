@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <?php print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); ?>
     <div class="toast_notif" id="toast_notif"></div>
 
     <div class="mainContainer">
@@ -100,7 +100,7 @@
     <script src="../classJS/Notification.js"></script>
 </body>
 <script>
-new Account().fetch_user();
+    new Account().fetch_user();
 </script>
 
 </html>

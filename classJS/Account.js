@@ -406,7 +406,7 @@ class Account {
 
     button_loading(element, type, text) {
         if (type == "loading") {
-            document.getElementById(element).innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            document.getElementById(element).innerHTML = '<i class="fas fa-spinner fa-spin px-4"></i>';
             document.getElementById.disabled = true;
         } else {
             document.getElementById(element).innerHTML = text;

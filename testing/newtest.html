@@ -40,17 +40,16 @@
     <title>Auto-Resizing Textarea</title>
 </head>
 <body>
-    <textarea id="myTextarea" placeholder="Type your text here..."></textarea>
-
-    <script>
-        // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('myTextarea');
-
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
-    </script>
+    <div class="noResult">
+        <div class="noResultIMG">
+            <img src="../img/search.png" alt="">
+        </div>
+        <div class="noResultText">
+            <span>
+                No post available
+            </span>
+        </div>
+    </div>
 </body>
 </html>
 

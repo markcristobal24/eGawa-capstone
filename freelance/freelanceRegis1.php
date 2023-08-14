@@ -23,9 +23,13 @@
     <!-- Link for Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Link for CSS -->
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/notification.css">
     <link rel="stylesheet" href="../css/freelanceRegis1.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script> -->
 
@@ -79,7 +83,8 @@
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass2" class="form-control" placeholder="Re-enter Password">
+                    <input type="password" id="pass2" name="password2" class="form-control"
+                        placeholder="Re-enter Password">
                     <label id="pass2" for="pass2">Re-enter Password</label>
                 </div>
 
@@ -90,7 +95,7 @@
                     onclick="new Account().registerFreelance();">
                     Continue
                 </button>
-                <button class="btn btn-secondary" id="btnFreelanceClear" >Clear</button>
+                <button class="btn btn-secondary" id="btnFreelanceClear">Clear</button>
             </div>
             <hr>
             <p class="freelanceRegInfo">Already have an account? <a id="loginLink" href="../login.php">Login here</a>
