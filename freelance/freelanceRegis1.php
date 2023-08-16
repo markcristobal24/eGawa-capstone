@@ -41,7 +41,7 @@
 
 
     <div class="containerRegis">
-        <form id="account_form" method="POST" onsubmit="return validateFreelanceForm();">
+        <form id="account_form" method="POST">
             <p class="userRegTitle">Freelance Registration</p>
             <div class="row">
                 <!--Each row is based on a 12 column system-->

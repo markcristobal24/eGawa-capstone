@@ -2,8 +2,10 @@
 // session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
+require_once dirname(__FILE__) . "/../php/classes/Email.php";
 
 $acc = new Account();
+$sendEmail = new Email();
 
 if (isset($_POST['registerFreelance'])) {
     $firstName = $_POST["fName"];
@@ -30,35 +32,20 @@ if (isset($_POST['registerFreelance'])) {
         $output['error'] = "Username already exist!";
     } else {
         $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) 
-        VALUES ('$firstName', '$middleName', '$lastName', '$username', '$email', '$encypted', '$user_type', 0)");
+        VALUES ('$firstName', '$middleName', '$lastName', '$username', '$email', '$encrypted', '$user_type', 0)");
 
         if ($result) {
-            $otp = rand(100000, 999999);
+           $_SESSION['mail'] = $email;
+            $otp = $sendEmail->generate_code();
             $_SESSION['otp'] = $otp;
-            $_SESSION['mail'] = $email;
-            require dirname(__FILE__) . "/../php/PHPMailer/PHPMailerAutoload.php";
-            $mail = new PHPMailer;
-
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->Port = 587;
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = 'tls';
-
-            $mail->Username = 'egawa.freelance@gmail.com';
-            $mail->Password = 'vwfugwytghchiqja';
-
-            $mail->setFrom('egawa.freelance@gmail.com', 'OTP Verification');
-            $mail->addAddress($_POST["email"]);
-
-            $mail->isHTML(true);
-            $mail->Subject = "Your verification code";
-            $mail->Body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
+            $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
             <br><br>
             <p>With Regards,</p>
             <b>eGawa</b>";
+            $subject = "Your verification code";
+            $sendEmail->sendEmail("E-Gawa", $_SESSION['mail'], $subject, $body);
 
-            if (!$mail->send()) {
+            if (!$sendEmail) {
                 $output['error'] = "Registration Failed! Invalid Email Address.";
             } else {
                 $output['success'] = "Registered Successfully. OTP sent to " . $email;
