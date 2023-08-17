@@ -1,5 +1,4 @@
-
-body{
+body {
     background-image: linear-gradient(to right, #0073aa, #8000aa);
     font-family: 'Inter', sans-serif;
     padding: 0;
@@ -10,62 +9,101 @@ body{
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
 
-    .container{
+    .container {
         margin: 160px auto;
         max-width: fit-content;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
-    #imgUpl{
+
+    #imgUpl {
         display: flex;
         flex-direction: column;
     }
 
-    .image-holder{
+    .image-holder {
         justify-content: center;
     }
 
-    #create_profile{
+    #create_profile {
         display: flex;
         flex-direction: row;
     }
 
-    p{
+    p {
         color: white;
         font-size: 20px;
     }
-    #uploadInput{
+
+    #uploadInput {
 
         color: #FFFFFF;
     }
 
-    .div1{
+    .div1 {
         width: fit-content;
         padding: 10px;
     }
-    .createProfileTitle{
+
+    .custom-file-input {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .actual-file-input {
+        position: absolute;
+        left: 100px;
+        top: 500px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .custom-file-label {
+        display: inline-block;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #upIMG {
+        height: 30px;
+        margin-top: 120px;
+        margin-left: -75px;
+    }
+
+    .createProfileTitle {
         font-size: 50px;
         margin: auto;
     }
-    #uploadedImage{
+
+    #uploadedImage {
         margin: 15px;
         height: 90px;
     }
-    #uploadInput:hover{
+
+    .uploadIMG {
+        display: flex;
+    }
+
+    #uploadInput:hover {
         cursor: pointer;
     }
-    .form-check-label{
+
+    .form-check-label {
         cursor: pointer;
         color: #fff;
     }
+
     /* .form-check-label:hover{
         cursor: pointer;
     } */
 
-    .div2{
+    .div2 {
         width: fit-content;
         padding: 10px;
     }
-    .date{
+
+    .date {
         display: flex;
     }
 
@@ -92,17 +130,17 @@ body{
     }
 
     #btnLogin {
-    width: 140px;
-    height: 50px;
-    background-image: linear-gradient(to right, #0073aa, #8000aa);
-    color: #fff;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+        width: 140px;
+        height: 50px;
+        background-image: linear-gradient(to right, #0073aa, #8000aa);
+        color: #fff;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
     }
 
 
@@ -112,63 +150,107 @@ body{
 /*============================ LAPTOP ===========================*/
 @media (max-width: 1366px) {
 
-    .container{
+    .container {
         margin: 70px auto;
         max-width: fit-content;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
 
-    hr{
+    hr {
         margin: 10px;
     }
-    #uploadInput{
+
+    #uploadInput {
         font-size: 10px;
         color: #FFFFFF;
     }
-    #address, #companyName, #workTitle, #dateStarted, #dateEnded, #comment{
+
+    #address,
+    #companyName,
+    #workTitle,
+    #dateStarted,
+    #dateEnded,
+    #comment {
         font-size: 10px;
     }
 
-    label{
+    label {
         font-size: 10px;
-    }   
-    .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+    }
+
+    .form-floating>.form-control,
+    .form-floating>.form-control-plaintext,
+    .form-floating>.form-select {
         height: calc(1rem + calc(var(--bs-border-width) * 2));
         min-height: calc(2.5rem + calc(var(--bs-border-width) * 2));
         line-height: 1.25;
     }
-    #create_profile{
+
+    #create_profile {
         display: flex;
         flex-direction: row;
     }
 
-    p{
+    p {
         color: white;
         font-size: 15px;
     }
 
-    .div1{
+    .div1 {
         width: fit-content;
         padding: 0 10px 10px;
     }
-    .createProfileTitle{
+
+    .createProfileTitle {
         font-size: 30px;
     }
-    #uploadedImage{
+
+    #uploadedImage {
         margin: 15px;
         height: 90px;
     }
-    #uploadInput:hover{
+
+    .custom-file-input {
+        position: relative;
+        display: inline-block;
         cursor: pointer;
     }
-    .form-check-label:hover{
+
+    .actual-file-input {
+        position: absolute;
+        left: 100px;
+        top: 500px;
+        opacity: 0;
         cursor: pointer;
     }
-    .div2{
+
+    .custom-file-label {
+        display: inline-block;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #upIMG {
+        height: 30px;
+        margin-top: 100px;
+        margin-left: -57px;
+    }
+
+    #uploadInput:hover {
+        cursor: pointer;
+    }
+
+    .form-check-label:hover {
+        cursor: pointer;
+    }
+
+    .div2 {
         width: fit-content;
         padding: 0 10px 10px;
     }
-    .date{
+
+    .date {
         display: flex;
     }
 
@@ -193,28 +275,173 @@ body{
     .custom-shape-divider-bottom-1690684253 .shape-fill {
         fill: #FFFFFF;
     }
-    .btn{
+
+    .btn {
         font-size: 10px;
     }
 
     #btnLogin {
-    width: 140px;
-    height: 50px;
-    background-image: linear-gradient(to right, #0073aa, #8000aa);
-    color: #fff;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+        width: 140px;
+        height: 50px;
+        background-image: linear-gradient(to right, #0073aa, #8000aa);
+        color: #fff;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
     }
 
 }
 
 /*============================ LAPTOP (1311) ===========================*/
 @media (max-width: 1311px) {
+    .container {
+        margin: 50px auto;
+        max-width: fit-content;
+        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    }
+
+    hr {
+        margin: 10px;
+    }
+
+    #uploadInput {
+        font-size: 10px;
+        color: #FFFFFF;
+    }
+
+    #address,
+    #companyName,
+    #workTitle,
+    #dateStarted,
+    #dateEnded,
+    #comment {
+        font-size: 10px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    .form-floating>.form-control,
+    .form-floating>.form-control-plaintext,
+    .form-floating>.form-select {
+        height: calc(1rem + calc(var(--bs-border-width) * 2));
+        min-height: calc(2.5rem + calc(var(--bs-border-width) * 2));
+        line-height: 1.25;
+    }
+
+    #create_profile {
+        display: flex;
+        flex-direction: row;
+    }
+
+    p {
+        color: white;
+        font-size: 15px;
+    }
+
+    .div1 {
+        width: fit-content;
+        padding: 0 10px 10px;
+    }
+
+    .custom-file-input {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .actual-file-input {
+        position: absolute;
+        left: 100px;
+        top: 500px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .custom-file-label {
+        display: inline-block;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #upIMG {
+        height: 30px;
+        margin-top: 100px;
+        margin-left: -57px;
+    }
+
+    .createProfileTitle {
+        font-size: 30px;
+    }
+
+    #uploadedImage {
+        margin: 0px;
+        height: 90px;
+        border-radius: 50%;
+    }
+
+    #uploadInput:hover {
+        cursor: pointer;
+    }
+
+    .form-check-label:hover {
+        cursor: pointer;
+    }
+
+    .div2 {
+        width: fit-content;
+        padding: 0 10px 10px;
+    }
+
+    .date {
+        display: flex;
+    }
+
+    .custom-shape-divider-bottom-1690684253 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 svg {
+        position: relative;
+        display: block;
+        width: calc(236% + 1.3px);
+        height: 100px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1690684253 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    .btn {
+        font-size: 10px;
+    }
+
+    #btnLogin {
+        width: 140px;
+        height: 50px;
+        background-image: linear-gradient(to right, #0073aa, #8000aa);
+        color: #fff;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
 
 
 }
@@ -229,15 +456,17 @@ body{
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
 
-    .container{
+    .container {
         margin: 30px auto;
         width: 100%;
     }
-    #create_profile{
+
+    #create_profile {
         display: block;
         width: 90%;
         /* margin: 20px; */
     }
+
     .div1 {
         width: 350px;
     }
@@ -246,10 +475,13 @@ body{
         width: 350px;
     }
 
-    
-    .custom-shape-divider-bottom-1690684253{
+    .uploadIMG {
+        justify-content: center;
+    }
+
+
+    .custom-shape-divider-bottom-1690684253 {
         display: none;
     }
 
 }
-

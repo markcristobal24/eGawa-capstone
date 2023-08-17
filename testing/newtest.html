@@ -1,55 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Style for the textarea */
-        textarea {
-            resize: none; /* Disable default textarea resizing */
-            overflow: hidden; /* Hide overflowing content */
-            overflow-y: scroll; /* Enable vertical scrolling */
-            height: auto; /* Set initial height to auto */
-            min-height: 50px; /* Set minimum height */
-            max-height: 300px; /* Set maximum height */
-            width: 500px;
-            align-items: center;
-            justify-content: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom File Input</title>
+<style>
+  .custom-file-input {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
 
-        /* Style for the scrollbar */
-        textarea::-webkit-scrollbar {
-            width: 5px; /* Set the width of the scrollbar */
-        }
+  .actual-file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
 
-        /* Track */
-        textarea::-webkit-scrollbar-track {
-            background: #f1f1f1; /* Color of the track */
-        }
+  .custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-        /* Handle */
-        textarea::-webkit-scrollbar-thumb {
-            background: #0074aa95; /* Color of the handle */
-        }
-
-        /* Handle on hover */
-        textarea::-webkit-scrollbar-thumb:hover {
-            background: #555; /* Color of the handle when hovered */
-        }
-    </style>
-    <title>Auto-Resizing Textarea</title>
+  .custom-file-label span {
+    display: inline-block;
+    width: 100px; /* Adjust as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
 </head>
 <body>
-    <div class="noResult">
-        <div class="noResultIMG">
-            <img src="../img/search.png" alt="">
-        </div>
-        <div class="noResultText">
-            <span>
-                No post available
-            </span>
-        </div>
-    </div>
+  <div class="custom-file-input">
+    <label for="file-input" class="custom-file-label">
+      <span><img src="../img/box.png" alt=""></span>
+    </label>
+    <input type="file" id="file-input" class="actual-file-input" />
+  </div>
 </body>
 </html>
-
