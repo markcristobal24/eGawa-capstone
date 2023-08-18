@@ -15,15 +15,6 @@ body {
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
 
-    #imgUpl {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .image-holder {
-        justify-content: center;
-    }
-
     #create_profile {
         display: flex;
         flex-direction: row;
@@ -35,7 +26,6 @@ body {
     }
 
     #uploadInput {
-
         color: #FFFFFF;
     }
 
@@ -44,41 +34,43 @@ body {
         padding: 10px;
     }
 
-    .custom-file-input {
+    .upload{
+        width: 100px;
         position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .actual-file-input {
+        margin: auto;
+      }
+      
+      .upload img{
+        border-radius: 50%;
+        border: 6px solid #eaeaea;
+      }
+      
+      .upload .round{
         position: absolute;
-        left: 100px;
-        top: 500px;
+        bottom: 0;
+        right: 0;
+        background: #00B4FF;
+        width: 32px;
+        height: 32px;
+        line-height: 33px;
+        text-align: center;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      
+      .upload .round input[type = "file"]{
+        position: absolute;
+        transform: scale(2);
         opacity: 0;
-        cursor: pointer;
-    }
-
-    .custom-file-label {
-        display: inline-block;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    #upIMG {
-        height: 30px;
-        margin-top: 120px;
-        margin-left: -75px;
-    }
+      }
+      
+      input[type=file]::-webkit-file-upload-button{
+          cursor: pointer;
+      }
 
     .createProfileTitle {
         font-size: 50px;
         margin: auto;
-    }
-
-    #uploadedImage {
-        margin: 15px;
-        height: 90px;
     }
 
     .uploadIMG {
@@ -94,9 +86,6 @@ body {
         color: #fff;
     }
 
-    /* .form-check-label:hover{
-        cursor: pointer;
-    } */
 
     .div2 {
         width: fit-content;
@@ -479,6 +468,7 @@ body {
         justify-content: center;
     }
 
+    
 
     .custom-shape-divider-bottom-1690684253 {
         display: none;

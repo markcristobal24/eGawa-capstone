@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- end --links for fonts -->
 
 
@@ -45,22 +46,29 @@
 
             <div class="div1">
                 <div class="uploadIMG">
-                    <div id="imgUpl">
+                    <!-- <div id="imgUpl">
                         <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
                             <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
                         </div>
-                        <!-- <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="loadImage(event)"
-                            required> -->
-                    </div>
+                    </div> -->
 
 
-                    <div class="custom-file-input">
+                    <!-- <div class="custom-file-input">
                         <label for="file-input" class="custom-file-label">
                             <span><img id="upIMG" src="../img/up2.png" alt=""></span>
                         </label>
                         <input type="file" id="file-input" class="actual-file-input" accept="image/*"
                             onchange="loadImage(event)" required />
+                    </div> -->
+
+                    <div class="upload">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
+                        <div class="round">
+                            <input type="file" id="file-input" accept="image/*"
+                            onchange="loadImage(event)" required > 
+                            <i class="fa fa-camera" style="color: #fff;"></i>
+                        </div>
                     </div>
                 </div>
 
