@@ -46,30 +46,16 @@
 
             <div class="div1">
                 <div class="uploadIMG">
-                    <!-- <div id="imgUpl">
-                        <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
-                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
-                        </div>
-                    </div> -->
-
-
-                    <!-- <div class="custom-file-input">
-                        <label for="file-input" class="custom-file-label">
-                            <span><img id="upIMG" src="../img/up2.png" alt=""></span>
-                        </label>
-                        <input type="file" id="file-input" class="actual-file-input" accept="image/*"
-                            onchange="loadImage(event)" required />
-                    </div> -->
 
                     <div class="upload">
                         <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
                         <div class="round">
-                            <input type="file" id="file-input" accept="image/*"
+                            <input type="file" name="imageProfile" id="file-input" accept="image/*"
                             onchange="loadImage(event)" required > 
                             <i class="fa fa-camera" style="color: #fff;"></i>
                         </div>
                     </div>
+                    
                 </div>
 
 
