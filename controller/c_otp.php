@@ -1,8 +1,8 @@
 <?php
+// session_start();
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 
-session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
-
+$db = new DbClass();
 
 if (isset($_POST['verify_otp'])) {
     $otp = $_SESSION['otp'];
@@ -13,9 +13,10 @@ if (isset($_POST['verify_otp'])) {
         $output['error'] = "Invalid OTP!";
     }
     else {
-        $query = mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
-
-        if($query) {
+        $query = $db->connect()->prepare("UPDATE account SET status = :status WHERE email = :email");
+        $result = $query->execute([':status' => 1, ':email' => $email]);
+    
+        if($result) {
             unset($_SESSION['otp']);
             $output['success'] = "Email verified! Please log in your account.";
         } else {

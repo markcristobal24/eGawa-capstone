@@ -1,10 +1,10 @@
 <?php
 // session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 require_once dirname(__FILE__) . "/../php/classes/Email.php";
 
-
+$db = new DbClass();
 $acc = new Account();
 $sendEmail = new Email();
 
@@ -19,8 +19,10 @@ if (isset($_POST['user_register'])) {
     $password2 = $_POST['password2'];
     $usertype = "user";
     $encrypted = $acc->encrypt_password($password);
-    $check_query = mysqli_query($con, "SELECT * FROM account where email = '$email'");
-    $sql = mysqli_query($con, "SELECT * FROM account WHERE username = '$username'");
+
+    $query = $db->connect()->prepare("SELECT * FROM account");
+    $query->execute();
+    $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     if (
         $firstName === "" || $middleName === "" || $lastName === "" || $address === "" || $username === ""
@@ -29,12 +31,14 @@ if (isset($_POST['user_register'])) {
         $output['error'] = "Incomplete Details!";
     } else if ($password !== $password2) {
         $output['error'] = "Password are not matched!";
-    } else if ($check_query->num_rows > 0) {
+    } else if ($email == $fetch['email']) {
         $output['error'] = "Email address already exist!";
-    } else if ($sql->num_rows > 0) {
+    } else if ($username == $fetch['username']) {
         $output['error'] = "Username already exist!";
     } else {
-        $result = mysqli_query($con, "INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status) VALUES ('$firstName', '$middleName', '$lastName', '$address', '$username', '$email', '$encrypted', '$usertype', 0)");
+        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status)
+        VALUES (:firstName, :middleName, :lastName, :address, :username, :email, :password, :userType, :status)");
+        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':address' => $address, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0]);
 
         if ($result) {
             $_SESSION['mail'] = $email;

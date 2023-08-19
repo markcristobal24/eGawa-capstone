@@ -1,8 +1,9 @@
 <?php
 // session_start();
-require dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
+$db = new DbClass();
 $account = new Account();
 $account->fetch_account($_SESSION['email']);
 $account->fetch_profile($_SESSION['email']);
@@ -12,9 +13,10 @@ if (!isset($_SESSION['email'])) {
     die();
 }
 $email = $_SESSION['email'];
-$sql = mysqli_query($con, "SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = '$email'");
-$check_rows = mysqli_num_rows($sql);
-$fetch = mysqli_fetch_assoc($sql);
+$query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
+$query->execute([':email' => $email]);
+$fetch = $query->fetch(PDO::FETCH_ASSOC);
+
 $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 ?>
 
@@ -90,10 +92,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             <div class="containerCatalog">
                 <div id="container">
                     <?php
-                    $displayCatalog = mysqli_query($con, "SELECT * FROM catalog WHERE email = '$email'");
-                    if ($displayCatalog->num_rows > 0) {
+                    $query = $db->connect()->prepare("SELECT * FROM catalog WHERE email = :email");
+                    $query->execute([':email' => $email]);
+                    if ($query->rowCount() > 0) {
                         // while ($row = $displayCatalog->fetch_assoc()) {
-                        foreach ($displayCatalog as $row) {
+                        foreach ($query as $row) {
                             $catalogId = $row['catalog_id'];
                             //$_SESSION['catalogId'] = $catalogId;
                     
@@ -178,11 +181,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             <div id="jobsAndRole1">Jobs and Roles:</div>
             <ul>
                 <?php
-                $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                if ($query->num_rows > 0) {
+                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                $query->execute([':email' => $email]);
+                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                if ($query->rowCount() > 0) {
                     $roleValues = array();
 
-                    while ($row = $query->fetch_assoc()) {
+                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                         $values = explode(',', $row['jobRole']);
                         $roleValues = array_merge($roleValues, $values);
                     }
@@ -259,11 +264,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <ul>
 
                     <?php
-                    $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                    if ($query->num_rows > 0) {
+                    $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                    $query->execute([':email' => $email]);
+                    // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                    if ($query->rowCount() > 0) {
                         $roleValues = array();
 
-                        while ($row = $query->fetch_assoc()) {
+                        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                             $values = explode(',', $row['jobRole']);
                             $roleValues = array_merge($roleValues, $values);
                         }

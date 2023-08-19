@@ -1,10 +1,11 @@
 <?php
 // session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Email.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $acc = new Account();
+$db = new DbClass();
 
 if (isset($_POST['change_email'])) {
     $email_identifier = $_SESSION['email'];
@@ -12,36 +13,34 @@ if (isset($_POST['change_email'])) {
     $old_email = $_POST['currentEmail'];
     $new_email = $_POST['newEmail'];
 
-    $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email_identifier'");
-
+    $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+    $query->execute([':email' => $email_identifier]);
+    
     if ($old_email === "" && $new_email === "") {
         $output['error'] = "Incomplete Details!";
     } else if ($old_email !== $email_identifier) {
         $output['error'] = "Email address does not match!";
     } else if ($new_email === $email_identifier || $new_email === "") {
         $output['error'] = "Please provide new email address!";
-    } else if ($sql->num_rows > 0) {
-        $stmt = $con->prepare("UPDATE account SET email = ? WHERE email = ?");
-        $stmt->bind_param("ss", $new_email, $old_email);
-        $stmt->execute();
+    } else if ($query->rowCount() > 0) {
+        $query = $db->connect()->prepare("UPDATE account SET email = :new_email WHERE email = :old_email");
+        $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
 
-        if ($stmt) {
-            $stmt1 = $con->prepare("UPDATE profile SET email = ? WHERE email = ?");
-            $stmt1->bind_param("ss", $new_email, $old_email);
-            $stmt1->execute();
+        if ($result) {
+            $query = $db->connect()->prepare("UPDATE profile SET email = :new_email WHERE email = :old_email");
+            $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
+            
+            if ($result) {
+                $query = $db->connect()->prepare("UPDATE catalog SET email = :new_email WHERE email = :old_email");
+                $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
 
-            if ($stmt1) {
-                $stmt2 = $con->prepare("UPDATE catalog SET email = ? WHERE email = ?");
-                $stmt2->bind_param("ss", $new_email, $old_email);
-                $stmt2->execute();
-
-                if ($stmt2) {
+                if ($result) {
                     $_SESSION['email'] = $new_email;
                     $output['success'] = "Email address updated successfully";
                 }
             }
         }
-    } else if ($sql->num_rows < 0) {
+    } else if ($query->rowCount() < 0) {
         $output['error'] = "Email address does not match!";
     }
     echo json_encode($output);
@@ -55,10 +54,11 @@ if (isset($_POST['change_password'])) {
     $reNew_pass = $_POST['newPass2'];
     $encrypted_password = $acc->encrypt_password($new_pass);
 
-    $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email_identifier'");
-    $row = mysqli_fetch_assoc($sql);
+    $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+    $query->execute([':email' => $email_identifier]);
+    $row = $query->fetch(PDO::FETCH_ASSOC);
     $old_hash = $row['password'];
-    if ($sql->num_rows > 0) {
+    if ($query->rowCount() > 0) {
         if ($new_pass !== $reNew_pass) {
             $output['error'] = "Password was not matched!";
         } else if ($old_pass === "" && $new_pass === "" && $reNew_pass === "") {
@@ -67,11 +67,10 @@ if (isset($_POST['change_password'])) {
             if (!password_verify($old_pass, $old_hash)) {
                 $output['error'] = "Incorrect password! Please try again.";
             } else if (password_verify($old_pass, $old_hash)) {
-                $stmt = $con->prepare("UPDATE account SET password = ? WHERE email = ?");
-                $stmt->bind_param("ss", $encrypted_password, $email_identifier);
-                $stmt->execute();
-
-                if ($stmt) {
+                $query = $db->connect()->prepare("UPDATE account SET password = :password WHERE email = :email");
+                $result = $query->execute([':password' => $encrypted_password, ':email' => $email_identifier]);
+               
+                if ($result) {
                     $output['success'] = "Password has been changed.";
                 }
             }

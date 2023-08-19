@@ -1,17 +1,18 @@
 <?php
 // session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Email.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
+
+$db = new DbClass();
 
 if (isset($_POST['login'])) {
     $email = $_POST["email"];
     $password = $_POST["pass"];
 
-
-    $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email'");
-    $query = mysqli_num_rows($sql);
-    $fetch = mysqli_fetch_assoc($sql);
+    $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+    $query->execute([':email' => $email]);
+    $fetch = $query->fetch(PDO::FETCH_ASSOC);
     $fetch_password = $fetch['password'];
 
     if ($email == "" && $password == "") {
@@ -20,7 +21,7 @@ if (isset($_POST['login'])) {
         $output['error'] = "Please enter your email address!";
     } else if ($password == "") {
         $output['error'] = "Please enter your password!";
-    } else if ($sql->num_rows == 0) {
+    } else if ($query->rowCount() == 0) {
         $output['error'] = "Email Address do not exist!";
     } else if (!password_verify($password, $fetch_password) || $email !== $fetch['email']) {
         $output['error'] = "Email address and password are not matched!";

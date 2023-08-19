@@ -1,10 +1,13 @@
 <?php
-session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+// session_start();
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+
+$db = new DbClass();
 
 $user_id = $_SESSION['account_id'];
-$sql = mysqli_query($con, "SELECT * FROM account WHERE account_id = '$user_id'");
-$fetch = $sql->fetch_all();
+$query = $db->connect()->prepare("SELECT * FROM account WHERE account_id = :account_id");
+$query->execute([':account_id' => $user_id]);
+$fetch = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +69,10 @@ $fetch = $sql->fetch_all();
 
             <div class="containerLeft-Feed" id="post_container">
                 <?php
-                $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                foreach ($fetch_post as $row) {
+                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                $result = $query->execute();
+                // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                foreach ($query as $row) {
                     $currentDateTime = $row['posted_date'];
                     $dateTimeObj = new DateTime($currentDateTime);
                     $posted_date = $dateTimeObj->format("F d, Y h:i A");
@@ -92,7 +97,7 @@ $fetch = $sql->fetch_all();
                     </div>
                 </div> ';
                 }
-                if ($fetch_post === false) {
+                if ($result === false) {
                     echo '<div class="noResult">
                                 <div class="noResultIMG">
                                     <img id="noIMG" src="../img/search.png" alt="">
