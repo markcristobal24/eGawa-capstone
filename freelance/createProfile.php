@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- end --links for fonts -->
 
 
@@ -22,34 +23,57 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <!-- Link for CSS -->
     <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="../css/createProfile.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script> -->
 
 
 </head>
+<style>
+
+</style>
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
 
-    
-    
+
+
     <div class="container">
 
         <p class="createProfileTitle">Create Profile</p>
         <hr>
         <form id="create_profile" method="POST" enctype="multipart/form-data">
-            
+
             <div class="div1">
-                <div id="imgUpl">
-                    <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
-                    <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                        <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
+                <div class="uploadIMG">
+
+                    <!-- <div id="imgUpl">
+                        <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
+                        </div>
                     </div>
-                    <input id="uploadInput" type="file" name="imageProfile" accept="image/*" onchange="loadImage(event)"
-                        required>
+
+
+                    <div class="custom-file-input">
+                        <label for="file-input" class="custom-file-label">
+                            <span><img id="upIMG" src="../img/up2.png" alt=""></span>
+                        </label>
+                        <input type="file" id="file-input" class="actual-file-input" accept="image/*"
+                            onchange="loadImage(event)" required />
+                    </div> -->
+
+                    <div class="upload">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
+                        <div class="round">
+                            <input type="file" name="imageProfile" id="file-input" accept="image/*"
+                            onchange="loadImage(event)" required > 
+                            <i class="fa fa-camera" style="color: #fff;"></i>
+                        </div>
+                    </div>
                 </div>
+
+
                 <hr>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">

@@ -42,34 +42,16 @@ $fetch = $sql->fetch_all();
         <div class="containerLeft">
             <div class="containerLeft-Nav">
                 <span class=catalogNavtitle>Catalogs</span>
-                <!-- <div class="left-nav-dropdown">
-                    <div class="dropdownOption">
-                        <form id="filterpost_form" method="POST">
-                            <select id="filterOption" name="filterOption"
-                                onchange="new Posts().filter_post(this.value);">
-                                <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="left-nav-search">
-                    <form class="d-flex">
-                        <input class="form-control me-2 search" type="text" id="search_post"
-                            onkeyup="new Posts().search_post(this.value);" placeholder="Search a tag"
-                            aria-label="Search">
-                    </form>
-                </div> -->
+                <div class="left-nav">
+                    <button class=addCatalog>Add Catalog</button>
+                </div> 
             </div>
 
             <div class="containerLeft-Feed" id="post_container">
 
                 <div class="containerPost">
                     <div class="containerImg">
-                        <img id="containerImg" src="../img/upload.png" alt="">
+                        <img id="containerImg" src="../img/work2.png" alt="">
                     </div>
                     <div class="containerCatalog">
                         <span class="titlePost">Sample Title</span>
@@ -95,39 +77,9 @@ $fetch = $sql->fetch_all();
                                 Aldus PageMaker including versions of Lorem Ipsum.
                         </p>
                         <div>
-                            <button id="viewPostBTN">View Post</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="containerPost">
-                    <div class="containerImg">
-                        <img id="containerImg" src="../img/upload.png" alt="">
-                    </div>
-                    <div class="containerCatalog">
-                        <span class="titlePost">Sample Title</span>
-                        <div>
-                            <span class="author">Author: </span>
-                            <span class="userPost">Arebeen</span>
-                        </div>
-
-                        <div>
-                            <span class="locationPost">Hagonoy, Bulacan</span>
-                            <span>•</span>
-                            <span class="datePost">January 01, 1969</span>
-                        </div>
-
-                        <p class="descPost">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, 
-                                but also the leap into electronic typesetting, remaining essentially unchanged. 
-                                It was popularised in the 1960s with the release of Letraset sheets containing 
-                                Lorem Ipsum passages, and more recently with desktop publishing software like 
-                                Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                        <div>
-                            <button id="viewPostBTN">View Post</button>
+                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">View Catalog</button>
+                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                View Catalog</button> -->
                         </div>
                     </div>
                 </div>
@@ -142,6 +94,7 @@ $fetch = $sql->fetch_all();
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
@@ -155,8 +108,9 @@ $fetch = $sql->fetch_all();
                         <span class="star" data-value="4"></span>
                         <span class="star" data-value="5"></span>
                     </div>
-                    <div id="verifyFreelanceAccDiv"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
-                    Account</a></div>
+                        <div id="verifyFreelanceAccDiv">
+                            <a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify Account</a>
+                        </div>
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                         <ul>
                             <li>job1</li>
@@ -180,48 +134,36 @@ $fetch = $sql->fetch_all();
                     
                 </div>
             </div>
-            <!-- <div class="userPost">
-                <div class="userPostChild">
-                    <div class="toFlex">
-                        <p class="postTitle">Post a Job</p>
-                    </div>
+        </div>
+    </div>
 
-                    <form id="post_form" method="POST">
-                        <div class="toFlex">
-                            <div class="dropdownOptionPost">
-                                <select id="filterOptionPost" name="post_category">
-                                    <option value="Website Development">Website Development</option>
-                                    <option value="Mobile Development">Mobile Development</option>
-                                    <option value="Website Hosting">Website Hosting</option>
-                                    <option value="Multimedia">Multimedia</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <input type="text" id="title" name="post_title" placeholder="Job Title" required>
-
-                        <div class="descContainer">
-                            <textarea id="description" placeholder="Job Description" name="post_description"></textarea>
-                        </div>
-
-                        <input type="text" id="tags" name="post_tags" placeholder="Tags" required>
-
-                        <div class="rateInput input-group mb-3 mt-2">
-
-                            <span class="input-group-text">&#8369;</span>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                                name="rate" placeholder="Enter rate" required>
-                            <span class="input-group-text">.00</span>
-                        </div>
-
-                        <div class="btns">
-                            <input id="submitPost" class="btn" type="button" value="Submit"
-                                onclick="new Posts().post();">
-                            <input id="clearPost" class="btn" type="button" value="Clear">
-                        </div>
-                    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Catalog title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="containerImg">
+                    <img id="containerImg" src="../img/work2.png" alt="">
                 </div>
-            </div> -->
+                ...
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
         </div>
     </div>
 
@@ -250,15 +192,10 @@ $fetch = $sql->fetch_all();
         </div>
     </div>
 
-    <script>
-    // JavaScript to make the textarea auto-resize
-    const textarea = document.getElementById('description');
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    </div>
 
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto'; // Reset height to auto
-        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    });
-    </script>
+
 
 
     <script src="../js/script.js "></script>
