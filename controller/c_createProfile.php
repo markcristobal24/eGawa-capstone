@@ -1,8 +1,11 @@
 <?php
 //session_start();
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+// require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Image.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
+
+$db = new DbClass();
 
 if (isset($_POST['create_fprofile'])) {
     $email = $_SESSION['email'];
@@ -32,27 +35,23 @@ if (isset($_POST['create_fprofile'])) {
     $jobDesc = trim($jobDesc);
     $jobDesc = htmlspecialchars($jobDesc);
 
-
-    $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email' ");
-    $check_rows = mysqli_num_rows($sql);
-    $fetch = mysqli_fetch_assoc($sql);
+    $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+    $query->execute([':email' => $email]);
+    $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     $account_id = $fetch['account_id'];
 
 
-    if ($check_rows > 0) {
-        //$result = mysqli_query($con, "INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES ('$account_id', '$email', '$imageData', '$optionsString', '$address', '$company', '$workTitle', '$startDate', '$endDate', '$jobDesc')");
+    if ($query->rowCount() > 0) {
+        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (:account_id, :email, :imageProfile, :jobRole, :address, :companyName, :workTitle, :startDate, :endDate, :jobDescription)");
+        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':address' => $address, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]); 
 
-        $stmt = $con->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssss", $account_id, $email, $image_link, $optionsString, $address, $company, $workTitle, $startDate, $endDate, $jobDesc);
-        $stmt->execute();
-
-
-        $result = mysqli_query($con, "UPDATE account SET profileStatus = 1 WHERE email = '$email'");
-        if ($result) {
+        if($result) {
+            $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
+            $query->execute([':email' => $email]);
             $output['success'] = "Profile Created. Redirecting...";
-            //header('location: ../freelance/freelanceHomePage.php');
         }
+       
 
     } else if ($profileImg == null) {
         $output['error'] = "Please upload your profile picture!";
@@ -76,17 +75,18 @@ if (isset($_POST['create_fprofile'])) {
 if (isset($_POST['edit_fprofile'])) {
     //declare account identifier
     $email_identifier = $_SESSION['email'];
-    $sql = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email_identifier'");
-    $fetch = $sql->fetch_assoc();
+
+    $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+    $query->execute([':email' => $email_identifier]);
+    $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     if (isset($_POST['editAddress'])) {
         $new_address = $_POST['editAddress'];
         $old_address = $fetch['address'];
 
         if ($new_address != $old_address) {
-            $stmt = $con->prepare("UPDATE profile SET address = ? WHERE email = ?");
-            $stmt->bind_param("ss", $new_address, $email_identifier);
-            $stmt->execute();
+            $query = $db->connect()->prepare("UPDATE profile SET address = :address WHERE email = :email");
+            $result = $query->execute([':address' => $new_address, ':email' => $email_identifier]);
         }
     }
 
@@ -100,9 +100,8 @@ if (isset($_POST['edit_fprofile'])) {
             $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
             $image_link = "v" . $data['version'] . "/" . $data['public_id'];
 
-            $stmt = $con->prepare("UPDATE profile SET imageProfile = ? WHERE email = ?");
-            $stmt->bind_param("ss", $image_link, $email_identifier);
-            $stmt->execute();
+            $query = $db->connect()->prepare("UPDATE profile SET imageProfile = :imageProfile WHERE email = :email");
+            $result = $query->execute([':imageProfile' => $image_link, ':email' => $email_identifier]);
         }
     }
 
@@ -111,13 +110,12 @@ if (isset($_POST['edit_fprofile'])) {
         $jobRole = implode(',', $selectedData);
 
         if ($jobRole != $fetch['jobRole']) {
-            $stmt = $con->prepare("UPDATE profile SET jobRole = ? WHERE email = ?");
-            $stmt->bind_param("ss", $jobRole, $email_identifier);
-            $stmt->execute();
+            $query = $db->connect()->prepare("UPDATE profile SET jobRole = :jobRole WHERE email = :email");
+            $result = $query->execute([':jobRole' => $jobRole, ':email' => $email_identifier]);
         }
     }
 
-    if ($stmt) {
+    if ($result) {
         $output['success'] = "Profile Updated Successfully";
     } else {
         $output['error'] = "Something went wrong. Please try again.";

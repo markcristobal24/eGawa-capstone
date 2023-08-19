@@ -92,6 +92,18 @@ $fetch = $sql->fetch_all();
                     </div>
                 </div> ';
                 }
+                if ($fetch_post === false) {
+                    echo '<div class="noResult">
+                                <div class="noResultIMG">
+                                    <img id="noIMG" src="../img/search.png" alt="">
+                                </div>
+                                <div class="noResultText">
+                                    <span>
+                                    No post available
+                                    </span>
+                                </div>
+                            </div>';
+                }
                 ?>
             </div>
 

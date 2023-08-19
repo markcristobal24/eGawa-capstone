@@ -1,8 +1,11 @@
 <?php
 //session_start();
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
-require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+// require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Image.php";
+
+$db = new DbClass();
 
 if (isset($_POST['add_catalog'])) {
     $email = $_SESSION['email'];
@@ -30,15 +33,14 @@ if (isset($_POST['add_catalog'])) {
         $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
         $image_link = "v" . $data['version'] . "/" . $data['public_id'];
 
-        $sql = mysqli_query($con, "SELECT * FROM account WHERE email = '$email' ");
-        $check_rows = mysqli_num_rows($sql);
-
-        if ($check_rows > 0) {
-            $stmt = $con->prepare("INSERT INTO catalog (account_id, email, catalogImage, catalogTitle, catalogDescription) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $account_id, $email, $image_link, $catalogTitle, $catalogDesc);
-            $stmt->execute();
-
-            if ($stmt) {
+        $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+        $query->execute([':email' => $email]);
+    
+        if ($query->rowCount() > 0) {
+            $query = $db->connect()->prepare("INSERT INTO catalog (account_id, email, catalogImage, catalogTitle, catalogDescription) VALUES (:account_id, :email, :catalogImage, :catalogTitle, :catalogDescription)");
+            $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':catalogImage' => $image_link, ':catalogTitle' => $catalogTitle, ':catalogDescription' => $catalogDesc]);
+    
+            if ($result) {
                 $output['success'] = "Catalog Added Successfully.";
             } else {
                 $output['error'] = "Something went wrong. Please try again later.";
@@ -64,8 +66,10 @@ if (isset($_POST['sessionValue'])) {
 if (isset($_POST['edit_catalog'])) {
     $catalog_id = $_POST['catalog_id'];
     $stmt = null;
-    $sql = mysqli_query($con, "SELECT * FROM catalog WHERE catalog_id = '$catalog_id'");
-    if ($sql->num_rows > 0) {
+
+    $query = $db->connect()->prepare("SELECT * FROM catalog WHERE catalog_id = :catalog_id");
+    $query->execute([':catalog_id' => $catalog_id]);
+    if ($query->rowCount() > 0) {
         if (isset($_FILES['catalogImg']['tmp_name'])) {
             $new_catalogImg = $_FILES['catalogImg']['tmp_name'];
             $image_link = $new_catalogImg;
@@ -76,18 +80,16 @@ if (isset($_POST['edit_catalog'])) {
                 $data = $upload_image->upload_image($new_catalogImg, $image_filename, "egawa/freelancer/catalog/");
                 $image_link = "v" . $data['version'] . "/" . $data['public_id'];
 
-                $stmt = $con->prepare("UPDATE catalog SET catalogImage = ? WHERE catalog_id = ?");
-                $stmt->bind_param("ss", $image_link, $catalog_id);
-                $stmt->execute();
+                $query = $db->connect()->prepare("UPDATE catalog SET catalogImage = :catalogImage WHERE catalog_id = :catalog_id");
+                $result = $query->execute([':catalogImage' => $image_link, ':catalog_id' => $catalog_id]);
             }
         }
 
         if (isset($_POST['catalogTitleEdit']) && $_POST['catalogTitleEdit'] !== "") {
             $new_catalogTitle = $_POST['catalogTitleEdit'];
 
-            $stmt = $con->prepare("UPDATE catalog SET catalogTitle = ? WHERE catalog_id = ?");
-            $stmt->bind_param("ss", $new_catalogTitle, $catalog_id);
-            $stmt->execute();
+            $query = $db->connect()->prepare("UPDATE catalog SET catalogTitle = :catalogTitle WHERE catalog_id = :catalog_id");
+            $result = $query->execute([':catalogTitle' => $new_catalogTitle, ':catalog_id' => $catalog_id]);
         }
 
         if (isset($_POST['catalogEditDescription']) && $_POST['catalogEditDescription'] !== "") {
@@ -95,11 +97,10 @@ if (isset($_POST['edit_catalog'])) {
             $new_catalogDesc = trim($new_catalogDesc);
             $new_catalogDesc = htmlspecialchars($new_catalogDesc);
 
-            $stmt = $con->prepare("UPDATE catalog SET catalogDescription = ? WHERE catalog_id = ?");
-            $stmt->bind_param("ss", $new_catalogDesc, $catalog_id);
-            $stmt->execute();
+            $query = $db->connect()->prepare("UPDATE catalog SET catalogDescription = :catalogDescription WHERE catalog_id = :catalog_id");
+            $result = $query->execute([':catalogDescription' => $new_catalogDesc, ':catalog_id' => $catalog_id]);
         }
-        if ($stmt) {
+        if ($result) {
             $output['success'] = "Catalog Updated Successfully";
         } else {
             $output['error'] = "Please provide the details you want to edit.";

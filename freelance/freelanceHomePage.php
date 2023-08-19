@@ -351,7 +351,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedEditImage" src="../img/upload.png" alt="Uploaded Image" height="200">
+                            <img id="uploadedEditImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
                         </div>
                         <input id="uploadInputEdit" type="file" name="imageProfile" accept="image/*"
                             onchange="editImgUp(event)">
@@ -425,7 +425,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div id="imgUpl">
                         <label class="labelImage" for="uploadInput">Upload Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
+                            <img id="uploadedImageCatalog" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
                         </div>
                         <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
                             onchange="catalogImgUp(event)" required>
@@ -478,7 +478,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                         <label class="labelImage" for="uploadInput">Edit Catalog Picture</label>
                         <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                            <img id="uploadedEditImageCatalog" src="../img/upload.png" alt="Uploaded Image"
+                            <img id="uploadedEditImageCatalog" src="../img/uploadIMG.png" alt="Uploaded Image"
                                 height="200">
                         </div>
                         <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
