@@ -56,7 +56,8 @@
                     <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages</a>
+                    <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages <span
+                            class="badge text-bg-secondary bg-danger">0</span></a>
                 </li>
                 <li class="nav-item dropdown">
 
