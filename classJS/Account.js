@@ -187,7 +187,7 @@ class Account {
         let button_value = new Account().get_button_value("create_profile");
         new Account().button_loading("create_profile", "loading", "");
 
-        var form_data = new FormData(document.getElementById('create_profile'));
+        var form_data = new FormData(document.getElementById('create_profileForm'));
         form_data.append('create_fprofile', 'create_fprofile');
         fetch('../controller/c_createProfile.php', {
             method: "POST",

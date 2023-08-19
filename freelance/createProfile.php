@@ -23,26 +23,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/notification.css">
     <link rel="stylesheet" href="../css/createProfile.css">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
 
 </head>
-<style>
 
-</style>
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
 
-
+    <?php print_r($_SESSION);
+    print_r($_POST); ?>
 
     <div class="container">
 
         <p class="createProfileTitle">Create Profile</p>
         <hr>
-        <form id="create_profile" method="POST" enctype="multipart/form-data">
+        <form id="create_profileForm" method="POST" enctype="multipart/form-data">
 
             <div class="div1">
                 <div class="uploadIMG">
@@ -64,10 +63,11 @@
                     </div> -->
 
                     <div class="upload">
-                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt=""
+                            class="uploadPic">
                         <div class="round">
                             <input type="file" name="imageProfile" id="file-input" accept="image/*"
-                            onchange="loadImage(event)" required > 
+                                onchange="loadImage(event)" required>
                             <i class="fa fa-camera" style="color: #fff;"></i>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="button" id="" name="btnCreateFreelanceProfile" class="btn btn-primary"
+                    <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary"
                         onclick="new Account().create_fprofile();">
                         Continue
                     </button>

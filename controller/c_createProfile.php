@@ -10,7 +10,7 @@ if (isset($_POST['create_fprofile'])) {
     //$imageData = file_get_contents($profileImg);
 
     $image_link = $profileImg;
-    if ($profileImg != $_SESSION['imageProfile']) {
+    if ($profileImg != "") {
         $upload_image = new Image();
         $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
         $image_link = "v" . $data['version'] . "/" . $data['public_id'];
@@ -54,7 +54,7 @@ if (isset($_POST['create_fprofile'])) {
             //header('location: ../freelance/freelanceHomePage.php');
         }
 
-    } else if ($profile_img == null) {
+    } else if ($profileImg == null) {
         $output['error'] = "Please upload your profile picture!";
     } else if ($selectedData == "") {
         $output['error'] = "Please select your job role!";
