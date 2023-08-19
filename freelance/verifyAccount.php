@@ -22,6 +22,7 @@ if (!isset($_SESSION["otp"])) {
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/verifyAccount.css" />
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -33,8 +34,9 @@ if (!isset($_SESSION["otp"])) {
 
 <body>
     <?php print_r($_SESSION); ?>
+    <div class="toast_notif" id="toast_notif"></div>
     <div class="containerVerify">
-        <form action="#" method="post">
+        <form id="verify_form" method="post">
             <p class="verifyTitle">Verify Account</p>
 
             <div class="form-floating mb-3">
@@ -44,7 +46,8 @@ if (!isset($_SESSION["otp"])) {
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-primary" name="btnVerify" id="btnVerify">
+                <button type="button" class="btn btn-primary" name="btnVerify" onclick="new Account().verify_otp();"
+                    id="btnVerify">
                     Verify
                 </button>
             </div>
@@ -96,34 +99,10 @@ if (!isset($_SESSION["otp"])) {
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="../js/script.js"></script>
-    <script src="../js/validate.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
+
 
 </body>
 
 </html>
-
-<?php
-include('../php/classes/DbConnection.php');
-require_once dirname(__FILE__) . '/../php/classes/Email.php';
-if (isset($_POST["btnVerify"])) {
-    $otp = $_SESSION['otp'];
-    $email = $_SESSION['mail'];
-    $otp_code = $_POST['otp_code'];
-
-    if ($otp != $otp_code) {
-        ?>
-<script>
-//invalidOtp();
-</script>
-<?php
-    } else {
-        mysqli_query($con, "UPDATE account SET status = 1 WHERE email = '$email'");
-        ?>
-<script>
-alert('sucess otp');
-window.location.replace("../login.php");
-</script>
-<?php
-    }
-}
-?>

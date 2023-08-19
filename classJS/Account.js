@@ -211,6 +211,33 @@ class Account {
         });
     }
 
+    verify_otp() {
+        let button_value = new Account().get_button_value("btnVerify");
+        new Account().button_loading("btnVerify", "loading", "");
+
+        var form_data = new FormData(document.getElementById('verify_form'));
+        form_data.append('verify_otp', 'verify_otp');
+        fetch('../controller/c_otp.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            if (response_data.success) {
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.replace('../login.php');
+                    window.clearTimeout(tID);
+                }, 1500);
+            }
+            else if (response_data.error) {
+                new Account().button_loading("btnVerify", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     edit_fprofile() {
         let button_value = new Account().get_button_value("edit_fprofile");
         new Account().button_loading("edit_fprofile", "loading", "");
