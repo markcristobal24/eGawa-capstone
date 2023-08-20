@@ -3,12 +3,12 @@ session_start();
 
 class DbClass
 {
-    public $dbHost = "sql6.freemysqlhosting.net";
+    public $dbHost = "localhost";
 
-    public $dbUser = "sql6641111";
+    public $dbUser = "root";
 
-    public $dbPassword = "mVxhuxRvXd";
-    public $dbName = "sql6641111";
+    public $dbPassword = "";
+    public $dbName = "egawa";
 
 
     public $con;

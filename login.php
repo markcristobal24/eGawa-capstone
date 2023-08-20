@@ -35,7 +35,7 @@
 <body>
     <div class="toast_notif" id="toast_notif"></div>
 
-    
+
     <div class="container">
         <div class="left">
             <p class="title1">
