@@ -12,8 +12,11 @@ if (isset($_POST['login'])) {
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email]);
-    $fetch = $query->fetch(PDO::FETCH_ASSOC);
-    $fetch_password = $fetch['password'];
+    if ($query->rowCount() > 0) {
+        $fetch = $query->fetch(PDO::FETCH_ASSOC);
+        $fetch_password = $fetch['password'];
+    }
+    
 
     if ($email == "" && $password == "") {
         $output['error'] = "Incomplete Details!";
