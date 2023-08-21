@@ -43,7 +43,7 @@ $fetch = $sql->fetch_all();
             <div class="containerLeft-Nav">
                 <span class=catalogNavtitle>Catalogs</span>
                 <div class="left-nav">
-                    <button class=addCatalog>Add Catalog</button>
+                    <button class=addCatalog data-bs-toggle="modal" data-bs-target="#add_catalog_modal">Add Catalog</button>
                 </div> 
             </div>
 
@@ -88,9 +88,6 @@ $fetch = $sql->fetch_all();
         </div>
 
         <div class="containerRight">
-            <!-- <div class="containerRight-Nav">
-
-            </div> -->
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
@@ -98,9 +95,11 @@ $fetch = $sql->fetch_all();
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
+
                     <p id="freelanceUsername">
                         @sampleusername
                     </p>
+
                     <div class="rating">
                         <span class="star" data-value="1"></span>
                         <span class="star" data-value="2"></span>
@@ -108,37 +107,43 @@ $fetch = $sql->fetch_all();
                         <span class="star" data-value="4"></span>
                         <span class="star" data-value="5"></span>
                     </div>
-                        <div id="verifyFreelanceAccDiv">
-                            <a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify Account</a>
-                        </div>
+
+                    <div id="verifyFreelanceAccDiv">
+                        <a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify Account</a>
+                    </div>
+
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                         <ul>
                             <li>job1</li>
                             <li>job2</li>
                             <li>job3</li>
                         </ul>
-                        <div class="flexDiv">
-                <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                <div class="freelanceAddress">
-                    sample address
-                </div>
-            </div>
-            <div class="flexDiv">
-                <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                <div class="freelanceEmail">
-                    sampleemail@gmail.com
-                </div>
-            </div>
-            <div id="viewmore">View More</div>
-            <div>
-                    
+
+                    <div class="flexDiv">
+                        <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                        <div class="freelanceAddress">
+                            sample address
+                        </div>
+                    </div>
+
+                    <div class="flexDiv">
+                        <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                        <div class="freelanceEmail">
+                            sampleemail@gmail.com
+                        </div>
+                    </div>
+
+                    <button class=""class="" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
+                  
                 </div>
             </div>
         </div>
+
+
     </div>
 
 
-    <!-- Modal -->
+    <!-- Modal for view catalog-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -160,8 +165,119 @@ $fetch = $sql->fetch_all();
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding catalog-->
+    <div class="modal fade" id="add_catalog_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Catalog title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="containerImg">
+                    <img id="containerImg" src="../img/work2.png" alt="">
+                </div>
+                ...
+                ADDING CATALOG
+            </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for view profile-->
+    <div class="modal fade" id="view_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Your Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+
+                    <p id="userName">
+                        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                    </p>
+
+                    <p id="freelanceUsername">
+                        @sampleusername
+                    </p>
+
+                    <div class="flexDiv">
+                        <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                        <div class="freelanceAddress">
+                            sample address
+                        </div>
+                    </div>
+
+                    <div class="flexDiv">
+                        <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                        <div class="freelanceEmail">
+                            sampleemail@gmail.com
+                        </div>
+                    </div>
+
+                    <div class="rating">
+                        <span class="star" data-value="1"></span>
+                        <span class="star" data-value="2"></span>
+                        <span class="star" data-value="3"></span>
+                        <span class="star" data-value="4"></span>
+                        <span class="star" data-value="5"></span>
+                    </div>
+
+                    <div id="jobsAndRole1">
+                        Jobs and Roles:
+                    </div>
+                        
+                    <ul>
+                        <li>job1</li>
+                        <li>job2</li>
+                        <li>job3</li>
+                    </ul>
+                    <div>
+                        <div>
+                            Work Experience
+                        </div>
+                        <div>
+                            <div>
+                                <p>company name: </p> <span>PLDC</span>
+                            </div>
+                            <div>
+                                <p>date started: </p> <span>Feb 14, 1969</span>
+                            </div>
+                            <div>
+                                <p>date ended: </p> <span>Feb 14, 1970</span>
+                            </div>
+                        </div>
+                    </div> 
+                    <div>
+                        <div>
+                            Job Description
+                        </div>
+                        <div>
+                            <span>
+                                This is a sample job description
+                            </span>
+                        </div>
+                    </div>                  
+                  
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-primary">Verify</button>
             </div>
             </div>
         </div>
