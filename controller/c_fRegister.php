@@ -33,7 +33,7 @@ if (isset($_POST['registerFreelance'])) {
         $output['error'] = "Username already exist!";
     } else {
         $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) VALUES (:firstName, :middleName, :lastName, :username, :email, :password, :userType, :status)");
-        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':username' => $username, ':email' => $email, ':password' => $password, ':userType' => $user_type, ':status' => 0]);
+        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $user_type, ':status' => 0]);
         
         if ($result) {
            $_SESSION['mail'] = $email;
