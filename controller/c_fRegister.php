@@ -19,17 +19,19 @@ if (isset($_POST['registerFreelance'])) {
     $user_type = "freelancer";
     $encrypted = $acc->encrypt_password($password);
 
-    $query = $db->connect()->prepare("SELECT * FROM account");
-    $query->execute();
-    $fetch = $query->fetch(PDO::FETCH_ASSOC);    
+    $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
+    $query->execute([':email' => $email]);
+    
+    $query2 = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
+    $query2->execute([':username' => $username]);
 
     if ($firstName === "" || $middleName === "" || $lastName === "" || $username === "" || $email === "" || $password === "") {
         $output['error'] = "Incomplete Details!";
-    } else if ($email == $fetch['email']) {
+    } else if ($query->rowCount() > 0) {
         $output['error'] = "Email address already exist!";
     } else if ($password !== $password2) {
         $output['error'] = "Password was not matched!";
-    } else if ($username == $fetch['username']) {
+    } else if ($query2->rowCount() > 0) {
         $output['error'] = "Username already exist!";
     } else {
         $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) VALUES (:firstName, :middleName, :lastName, :username, :email, :password, :userType, :status)");

@@ -68,7 +68,7 @@
                     </div>
                     <div class="btns">
                         <button class="submitBTN" type="submit">Update</button>
-                        <button class="backBTN" type="button">Back</button>
+                        <button class="backBTN" type="button" onclick="window.history.back();">Back</button>
                     </div>
                 </div>
             </form>
@@ -100,7 +100,7 @@
     <script src="../classJS/Notification.js"></script>
 </body>
 <script>
-    new Account().fetch_user();
+new Account().fetch_user();
 </script>
 
 </html>
