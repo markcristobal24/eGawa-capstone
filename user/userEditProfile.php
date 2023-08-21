@@ -42,7 +42,7 @@
         <hr>
         <div class="formContainer">
 
-            <form action="">
+            <form id="editProfile_form" method="POST" enctype="multipart/form-data">
                 <div class="left">
                     <div class="leftChild">
                         <div class="imgCont">
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="input-group mb-3 mt-3">
-                            <input type="file" class="form-control" id="imageInput" accept="image/*"
+                            <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*"
                                 onchange="editUserIMG(event)">
                         </div>
                     </div>
@@ -61,13 +61,14 @@
                             <span class="personalInfoTitle">Personal Information</span>
                         </div>
                         <label for="addr">Address</label>
-                        <input id="addr" type="text" value="" class="text">
+                        <input id="addr" type="text" value="" name="new_address" class="text">
 
                         <label for="uname">Username</label>
-                        <input id="uname" type="text" value="" class="text">
+                        <input id="uname" type="text" value="" name="new_username" class="text">
                     </div>
                     <div class="btns">
-                        <button class="submitBTN" type="submit">Update</button>
+                        <button class="submitBTN" type="button" id="update_profile"
+                            onclick="new Account().update_uProfile();">Update</button>
                         <button class="backBTN" type="button" onclick="window.history.back();">Back</button>
                     </div>
                 </div>

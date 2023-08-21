@@ -107,7 +107,9 @@
         </div>
 
         <div class="div1">
-            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+            <img id="userPic"
+                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>"
+                alt="user profile" title="user profile">
             <h2 id="userName">
                 <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
             </h2>

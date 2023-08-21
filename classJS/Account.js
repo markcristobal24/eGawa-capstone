@@ -265,6 +265,36 @@ class Account {
         });
     }
 
+    update_uProfile() {
+        console.log('hi');
+        let button_value = new Account().get_button_value("update_profile");
+        new Account().button_loading("update_profile", "loading", "");
+
+        let form_data = new FormData(document.getElementById('editProfile_form'));
+        form_data.append('update_profile', 'update_profile');
+        fetch('../controller/c_uAccount.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            new Account().button_loading("update_profile", "", "Update");
+            console.log(response_data);
+
+            if (response_data.success) {
+                new Account().fetch_user();
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 2000);
+            }
+            else if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     change_email() {
         let button_value = new Account().get_button_value("change_email");
         new Account().button_loading("change_email", "loading", "");

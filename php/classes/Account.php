@@ -20,6 +20,7 @@ class Account extends DbClass
             $data['lastName'] = $row['lastName'];
             $data['userType'] = $row['userType'];
             $data['address'] = $row['address'];
+            $data['user_image'] = $row['user_image'];
         }
         $_SESSION['account_id'] = $data['account_id'];
         $_SESSION['username'] = $data['username'];
@@ -30,6 +31,9 @@ class Account extends DbClass
         $_SESSION['userType'] = $data['userType'];
         if ($data['address'] != "") {
             $_SESSION['address'] = $data['address'];
+        }
+        if ($data['user_image'] != ""){
+            $_SESSION['user_image'] = $data['user_image'];
         }
         json_encode($data);
     }
