@@ -70,7 +70,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="containerLeft-Feed" id="post_container">
                 <?php
                 $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                $result = $query->execute();
+                 $query->execute();
                 // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
                 foreach ($query as $row) {
                     $currentDateTime = $row['posted_date'];
@@ -97,7 +97,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div> ';
                 }
-                if ($result === false) {
+                if ($query->rowCount() <= 0) {
                     echo '<div class="noResult">
                                 <div class="noResultIMG">
                                     <img id="noIMG" src="../img/search.png" alt="">
