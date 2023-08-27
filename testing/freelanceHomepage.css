@@ -271,7 +271,7 @@ body {
         display: flex;
     }
     .modal-body-view-catalog{
-        padding: 20px;
+        padding: 10px 40px;
     }
     .modal-body-view-catalog #containerImg{
         margin: auto;
@@ -299,8 +299,18 @@ body {
         color: #0073aa;
         margin-top: 20px;
     }
-
-
+    /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR ADDING MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+    .modal-body-add{
+        padding: 10px 20px;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    #uploadedImageCatalog{
+        margin-inline: auto;
+    }
 }
 
 /*============================ LAPTOP ===========================*/
