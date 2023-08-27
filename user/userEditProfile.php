@@ -35,47 +35,62 @@
     <?php //print_r($_SESSION); ?>
     <div class="toast_notif" id="toast_notif"></div>
 
-    <div class="mainContainer">
-        <div class="title">
-            <span class="editTitle">Edit Profile</span>
+
+    <div class="container_">
+        <div>
+            <span class="header_title font">Edit Profile</span>
         </div>
-        <hr>
-        <div class="formContainer">
-
+        <hr class="hr">
+        <div class="form_">
+            
             <form id="editProfile_form" method="POST" enctype="multipart/form-data">
-                <div class="left">
-                    <div class="leftChild">
-                        <div class="imgCont">
-                            <img id="imgUpload" class="imgUpload" src="" alt="">
-                        </div>
+                <div class="form_div1">
 
-                        <div class="input-group mb-3 mt-3">
-                            <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*"
-                                onchange="editUserIMG(event)">
+                    <span class="font title" >Edit Information</span>
+                    <div class="imgCont">
+                        <img id="imgUpload" class="imgUpload" src="../img/profile.png" alt="">
+                    </div>
+
+                    <div class="input-group mb-3 mt-3">
+                        <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*" onchange="editUserIMG(event)">
+                    </div>
+
+                    <div class="addr">
+                        <label class="font" for="addr">Address</label>
+                        <input id="addr" type="text" value="" name="new_address" class="text">
+                    </div>
+
+                    <div class="btns">
+                        <div class="end">
+                            <button class="submitBTN btn" type="button" id="update_profile"
+                                onclick="new Account().update_uProfile();">Update</button>
+                            <button class="backBTN btn" type="button" onclick="window.history.back();">Back</button>
                         </div>
                     </div>
-                </div>
-                <div class="right">
-                    <div class="rightChild">
-                        <div class="infoTitle">
-                            <span class="personalInfoTitle">Personal Information</span>
-                        </div>
-                        <label for="addr">Address</label>
-                        <input id="addr" type="text" value="" name="new_address" class="text">
 
-                        <label for="uname">Username</label>
+                </div>
+
+                <div class="form_div2">
+                    <span class="font title">Edit Username</span>
+
+                    <div class="uname">
+                        <label class="font" for="uname">Username</label>
                         <input id="uname" type="text" value="" name="new_username" class="text">
                     </div>
+
                     <div class="btns">
-                        <button class="submitBTN" type="button" id="update_profile"
-                            onclick="new Account().update_uProfile();">Update</button>
-                        <button class="backBTN" type="button" onclick="window.history.back();">Back</button>
+                        <div class="end">
+                            <button class="submitBTN btn" type="button" id="update_profile"
+                                onclick="new Account().update_uProfile();">Update</button>
+                            <button class="backBTN btn" type="button" onclick="window.history.back();">Back</button>
+                        </div>
                     </div>
+
                 </div>
             </form>
-
         </div>
     </div>
+
 
     <div class="custom-shape-divider-bottom-1690684253">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
