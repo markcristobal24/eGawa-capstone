@@ -3,12 +3,19 @@ session_start();
 
 class DbClass
 {
-    public $dbHost = "sql6.freemysqlhosting.net";
+    //SQL HOSTING
+    // public $dbHost = "sql6.freemysqlhosting.net";
 
-    public $dbUser = "sql6641111";
+    // public $dbUser = "sql6641111";
 
-    public $dbPassword = "mVxhuxRvXd";
-    public $dbName = "sql6641111";
+    // public $dbPassword = "mVxhuxRvXd";
+    // public $dbName = "sql6641111";
+
+    //XAMPP HOSTING
+    public $dbHost = "localhost";
+    public $dbUser = "root";
+    public $dbPassword = "";
+    public $dbName = "egawa";
 
 
     public $con;
