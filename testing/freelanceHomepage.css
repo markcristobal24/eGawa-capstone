@@ -87,6 +87,7 @@ body {
 /*============================FOR MEDIA QUERIES=================================*/
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
+
     .containerUserHome {
         display: flex;
         height: 90vh;
@@ -144,8 +145,7 @@ body {
     .containerPost {
         display: flex;
         margin: 20px 0;
-        padding: 10px 30px;
-        /* height: 200px; */
+        padding: 40px 30px;
         height: fit-content;
         font-size: 15px;
         background-color: #f4f4f4ee;
@@ -242,8 +242,63 @@ body {
     }
     #freelanceUsername{
         text-align: center;
+        color: #0073aa;
+    }
+    
+    #verifyFreelanceAcc{
+        text-align: center;
+        text-decoration: none;
+        color: #000000;
+    }
+    .mt-3:hover{
+        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
+        color: #f4f4f4;
+
+        #verifyFreelanceAcc{
+            color: #f4f4f4;
+        }
+    }
+    .flexDiv{
+        display: flex;
+    }
+    .marg{
+        margin-left: 2%;
     }
 
+
+    /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR VIEW CATALOG MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+    .containerImg{
+        display: flex;
+    }
+    .modal-body-view-catalog{
+        padding: 20px;
+    }
+    .modal-body-view-catalog #containerImg{
+        margin: auto;
+        height: 400px;
+    }
+    .container-description{
+        text-align: justify;
+    }
+
+    /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR VIEW MORE MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+    .modal-pic-container, .modal-name-container{
+        display: flex;
+    }
+
+    .modal-pic-container #userPic, .modal-pic-container #userName{
+        margin: auto;
+    }
+
+    .modal-body-view-more{
+        padding: 20px 20px;
+    }
+    .modal-body-view-more .titles, #exampleModalLabel{
+        font-weight: 500;
+        font-size: 20px;
+        color: #0073aa;
+        margin-top: 20px;
+    }
 
 
 }
@@ -265,7 +320,6 @@ body {
 
     .containerLeft {
         flex: 70%;
-        /* background-color: #ddd; */
         margin: 20px;
     }
 
@@ -362,8 +416,6 @@ body {
 
     .containerRight {
         flex: 30%;
-        /* background-color: #ddd; */
-        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
         height: fit-content;
         margin: 20px;
     }
@@ -376,9 +428,7 @@ body {
     }
 
     .userProfile {
-        /* height: 50%; */
         width: 100%;
-
     }
 
     .userPost {

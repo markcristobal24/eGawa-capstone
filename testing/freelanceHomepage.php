@@ -43,7 +43,7 @@ $fetch = $sql->fetch_all();
             <div class="containerLeft-Nav">
                 <span class=catalogNavtitle>Catalogs</span>
                 <div class="left-nav">
-                    <button class=addCatalog data-bs-toggle="modal" data-bs-target="#add_catalog_modal">Add Catalog</button>
+                    <button class=addCatalog data-bs-toggle="modal"  data-bs-target="#staticBackdrop">Add Catalog</button>
                 </div> 
             </div>
 
@@ -108,10 +108,6 @@ $fetch = $sql->fetch_all();
                         <span class="star" data-value="5"></span>
                     </div>
 
-                    <div id="verifyFreelanceAccDiv">
-                        <a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify Account</a>
-                    </div>
-
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                         <ul>
                             <li>job1</li>
@@ -121,19 +117,20 @@ $fetch = $sql->fetch_all();
 
                     <div class="flexDiv">
                         <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                        <div class="freelanceAddress">
+                        <div class="freelanceAddress marg">
                             sample address
                         </div>
                     </div>
 
                     <div class="flexDiv">
                         <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                        <div class="freelanceEmail">
+                        <div class="freelanceEmail marg">
                             sampleemail@gmail.com
-                        </div>
+                        </div>    
                     </div>
 
-                    <button class=""class="" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
+                    <button class="mt-3"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify Account</a></button>
+                    <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
                   
                 </div>
             </div>
@@ -151,10 +148,11 @@ $fetch = $sql->fetch_all();
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Catalog title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body-view-catalog">
                 <div class="containerImg">
                     <img id="containerImg" src="../img/work2.png" alt="">
                 </div>
+                <div class="container-description">
                 ...
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
@@ -163,6 +161,7 @@ $fetch = $sql->fetch_all();
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
                 The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
@@ -172,24 +171,38 @@ $fetch = $sql->fetch_all();
         </div>
     </div>
 
+    
     <!-- Modal for adding catalog-->
-    <div class="modal fade" id="add_catalog_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Catalog title</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Catalog</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="containerImg">
-                    <img id="containerImg" src="../img/work2.png" alt="">
+                <div class="input">
+                    <img id="uploadedImageCatalog" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                    <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                            onchange="catalogImgUp(event)" required>
                 </div>
-                ...
-                ADDING CATALOG
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                    <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                            placeholder="Enter Catalog Title" required>
+                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                </div>
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                    <textarea class="form-control" id="catalogDescription" name="catalogDesc" rows="10"
+                            placeholder="Enter Catalog Description" required></textarea>
+                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Submit</button>
             </div>
             </div>
         </div>
@@ -204,12 +217,16 @@ $fetch = $sql->fetch_all();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="">
-                    <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
-
-                    <p id="userName">
-                        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
-                    </p>
+                <div class="modal-body-view-more">
+                    <div class="modal-pic-container">
+                        <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+                    </div>
+                    
+                    <div class="modal-name-container">
+                        <p id="userName">
+                            <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                        </p>
+                    </div>
 
                     <p id="freelanceUsername">
                         @sampleusername
@@ -217,14 +234,14 @@ $fetch = $sql->fetch_all();
 
                     <div class="flexDiv">
                         <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                        <div class="freelanceAddress">
+                        <div class="freelanceAddress marg">
                             sample address
                         </div>
                     </div>
 
                     <div class="flexDiv">
                         <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                        <div class="freelanceEmail">
+                        <div class="freelanceEmail marg">
                             sampleemail@gmail.com
                         </div>
                     </div>
@@ -237,7 +254,7 @@ $fetch = $sql->fetch_all();
                         <span class="star" data-value="5"></span>
                     </div>
 
-                    <div id="jobsAndRole1">
+                    <div id="" class="titles">
                         Jobs and Roles:
                     </div>
                         
@@ -247,23 +264,23 @@ $fetch = $sql->fetch_all();
                         <li>job3</li>
                     </ul>
                     <div>
-                        <div>
+                        <div class="titles">
                             Work Experience
                         </div>
                         <div>
                             <div>
-                                <p>company name: </p> <span>PLDC</span>
+                                <span>company name: </span> <span>PLDC</span>
                             </div>
                             <div>
-                                <p>date started: </p> <span>Feb 14, 1969</span>
+                                <span>date started: </span> <span>Feb 14, 1969</span>
                             </div>
                             <div>
-                                <p>date ended: </p> <span>Feb 14, 1970</span>
+                                <span>date ended: </span> <span>Feb 14, 1970</span>
                             </div>
                         </div>
                     </div> 
                     <div>
-                        <div>
+                        <div class="titles">
                             Job Description
                         </div>
                         <div>
@@ -314,11 +331,14 @@ $fetch = $sql->fetch_all();
 
 
 
-    <script src="../js/script.js "></script>
-    <script src="../js/user.js"></script>
+    <script src="../js/createNewDiv.js"></script>
+    <script src="../classJS/Catalog.js"></script>
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
-    <script src="../classJS/Posts.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/validate.js"></script>
+    <script src="../js/freelance.js"></script>
+    <script>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
