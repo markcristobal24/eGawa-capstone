@@ -4,18 +4,19 @@ var reader = new FileReader();
 
 
 function clearInputs() {
-  var imageInput = document.getElementById('uploadInput');
-  var imageCleared = document.getElementById('uploadedImageCatalog');
-  var catalogTitle = document.getElementById('catalogTitle');
-  var catalogDescription = document.getElementById('catalogDescription');
+  // var imageInput = document.getElementById('uploadInput');
+  // var imageCleared = document.getElementById('uploadedImageCatalog');
+  // var catalogTitle = document.getElementById('catalogTitle');
+  // var catalogDescription = document.getElementById('catalogDescription');
 
   // Reset the image input
-  imageInput.value = null;
-  imageCleared.src = '../img/uploadIMG.png';
+  // imageInput.value = null;
+  // imageCleared.src = '../img/uploadIMG.png';
 
   // Reset the title and description inputs
-  catalogTitle.value = '';
-  catalogDescription.value = '';
+  // catalogTitle.value = '';
+  // catalogDescription.value = '';
+
 }
 
 
@@ -98,7 +99,7 @@ function clearEditModal(){
   var imgfile = document.getElementById('editInput');
   var title = document.getElementById('edit-catalot-title');
   var desc = document.getElementById('edit-catalog-desc');
-
+  
   // Reset the image input
   imgfile.value = null;
   img.src = '../img/uploadIMG.png';
@@ -106,6 +107,7 @@ function clearEditModal(){
   // Reset the title and description inputs
   title.value = '';
   desc.value = '';
+
 }
 
 function getConsole(catalogId) {

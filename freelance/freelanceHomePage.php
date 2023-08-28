@@ -181,29 +181,33 @@ $fetch = $sql->fetch_all();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body-add">
-                <div class="input">
-                    <img id="uploadedImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
-                    <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
-                            onchange="catalogImgUp(event)" required>
-                </div>
+                
+                <form action="">
+                    <div class="input">
+                        <img id="uploadedImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                        <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
+                                onchange="catalogImgUp(event)" required>
+                    </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
-                    <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                            placeholder="Enter Catalog Title" required>
-                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
-                </div>
+                    <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                        <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
+                                placeholder="Enter Catalog Title" required>
+                        <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                    </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
-                    <textarea class="form-control" id="catalogDescription" name="catalogDesc" rows="10"
-                            placeholder="Enter Catalog Description" required></textarea>
-                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
-                </div>
+                    <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                        <textarea class="form-control" id="catalogDescription" name="catalogDesc" rows="10"
+                                placeholder="Enter Catalog Description" required></textarea>
+                        <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
-            </div>
+            
             </div>
         </div>
     </div>
@@ -218,29 +222,31 @@ $fetch = $sql->fetch_all();
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body-add">
-                <div class="input">
-                    <img id="uploadedEditImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
-                    <input id="editInput" type="file" name="catalogImg" accept="image/*"
-                            onchange="catalogEditImgUp(event)" required>
-                </div>
+                <form action="">
+                    <div class="input">
+                        <img id="uploadedEditImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                        <input id="editInput" type="file" name="catalogImg" accept="image/*"
+                                onchange="catalogEditImgUp(event)" required>
+                    </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
-                    <input type="text" id="edit-catalot-title" name="catalogTitle" class="form-control"
-                            placeholder="Enter Catalog Title" required>
-                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
-                </div>
+                    <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                        <input type="text" id="edit-catalot-title" name="catalogTitle" class="form-control"
+                                placeholder="Enter Catalog Title" required>
+                        <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                    </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
-                    <textarea class="form-control" id="edit-catalog-desc" name="catalogDesc" rows="10"
-                            placeholder="Enter Catalog Description" required></textarea>
-                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
-                </div>
-
+                    <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                        <textarea class="form-control" id="edit-catalog-desc" name="catalogDesc" rows="10"
+                                placeholder="Enter Catalog Description" required></textarea>
+                        <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearEditModal()">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearEditModal()">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
-            </div>
+            
             </div>
         </div>
     </div>
@@ -330,9 +336,79 @@ $fetch = $sql->fetch_all();
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
-                <!-- <button type="button" class="btn btn-primary">Verify</button> -->
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#hey">Edit</button>
             </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal for edit profile-->
+    <div class="modal fade" id="hey" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <div class="modal-body">
+                    <form id="edit_profile" method="POST" enctype="multipart/form-data">
+                            <div id="imgUpl" >
+                                <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
+                                <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <img id="uploadedEditImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                                </div>
+                                <input id="uploadInputEdit" class="mx-4 my-3" type="file" name="imageProfile" accept="image/*"
+                                    onchange="editImgUp(event)">
+                            </div>
+
+                            <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                                
+                                <input type="text" id="editAddress" name="editAddress" class="form-control"
+                                    placeholder="Edit your address" value="<?php echo $_SESSION['address']; ?>">
+                                <label id="editAddressLabel" for="editAddress">Edit your address</label>
+                            </div>
+
+                            <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
+                                <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                        id="webDesign" value="Web Designer">
+                                    <label class="form-check-label" for="webDesign">Web Designer</label>
+                                </div>
+
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                        id="webDev" value="Web Developer">
+                                    <label class="form-check-label" for="webDev">Web Developer</label>
+                                </div>
+
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                        id="mobAppDev" value="Mobile Application Developer">
+                                    <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
+                                </div>
+
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                        id="brandDesign" value="Brand and Designing">
+                                    <label class="form-check-label" for="brandDesign">Branding and Design</label>
+                                </div>
+
+                                <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
+                                        id="hostingMaintenance" value="Hosting/Maintenance">
+                                    <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" name="btnEditFreelanceProfile" id="edit_fprofile"
+                                    onclick="new Account().edit_fprofile();">
+                                    Save
+                                </button>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" id="cancelEdit">
+                                    Cancel
+                                </button>
+                            </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
