@@ -164,7 +164,7 @@ $fetch = $sql->fetch_all();
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#edit-catalog-modal">Edit</button>
                 <button type="button" class="btn btn-primary">Delete</button>
             </div>
             </div>
@@ -182,7 +182,7 @@ $fetch = $sql->fetch_all();
             </div>
             <div class="modal-body-add">
                 <div class="input">
-                    <img id="uploadedImageCatalog" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                    <img id="uploadedImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
                     <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
                             onchange="catalogImgUp(event)" required>
                 </div>
@@ -201,7 +201,44 @@ $fetch = $sql->fetch_all();
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal for editing catalog-->
+    <div class="modal fade" id="edit-catalog-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Catalog</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body-add">
+                <div class="input">
+                    <img id="uploadedEditImageCatalog" class="img-modal" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                    <input id="editInput" type="file" name="catalogImg" accept="image/*"
+                            onchange="catalogEditImgUp(event)" required>
+                </div>
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                    <input type="text" id="edit-catalot-title" name="catalogTitle" class="form-control"
+                            placeholder="Enter Catalog Title" required>
+                    <label id="catalogTitleLabel" for="companyName">Enter Catalog Title</label>
+                </div>
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2 mx-auto">
+                    <textarea class="form-control" id="edit-catalog-desc" name="catalogDesc" rows="10"
+                            placeholder="Enter Catalog Description" required></textarea>
+                    <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearEditModal()">Close</button>
                 <button type="button" class="btn btn-primary">Submit</button>
             </div>
             </div>

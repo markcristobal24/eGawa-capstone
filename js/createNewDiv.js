@@ -1,74 +1,5 @@
 var reader = new FileReader();
-/*let counter = 1;
 
-
-function handleClick(element) {
-  var itemId = element.id;
-  alert("You clicked the div with ID: " + itemId);
-  // You can perform any desired action here
-  // based on the clicked div
-}
-function addContainer() {
-  var container = document.getElementById('container');
-  var imageInput = document.getElementById('uploadInput');
-  var catalogTitle = document.getElementById('catalogTitle').value;
-  var catalogDescription = document.getElementById('catalogDescription').value;
-
-  // Check if an image is uploaded
-  if (imageInput.files.length === 0 || catalogTitle.trim() === '' || catalogDescription.trim() === '') {
-
-    return;
-
-  } else {
-
-    // Create a new item div
-    var newItem = document.createElement('div');
-    newItem.className = 'item';
-    newItem.id = 'item-' + counter;
-    newItem.onclick = function () {
-      handleClick(this);
-    };
-
-    //this 2 divs will be appended inside the div created above
-    var newCatalogImgDiv = document.createElement('div');
-    newCatalogImgDiv.className = 'catalogImg';
-
-    var catalogTextsDiv = document.createElement('div');
-    catalogTextsDiv.className = 'catalogTexts';
-
-
-    // Create elements for image, title, and description
-    var newImage = document.createElement('img');
-    // newImage.src = 'img/working.png';
-    newImage.src = reader.result;
-    newImage.className = 'imgWork';
-    newImage.alt = 'New Image';
-
-    var newTitle = document.createElement('h3');
-    var catalogTitle = document.getElementById('catalogTitle').value;
-    newTitle.textContent = catalogTitle;
-
-    var newDescription = document.createElement('p');
-    var catalogDescription = document.getElementById('catalogDescription').value;
-    newDescription.textContent = catalogDescription;
-
-    // Append elements to the new item div
-    newCatalogImgDiv.appendChild(newImage);
-    newItem.appendChild(newCatalogImgDiv);
-    catalogTextsDiv.appendChild(newTitle);
-    catalogTextsDiv.appendChild(newDescription);
-    newItem.appendChild(catalogTextsDiv);
-
-    // Append the new item div to the container
-    container.appendChild(newItem);
-
-    counter++;
-    $('#modalFreelanceAddCatalog').modal('hide');
-
-    clearInputs();
-  }
-
-}*/
 
 
 
@@ -80,7 +11,7 @@ function clearInputs() {
 
   // Reset the image input
   imageInput.value = null;
-  imageCleared.src = '../img/upload.png';
+  imageCleared.src = '../img/uploadIMG.png';
 
   // Reset the title and description inputs
   catalogTitle.value = '';
@@ -129,6 +60,11 @@ edit.addEventListener('click', function () {
   });
 });
 
+
+
+
+
+
 //==FOR EDIT CATALOG MODAL=====================================
 
 
@@ -155,6 +91,21 @@ function edit_catalog() {
     
     
   });*/
+}
+
+function clearEditModal(){
+  var img = document.getElementById('uploadedEditImageCatalog');
+  var imgfile = document.getElementById('editInput');
+  var title = document.getElementById('edit-catalot-title');
+  var desc = document.getElementById('edit-catalog-desc');
+
+  // Reset the image input
+  imgfile.value = null;
+  img.src = '../img/uploadIMG.png';
+
+  // Reset the title and description inputs
+  title.value = '';
+  desc.value = '';
 }
 
 function getConsole(catalogId) {
