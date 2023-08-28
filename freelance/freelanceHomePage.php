@@ -37,6 +37,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lightgallery-bundle.css'>
+
 
 
     <title>eGawa | <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></title>
@@ -126,10 +128,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
         <div class="containerRight">
             <div class="userProfile">
-                <div class="userProfileChild">
-                    <img id="userPic"
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
-                        alt="user profile" title="user profile">
+                <div class="userProfileChild" id="userProfileChild">
+                    <a
+                        href="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>">
+                        <img id="userPic"
+                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                            alt="user profile" title="user profile">
+                    </a>
+
 
                     <p id="userName">
                         <?php echo $fullname; ?>
@@ -149,22 +155,36 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                     <ul>
-                        <li>job1</li>
-                        <li>job2</li>
-                        <li>job3</li>
+                        <?php
+                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                $query->execute([':email' => $email]);
+                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                if ($query->rowCount() > 0) {
+                    $roleValues = array();
+
+                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                        $values = explode(',', $row['jobRole']);
+                        $roleValues = array_merge($roleValues, $values);
+                    }
+
+                    foreach ($roleValues as $value) {
+                        echo "<li>$value</li>";
+                    }
+                }
+                ?>
                     </ul>
 
                     <div class="flexDiv">
                         <img src="../img/address.png" alt="" class="addressImg" height="20px">
                         <div class="freelanceAddress marg">
-                            sample address
+                            <?php echo $fetch['address']; ?>
                         </div>
                     </div>
 
                     <div class="flexDiv">
                         <img src="../img/email.png" alt="" class="emailImg" height="20px">
                         <div class="freelanceEmail marg">
-                            sampleemail@gmail.com
+                            <?php echo $fetch['email']; ?>
                         </div>
                     </div>
 
@@ -193,35 +213,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <img id="catalogImage" src="../img/work2.png" alt="">
                     </div>
                     <div class="container-description" id="container-description">
-                        ...
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
-                        generator to get your own, or read on for the authoritative history of lorem ipsum.
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -335,30 +327,32 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="modal-body">
                     <div class="modal-body-view-more">
                         <div class="modal-pic-container">
-                            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+                            <img id="userPic"
+                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                                alt="user profile" title="user profile">
                         </div>
 
                         <div class="modal-name-container">
                             <p id="userName">
-                                <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                                <?php echo $fullname; ?>
                             </p>
                         </div>
 
                         <p id="freelanceUsername">
-                            @sampleusername
+                            <?php echo "@".$fetch['username']; ?>
                         </p>
 
                         <div class="flexDiv">
                             <img src="../img/address.png" alt="" class="addressImg" height="20px">
                             <div class="freelanceAddress marg">
-                                sample address
+                                <?php echo $fetch['address']; ?>
                             </div>
                         </div>
 
                         <div class="flexDiv">
                             <img src="../img/email.png" alt="" class="emailImg" height="20px">
                             <div class="freelanceEmail marg">
-                                sampleemail@gmail.com
+                                <?php echo $fetch['email']; ?>
                             </div>
                         </div>
 
@@ -375,9 +369,23 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <ul>
-                            <li>job1</li>
-                            <li>job2</li>
-                            <li>job3</li>
+                            <?php
+                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                $query->execute([':email' => $email]);
+                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                if ($query->rowCount() > 0) {
+                    $roleValues = array();
+
+                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                        $values = explode(',', $row['jobRole']);
+                        $roleValues = array_merge($roleValues, $values);
+                    }
+
+                    foreach ($roleValues as $value) {
+                        echo "<li>$value</li>";
+                    }
+                }
+                ?>
                         </ul>
                         <div>
                             <div class="titles">
@@ -385,13 +393,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                             <div>
                                 <div>
-                                    <span>company name: </span> <span>PLDC</span>
+                                    <span>Company Name: </span> <span><?php echo $fetch['companyName']; ?></span>
                                 </div>
                                 <div>
-                                    <span>date started: </span> <span>Feb 14, 1969</span>
+                                    <span>Date Started: </span> <span><?php
+                        $date = $fetch['startDate'];
+                        $dateObj = new DateTime($date);
+                        $startDate = $dateObj->format("F d, Y");
+                        echo $startDate;
+                        ?></span>
                                 </div>
                                 <div>
-                                    <span>date ended: </span> <span>Feb 14, 1970</span>
+                                    <span>Date Ended: </span> <span><?php
+                        $date = $fetch['endDate'];
+                        $dateObj = new DateTime($date);
+                        $endDate = $dateObj->format("F d, Y");
+                        echo $endDate; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +418,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                             <div>
                                 <span>
-                                    This is a sample job description
+                                    <?php echo $fetch['jobDescription']; ?>
                                 </span>
                             </div>
                         </div>
@@ -517,6 +534,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     </div>
 
+    <script src='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/lightgallery.umd.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/plugins/thumbnail/lg-thumbnail.umd.min.js'>
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/plugins/zoom/lg-zoom.umd.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/plugins/video/lg-video.umd.js'></script>
+
+
     <script src="../js/createNewDiv.js"></script>
     <script src="../classJS/Catalog.js"></script>
     <script src="../classJS/Account.js"></script>
@@ -529,6 +553,20 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+    let counter = 0;
+    if (counter <= 0) {
+        lightGallery(document.getElementById('userProfileChild'), {
+            counter: false,
+            download: true,
+            backdropDuration: 100,
+            selector: 'a',
+            controls: false,
+            escKey: true
+        });
+        counter++;
+    }
+    </script>
 </body>
 
 </html>
