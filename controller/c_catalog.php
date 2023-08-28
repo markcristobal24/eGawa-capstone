@@ -70,6 +70,7 @@ if (isset($_POST['edit_catalog'])) {
     $query = $db->connect()->prepare("SELECT * FROM catalog WHERE catalog_id = :catalog_id");
     $query->execute([':catalog_id' => $catalog_id]);
     if ($query->rowCount() > 0) {
+        $result= "";
         if (isset($_FILES['catalogImg']['tmp_name'])) {
             $new_catalogImg = $_FILES['catalogImg']['tmp_name'];
             $image_link = $new_catalogImg;
@@ -107,5 +108,20 @@ if (isset($_POST['edit_catalog'])) {
         }
     }
     echo json_encode($output);
+}
+
+if (isset($_POST['view_catalog'])) {
+    $catalog_id = $_POST['id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM catalog WHERE catalog_id = :id");
+    $query->execute([':id' => $catalog_id]);
+    $data = array();
+    foreach ($query as $row) {
+        $data['catalog_id'] = $row['catalog_id'];
+        $data['catalogImage'] = $row['catalogImage'];
+        $data['catalogTitle'] = $row['catalogTitle'];
+        $data['catalogDescription'] = $row['catalogDescription'];
+    }
+    echo json_encode($data);
 }
 ?>

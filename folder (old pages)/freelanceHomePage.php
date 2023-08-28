@@ -449,10 +449,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- Gap on all sides is 2 -->
                         <textarea class="form-control" id="catalogDescription" name="catalogDesc" rows="10"
                             placeholder="Enter Catalog Description" required></textarea>
-
                         <label id="catalogDescriptionLabel" for="catalogDescription">Enter Catalog Description</label>
                     </div>
-
 
                     <div class="modal-footer">
                         <button type="button" name="btnAddCatalog" class="btn btn-primary" id="add_catalog"
