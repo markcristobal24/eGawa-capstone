@@ -331,7 +331,7 @@ $fetch = $sql->fetch_all();
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
-                <button type="button" class="btn btn-primary">Verify</button>
+                <!-- <button type="button" class="btn btn-primary">Verify</button> -->
             </div>
             </div>
         </div>
