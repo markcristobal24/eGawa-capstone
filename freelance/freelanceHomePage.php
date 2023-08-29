@@ -85,51 +85,27 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <?php
                     }
                 } else {
-                    echo "There's no catalog!";
+                    echo '<div class="containerPost">';
+
+                        echo '<div class="catalogImg">';
+                        echo '<img class="imgWork" src="../img/box.png">';
+                        echo '</div>';
+
+                        echo '<div class="catalogTexts">';
+                        echo '<h3>No catalog to display</h3>';
+                        echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
+                        echo '</div>';
+
+                    echo '</div>';
                 }
                 ?>
-                <!-- <div class="containerPost">
-                    <div class="containerImg">
-                        <img id="containerImg" src="../img/work2.png" alt="">
-                    </div>
-                    <div class="containerCatalog">
-                        <span class="titlePost">Sample Title</span> -->
-                <!-- <div>
-                            <span class="author">Author: </span>
-                            <span class="userPost">Arebeen</span>
-                        </div>
-
-                        <div>
-                            <span class="locationPost">Hagonoy, Bulacan</span>
-                            <span>•</span>
-                            <span class="datePost">January 01, 1969</span>
-                        </div> -->
-
-                <!-- <p class="descPost">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries,
-                            but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing
-                            Lorem Ipsum passages, and more recently with desktop publishing software like
-                            Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                        <div>
-                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">View Catalog</button> -->
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                View Catalog</button> -->
-                <!-- </div>
-                    </div> -->
-                <!-- </div> -->
             </div>
         </div>
 
         <div class="containerRight">
             <div class="userProfile">
                 <div class="userProfileChild" id="userProfileChild">
-                    <a
+                    <a class="userPic"
                         href="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>">
                         <img id="userPic"
                             src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
@@ -156,22 +132,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                     <ul>
                         <?php
-                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-                $query->execute([':email' => $email]);
-                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                if ($query->rowCount() > 0) {
-                    $roleValues = array();
+                            $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                            $query->execute([':email' => $email]);
+                            // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                            if ($query->rowCount() > 0) {
+                                $roleValues = array();
 
-                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                        $values = explode(',', $row['jobRole']);
-                        $roleValues = array_merge($roleValues, $values);
-                    }
+                                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                                    $values = explode(',', $row['jobRole']);
+                                    $roleValues = array_merge($roleValues, $values);
+                                }
 
-                    foreach ($roleValues as $value) {
-                        echo "<li>$value</li>";
-                    }
-                }
-                ?>
+                                foreach ($roleValues as $value) {
+                                    echo "<li>$value</li>";
+                                }
+                            }
+                            ?>
                     </ul>
 
                     <div class="flexDiv">
@@ -220,7 +196,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
                         data-bs-target="#edit-catalog-modal">Edit</button>
                     <button type="button" id="delete_catalog" onclick="new Catalog().delete_catalog(this.value);"
-                        class="btn btn-primary">Delete</button>
+                        class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
                 </div>
             </div>
         </div>
@@ -315,6 +291,27 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div>
         </div>
     </div>
+
+
+    <!-- Modal confirmation for deleting catalog-->
+    <div class="modal fade" id="confirm-delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Catalog</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this catalog?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal for view profile-->
     <div class="modal fade" id="view_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
