@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Custom File Input</title>
-<style>
-  .custom-file-input {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-content {
+            display: none;
+        }
 
-  .actual-file-input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
+        .tab-content.active {
+            display: block;
+        }
 
-  .custom-file-label {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .custom-file-label span {
-    display: inline-block;
-    width: 100px; /* Adjust as needed */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-</style>
+    </style>
 </head>
 <body>
-  <div class="custom-file-input">
-    <label for="file-input" class="custom-file-label">
-      <span><img src="../img/box.png" alt=""></span>
-    </label>
-    <input type="file" id="file-input" class="actual-file-input" />
-  </div>
+    <div class="tabs">
+        <ul class="tab-links">
+            <li><a href="#tab1">Tab 1</a></li>
+            <li><a href="#tab2">Tab 2</a></li>
+            <li><a href="#tab3">Tab 3</a></li>
+        </ul>
+    
+        <div class="tab-content" id="tab1">
+            <p>Content of Tab 1</p>
+        </div>
+        <div class="tab-content" id="tab2">
+            <p>Content of Tab 2</p>
+        </div>
+        <div class="tab-content" id="tab3">
+            <p>Content of Tab 3</p>
+        </div>
+    </div>
+    
 </body>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // $(document).ready(function() {
+            //     // Show the first tab content by default
+            //     $('.tab-content:first').addClass('active');
+
+            //     // Handle tab link clicks
+            //     $('.tab-links a').click(function(e) {
+            //         e.preventDefault();
+
+            //         // Remove 'active' class from all tab contents
+            //         $('.tab-content').removeClass('active');
+
+            //         // Add 'active' class to the clicked tab content
+            //         var tabID = $(this).attr('href');
+            //         $(tabID).addClass('active');
+            //     });
+            // });
+            $(document).ready(function(){
+      $( ".tabs" ).tabs();
+    });
+        </script>
+
 </html>
