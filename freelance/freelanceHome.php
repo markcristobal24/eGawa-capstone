@@ -105,11 +105,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the stylistic choices of a project, so it is installed on many graphic programs on many software platforms of personal publishing and content management system.
                     </p>
                     <div>
-                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#exampleModal" >View Post</button>
+                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" >View Post</button>
                     </div>
                 </div> 
-                
-                
+
             </div>
 
         </div>
@@ -173,7 +172,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     </div>
 
     <!-- MODAL FOR VIEW POST -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="view-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
             <div class="modal-header">
@@ -236,11 +235,60 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Apply</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#apply-job-modal">Apply</button>
             </div>
             </div>
         </div>
     </div>
+
+    <!-- MODAL FOR APPLY JOB -->
+    <div class="modal fade" id="apply-job-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body apply">
+                    <form action="">
+                        <div class="title">
+                            <span class="label">Job Title:</span>
+                            <span class="content" id="post_title">
+                                Web Dev
+                            </span>
+                        </div>
+
+                        <div class="title">
+                            <span class="label">To:</span>
+                            <span class="content">@</span>
+                            <span class="content" id="post_title">
+                                John Paulo Sulitz
+                            </span>
+                        </div>
+
+                        <div class="title">
+                            <span class="label">Mesaage:</span>
+                            <div class="form-floating mt-1 mb-2">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Comments</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label label">Upload file</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!--Modal for log out-->
