@@ -239,7 +239,7 @@
 
     .container{
         display: flex;
-        margin: 60px auto;
+        margin: 5% auto;
         max-width: fit-content;
     }
 
@@ -266,7 +266,7 @@
 
     #logoImage{
         opacity: 0.5;
-        height: 200px;
+        height: 180px;
     }
 
     .right{
@@ -276,7 +276,7 @@
     }
     .formContainer{
         margin: 20px auto 0 0;
-        padding: 40px 25px;
+        padding: 10px 15px;
         width: 700px;
         /* box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37); */
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
@@ -286,7 +286,7 @@
         font-size: 30px;
     }
     #forgotPasswordLink{
-        font-size: 15px;
+        font-size: 12px;
         color: white;
         text-decoration: none;
     }
@@ -295,14 +295,14 @@
         color: rgb(235, 140, 32);
     }
     .infoLogin{
-        font-size: 15px;
+        font-size: 12px;
     }
 
     hr{
         color: #fff;
     }
     #registerLink{
-        font-size: 15px;
+        font-size: 12px;
         color: white;
         text-decoration: none;
     }
@@ -324,7 +324,7 @@
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 120px;
+        height: 100px;
         transform: rotateY(180deg);
     }
 
@@ -352,114 +352,7 @@
 
 /*============================ large  ===========================*/
 @media (max-width: 1296) {
-    .container{
-        display: flex;
-        margin: 60px auto;
-        max-width: fit-content;
-    }
-
-    p{
-        color: white;
-        font-size: 20px;
-    }
-
-    .left{
-        width: 50%;
-        padding-left: 200px;
-    }
-
-    .title1{
-        font-weight: 700;
-        font-size: 250px;
-        position: fixed;
-        top: 0;
-        left: 45px;
-        margin-top: 20px;
-        padding-left: 50px;
-        color: rgba(255, 255, 255, 0.3); /* White with 50% opacity */
-    }
-
-    #logoImage{
-        opacity: 0.5;
-        height: 200px;
-    }
-
-    .right{
-        width: 50%;
-        padding-left: 130px;
-        display: flex;
-    }
-    .formContainer{
-        margin: 20px auto 0 0;
-        padding: 40px 25px;
-        width: 700px;
-        /* box-shadow: 5px 8px 16px 5px rgba(148, 148, 148, 0.37); */
-        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
-    }
-
-    .loginTitle{
-        font-size: 30px;
-    }
-    #forgotPasswordLink{
-        font-size: 15px;
-        color: white;
-        text-decoration: none;
-    }
-
-    #forgotPasswordLink:hover{
-        color: rgb(235, 140, 32);
-    }
-    .infoLogin{
-        font-size: 15px;
-    }
-
-    hr{
-        color: #fff;
-    }
-    #registerLink{
-        font-size: 15px;
-        color: white;
-        text-decoration: none;
-    }
-    #registerLink:hover{
-        color: rgb(79, 235, 32);
-    }
-
-    .custom-shape-divider-bottom-1690684253 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg);
-    }
-
-    .custom-shape-divider-bottom-1690684253 svg {
-        position: relative;
-        display: block;
-        width: calc(236% + 1.3px);
-        height: 120px;
-        transform: rotateY(180deg);
-    }
-
-    .custom-shape-divider-bottom-1690684253 .shape-fill {
-        fill: #FFFFFF;
-    }
-
-    #btnLogin {
-    width: 100px;
-    height: 40px;
-    background-image: linear-gradient(to right, #0073aa, #8000aa);
-    color: #fff;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    }
+    
 }
 
 /*============================ medium  ===========================*/

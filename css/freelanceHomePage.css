@@ -290,6 +290,7 @@ body {
   }
   .container-description {
     text-align: justify;
+    margin-top: 10px;
   }
 
   /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR VIEW MORE MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -307,7 +308,7 @@ body {
     padding: 20px 20px;
   }
   .modal-body-view-more .titles,
-  #exampleModalLabel {
+  #exampleModalLabel ,.titles{
     font-weight: 500;
     font-size: 20px;
     color: #0073aa;

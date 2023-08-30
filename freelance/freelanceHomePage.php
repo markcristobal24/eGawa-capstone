@@ -188,7 +188,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div class="containerImg">
                         <img id="catalogImage" src="../img/work2.png" alt="">
                     </div>
+                    <hr>
+                    <h1 class="modal-title fs-5 titles" id="">Description</h1>
                     <div class="container-description" id="container-description">
+                        
 
                     </div>
                 </div>

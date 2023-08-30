@@ -79,8 +79,8 @@
                 </div>
                 <div>
                     <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
-                    <label class="" for="checkboxId"><span id="termsTitle">I agree to the </span></label>
-                    <span class="termsTitle" href="" id="tAndC"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">terms and
+                    <label class="resize" for="checkboxId"><span id="termsTitle" class="resize">I agree to the </span></label>
+                    <span class="termsTitle resize" href="" id="tAndC"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">terms and
                         conditions</span>
                 </div>
 
@@ -93,7 +93,7 @@
                 <button id="btnUserRegClear" class="btn btn-secondary" onclick="clearFields()">Clear</button>
             </div>
             <hr>
-            <p class="infoUserReg">Already have an account? <a id="loginLink" href="login.php">Login here</a></p>
+            <p class="infoUserReg resize">Already have an account? <a id="loginLink" href="login.php" class="resize">Login here</a></p>
         </form>
     </div>
 

@@ -401,7 +401,7 @@ body {
 @media (max-width: 1311px) {
     .container {
         display: flex;
-        margin: 100px auto;
+        margin: 50px auto;
         max-width: fit-content;
     }
 
@@ -439,12 +439,12 @@ body {
 
     .title1 {
         font-weight: 700;
-        font-size: 200px;
+        font-size: 180px;
         position: fixed;
         top: 0;
         left: 0;
-        margin-top: 10px;
-        padding-left: 50px;
+        margin-top: 0px;
+        padding-left: 80px;
         color: rgba(255, 255, 255, 0.3);
         /* White with 50% opacity */
     }
@@ -489,7 +489,7 @@ body {
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 150px;
+        height: 120px;
         transform: rotateY(180deg);
     }
 

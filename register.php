@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-grid mt-4 gap-2 d-md-flex justify-content-center">
+            <div class="d-grid mt-3 gap-2 d-md-flex justify-content-center">
                 <button type="button" id="myButton" class="btn btn-primary" onclick="sendData();">
                     Register
                 </button>

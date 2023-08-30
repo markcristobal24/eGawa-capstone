@@ -210,11 +210,11 @@ body{
 
     .container{
         display: flex;
-        margin: 50px auto;
+        margin: 5% auto;
         max-width: fit-content;
     }
     .containerRegister{
-        padding: 0 20px 40px 20px;
+        padding: 5px 20px 5px 20px;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
     p{
@@ -222,7 +222,7 @@ body{
         font-size: 14px;
     }
     .regisTitle{
-        font-size: 40px;
+        font-size: 30px;
     }
     
     .choice {
@@ -281,7 +281,7 @@ body{
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 150px;
+        height: 120px;
         transform: rotateY(180deg);
     }
 
