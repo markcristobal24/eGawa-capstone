@@ -112,37 +112,57 @@ if (isset($_POST['fetch_user'])) {
 
 if (isset($_POST['update_profile'])) {
     $user_id = $_SESSION['account_id'];
-    $new_profile = $_FILES['new_profile']['tmp_name'];
-    $new_address = $_POST['new_address'];
-    $new_username = $_POST['new_username'];
+    $type = $_POST['type'];
+    
+    if ($type == "username") {
+        $new_username = $_POST['new_username'];
+        $query = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
+        $query->execute([':username' => $new_username]);
 
-    $query = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
-    $query->execute([':username' => $new_username]);
-
-    if ($query->rowCount() > 0) {
-        $output['error'] = "Username already exist!";
-    }
-    else if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address || $_SESSION['username'] != $new_username) {
-        $image_link = $new_profile;
-        if ($new_profile != $_SESSION['user_image']) {
-            $upload_image = new Image();
-            $data = $upload_image->upload_image($new_profile, $new_username, "egawa/user/");
-            $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+        if ($query->rowCount() > 0) {
+            $output['error'] = "Username already exist!";
         }
+        else if ($_SESSION['username'] != $new_username) {
+            $query = $db->connect()->prepare("UPDATE account SET username = :username WHERE account_id = :user_id");
+            $result = $query->execute([':username' => $new_username, ':user_id' => $user_id]);
 
-        $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, address = :new_address, username = :new_username WHERE account_id = :user_id");
-        $result = $query->execute([':new_profile' => $image_link, ':new_address' => $new_address, ':new_username' => $new_username, ':user_id' => $user_id]);
-
-        if($result) {
-            $_SESSION['user_image'] = $image_link;
-            $_SESSION['address'] = $new_address;
-            $_SESSION['username'] = $new_username;
-            $output['success'] = "Your profile has been updated";
+            if ($result) {
+                $_SESSION['username'] = $new_username;
+                $output['success'] = "Username updated successfully!";
+            } else {
+                $output['error'] = "Something went wrong! Please try again later.";
+            }
+        } else if ($new_username == "") {
+            $output['error'] = "Please input some details!";
         } else {
-            $output['error'] = "Something went wrong! Please try again later.";
+            $output['error'] = "No changes have been made";
         }
     } else {
-        $output['error'] = "No changes have been made";
+        $new_profile = $_FILES['new_profile']['tmp_name'];
+        $new_address = $_POST['new_address'];
+
+        if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address) {
+            $image_link = $new_profile;
+            if ($new_profile != $_SESSION['user_image']) {
+            $upload_image = new Image();
+            $data = $upload_image->upload_image($new_profile, $user_id, "egawa/user/");
+            $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+            }
+
+            $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, address = :new_address WHERE account_id = :user_id");
+            $result = $query->execute([':new_profile' => $image_link, ':new_address' => $new_address, ':user_id' => $user_id]);
+            if($result) {
+                $_SESSION['user_image'] = $image_link;
+                $_SESSION['address'] = $new_address;
+                $output['success'] = "Your profile has been updated";
+            } else {
+                $output['error'] = "Something went wrong! Please try again later.";
+            }
+        } else if ($new_address == "") {
+            $output['error'] = "Please input some details!";
+        } else {
+            $output['error'] = "No changes have been made";
+        }
     }
     echo json_encode($output);
 }

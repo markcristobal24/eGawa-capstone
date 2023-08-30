@@ -42,17 +42,18 @@
         </div>
         <hr class="hr">
         <div class="form_">
-            
+
             <form id="editProfile_form" method="POST" enctype="multipart/form-data">
                 <div class="form_div1">
 
-                    <span class="font title" >Edit Information</span>
+                    <span class="font title">Edit Information</span>
                     <div class="imgCont">
                         <img id="imgUpload" class="imgUpload" src="../img/profile.png" alt="">
                     </div>
 
                     <div class="input-group mb-3 mt-3">
-                        <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*" onchange="editUserIMG(event)">
+                        <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*"
+                            onchange="editUserIMG(event)">
                     </div>
 
                     <div class="addr">
@@ -63,8 +64,9 @@
                     <div class="btns">
                         <div class="end">
                             <button class="submitBTN btn" type="button" id="update_profile"
-                                onclick="new Account().update_uProfile();">Update</button>
-                            <button class="backBTN btn" type="button" onclick="window.history.back();">Back</button>
+                                onclick="new Account().update_uProfile('other');">Update</button>
+                            <button class="backBTN btn" type="button"
+                                onclick="window.location.replace('userHome.php');">Back</button>
                         </div>
                     </div>
 
@@ -80,9 +82,9 @@
 
                     <div class="btns">
                         <div class="end">
-                            <button class="submitBTN btn" type="button" id="update_profile"
-                                onclick="new Account().update_uProfile();">Update</button>
-                            <button class="backBTN btn" type="button" onclick="window.history.back();">Back</button>
+                            <button class="submitBTN btn" type="button" id="update_username"
+                                onclick="new Account().update_uProfile('username');">Update</button>
+                            <!-- <button class="backBTN btn" type="button" onclick="window.history.back();">Back</button> -->
                         </div>
                     </div>
 

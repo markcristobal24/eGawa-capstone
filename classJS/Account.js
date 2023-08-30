@@ -265,12 +265,17 @@ class Account {
         });
     }
 
-    update_uProfile() {
+    update_uProfile(type) {
         console.log('hi');
-        let button_value = new Account().get_button_value("update_profile");
-        new Account().button_loading("update_profile", "loading", "");
+
+        if (type == "username") {
+            new Account().button_loading("update_username", "loading", "");
+        } else {
+            new Account().button_loading("update_profile", "loading", "");
+        }
 
         let form_data = new FormData(document.getElementById('editProfile_form'));
+        form_data.append('type', type);
         form_data.append('update_profile', 'update_profile');
         fetch('../controller/c_uAccount.php', {
             method: "POST",
@@ -278,7 +283,12 @@ class Account {
         }).then((response) => {
             return response.json();
         }).then((response_data) => {
-            new Account().button_loading("update_profile", "", "Update");
+            if (type == "username") {
+                new Account().button_loading("update_username", "", "Update");
+            } else {
+                new Account().button_loading("update_profile", "", "Update");
+            }
+
             console.log(response_data);
 
             if (response_data.success) {
