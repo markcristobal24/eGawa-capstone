@@ -195,8 +195,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
                         data-bs-target="#edit-catalog-modal">Edit</button>
-                    <button type="button" id="delete_catalog" onclick="new Catalog().delete_catalog(this.value);"
-                        class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#confirm-delete-modal">Delete</button>
                 </div>
             </div>
         </div>
@@ -294,20 +294,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 
     <!-- Modal confirmation for deleting catalog-->
-    <div class="modal fade" id="confirm-delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="confirm-delete-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Catalog</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this catalog?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete</button>
-            </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Catalog</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this catalog?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="delete_catalog"
+                        onclick="new Catalog().delete_catalog(this.value);">Delete</button>
+                </div>
             </div>
         </div>
     </div>

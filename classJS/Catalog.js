@@ -33,38 +33,38 @@ class Catalog {
     }
 
     delete_catalog(catalog_id) {
-        if (confirm("Are you sure you want to delete it?")) {
-            console.log(catalog_id);
-            // let button_value = new Account().get_button_value("delete_catalog");
-            // new Account().button_loading("delete_catalog", "loading", "");
+        // if (confirm("Are you sure you want to delete it?")) {
+        console.log(catalog_id);
+        // let button_value = new Account().get_button_value("delete_catalog");
+        // new Account().button_loading("delete_catalog", "loading", "");
 
-            let msg = "Deleting catalog....";
-            new Notification().create_notification(msg, "neutral");
+        let msg = "Deleting catalog....";
+        new Notification().create_notification(msg, "neutral");
 
-            var form_data = new FormData();
-            form_data.append('catalog_id', catalog_id);
-            form_data.append('delete_catalog', 'delete_catalog');
-            fetch('../controller/c_catalog.php', {
-                method: "POST",
-                body: form_data
-            }).then(function (response) {
-                return response.json();
-            }).then(function (response_data) {
-                console.log(response_data);
-                if (response_data.success) {
-                    console.log(response_data.success);
-                    new Notification().create_notification(response_data.success, "success");
-                    let tID = setTimeout(function () {
-                        window.location.reload();
-                        window.clearTimeout(tID);
-                    }, 1000);
-                }
-                else if (response_data.error) {
-                    // new Account().button_loading("add_catalog", "", button_value);
-                    new Notification().create_notification(response_data.error, "error");
-                }
-            });
-        }
+        var form_data = new FormData();
+        form_data.append('catalog_id', catalog_id);
+        form_data.append('delete_catalog', 'delete_catalog');
+        fetch('../controller/c_catalog.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+            }
+            else if (response_data.error) {
+                // new Account().button_loading("add_catalog", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+        // }
     }
 
     get_catalogId(catalog_id) {
