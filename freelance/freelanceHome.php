@@ -1,4 +1,25 @@
+<?php
+// session_start();
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
+$db = new DbClass();
+$account = new Account();
+$account->fetch_account($_SESSION['email']);
+$account->fetch_profile($_SESSION['email']);
+
+if (!isset($_SESSION['email'])) {
+    header('location: ../login.php');
+    die();
+}
+
+$email = $_SESSION['email'];
+$query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
+$query->execute([':email' => $email]);
+$fetch = $query->fetch(PDO::FETCH_ASSOC);
+
+$fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +30,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/userHome.css">
+    <link rel="stylesheet" href="../css/freelanceHome.css">
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
@@ -51,7 +72,7 @@
                     <form class="d-flex">
                         <input class="form-control me-2 search" type="search" placeholder="Search a tag"
                             aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <!-- <button class="btn btn-success" type="submit">Search</button> -->
                     </form>
                 </div>
             </div>
@@ -84,7 +105,7 @@
                         Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the stylistic choices of a project, so it is installed on many graphic programs on many software platforms of personal publishing and content management system.
                     </p>
                     <div>
-                        <button id="viewPostBTN" >View Post</button>
+                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#exampleModal" >View Post</button>
                     </div>
                 </div> 
                 
@@ -147,6 +168,76 @@
                         </div>
                     </form>
                 </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FOR VIEW POST -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="title">
+                        <span class="label">Job:</span>
+                        <span class="content" id="post_title">
+                            Web Dev
+                        </span>
+                    </div>
+                    <div class="author">
+                        <span class="label">Author:</span>
+                        <span class="content" id="post_author">
+                            John Paulo Sulit
+                        </span>
+                    </div>
+                    <div class="category">
+                        <span class="label">Category:</span>
+                        <span class="content" id="category">
+                            Web Dev
+                        </span>
+                    </div>
+                    <div class="tags">
+                        <span class="label">Tags:</span>
+                        <span class="content" id="post_tags">
+                            html
+                        </span>
+                    </div>
+                    <div class="info">
+                        <span class="locationPost" id="address">
+                            Sulok, Bagna, Malolos
+                        </span>
+                        <span class="separator">&#8226;</span>
+                        <span class="datePost" id="posted_date">Posted on
+                            Jan 01, 1969
+                        </span>
+                    </div>
+                    <p class="" id="">
+                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim of occupying the spaces of a website, an advertising product or an editorial production whose final text is not yet ready.
+
+                        This expedient serves to get an idea of the finished product that will soon be printed or disseminated via digital channels.
+
+
+                        In order to have a result that is more in keeping with the final result, the graphic designers, designers or typographers report the Lorem ipsum text in respect of two fundamental aspects, namely readability and editorial requirements.
+
+                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs that go beyond the simple and simple filling of spaces dedicated to accepting real texts and allowing to have hands an advertising/publishing product, both web and paper, true to reality.
+
+                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the stylistic choices of a project, so it is installed on many graphic programs on many software platforms of personal publishing and content management system.
+                    </p>
+                    <div class="rate">
+                        <span class="label">Rate:</span>
+                        <span class="content" id="rate">
+                            P 169,00.00
+                        </span>
+                    </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Apply</button>
+            </div>
             </div>
         </div>
     </div>
