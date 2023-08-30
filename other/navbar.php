@@ -23,7 +23,7 @@
             <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="home1" class="nav-link" href="#">Home</a>
+                    <a id="home1" class="nav-link" href="../freelance/freelanceHome.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>

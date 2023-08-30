@@ -22,7 +22,7 @@
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-    
+
 
     <div class="containerRegis">
         <form id="account_form" method="POST">
@@ -79,8 +79,10 @@
                 </div>
                 <div>
                     <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
-                    <label class="resize" for="checkboxId"><span id="termsTitle" class="resize">I agree to the </span></label>
-                    <span class="termsTitle resize" href="" id="tAndC"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">terms and
+                    <label class="resize" for="checkboxId"><span id="termsTitle" class="resize">I agree to the
+                        </span></label>
+                    <span class="termsTitle resize" href="" id="tAndC" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">terms and
                         conditions</span>
                 </div>
 
@@ -93,7 +95,8 @@
                 <button id="btnUserRegClear" class="btn btn-secondary" onclick="clearFields()">Clear</button>
             </div>
             <hr>
-            <p class="infoUserReg resize">Already have an account? <a id="loginLink" href="login.php" class="resize">Login here</a></p>
+            <p class="infoUserReg resize">Already have an account? <a id="loginLink" href="../login.php"
+                    class="resize">Login here</a></p>
         </form>
     </div>
 
@@ -131,27 +134,28 @@
 
 
     <!-- Modal For Terms n Condition -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <!-- <div class="modal-dialog"> -->
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and Conditions</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at posuere ligula.
-                Phasellus vitae dolor ac odio euismod facilisis.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and Conditions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at posuere ligula.
+                    Phasellus vitae dolor ac odio euismod facilisis.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
             </div>
         </div>
     </div>
 
-    
+
 
 
 

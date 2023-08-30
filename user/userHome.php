@@ -78,7 +78,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     $posted_date = $dateTimeObj->format("F d, Y h:i A");
 
                     echo ' <div class="containerPost">
-                    <span class="titlePost">' . $row['post_title'] . '</span>
+                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']). '</span>
                     <div>
                         <span class="author">Author: </span>
                         <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
