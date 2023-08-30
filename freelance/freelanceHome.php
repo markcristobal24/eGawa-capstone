@@ -93,21 +93,31 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     </div>
 
                     <p class="descPost">
-                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim of occupying the spaces of a website, an advertising product or an editorial production whose final text is not yet ready.
+                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
+                        of occupying the spaces of a website, an advertising product or an editorial production whose
+                        final text is not yet ready.
 
-                        This expedient serves to get an idea of the finished product that will soon be printed or disseminated via digital channels.
+                        This expedient serves to get an idea of the finished product that will soon be printed or
+                        disseminated via digital channels.
 
 
-                        In order to have a result that is more in keeping with the final result, the graphic designers, designers or typographers report the Lorem ipsum text in respect of two fundamental aspects, namely readability and editorial requirements.
+                        In order to have a result that is more in keeping with the final result, the graphic designers,
+                        designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                        namely readability and editorial requirements.
 
-                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs that go beyond the simple and simple filling of spaces dedicated to accepting real texts and allowing to have hands an advertising/publishing product, both web and paper, true to reality.
+                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs
+                        that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                        allowing to have hands an advertising/publishing product, both web and paper, true to reality.
 
-                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the stylistic choices of a project, so it is installed on many graphic programs on many software platforms of personal publishing and content management system.
+                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                        stylistic choices of a project, so it is installed on many graphic programs on many software
+                        platforms of personal publishing and content management system.
                     </p>
                     <div>
-                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" >View Post</button>
+                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal">View
+                            Post</button>
                     </div>
-                </div> 
+                </div>
 
             </div>
 
@@ -175,11 +185,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <div class="modal fade" id="view-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <div class="title">
                         <span class="label">Job:</span>
                         <span class="content" id="post_title">
@@ -214,16 +224,25 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </span>
                     </div>
                     <p class="" id="">
-                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim of occupying the spaces of a website, an advertising product or an editorial production whose final text is not yet ready.
+                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
+                        of occupying the spaces of a website, an advertising product or an editorial production whose
+                        final text is not yet ready.
 
-                        This expedient serves to get an idea of the finished product that will soon be printed or disseminated via digital channels.
+                        This expedient serves to get an idea of the finished product that will soon be printed or
+                        disseminated via digital channels.
 
 
-                        In order to have a result that is more in keeping with the final result, the graphic designers, designers or typographers report the Lorem ipsum text in respect of two fundamental aspects, namely readability and editorial requirements.
+                        In order to have a result that is more in keeping with the final result, the graphic designers,
+                        designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                        namely readability and editorial requirements.
 
-                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs that go beyond the simple and simple filling of spaces dedicated to accepting real texts and allowing to have hands an advertising/publishing product, both web and paper, true to reality.
+                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs
+                        that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                        allowing to have hands an advertising/publishing product, both web and paper, true to reality.
 
-                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the stylistic choices of a project, so it is installed on many graphic programs on many software platforms of personal publishing and content management system.
+                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                        stylistic choices of a project, so it is installed on many graphic programs on many software
+                        platforms of personal publishing and content management system.
                     </p>
                     <div class="rate">
                         <span class="label">Rate:</span>
@@ -231,18 +250,20 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             P 169,00.00
                         </span>
                     </div>
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#apply-job-modal">Apply</button>
-            </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#apply-job-modal">Apply</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- MODAL FOR APPLY JOB -->
-    <div class="modal fade" id="apply-job-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="apply-job-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -269,7 +290,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div class="title">
                             <span class="label">Mesaage:</span>
                             <div class="form-floating mt-1 mb-2">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                    style="height: 100px"></textarea>
                                 <label for="floatingTextarea2">Comments</label>
                             </div>
                         </div>
@@ -325,10 +347,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     // });
     </script>
 
-
-    <!-- <script src="../js/script.js "></script>
-    <script src="../js/user.js"></script>
+    <script src="../js/script.js"></script>
     <script src="../classJS/Account.js"></script>
+    <!-- 
+    <script src="../js/user.js"></script>
+    
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script> -->
 
