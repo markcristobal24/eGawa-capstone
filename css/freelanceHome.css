@@ -293,6 +293,14 @@ body {
     .btn:hover{
         opacity: 0.8;
     }
+    /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-FOR VIEW POST MODAL-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+    .modal-body .label{
+        font-weight: 600;
+    }
+    .modal-body p{
+        margin-top: 20px;
+        text-align: justify;
+    }
 
 
 }/*============================ LAPTOP ===========================*/
@@ -309,12 +317,11 @@ body {
         margin: 0 auto;
     }
     p, span{
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .containerLeft{
         flex: 70%;
-        /* background-color: #ddd; */
         margin: 20px;
     }
     .containerLeft-Feed{
@@ -511,6 +518,9 @@ body {
         border-radius: 2px;
         color: #f4f4f4;
         background-color: #808080;
+    }
+    .btn{
+        font-size: 12px;
     }
 }
 
