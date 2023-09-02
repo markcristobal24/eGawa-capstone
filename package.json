@@ -1,0 +1,15 @@
+{
+  "name": "egawa-capstone",
+  "version": "1.0.0",
+  "description": "about us\r login\r register\r forgotPassword\r createnewpassword\r forgotPassword2\r userRegistration\r verifyAccount\r freelanceRegis1 (modified)\r F_createProfile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.7.2"
+  }
+}
