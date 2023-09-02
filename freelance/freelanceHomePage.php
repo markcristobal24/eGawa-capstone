@@ -191,7 +191,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <hr>
                     <h1 class="modal-title fs-5 titles" id="">Description</h1>
                     <div class="container-description" id="container-description">
-                        
+
 
                     </div>
                 </div>
@@ -556,6 +556,15 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+    let conn = new WebSocket('ws://localhost:8080');
+    conn.onopen = function(e) {
+        console.log("Connection established!");
+    };
+
+    conn.onmessage = function(e) {
+        console.log(e.data);
+    };
+
     let counter = 0;
     if (counter <= 0) {
         lightGallery(document.getElementById('userProfileChild'), {

@@ -1,5 +1,12 @@
 {
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+        }
+    },
     "require": {
-        "cloudinary/cloudinary_php": "^2.11"
+        "cloudinary/cloudinary_php": "^2.11",
+        "cboden/ratchet": "^0.4.4"
     }
 }
+
