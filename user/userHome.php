@@ -27,7 +27,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <script src="/path/to/socket.io.js"></script>
     <title>eGawa | User Home</title>
 
     <style>
@@ -219,6 +219,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../js/user.js"></script>
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
+
     <script src="../classJS/Posts.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"

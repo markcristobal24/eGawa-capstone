@@ -13,8 +13,14 @@ io.on('connection', (socket) => {
     socket.io('disconnect', () => {
         console.log('User disconnected');
     });
+
+    socket.on('submitPost', (form_data) => {
+        socket.emit('postResponse', { success: "Post submitted successfully." });
+    });
 });
 
 server.listen(3000, () => {
     console.log('Socket.IO server listening on *:3000');
 });
+
+module.exports = io;

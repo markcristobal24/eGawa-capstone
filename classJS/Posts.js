@@ -1,3 +1,4 @@
+
 class Posts {
     post() {
         let button_value = new Account().get_button_value("submitPost");
@@ -87,3 +88,4 @@ class Posts {
         });
     }
 }
+
