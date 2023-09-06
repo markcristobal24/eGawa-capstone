@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2784a8898265743917e3106015178748d42c54b6',
+        'reference' => '02ff5b1e8f8661a82572966040972b6515ed4e21',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2784a8898265743917e3106015178748d42c54b6',
+            'reference' => '02ff5b1e8f8661a82572966040972b6515ed4e21',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -91,6 +91,24 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'paragonie/random_compat' => array(
+            'pretty_version' => 'v9.99.100',
+            'version' => '9.99.100.0',
+            'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paragonie/random_compat',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'paragonie/sodium_compat' => array(
+            'pretty_version' => 'v1.20.0',
+            'version' => '1.20.0.0',
+            'reference' => 'e592a3e06d1fa0d43988c7c7d9948ca836f644b6',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paragonie/sodium_compat',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'psr/http-client' => array(
             'pretty_version' => '1.0.2',
             'version' => '1.0.2.0',
@@ -150,6 +168,15 @@
             'provided' => array(
                 0 => '3.0.0',
             ),
+        ),
+        'pusher/pusher-php-server' => array(
+            'pretty_version' => '7.2.3',
+            'version' => '7.2.3.0',
+            'reference' => '416e68dd5f640175ad5982131c42a7a666d1d8e9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../pusher/pusher-php-server',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'ralouphie/getallheaders' => array(
             'pretty_version' => '3.0.3',

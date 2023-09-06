@@ -1,11 +1,13 @@
 
 class Posts {
+
     post() {
         let button_value = new Account().get_button_value("submitPost");
         new Account().button_loading("submitPost", "loading", "");
 
         let form_data = new FormData(document.getElementById('post_form'));
         form_data.append('jobPosts', 'jobPosts');
+
         fetch('../controller/c_jobPosts.php', {
             method: "POST",
             body: form_data

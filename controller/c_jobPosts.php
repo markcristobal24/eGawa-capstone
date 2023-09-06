@@ -1,6 +1,7 @@
 <?php
 // session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+require_once dirname(__FILE__) . "/../php/classes/Push.php";
 
 $db = new DbClass();
 
@@ -26,6 +27,15 @@ if (isset($_POST['jobPosts'])) {
 
         if ($result) {
             $output['success'] = "Posted Successfully";
+            // sendWebSocketMessage([
+            //     'newJob' => [
+            //         'jobTitle' => $post_title,
+            //         'postCategory' => $post_category,
+            //         'postDesc' => $post_description,
+            //         'postTags' => $post_tags,
+            //         'rate' => $rate
+            //     ]
+            //     ]);
         } else {
             $output['error'] = "Something went wrong. Please try again later.";
         }

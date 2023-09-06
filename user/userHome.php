@@ -27,12 +27,27 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="/path/to/socket.io.js"></script>
+    <script src="https://js.pusher.com/8.0.1/pusher.min.js"></script>
     <title>eGawa | User Home</title>
 
-    <style>
+    <!-- <script>
+    Pusher.logToConsole = true;
 
-    </style>
+    var pusher = new Pusher('7717fc588fb67a40c2c6', {
+        cluster: 'ap1'
+    });
+    pusher.connection.bind('connected', () => {
+        console.log('pusher is connected');
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+        let a = JSON.stringify(data);
+        console.log(a);
+        window.location.reload();
+    });
+    </script> -->
 
 </head>
 
