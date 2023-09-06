@@ -94,7 +94,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </p>
                     <div>
                         
-                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal"">View Post</button>
+                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
                     </div>
                 </div> ';
                 }
@@ -124,7 +124,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <img id="userPic" <?php
                     if (isset($_SESSION['user_image'])) {
                         ?>
-                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
+                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
                     } else {
                         ?> src="../img/profile.png" <?php
                     }
@@ -247,7 +247,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             Jan 01, 1969
                         </span>
                     </div>
-                    <p class="" id="">
+                    <p class="" id="post_description">
                         The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
                         of occupying the spaces of a website, an advertising product or an editorial production whose
                         final text is not yet ready.
@@ -287,13 +287,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-        // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('description');
+    // JavaScript to make the textarea auto-resize
+    const textarea = document.getElementById('description');
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
+    textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto'; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+    });
     </script>
 
 

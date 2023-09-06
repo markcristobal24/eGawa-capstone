@@ -132,10 +132,9 @@ if (isset($_POST['view_post'])) {
     $data = array();
     foreach ($query as $row) {
         $data['post_id'] = $row['post_id'];
+        $data['author'] = $row['firstName'] . " " . $row['lastName'];
         $data['account_id'] = $row['account_id'];
         $data['post_title'] = $row['post_title'];
-        $data['firstName'] = $row['firstName'];
-        $data['lastName'] = $row['lastName'];
         $data['category'] = $row['category'];
         $data['post_tags'] = $row['post_tags'];
         $currentDateTime = $row['posted_date'];

@@ -62,8 +62,17 @@ class Posts {
             return response.json();
         }).then((response_data) => {
             console.log(response_data);
-            const encodedData = encodeURIComponent(JSON.stringify(response_data));
-            window.location.href = `userViewPost.php?data=${encodedData}`;
+            let job = response_data;
+
+            document.getElementById('exampleModalLabel').innerHTML = `${job.post_title}`.toUpperCase();
+            document.getElementById('post_title').innerHTML = `${job.post_title}`;
+            document.getElementById('post_author').innerHTML = `${job.author}`;
+            document.getElementById('category').innerHTML = `${job.category}`;
+            document.getElementById('post_tags').innerHTML = `${job.post_tags}`;
+            document.getElementById('address').innerHTML = `${job.address}`;
+            document.getElementById('posted_date').innerHTML = `${job.posted_date}`;
+            document.getElementById('post_description').innerHTML = `${job.post_description}`;
+            document.getElementById('rate').innerHTML = `${job.rate}`;
         });
     }
 

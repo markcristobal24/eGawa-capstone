@@ -8,10 +8,10 @@ $account = new Account();
 $account->fetch_account($_SESSION['email']);
 $account->fetch_profile($_SESSION['email']);
 
-if (!isset($_SESSION['email'])) {
-    header('location: ../login.php');
-    die();
-}
+// if (!isset($_SESSION['email'])) {
+//     header('location: ../login.php');
+//     die();
+// }
 
 $email = $_SESSION['email'];
 $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
