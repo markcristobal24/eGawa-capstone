@@ -70,7 +70,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="containerLeft-Feed" id="post_container">
                 <?php
                 $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                 $query->execute();
+                $query->execute();
                 // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
                 foreach ($query as $row) {
                     $currentDateTime = $row['posted_date'];
@@ -78,7 +78,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     $posted_date = $dateTimeObj->format("F d, Y h:i A");
 
                     echo ' <div class="containerPost">
-                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']). '</span>
+                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
                     <div>
                         <span class="author">Author: </span>
                         <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
@@ -93,7 +93,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         ' . $row['post_description'] . '
                     </p>
                     <div>
-                        <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
+                        
+                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal"">View Post</button>
                     </div>
                 </div> ';
                 }
@@ -121,12 +122,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" <?php
-                        if (isset($_SESSION['user_image'])) {
-                            ?>
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
-                        } else {
-                            ?> src="../img/profile.png" <?php
-                        }
+                    if (isset($_SESSION['user_image'])) {
+                        ?>
+                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
+                    } else {
+                        ?> src="../img/profile.png" <?php
+                    }
                     ?> alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
@@ -204,14 +205,95 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <script>
-    // JavaScript to make the textarea auto-resize
-    const textarea = document.getElementById('description');
+    <!-- MODAL FOR VIEW POST -->
+    <div class="modal fade" id="view-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="title">
+                        <span class="label">Job:</span>
+                        <span class="content" id="post_title">
+                            Web Dev
+                        </span>
+                    </div>
+                    <div class="author">
+                        <span class="label">Author:</span>
+                        <span class="content" id="post_author">
+                            John Paulo Sulit
+                        </span>
+                    </div>
+                    <div class="category">
+                        <span class="label">Category:</span>
+                        <span class="content" id="category">
+                            Web Dev
+                        </span>
+                    </div>
+                    <div class="tags">
+                        <span class="label">Tags:</span>
+                        <span class="content" id="post_tags">
+                            html
+                        </span>
+                    </div>
+                    <div class="info">
+                        <span class="locationPost" id="address">
+                            Sulok, Bagna, Malolos
+                        </span>
+                        <span class="separator">&#8226;</span>
+                        <span class="datePost" id="posted_date">Posted on
+                            Jan 01, 1969
+                        </span>
+                    </div>
+                    <p class="" id="">
+                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
+                        of occupying the spaces of a website, an advertising product or an editorial production whose
+                        final text is not yet ready.
 
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto'; // Reset height to auto
-        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    });
+                        This expedient serves to get an idea of the finished product that will soon be printed or
+                        disseminated via digital channels.
+
+
+                        In order to have a result that is more in keeping with the final result, the graphic designers,
+                        designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                        namely readability and editorial requirements.
+
+                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs
+                        that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                        allowing to have hands an advertising/publishing product, both web and paper, true to reality.
+
+                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                        stylistic choices of a project, so it is installed on many graphic programs on many software
+                        platforms of personal publishing and content management system.
+                    </p>
+                    <div class="rate">
+                        <span class="label">Rate:</span>
+                        <span class="content" id="rate">
+                            P 169,00.00
+                        </span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#apply-job-modal">Apply</button> -->
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('description');
+
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
     </script>
 
 
