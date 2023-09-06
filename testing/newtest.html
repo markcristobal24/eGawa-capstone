@@ -1,62 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
-        .tab-content {
-            display: none;
+        .parent {
+            display: flex; /* Use flexbox to arrange child divs horizontally */
         }
 
-        .tab-content.active {
-            display: block;
+        .child {
+            width: 50%; /* Each child div takes up 50% of the parent's width */
+            border: 1px solid #000; /* Optional: Add borders to visualize the separation */
+            padding: 10px; /* Optional: Add padding for spacing */
+            display: flex;
         }
+        .right{
+            justify-content: end;
+        }
+
 
     </style>
 </head>
 <body>
-    <div class="tabs">
-        <ul class="tab-links">
-            <li><a href="#tab1">Tab 1</a></li>
-            <li><a href="#tab2">Tab 2</a></li>
-            <li><a href="#tab3">Tab 3</a></li>
-        </ul>
-    
-        <div class="tab-content" id="tab1">
-            <p>Content of Tab 1</p>
+    <div class="parent">
+        <div class="child left">
+            <span>
+                sample
+            </span>
         </div>
-        <div class="tab-content" id="tab2">
-            <p>Content of Tab 2</p>
-        </div>
-        <div class="tab-content" id="tab3">
-            <p>Content of Tab 3</p>
+        <div class="child right">
+            <span class="one">
+                sample
+            </span>
         </div>
     </div>
-    
 </body>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            // $(document).ready(function() {
-            //     // Show the first tab content by default
-            //     $('.tab-content:first').addClass('active');
-
-            //     // Handle tab link clicks
-            //     $('.tab-links a').click(function(e) {
-            //         e.preventDefault();
-
-            //         // Remove 'active' class from all tab contents
-            //         $('.tab-content').removeClass('active');
-
-            //         // Add 'active' class to the clicked tab content
-            //         var tabID = $(this).attr('href');
-            //         $(tabID).addClass('active');
-            //     });
-            // });
-            $(document).ready(function(){
-      $( ".tabs" ).tabs();
-    });
-        </script>
-
 </html>
