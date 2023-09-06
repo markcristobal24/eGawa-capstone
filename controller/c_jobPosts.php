@@ -66,7 +66,7 @@ if (isset($_POST['filter_post'])) {
                     ' . $row['post_description'] . '
                 </p>
                 <div>
-                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
+                    <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
             ';
@@ -100,7 +100,7 @@ if (isset($_POST['filter_post'])) {
                     ' . $row['post_description'] . '
                 </p>
                 <div>
-                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
+                    <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
             ';
@@ -118,6 +118,34 @@ if (isset($_POST['filter_post'])) {
                             </div>';
     }
     echo json_encode($output);
+}
+
+if (isset($_POST['fetch_post'])) {
+    $post_id = $_POST['id'];
+
+    $query = $db->connect()->prepare(
+        "SELECT * FROM jobposts
+        INNER JOIN account ON jobposts.account_id = account.account_id
+        WHERE jobposts.post_id = :post_id
+        ORDER BY posted_date DESC");
+    $query->execute([':post_id' => $post_id]);  
+    $data = array();
+    foreach ($query as $row) {
+        $data['post_id'] = $row['post_id'];
+        $data['author'] = $row['firstName'] . " " . $row['lastName'];
+        $data['account_id'] = $row['account_id'];
+        $data['post_title'] = $row['post_title'];
+        $data['category'] = $row['category'];
+        $data['post_tags'] = $row['post_tags'];
+        $currentDateTime = $row['posted_date'];
+        $dateTimeObj = new DateTime($currentDateTime);
+        $posted_date = $dateTimeObj->format("F d, Y h:i A");
+        $data['posted_date'] = $posted_date;
+        $data['address'] = $row['address'];
+        $data['post_description'] = $row['post_description'];
+        $data['rate'] = 'PHP' . ' ' . $row['rate'];
+    }
+    echo json_encode($data);
 }
 
 if (isset($_POST['view_post'])) {
@@ -177,7 +205,7 @@ if (isset($_POST['search_post'])) {
                     ' . $row['post_description'] . '
                 </p>
                 <div>
-                    <button id="viewPostBTN" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
+                    <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
             ';

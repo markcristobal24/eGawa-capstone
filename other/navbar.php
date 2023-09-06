@@ -50,7 +50,7 @@
             <?php elseif (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user"): ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="home1" class="nav-link" href="../user/userHome.php">Home</a>
+                    <a id="home1" class="nav-link" href="../freelance/freelanceHome.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>

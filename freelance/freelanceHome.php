@@ -70,54 +70,58 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 </div>
                 <div class="left-nav-search">
                     <form class="d-flex">
-                        <input class="form-control me-2 search" type="search" placeholder="Search a tag"
-                            aria-label="Search">
+                        <input class="form-control me-2 search" type="search" id="search_post"
+                            placeholder="Search a tag" aria-label="Search"
+                            onkeyup="new Posts().search_post(this.value);">
                         <!-- <button class="btn btn-success" type="submit">Search</button> -->
                     </form>
                 </div>
             </div>
 
             <div class="containerLeft-Feed" id="post_container">
-                <div class="containerPost">
-                    <span class="titlePost">
-                        Sample Title
-                    </span>
+                <?php
+                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                $query->execute();
+                // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                foreach ($query as $row) {
+                    $currentDateTime = $row['posted_date'];
+                    $dateTimeObj = new DateTime($currentDateTime);
+                    $posted_date = $dateTimeObj->format("F d, Y h:i A");
+
+                    echo ' <div class="containerPost">
+                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
                     <div>
                         <span class="author">Author: </span>
-                        <span class="userPost">Sigmund Maestro</span>
+                        <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
                     </div>
                     <div>
-                        <span class="locationPost">Malolos, Bulacan</span>
+                        <span class="locationPost">' . $row['address'] . '</span>
                         <span>•</span>
-                        <span class="datePost">February 14, 1969</span>
+                        <span class="datePost">Posted on ' . $posted_date . '</span>
                     </div>
 
                     <p class="descPost">
-                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
-                        of occupying the spaces of a website, an advertising product or an editorial production whose
-                        final text is not yet ready.
-
-                        This expedient serves to get an idea of the finished product that will soon be printed or
-                        disseminated via digital channels.
-
-
-                        In order to have a result that is more in keeping with the final result, the graphic designers,
-                        designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
-                        namely readability and editorial requirements.
-
-                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs
-                        that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
-                        allowing to have hands an advertising/publishing product, both web and paper, true to reality.
-
-                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
-                        stylistic choices of a project, so it is installed on many graphic programs on many software
-                        platforms of personal publishing and content management system.
+                        ' . $row['post_description'] . '
                     </p>
                     <div>
-                        <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal">View
-                            Post</button>
+                        
+                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
                     </div>
-                </div>
+                </div> ';
+                }
+                if ($query->rowCount() <= 0) {
+                    echo '<div class="noResult">
+                                <div class="noResultIMG">
+                                    <img id="noIMG" src="../img/search.png" alt="">
+                                </div>
+                                <div class="noResultText">
+                                    <span>
+                                    No post available
+                                    </span>
+                                </div>
+                            </div>';
+                }
+                ?>
 
             </div>
 
@@ -129,7 +133,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div> -->
             <div class="userProfile">
                 <div class="userProfileChild">
-                    <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+                    <img id="userPic"
+                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                        alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
@@ -223,7 +229,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             Jan 01, 1969
                         </span>
                     </div>
-                    <p class="" id="">
+                    <p class="" id="post_description">
                         The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
                         of occupying the spaces of a website, an advertising product or an editorial production whose
                         final text is not yet ready.
@@ -349,11 +355,12 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
     <script src="../js/script.js"></script>
     <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
+    <script src="../classJS/Posts.js"></script>
     <!-- 
     <script src="../js/user.js"></script>
     
-    <script src="../classJS/Notification.js"></script>
-    <script src="../classJS/Posts.js"></script> -->
+     -->
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
