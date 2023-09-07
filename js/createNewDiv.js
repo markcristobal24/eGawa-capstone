@@ -43,23 +43,23 @@ function editImgUp(event) {
 
 
 
-var catalog = document.getElementById('addCatalog');
-catalog.addEventListener('click', function () {
-  $('#modalFreelanceAddCatalog').modal('show');
-  $('#cancelSubmit').on("click", function (e) {
-    $('#modalFreelanceAddCatalog').modal('hide');
-    clearInputs();
-  });
-});
+// var catalog = document.getElementById('addCatalog');
+// catalog.addEventListener('click', function () {
+//   $('#modalFreelanceAddCatalog').modal('show');
+//   $('#cancelSubmit').on("click", function (e) {
+//     $('#modalFreelanceAddCatalog').modal('hide');
+//     clearInputs();
+//   });
+// });
 
 
-var edit = document.getElementById('editFreelanceAcc');
-edit.addEventListener('click', function () {
-  $('#modalEditAccount').modal('show');
-  $('#cancelEdit').on("click", function (e) {
-    $('#modalEditAccount').modal('hide');
-  });
-});
+// var edit = document.getElementById('editFreelanceAcc');
+// edit.addEventListener('click', function () {
+//   $('#modalEditAccount').modal('show');
+//   $('#cancelEdit').on("click", function (e) {
+//     $('#modalEditAccount').modal('hide');
+//   });
+// });
 
 
 
