@@ -131,13 +131,13 @@
 
                 <div class="date">
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateStarted" name="dateStarted" class="form-control"
+                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted" class="form-control"
                             placeholder="Enter Date Started">
                         <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
                     </div>
 
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateEnded" name="dateEnded" class="form-control"
+                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded" class="form-control"
                             placeholder="Enter Date Ended">
                         <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
                     </div>

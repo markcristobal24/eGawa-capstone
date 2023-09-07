@@ -34,17 +34,25 @@ function loadImage2(event) {
 
 
 
+
+
 //for date input on create profile
-const dateStartedInput = document.getElementById('dateStarted');
-const dateEndedInput = document.getElementById('dateEnded');
+// Function to update the min attribute of Date Ended
+function updateDateEndedMin() {
+    const dateStartedInput = document.getElementById('dateStarted');
+    const dateEndedInput = document.getElementById('dateEnded');
+    
+    dateEndedInput.min = dateStartedInput.value;
+}
+// Function to update the max attribute of Date Started
+function updateDateStartedMax() {
+    const dateStartedInput = document.getElementById('dateStarted');
+    const dateEndedInput = document.getElementById('dateEnded');
+    
+    dateStartedInput.max = dateEndedInput.value;
+}
 
-dateStartedInput.addEventListener('change', function () {
-  dateEndedInput.min = this.value;
-});
 
-dateEndedInput.addEventListener('change', function () {
-    dateStartedInput.max = this.value;
-  });
 
 
 
