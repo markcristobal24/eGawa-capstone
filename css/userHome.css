@@ -171,9 +171,9 @@ body {
         font-size: 25px;
     }
 
-    #description {
+    #post_description {
         white-space: pre-wrap;
-        background-color: #8000aa;
+
     }
 
     .descPost {
@@ -358,6 +358,14 @@ body {
         font-size: 20px;
     }
 
+    /* ===================FOR MODAL - VIEW POST========================= */
+    .label {
+        font-weight: bolder;
+    }
+
+    .info span {
+        font-style: italic;
+    }
 
 }
 

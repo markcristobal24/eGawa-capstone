@@ -10,6 +10,7 @@ if (isset($_POST['jobPosts'])) {
     $post_category = $_POST['post_category'];
     $post_title = $_POST['post_title'];
     $post_description = $_POST['post_description'];
+    $post_description = htmlspecialchars($post_description, ENT_QUOTES);
     $post_tags = $_POST['post_tags'];
     $rate = $_POST['rate'];
 

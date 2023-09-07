@@ -94,7 +94,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </p>
                     <div>
                         
-                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
+                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
                     </div>
                 </div> ';
                 }
@@ -124,7 +124,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <img id="userPic" <?php
                     if (isset($_SESSION['user_image'])) {
                         ?>
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
+                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
                     } else {
                         ?> src="../img/profile.png" <?php
                     }
@@ -207,38 +207,39 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     <!-- MODAL FOR VIEW POST -->
     <div class="modal fade" id="view-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="title">
+                    <div class="title mb-3">
                         <span class="label">Job:</span>
                         <span class="content" id="post_title">
                             Web Dev
                         </span>
                     </div>
-                    <div class="author">
+                    <div class="author mb-3">
                         <span class="label">Author:</span>
                         <span class="content" id="post_author">
                             John Paulo Sulit
                         </span>
                     </div>
-                    <div class="category">
+                    <div class="category mb-3">
                         <span class="label">Category:</span>
                         <span class="content" id="category">
                             Web Dev
                         </span>
                     </div>
-                    <div class="tags">
+                    <div class="tags mb-3">
                         <span class="label">Tags:</span>
                         <span class="content" id="post_tags">
                             html
                         </span>
                     </div>
-                    <div class="info">
+                    <div class="info mb-3">
                         <span class="locationPost" id="address">
                             Sulok, Bagna, Malolos
                         </span>
@@ -247,27 +248,37 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             Jan 01, 1969
                         </span>
                     </div>
-                    <p class="" id="post_description">
-                        The Lorem ipum filling text is used by graphic designers, programmers and printers with the aim
-                        of occupying the spaces of a website, an advertising product or an editorial production whose
-                        final text is not yet ready.
 
-                        This expedient serves to get an idea of the finished product that will soon be printed or
-                        disseminated via digital channels.
+                    <div class="mb-3">
+                        <span class="label">Description:</span>
+                        <p class="" id="post_description">
+                            The Lorem ipum filling text is used by graphic designers, programmers and printers with the
+                            aim
+                            of occupying the spaces of a website, an advertising product or an editorial production
+                            whose
+                            final text is not yet ready.
+
+                            This expedient serves to get an idea of the finished product that will soon be printed or
+                            disseminated via digital channels.
 
 
-                        In order to have a result that is more in keeping with the final result, the graphic designers,
-                        designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
-                        namely readability and editorial requirements.
+                            In order to have a result that is more in keeping with the final result, the graphic
+                            designers,
+                            designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                            namely readability and editorial requirements.
 
-                        The choice of font and font size with which Lorem ipsum is reproduced answers to specific needs
-                        that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
-                        allowing to have hands an advertising/publishing product, both web and paper, true to reality.
+                            The choice of font and font size with which Lorem ipsum is reproduced answers to specific
+                            needs
+                            that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                            allowing to have hands an advertising/publishing product, both web and paper, true to
+                            reality.
 
-                        Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
-                        stylistic choices of a project, so it is installed on many graphic programs on many software
-                        platforms of personal publishing and content management system.
-                    </p>
+                            Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                            stylistic choices of a project, so it is installed on many graphic programs on many software
+                            platforms of personal publishing and content management system.
+                        </p>
+                    </div>
+
                     <div class="rate">
                         <span class="label">Rate:</span>
                         <span class="content" id="rate">
@@ -287,13 +298,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('description');
 
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto'; // Reset height to auto
-        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    });
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
     </script>
 
 
