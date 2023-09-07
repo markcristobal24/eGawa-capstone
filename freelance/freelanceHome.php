@@ -111,15 +111,15 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 }
                 if ($query->rowCount() <= 0) {
                     echo '<div class="noResult">
-                                <div class="noResultIMG">
-                                    <img id="noIMG" src="../img/search.png" alt="">
-                                </div>
-                                <div class="noResultText">
-                                    <span>
-                                    No post available
-                                    </span>
-                                </div>
-                            </div>';
+                            <div class="noResultIMG">
+                                <img id="noIMG" src="../img/search.png" alt="">
+                            </div>
+                            <div class="noResultText">
+                                <span>
+                                No post available
+                                </span>
+                            </div>
+                        </div>';
                 }
                 ?>
 
