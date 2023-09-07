@@ -82,7 +82,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <img src="../img/profile.png" alt="" class="user-chat-img">
                     </div>
                     <div class="user-info">
-                        <span>John Daniel "Edaddy" Edano</span>
+                        <span>Arvin Candelaria Bok</span>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="parent">
                     <div class="child left">
                         <span>
-                            John Daniel Edaddy
+                            Arvin Candelaria Bok
                         </span>
                         <span class="job-type">
                             Mobile Development
@@ -212,7 +212,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 <!-- MODAL FOR ViEW JOB APPLICATION -->
 <div class="modal fade" id="modal-view-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Job Application</h1>
@@ -221,14 +222,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             <div class="modal-body apply">
                 <form action="">
 
-                    <div class="title">
+                    <div class="title mb-3">
                         <span class="label">Job Title:</span>
                         <span class="content" id="post_title">
                             Web Dev
                         </span>
                     </div>
 
-                    <div class="title">
+                    <div class="title mb-3">
                         <span class="label">To:</span>
                         <span class="content">@</span>
                         <span class="content" id="post_title">
@@ -236,19 +237,47 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </span>
                     </div>
 
-                    <div class="title">
+                    <div class="title mb-3">
                         <span class="label">Status:</span>
                         <span class="content" id="post_title">
                             Pending
                         </span>
                     </div>
 
-                    <div class="title">
+                    <div class="title mb-3">
                         <span class="label">Message:</span>
-                        <span>
-                            flkdsjflksdjfl fsdlkjfsldf sldjflsdkf jlsdjfls dfljsdfl sdlkfjlsdkjflk
-                            dflkjsdfljsldkjfsd flksdjflksdjf sdlfkjsdlkfjsd flksdjflksdjffsdlkfjsdlkjflskdjflk
-                            slkdjflsdjflksdjflksjdlkfjsdlkfjsdklf
+                        <p class="" id="post_description">
+                            The Lorem ipum filling text is used by graphic designers, programmers and printers with the
+                            aim
+                            of occupying the spaces of a website, an advertising product or an editorial production
+                            whose
+                            final text is not yet ready.
+
+                            This expedient serves to get an idea of the finished product that will soon be printed or
+                            disseminated via digital channels.
+
+
+                            In order to have a result that is more in keeping with the final result, the graphic
+                            designers,
+                            designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                            namely readability and editorial requirements.
+
+                            The choice of font and font size with which Lorem ipsum is reproduced answers to specific
+                            needs
+                            that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                            allowing to have hands an advertising/publishing product, both web and paper, true to
+                            reality.
+
+                            Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                            stylistic choices of a project, so it is installed on many graphic programs on many software
+                            platforms of personal publishing and content management system.
+                        </p>
+                    </div>
+
+                    <div class="rate">
+                        <span class="label">Rate:</span>
+                        <span class="content" id="rate">
+                            P 169,00.00
                         </span>
                     </div>
 

@@ -252,6 +252,16 @@ body {
         justify-content: end;
     }
 
+    /* ===================FOR MODAL - VIEW APPLICATION ========================= */
+    .label {
+        font-weight: bolder;
+    }
+
+    .info span {
+        font-style: italic;
+    }
+
+
 }
 
 /*============================ LAPTOP ===========================*/
