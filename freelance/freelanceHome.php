@@ -261,7 +261,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#apply-job-modal">Apply</button>
+                        data-bs-target="#apply-job-modal" id="applyjob_btn"
+                        onclick="new Posts().apply_job(this.value);">Apply</button>
                 </div>
             </div>
         </div>
@@ -273,32 +274,32 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Apply for this job?</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body apply">
                     <form action="">
                         <div class="title">
                             <span class="label">Job Title:</span>
-                            <span class="content" id="post_title">
+                            <span class="content" id="job_title">
                                 Web Dev
                             </span>
                         </div>
 
                         <div class="title">
                             <span class="label">To:</span>
-                            <span class="content">@</span>
-                            <span class="content" id="post_title">
+                            <span class="content"></span>
+                            <span class="content" id="job_author">
                                 John Paulo Sulitz
                             </span>
                         </div>
 
                         <div class="title">
-                            <span class="label">Mesaage:</span>
+                            <span class="label">Message:</span>
                             <div class="form-floating mt-1 mb-2">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                                     style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">Comments</label>
+                                <label for="floatingTextarea2">Write your message...</label>
                             </div>
                         </div>
 

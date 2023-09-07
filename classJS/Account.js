@@ -27,7 +27,7 @@ class Account {
                     if (response_data.status == "11") {
                         new Notification().create_notification(response_data.message, "success");
                         let tID = setTimeout(function () {
-                            window.location.replace('freelance/freelanceHomePage.php');
+                            window.location.replace('freelance/freelanceHome.php');
                             window.clearTimeout(tID);
                         }, 3000);
                     }

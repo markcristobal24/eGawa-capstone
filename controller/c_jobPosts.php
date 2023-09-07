@@ -121,7 +121,7 @@ if (isset($_POST['filter_post'])) {
 }
 
 if (isset($_POST['fetch_post'])) {
-    $post_id = $_POST['id'];
+    $post_id = $_POST['postId'];
 
     $query = $db->connect()->prepare(
         "SELECT * FROM jobposts

@@ -63,6 +63,10 @@ class Posts {
         }).then((response_data) => {
             console.log(response_data);
             let job = response_data;
+            let applyBtn = document.getElementById('applyjob_btn');
+            if (applyBtn) {
+                applyBtn.value = `${job.post_id}`;
+            }
 
             document.getElementById('exampleModalLabel').innerHTML = `${job.post_title}`.toUpperCase();
             document.getElementById('post_title').innerHTML = `${job.post_title}`;
@@ -93,6 +97,24 @@ class Posts {
             else if (response_data.error) {
                 document.getElementById('post_container').innerHTML = response_data.error;
             }
+        });
+    }
+
+    apply_job(postId) {
+        let form_data = new FormData();
+        form_data.append('postId', postId);
+        form_data.append('fetch_post', 'fetch_post');
+        fetch('../controller/c_jobPosts.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let job = response_data;
+
+            document.getElementById('job_title').innerHTML = `${job.post_title}`.toUpperCase();
+            document.getElementById('job_author').innerHTML = `${job.author}`;
         });
     }
 }
