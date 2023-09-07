@@ -171,6 +171,11 @@ body {
         font-size: 25px;
     }
 
+    #description {
+        white-space: pre-wrap;
+        background-color: #8000aa;
+    }
+
     .descPost {
         max-width: 900px;
         white-space: nowrap;

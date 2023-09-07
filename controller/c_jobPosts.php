@@ -40,7 +40,8 @@ if (isset($_POST['filter_post'])) {
         "SELECT * FROM jobposts
         INNER JOIN account ON jobposts.account_id = account.account_id
         WHERE jobposts.category = :filterValue
-        ORDER BY posted_date DESC");
+        ORDER BY posted_date DESC"
+    );
     $query->execute([':filterValue' => $filterValue]);
     $output = array();
     if ($query->rowCount() > 0) {
@@ -73,9 +74,10 @@ if (isset($_POST['filter_post'])) {
         }
     } else if ($filterValue == "all") {
         $query = $db->connect()->prepare(
-        "SELECT * FROM jobposts
+            "SELECT * FROM jobposts
         INNER JOIN account ON jobposts.account_id = account.account_id
-        ORDER BY posted_date DESC");
+        ORDER BY posted_date DESC"
+        );
         $query->execute();
         $output = array();
         $output['success'] = '';
@@ -127,8 +129,9 @@ if (isset($_POST['fetch_post'])) {
         "SELECT * FROM jobposts
         INNER JOIN account ON jobposts.account_id = account.account_id
         WHERE jobposts.post_id = :post_id
-        ORDER BY posted_date DESC");
-    $query->execute([':post_id' => $post_id]);  
+        ORDER BY posted_date DESC"
+    );
+    $query->execute([':post_id' => $post_id]);
     $data = array();
     foreach ($query as $row) {
         $data['post_id'] = $row['post_id'];
@@ -155,8 +158,9 @@ if (isset($_POST['view_post'])) {
         "SELECT * FROM jobposts
         INNER JOIN account ON jobposts.account_id = account.account_id
         WHERE jobposts.post_id = :post_id
-        ORDER BY posted_date DESC");
-    $query->execute([':post_id' => $post_id]);  
+        ORDER BY posted_date DESC"
+    );
+    $query->execute([':post_id' => $post_id]);
     $data = array();
     foreach ($query as $row) {
         $data['post_id'] = $row['post_id'];
@@ -180,8 +184,9 @@ if (isset($_POST['search_post'])) {
     $search_input = $_POST['keyword'];
 
     $query = $db->connect()->prepare(
-        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' ORDER BY posted_date DESC");
-    $query->execute(); 
+        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' ORDER BY posted_date DESC"
+    );
+    $query->execute();
     $output = array();
     $output['success'] = '';
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {

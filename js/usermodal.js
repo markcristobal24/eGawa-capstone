@@ -8,9 +8,3 @@ logout.addEventListener('click', function () {
     });
 });
 
-var userVerifyBtn = document.getElementById('verifyUserAcc');
-userVerifyBtn.addEventListener('click', function () {
-    $('#modaluserIdVerification').modal('show');
-
-});
-

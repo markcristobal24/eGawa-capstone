@@ -1,8 +1,3 @@
-var userVerifyBtn = document.getElementById('verifyUserAcc');
-userVerifyBtn.addEventListener('click', function () {
-    $('#modaluserIdVerification').modal('show');
-
-});
 
 //for id1 verification of user
 function loadImageUser(event) {
@@ -50,7 +45,7 @@ function clearUserEdit() {
 }
 
 
-function clearFields(){
+function clearFields() {
     document.getElementById("firstName").value = null;
     document.getElementById("middleName").value = null;
     document.getElementById("surName").value = null;
@@ -62,13 +57,13 @@ function clearFields(){
 }
 
 //for clear button on change email page
-function resetInputEmail(){
+function resetInputEmail() {
 
     var currEmail = document.getElementById('currentEmail');
     var newEmail = document.getElementById('newEmail');
 
-    currEmail.value ='';
-    newEmail.value ='';
+    currEmail.value = '';
+    newEmail.value = '';
 
 }
 
