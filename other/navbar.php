@@ -26,7 +26,7 @@
                     <a id="home1" class="nav-link" href="../freelance/freelanceHome.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>
+                    <a id="about1" id="about" class="nav-link" href="../other/about_egawa.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a id="freeLanceInbox" class="nav-link" href="freelance_message.php">Messages <span
@@ -53,7 +53,7 @@
                     <a id="home1" class="nav-link" href="../freelance/freelanceHome.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="about1" id="about" class="nav-link" href="../other/aboutUs.php">About</a>
+                    <a id="about1" id="about" class="nav-link" href="../other/about_egawa.php">About</a>
                 </li>
                 <li class="nav-item">
                     <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages <span
