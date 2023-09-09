@@ -61,7 +61,7 @@
                     </div>
 
 
-                    <p><a id="forgotPasswordLink" href="forgotPassword.php">Forgot password?</a></p>
+                    <p><a id="forgotPasswordLink" href="forgot_password.php">Forgot password?</a></p>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="button" class="btn btn-primary" id="btnLogin" onclick="new Account().login();">
