@@ -43,7 +43,7 @@
                     <p class="aboutInfo">contact us here - 
                         <div class="containerFooter">
                             <div class="socialIcons">
-                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/egawa.fb"><i class="fa-brands fa-facebook"></i></a>
                                 <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                                 <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
                                 <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
