@@ -157,6 +157,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
+                <img src="../img/profile.png" alt="" class="user-chat-img-header">
                 <h5 class="modal-title">John Paulo Sulit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

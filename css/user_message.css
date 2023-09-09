@@ -169,6 +169,10 @@ body {
     textarea {
         resize: none;
     }
+    .user-chat-img-header{
+        height: 50px;
+        margin-right: 10px;
+    }
 
     .user-chat {
         background-color: #bdbdbd;
@@ -179,14 +183,11 @@ body {
     }
 
     .user-chat span {
-        font-size: 10px;
+        font-size: 13px;
         color: #636363;
         text-align: justify;
     }
 
-    /* .container-chat {
-        display: flex;
-    } */
 
     .freelance-chat {
         background-color: #0073aa;
@@ -198,7 +199,7 @@ body {
     }
 
     .freelance-chat span {
-        font-size: 10px;
+        font-size: 13px;
         color: #f4f4f4;
         text-align: justify;
     }
@@ -265,7 +266,37 @@ body {
 }
 
 /*============================ LAPTOP ===========================*/
-@media (max-width: 1366px) {}
+@media (max-width: 1366px) {
+    .user-chat {
+        background-color: #bdbdbd;
+        width: 70%;
+        border-radius: 0 20px 20px 20px;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .user-chat span {
+        font-size: 10px;
+        color: #636363;
+        text-align: justify;
+    }
+
+
+    .freelance-chat {
+        background-color: #0073aa;
+        width: 70%;
+        border-radius: 20px 20px 0 20px;
+        padding: 20px;
+        margin: 10px;
+        margin: 10px 0 10px auto;
+    }
+
+    .freelance-chat span {
+        font-size: 10px;
+        color: #f4f4f4;
+        text-align: justify;
+    }
+}
 
 
 /*============================ large  ===========================*/
