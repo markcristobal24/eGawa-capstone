@@ -37,7 +37,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php //print_r($_SESSION); ?>
+    <?php print_r($_SESSION); ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -124,7 +124,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <img id="userPic" <?php
                     if (isset($_SESSION['user_image'])) {
                         ?>
-                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
+                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
                     } else {
                         ?> src="../img/profile.png" <?php
                     }
@@ -298,13 +298,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-        // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('description');
+    // JavaScript to make the textarea auto-resize
+    const textarea = document.getElementById('description');
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
+    textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto'; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+    });
     </script>
 
 

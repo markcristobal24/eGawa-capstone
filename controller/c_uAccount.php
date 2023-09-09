@@ -143,16 +143,20 @@ if (isset($_POST['update_profile'])) {
 
         if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address) {
             $image_link = $new_profile;
-            if ($new_profile != $_SESSION['user_image']) {
-            $upload_image = new Image();
-            $data = $upload_image->upload_image($new_profile, $user_id, "egawa/user/");
-            $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+            if (!empty($new_profile)) {
+                $upload_image = new Image();
+                $data = $upload_image->upload_image($new_profile, $user_id, "egawa/user/");
+                $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+            } else {
+                $image_link = $_SESSION['user_image'];
             }
 
             $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, address = :new_address WHERE account_id = :user_id");
             $result = $query->execute([':new_profile' => $image_link, ':new_address' => $new_address, ':user_id' => $user_id]);
             if($result) {
-                $_SESSION['user_image'] = $image_link;
+                if (!empty($new_profile)) {
+                    $_SESSION['user_image'] = $image_link;
+                }
                 $_SESSION['address'] = $new_address;
                 $output['success'] = "Your profile has been updated";
             } else {
