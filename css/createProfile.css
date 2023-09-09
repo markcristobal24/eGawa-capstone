@@ -8,7 +8,7 @@ body {
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
   .container {
-    margin: 160px auto;
+    margin: 3% auto;
     max-width: fit-content;
     box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
   }
@@ -133,7 +133,7 @@ body {
 /*============================ LAPTOP ===========================*/
 @media (max-width: 1366px) {
   .container {
-    margin: 70px auto;
+    margin: 5% auto;
     max-width: fit-content;
     box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
   }
@@ -280,7 +280,7 @@ body {
 /*============================ LAPTOP (1311) ===========================*/
 @media (max-width: 1311px) {
   .container {
-    margin: 50px auto;
+    margin: 3% auto;
     max-width: fit-content;
     box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
   }
