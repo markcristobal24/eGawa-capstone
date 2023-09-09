@@ -56,7 +56,7 @@
                     <a id="about1" id="about" class="nav-link" href="../other/about_egawa.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a id="freeLanceInbox" class="nav-link" href="freeLanceInbox.php">Messages <span
+                    <a id="freeLanceInbox" class="nav-link" href="user_message.php">Messages <span
                             class="badge text-bg-secondary bg-danger">0</span></a>
                 </li>
                 <li class="nav-item dropdown">
