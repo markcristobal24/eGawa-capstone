@@ -170,6 +170,11 @@ body {
         resize: none;
     }
 
+    .user-chat-img-header{
+        height: 50px;
+        margin-right: 10px;
+    }
+
     .user-chat {
         background-color: #bdbdbd;
         width: 70%;
@@ -179,14 +184,11 @@ body {
     }
 
     .user-chat span {
-        font-size: 10px;
+        font-size: 13px;
         color: #636363;
         text-align: justify;
     }
 
-    /* .container-chat {
-        display: flex;
-    } */
 
     .freelance-chat {
         background-color: #0073aa;
@@ -198,7 +200,7 @@ body {
     }
 
     .freelance-chat span {
-        font-size: 10px;
+        font-size: 13px;
         color: #f4f4f4;
         text-align: justify;
     }
