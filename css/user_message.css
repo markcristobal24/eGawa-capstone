@@ -1,0 +1,280 @@
+body {
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+.navbar {
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#freelanceOption,
+#freeLanceInbox {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#freelanceOption:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
+}
+
+#freeLanceInbox:hover {
+    color: #ff6600;
+}
+
+#welcomeName:hover #welcomeName:hover {
+    color: #ff6600;
+}
+
+#welcomeName {
+    font-size: 18px;
+}
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    width: 190px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #0074aa95;
+    color: rgb(255, 255, 255);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+body {
+    background-color: hsla(200, 57%, 85%, 0.275);
+}
+
+
+/*============================FOR MEDIA QUERIES=================================*/
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+    #container2 {
+        max-width: 80vw;
+        height: 80vh;
+        margin: 20px auto;
+        background-color: #b4b4b4;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .menu_container {
+        display: flex;
+        background-color: #0073aa;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .tab_navigation {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        margin: 0 auto;
+    }
+
+    .tab_navigation li {
+        display: inline-block;
+        background-color: #0073aa;
+        font-size: 20px;
+        margin-top: 20px;
+        padding: 10px 20px;
+        color: #f4f4f4;
+        border-radius: 20px 20px 0 0;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .tab_navigation li.active,
+    .tab_navigation li:hover {
+        background-color: #fafafa;
+        border-radius: 20px 20px 0 0;
+        color: #0073aa;
+    }
+
+    .tab_container {
+        display: none;
+        margin: 0 auto;
+        padding-top: 20px;
+        /* height: 600px; */
+        height: 70vh;
+        width: 95%;
+        background-color: #fafafa;
+        overflow: auto;
+        /* Enable scrolling */
+    }
+
+    .user-post {
+        /* background-color: #0073aa; */
+        display: flex;
+        margin: 20px 20px;
+        padding: 10px 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
+
+    .user-post:hover {
+        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
+
+        .user-info span {
+            color: #f4f4f4;
+        }
+    }
+
+    .user-chat-img {
+        height: 55px;
+    }
+
+    .user-info {
+        margin: 5px 10px;
+    }
+
+    .chat {
+        display: flex;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .user-chat {
+        background-color: #bdbdbd;
+        width: 70%;
+        border-radius: 0 20px 20px 20px;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .user-chat span {
+        font-size: 10px;
+        color: #636363;
+        text-align: justify;
+    }
+
+    /* .container-chat {
+        display: flex;
+    } */
+
+    .freelance-chat {
+        background-color: #0073aa;
+        width: 70%;
+        border-radius: 20px 20px 0 20px;
+        padding: 20px;
+        margin: 10px;
+        margin: 10px 0 10px auto;
+    }
+
+    .freelance-chat span {
+        font-size: 10px;
+        color: #f4f4f4;
+        text-align: justify;
+    }
+
+    .job-info {
+        display: flex;
+    }
+
+    .job-status,
+    .status-div {
+        width: 50%;
+        display: flex;
+    }
+
+    .parent {
+        display: flex;
+        margin: 20px 20px;
+        padding: 10px 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
+
+    .parent:hover {
+        background-image: linear-gradient(to right, #0074aa81, #8000aa83);
+
+        .child span {
+            color: #f4f4f4;
+        }
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .job-type {
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    .status {
+        font-weight: 700;
+    }
+
+    .child {
+        width: 50%;
+        padding: 10px;
+        display: flex;
+    }
+
+    .right {
+        justify-content: end;
+    }
+
+    /* ===================FOR MODAL - VIEW APPLICATION ========================= */
+    .label {
+        font-weight: bolder;
+    }
+
+    .info span {
+        font-style: italic;
+    }
+
+
+}
+
+/*============================ LAPTOP ===========================*/
+@media (max-width: 1366px) {}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 1315) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {}
