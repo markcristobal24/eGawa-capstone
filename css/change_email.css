@@ -1,0 +1,111 @@
+body {
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container-main {
+    max-width: 400px;
+    margin: 13% auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+}
+
+
+.changeTitle {
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+}
+
+.custom-shape-divider-bottom-1690684253 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-bottom-1690684253 svg {
+    position: relative;
+    display: block;
+    width: calc(236% + 1.3px);
+    height: 190px;
+    transform: rotateY(180deg);
+  }
+
+  .custom-shape-divider-bottom-1690684253 .shape-fill {
+    fill: #ffffff;
+  }
+
+
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+
+.container-main {
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+}
+
+.custom-shape-divider-bottom-1690684253 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690684253 svg {
+    position: relative;
+    display: block;
+    width: calc(236% + 1.3px);
+    height: 130px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1690684253 .shape-fill {
+    fill: #ffffff;
+}
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 1296px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+
+.container-main {
+    max-width: 400px;
+    margin: 30% 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+}
+
+.custom-shape-divider-bottom-1690684253 {
+    display: none;
+}
+
+
+}
