@@ -1,36 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Input Form</title>
     <style>
-        .parent {
-            display: flex; /* Use flexbox to arrange child divs horizontally */
+        textarea{
+            resize: none;
         }
-
-        .child {
-            width: 50%; /* Each child div takes up 50% of the parent's width */
-            border: 1px solid #000; /* Optional: Add borders to visualize the separation */
-            padding: 10px; /* Optional: Add padding for spacing */
-            display: flex;
-        }
-        .right{
-            justify-content: end;
-        }
-
-
     </style>
 </head>
 <body>
-    <div class="parent">
-        <div class="child left">
-            <span>
-                sample
-            </span>
-        </div>
-        <div class="child right">
-            <span class="one">
-                sample
-            </span>
-        </div>
+    <div id="inputDiv">
+        <textarea id="inputTextarea" rows="4" cols="50" placeholder="Enter your message here..."></textarea>
+        <button id="sendButton">Send</button>
     </div>
 </body>
 </html>
