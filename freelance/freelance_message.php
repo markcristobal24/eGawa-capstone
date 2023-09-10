@@ -230,7 +230,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 </body>
 
 <!-- MODAL FOR CHAT -->
-<div class="modal" tabindex="-1" id="modal-chat">
+<!-- <div class="modal" tabindex="-1" id="modal-chat">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -280,7 +280,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
