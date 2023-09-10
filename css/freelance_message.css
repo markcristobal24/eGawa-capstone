@@ -178,7 +178,8 @@ body {
 
     .user-chat {
         background-color: #bdbdbd;
-        width: 70%;
+        width: fit-content;
+        max-width: 70%;
         border-radius: 0 20px 20px 20px;
         padding: 20px;
         margin: 10px;
@@ -193,7 +194,9 @@ body {
 
     .freelance-chat {
         background-color: #0073aa;
-        width: 70%;
+        /* min-width: fit-content; */
+        width: fit-content;
+        max-width: 70%;
         border-radius: 20px 20px 0 20px;
         padding: 20px;
         margin: 10px;
