@@ -113,8 +113,38 @@ class Posts {
             console.log(response_data);
             let job = response_data;
 
+            document.getElementById('btn_sendJob').value = postId;
             document.getElementById('job_title').innerHTML = `${job.post_title}`.toUpperCase();
             document.getElementById('job_author').innerHTML = `${job.author}`;
+        });
+    }
+
+    send_job(postId) {
+        new Account().button_loading("btn_sendJob", "loading", "");
+
+        let form_data = new FormData(document.getElementById('sendJob_form'));
+        form_data.append('postId', postId);
+        form_data.append('send_job', 'send_job');
+        fetch('../controller/c_jobapplication.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1500);
+            }
+            else if (response_data.error) {
+                new Account().button_loading("btn_sendJob", "", "Send");
+                new Notification().create_notification(response_data.error, "error");
+            }
         });
     }
 }

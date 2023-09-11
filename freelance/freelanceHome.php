@@ -48,7 +48,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 </head>
 
 <body>
-    <?php //print_r($_SESSION); ?>
+    <?php print_r($_SESSION); ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -278,7 +278,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body apply">
-                    <form action="">
+                    <form id="sendJob_form">
                         <div class="title">
                             <span class="label">Job Title:</span>
                             <span class="content" id="job_title">
@@ -297,20 +297,21 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div class="title">
                             <span class="label">Message:</span>
                             <div class="form-floating mt-1 mb-2">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                    style="height: 100px"></textarea>
+                                <textarea class="form-control" name="apply_message" placeholder="Leave a comment here"
+                                    id="floatingTextarea2" style="height: 100px"></textarea>
                                 <label for="floatingTextarea2">Write your message...</label>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label label">Upload file</label>
-                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                            <input class="form-control form-control-sm" name="apply_file" id="formFileSm" type="file">
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send</button>
+                            <button type="button" id="btn_sendJob" onclick="new Posts().send_job(this.value);"
+                                class="btn btn-primary">Send</button>
                         </div>
                     </form>
                 </div>
