@@ -68,36 +68,112 @@
         <div class="tab_container_area">
             <div class="tab_container">
 
-                <div class="user-post" data-bs-toggle="modal" data-bs-target="#modal-chat">
-                    <div class="user-image">
-                        <img src="../img/profile.png" alt="" class="user-chat-img">
+                <div class="chat-container">
+
+                    <div class="left-chat-cont chats">
+
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span>John Paulo Sulit</span>
+                            </div>
+                        </div>
+
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span>Arvin Candelaria Bok</span>
+                            </div>
+                        </div>
+
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span>Sir Pythonman</span>
+                            </div>
+                        </div>
+
+                        
+
                     </div>
-                    <div class="user-info">
-                        <span>John Paulo Sulit</span>
+
+                    <div class="middle-chat-cont chats">
+
+                        <div class="middle-chat-nav">
+                            <img src="../img/profile.png" alt="" class="user-chat-img chat-box-img">
+                            <span>John Paulo Sulit</span>
+                        </div>
+
+                        <div class="middle-chat-box">
+                            <div class="user-chat">
+                                <span>
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century
+                                </span>
+                            </div>
+                            <div class="freelance-chat">
+                                <span>
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    specimen book. It usually begins wit
+                                </span>
+                            </div>
+                            <div class="user-chat">
+                                <span>
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    specimen book. It usually begins wit
+                                </span>
+                            </div>
+                            <div class="freelance-chat">
+                                <span>
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    or web designs.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="middle-chat-send">
+
+                            <div id="inputDiv">
+                                <form action="">
+                                    <textarea id="inputTextarea" rows="3" cols="50" placeholder="Enter your message here..."></textarea>
+                                    <div class="button-container">
+                                        <button type="submit" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+
                     </div>
+
+                    <div class="right-chat-cont">
+                        <div class="profile-pic">
+                            <img src="../img/profile.png" alt="" class="user-chat-img right-pic">
+                        </div>
+                        <div class="profile-info block">
+                            <span class="block">John Paulo Sulit</span>
+                            <span class="block">johnny-makasalanan@gmail.com</span>
+                            <span class="block">Sulok, Bagna, Malolos, Bulacan</span>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="user-post">
-                    <div class="user-image">
-                        <img src="../img/profile.png" alt="" class="user-chat-img">
-                    </div>
-                    <div class="user-info">
-                        <span>Arvin Candelaria Bok</span>
-                    </div>
-                </div>
-
-                <div class="user-post">
-                    <div class="user-image">
-                        <img src="../img/profile.png" alt="" class="user-chat-img">
-                    </div>
-                    <div class="user-info">
-                        <span>Sir Pythonman</span>
-                    </div>
-                </div>
 
             </div>
 
             <div class="tab_container">
+
                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
                     <div class="child left">
                         <span>
@@ -145,6 +221,8 @@
                         </span>
                     </div>
                 </div>
+                
+
             </div>
         </div>
 

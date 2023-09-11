@@ -88,7 +88,7 @@ body {
 @media (max-width: 5000px) {
     #container2 {
         max-width: 80vw;
-        height: 80vh;
+        height: 85vh;
         margin: 20px auto;
         background-color: #b4b4b4;
         border-radius: 20px 20px 0 0;
@@ -129,25 +129,26 @@ body {
     .tab_container {
         display: none;
         margin: 0 auto;
-        padding-top: 20px;
+        /* padding-top: 20px; */
         /* height: 600px; */
-        height: 70vh;
-        width: 95%;
+        height: 75vh;
+        width: 99%;
         background-color: #fafafa;
         overflow: auto;
         /* Enable scrolling */
     }
 
     .user-post {
-        /* background-color: #0073aa; */
+        background-color: #fcfcfc;
         display: flex;
-        margin: 20px 20px;
+        margin: 5px 20px;
         padding: 10px 15px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+        /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
     }
 
     .user-post:hover {
         background-image: linear-gradient(to right, #0074aa81, #8000aa83);
+        cursor: pointer;
 
         .user-info span {
             color: #f4f4f4;
@@ -169,6 +170,7 @@ body {
     textarea {
         resize: none;
     }
+
     .user-chat-img-header{
         height: 50px;
         margin-right: 10px;
@@ -176,7 +178,8 @@ body {
 
     .user-chat {
         background-color: #bdbdbd;
-        width: 70%;
+        width: fit-content;
+        max-width: 70%;
         border-radius: 0 20px 20px 20px;
         padding: 20px;
         margin: 10px;
@@ -191,7 +194,8 @@ body {
 
     .freelance-chat {
         background-color: #0073aa;
-        width: 70%;
+        width: fit-content;
+        max-width: 70%;
         border-radius: 20px 20px 0 20px;
         padding: 20px;
         margin: 10px;
@@ -252,6 +256,86 @@ body {
     .right {
         justify-content: end;
     }
+    .chat-container{
+        width: 100%;
+        height: 100%; 
+        /* border: 1px solid #000; */
+        display: flex;
+        flex-direction: row;
+        overflow: hidden; /* Hide the overflow content of children */
+    }
+    .chats{
+        flex: 1;
+        /* border: 1px solid #ccc; */
+        overflow-y: auto; /* Enable vertical scrolling for children */
+        padding: 10px;
+    }
+
+    .left-chat-cont{
+        /* background-color: rgba(255, 0, 0, 0.493); */
+        background-color: #bdbdbdab;
+        min-width: 25%;
+        max-width: 25%;
+        border: 1px solid #ccc;
+        
+    }
+    .middle-chat-cont{
+        /* background-color: rgba(0, 128, 0, 0.473); */
+        min-width: 50%;
+        max-width: 50%;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+    .middle-chat-nav{
+        border: 1px solid #ccc;
+        padding: 5px 20px;
+        height: 10%;
+    }
+    .middle-chat-box{
+        overflow-y: auto; /* Enable vertical scrolling for children */
+        padding: 20px 10px;
+        margin: 10px 5px;
+        height: 70%;
+    }
+    .middle-chat-send{
+        display: flex;
+        border: 1px solid #ccc;
+        height: 20%;
+    }
+    #inputDiv{
+        margin: auto;
+    }
+    .button-container{
+        justify-content: center;
+        align-items: center;
+        margin: auto 5px;
+    }
+    .middle-chat-send form{
+        display: flex;
+    }
+
+
+    .right-chat-cont{
+        /* background-color: rgba(0, 0, 255, 0.418); */
+        min-width: 25%;
+        max-width: 25%;
+        border: 1px solid #ccc;
+    }
+    .profile-pic{
+        display: flex;
+    }
+    .profile-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .right-pic{
+        height: 150px;
+        width: 150px;
+        margin: 20px auto;
+    }
+    .block{
+        margin: auto;
+    }
 
     /* ===================FOR MODAL - VIEW APPLICATION ========================= */
     .label {
@@ -267,35 +351,21 @@ body {
 
 /*============================ LAPTOP ===========================*/
 @media (max-width: 1366px) {
-    .user-chat {
-        background-color: #bdbdbd;
-        width: 70%;
-        border-radius: 0 20px 20px 20px;
-        padding: 20px;
-        margin: 10px;
-    }
 
-    .user-chat span {
-        font-size: 10px;
-        color: #636363;
-        text-align: justify;
-    }
+.user-post {
+    background-color: #fcfcfc;
+    display: flex;
+    margin: 5px 0px;
+    padding: 10px 15px;
+}
+.user-info span, .middle-chat-nav span{
+    font-size: 14px;
+}
+.chat-box-img{
+    height: 40px;
+    width: 40px;
+}
 
-
-    .freelance-chat {
-        background-color: #0073aa;
-        width: 70%;
-        border-radius: 20px 20px 0 20px;
-        padding: 20px;
-        margin: 10px;
-        margin: 10px 0 10px auto;
-    }
-
-    .freelance-chat span {
-        font-size: 10px;
-        color: #f4f4f4;
-        text-align: justify;
-    }
 }
 
 
