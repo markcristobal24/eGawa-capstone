@@ -72,7 +72,7 @@
 
                     <div class="left-chat-cont chats">
 
-                        <div class="user-post">
+                    <div class="user-post">
                             <div class="user-image">
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
@@ -95,7 +95,16 @@
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Sir Pythonman</span>
+                                <span>Joel Leonor</span>
+                            </div>
+                        </div>
+
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span>Mark Josh Cristobal</span>
                             </div>
                         </div>
 
@@ -174,54 +183,258 @@
 
             <div class="tab_container">
 
-                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
-                    <div class="child left">
-                        <span>
-                            John Paulo Sulit
-                        </span>
-                        <span class="job-type">
-                            Web Development
-                        </span>
+                <div class="col-names">
+
+                    <div class="col-name">
+                        <span>Pending</span>
                     </div>
-                    <div class="child right">
-                        <span class="status">
-                            Pending
-                        </span>
+
+                    <div class="col-name">
+                        <span>Accepted</span>
                     </div>
+
+                    <div class="col-name">
+                        <span>Completed</span>
+                    </div>
+
                 </div>
 
-                <div class="parent">
-                    <div class="child left">
-                        <span>
-                            Arvin Candelaria Bok
-                        </span>
-                        <span class="job-type">
-                            Mobile Development
-                        </span>
-                    </div>
-                    <div class="child right">
-                        <span class="status">
-                            Finished
-                        </span>
-                    </div>
-                </div>
+                <div class="col-container">
 
-                <div class="parent">
-                    <div class="child left">
-                        <span>
-                            Sir Pyhtonman
-                        </span>
-                        <span class="job-type">
-                            Pyhton nagpapahirap
-                        </span>
+                    <div class="col-one col-all">
+                        <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
+                            <div class="child left">
+                                <span class="name-info">
+                                    John Paulo Sulit
+                                </span>
+                                <span class="job-type">
+                                    Web Development
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Pending
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Arvin Candelaria Bok
+                                </span>
+                                <span class="job-type">
+                                    Mobile Development
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Pending
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="child right">
-                        <span class="status">
-                            Accepted
-                        </span>
+
+
+                    <div class="col-two col-all">
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Joel Leonor
+                                </span>
+                                <span class="job-type">
+                                    Web Hosting
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Ongoing
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Mark Josh Cristobal
+                                </span>
+                                <span class="job-type">
+                                    Video Editor
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Ongoing
+                                </span>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="col-three col-all">
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Ralpu Garcia
+                                </span>
+                                <span class="job-type">
+                                    Web Hosting
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    John Daniel Edaddy
+                                </span>
+                                <span class="job-type">
+                                    Video Editor
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="parent">
+                            <div class="child left">
+                                <span class="name-info">
+                                    Boss Charles Pillos
+                                </span>
+                                <span class="job-type">
+                                    Network Administrator
+                                </span>
+                            </div>
+                            <div class="child right">
+                                <span class="status">
+                                    Completed
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                
 
             </div>
         </div>
