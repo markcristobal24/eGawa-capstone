@@ -269,6 +269,10 @@ body {
         flex-direction: column;
     }
 
+    .name-info{
+        font-weight: bold;
+    }
+
     .job-type {
         font-size: 13px;
         font-style: italic;
