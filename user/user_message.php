@@ -21,6 +21,18 @@
 // $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 ?>
 
+<?php
+// session_start();
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+
+$db = new DbClass();
+
+$user_id = $_SESSION['account_id'];
+$query = $db->connect()->prepare("SELECT * FROM account WHERE account_id = :account_id");
+$query->execute([':account_id' => $user_id]);
+$fetch = $query->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html>
 

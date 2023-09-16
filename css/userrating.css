@@ -3,7 +3,7 @@
 }
 
 .navbar {
-    background-color: #0073aa;
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
