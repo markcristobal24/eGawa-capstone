@@ -1,0 +1,416 @@
+#mainContainer {
+    margin-top: 100px;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home1,
+#about1,
+#freelanceOption,
+#freeLanceInbox {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: #f4f4f4;
+}
+
+#freelanceOption:hover {
+    color: #ff6600;
+}
+
+#about1:hover {
+    color: #ff6600;
+}
+
+#home1:hover {
+    color: #ff6600;
+}
+
+#freeLanceInbox:hover {
+    color: #ff6600;
+}
+
+    /* Dropdown button styles */
+    .dropdown-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+  
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        width: 190px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+  
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+  
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #0074aa95;
+        color: rgb(255, 255, 255);
+      }
+  
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+
+.containerUserHome {
+    display: flex;
+    max-width: auto;
+    max-height: auto;
+    margin: 50px 15%;
+    padding: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    /* background-color: #ddd; */
+    /* box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5); */
+    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247); */
+    border-radius: 5px;
+}
+
+
+.containerUserHome .div1 {
+    margin: 10px;
+    width: 30%;
+    padding: 40px 30px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    display: flex;
+    flex-direction: column;
+}
+
+
+#userName {
+    margin: 10px auto 0;
+}
+
+#userPic {
+    max-width: 150px;
+    margin: 10px auto 0;
+    border-radius: 73px;
+}
+
+#verifyUserAcc {
+    margin: 10px auto 10px;
+    background-color: #079040;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+#verifyUserAcc:hover {
+    background-color: #044c22;
+    cursor: pointer;
+}
+
+.flexDiv {
+    display: flex;
+    margin-left: 20px;
+}
+.flexDivBot{
+    margin-bottom: auto;
+}
+
+.telnoImg,
+.addressImg,
+.emailImg {
+    margin-right: 20px;
+}
+
+#viewmore {
+    margin: 10px auto 10px;
+    background-color: #079040;
+    color: #ddd;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+#viewmore:hover {
+    background-color: #044c22;
+    cursor: pointer;
+}
+
+
+.editContainer {
+    position: relative;
+    background-color: lightgray;
+    margin-top: 20px;
+}
+
+#editUserAcc {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgb(149, 92, 92);
+    padding-right: 3px;
+}
+
+#editUserAcc:hover {
+    color: #ff6600;
+    cursor: pointer;
+}
+
+.containerUserHome .div2 {
+    margin: 10px;
+    width: 70%;
+    padding: 0px 0px 40px;
+    max-height: auto;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+}
+.nav-top{
+    width: 100%;
+    height: 50px;
+    background-color: #0073aa;
+}
+.containerPost{
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+.userHistoryTitle{
+    padding: 10px 20px 0;
+}
+.containerHistory{
+    width: auto;
+    height: 500px;
+    overflow: auto;
+    padding:  0 20px;
+}
+
+p {
+    color: rgb(220, 220, 220);
+    padding: 5px;
+}
+
+.btn {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.labelImage {
+    color: #ddd;
+    font-size: 30px;
+}
+
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.text-center {
+    font-family: 'roboto', Arial, sans-serif;
+
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* ====For User ID verification modal */
+#modaluserIdVerification{
+    margin-top: 10%;
+}
+
+#uploadedImageUser1, .labelImage{
+    margin-left: 10px;
+}
+/*============================FOR USER EDIT PROFILE MODAL=================================*/
+#uploadedEditProfileIMG{
+    margin-left: auto;
+    margin-right: auto;
+}
+/*============================END OF USER EDIT PROFILE MODAL=================================*/
+
+
+
+
+
+/*============================FOR MEDIA QUERIES=================================*/
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1200px) {}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {
+
+    .containerUserHome {
+        flex-direction: column;
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 20px;
+        /* border: 1px solid #ddd; */
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        /* background-color: #ddd; */
+    }
+
+    .containerUserHome .div1 {
+        order: -1;
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerUserHome .div2 {
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #logout1 {
+        color: #000000;
+    }
+
+    #logout1:hover {
+        color: #f4f4f4;
+    }
+
+
+    #home1,
+    #about1,
+    #userOption,
+    #userInbox {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
+    }
+
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
+
+}
+    /* ====For User ID verification modal */
+    #modaluserIdVerification{
+        margin-top: 10%;
+    }
+    #uploadedImageUser{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+    .containerUserHome {
+        flex-direction: column;
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 20px;
+        /* border: 1px solid #ddd; */
+        border-radius: 5px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        /* background-color: #ddd; */
+    }
+
+    .containerUserHome .div1 {
+        order: -1;
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerUserHome .div2 {
+        margin: 10px auto 10px;
+        width: 90%;
+        max-height: auto;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+
+    .footerInfo {
+        font-size: 10px;
+        color: #0073aa
+    }
+
+    i {
+        color: #0073aa;
+        margin-left: 15px;
+    }
+
+    #home1,
+    #about1,
+    #freelanceOption,
+    #freeLanceInbox {
+        font-size: 15px;
+        font-family: 'roboto', sans-serif;
+        color: #f4f4f4;
+    }
+    #welcomeName{
+        font-size: 15px;
+    }
+
+
+    .custom-shape-divider-bottom-1687514102 {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 svg {
+        display: none;
+    }
+
+    .custom-shape-divider-bottom-1687514102 .shape-fill {
+        fill: #0073aa;
+    }
+
+
+}
