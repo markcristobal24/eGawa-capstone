@@ -232,10 +232,16 @@ body {
         margin: 0px auto;
     }
 
-    #userName {
+    #userName{
         font-weight: 400;
         font-size: 25px;
         color: #000000;
+        margin: auto;
+    }
+    .user-name{
+        font-weight: 400;
+        font-size: 20px;
+        color: #1d35bb;
         margin: auto;
     }
 

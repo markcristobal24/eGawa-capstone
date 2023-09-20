@@ -48,7 +48,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 </head>
 
 <body>
-    <?php print_r($_SESSION); ?>
+    <?php 
+    //  print_r($_SESSION); 
+    ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -138,6 +140,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                    </p>
+                    <p class="user-name">
+                        @<?php echo $_SESSION['username']; ?>
                     </p>
                     <!-- <p id="userName">other info</p> -->
                 </div>

@@ -33,7 +33,11 @@ if (!isset($_SESSION["otp"])) {
 </head>
 
 <body>
-    <?php print_r($_SESSION); ?>
+    <span class="otp-sent">
+        <?php 
+        print_r($_SESSION); 
+        ?>
+    </span>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerVerify">
         <form id="verify_form" method="post">

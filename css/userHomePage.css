@@ -101,6 +101,11 @@
 #userName {
     margin: 10px auto 0;
 }
+.user-name{
+    margin-inline: auto;
+    font-size: 20px;
+    color: #0073aa;
+}
 
 #userPic {
     max-width: 150px;
@@ -109,7 +114,7 @@
 }
 
 #verifyUserAcc {
-    margin: 10px auto 10px;
+    margin: 0px auto 10px;
     background-color: #079040;
     color: #ddd;
     font-weight: 400;

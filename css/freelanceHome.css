@@ -211,6 +211,10 @@ body {
         border-radius: 100px;
         margin: 0px auto;
     }
+    .user-name{
+        text-align: center;
+        color: #0073aa;
+    }
     #userName{
         font-weight: 400;
         font-size: 25px;

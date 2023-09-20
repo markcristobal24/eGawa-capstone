@@ -41,21 +41,21 @@
 
                     <tr class="table-group-divider">
                         <!-- Adds horizontal line, can be used on any row-->
-                        <td>Marila Offenda</td>
-                        <td>01/01/22</td>
+                        <td>Arvin Candelaria Bok</td>
+                        <td>01/01/20</td>
                         <td>Completed</td>
                     </tr>
                     <tr>
-                        <td>Collin Holland</td>
-                        <td>04/20/20</td>
-                        <td>Incomplete</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Sulit</td>
-                        <td>07/14/15</td>
+                        <td>Mark Josh Cristobal</td>
+                        <td>04/20/21</td>
                         <td>Completed</td>
                     </tr>
                     <tr>
+                        <td>Joel Leonor</td>
+                        <td>07/14/22</td>
+                        <td>Completed</td>
+                    </tr>
+                    <!-- <tr>
                         <td>Johnny Santos</td>
                         <td>02/14/69</td>
                         <td>Completed</td>
@@ -64,7 +64,7 @@
                         <td>Johnny Santos</td>
                         <td>02/14/69</td>
                         <td>Completed</td>
-                    </tr>
+                    </tr> -->
 
 
                 </table>
@@ -78,6 +78,9 @@
             <h2 id="userName">
                 <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
             </h2>
+            <p class="user-name">
+                @<?php echo $_SESSION['username']; ?>
+            </p>
             <div id="verifyUserAcc">Verify Account</div>
 
 

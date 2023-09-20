@@ -6,6 +6,11 @@ body{
     margin: 0;
 }
 
+.otp-sent{
+    font-size: 10px;
+    color: #063950;
+}
+
 
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
