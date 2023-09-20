@@ -101,7 +101,7 @@ if (isset($_POST['filter_post'])) {
                     <img class="author-pic" src="../img/profile.png" alt="" ">
                 </div>
                 <div class="post-col-2">
-                    <span class="titlePost">' . $row['post_title'] . '</span>
+                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
                     <div>
                         <span class="author">Author: </span>
                         <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
@@ -209,8 +209,15 @@ if (isset($_POST['search_post'])) {
         $dateTimeObj = new DateTime($currentDateTime);
         $posted_date = $dateTimeObj->format("F d, Y h:i A");
         $output['success'] .= '
-            <div class="containerPost">
-                <span class="titlePost">' . $row['post_title'] . '</span>
+
+        <div class="containerPost">
+
+            <div class="post-col-1">
+                <img class="author-pic" src="../img/profile.png" alt="" ">
+            </div>
+            
+            <div class="post-col-2">
+                <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
                 <div>
                     <span class="author">Author: </span>
                     <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
@@ -228,6 +235,7 @@ if (isset($_POST['search_post'])) {
                     <button id="viewPostBTN" data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ');">View Post</button>
                 </div>
             </div>
+        </div>
             ';
     }
     $output['error'] = '<div class="noResult">
