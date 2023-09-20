@@ -77,7 +77,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>John Paulo Sulit</span>
+                                <span class="fname-">John Paulo</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Sulit</span>
                             </div>
                         </div>
 
@@ -86,7 +88,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Arvin Candelaria Bok</span>
+                                <span class="fname-">Arvin</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Bok</span>
                             </div>
                         </div>
 
@@ -95,7 +99,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Joel Leonor</span>
+                                <span class="fname-">Joel</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Leonor</span>
                             </div>
                         </div>
 
@@ -104,13 +110,33 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Mark Josh Cristobal</span>
+                                <span class="fname-">Mark Josh</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Cristobal</span>
                             </div>
                         </div>
 
-                        
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span class="fname-">John Daniel</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Edaddy</span>
+                            </div>
+                        </div>
 
-                        
+                        <div class="user-post">
+                            <div class="user-image">
+                                <img src="../img/profile.png" alt="" class="user-chat-img">
+                            </div>
+                            <div class="user-info">
+                                <span class="fname-">Ralpu</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Garcia</span>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -179,8 +205,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                         <div class="profile-info block">
                             <span class="block">John Paulo Sulit</span>
-                            <span class="block">johnny-makasalanan@gmail.com</span>
-                            <span class="block">Sulok, Bagna, Malolos, Bulacan</span>
+                            <div>
+                                <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                                <span class="block">paupau@gmail.com</span>
+                            </div>
+
+                            <div>
+                                <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                                <span class="block">Sulok, Bagna, Malolos, Bulacan</span>
+                            </div>
+
                         </div>
                     </div>
 
@@ -520,7 +554,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div class="rate">
                         <span class="label">Rate:</span>
                         <span class="content" id="rate">
-                            P 169,00.00
+                            P 16,900.00
                         </span>
                     </div>
 

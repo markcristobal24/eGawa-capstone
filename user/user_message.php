@@ -84,12 +84,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                     <div class="left-chat-cont chats">
 
-                    <div class="user-post">
+                        <div class="user-post">
                             <div class="user-image">
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>John Paulo Sulit</span>
+                                <span class="fname-">Mark Josh</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Cristobal</span>
                             </div>
                         </div>
 
@@ -98,7 +100,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Arvin Candelaria Bok</span>
+                                <span class="fname-">Arvin</span>
+                                <span class="mname-">Candelaria</span>
+                                <span class="lname-">Bok</span>
                             </div>
                         </div>
 
@@ -107,20 +111,11 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
                             <div class="user-info">
-                                <span>Joel Leonor</span>
+                                <span class="fname-">Joel</span>
+                                <span class="mname-"></span>
+                                <span class="lname-">Leonor</span>
                             </div>
                         </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span>Mark Josh Cristobal</span>
-                            </div>
-                        </div>
-
-                        
 
                     </div>
 
@@ -128,7 +123,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="middle-chat-nav">
                             <img src="../img/profile.png" alt="" class="user-chat-img chat-box-img">
-                            <span>John Paulo Sulit</span>
+                            <span>Mark Josh Cristobal</span>
                         </div>
 
                         <div class="middle-chat-box">
@@ -182,9 +177,17 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             <img src="../img/profile.png" alt="" class="user-chat-img right-pic">
                         </div>
                         <div class="profile-info block">
-                            <span class="block">John Paulo Sulit</span>
-                            <span class="block">johnny-makasalanan@gmail.com</span>
-                            <span class="block">Sulok, Bagna, Malolos, Bulacan</span>
+                            <span class="block">Mark Josh Cristobal</span>
+                            <div>
+                                <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                                <span class="block">lethimcook@gmail.com</span>
+                            </div>
+
+                            <div>
+                                <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                                <span class="block">Batia, Bocaue, Bulacan</span>
+                            </div>
+
                         </div>
                     </div>
 
@@ -217,7 +220,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
                             <div class="child left">
                                 <span class="name-info">
-                                    John Paulo Sulit
+                                    Arvin Candelaria Bok
                                 </span>
                                 <span class="job-type">
                                     Web Development
@@ -233,7 +236,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <div class="parent">
                             <div class="child left">
                                 <span class="name-info">
-                                    Arvin Candelaria Bok
+                                    Mark Josh Cristobal
                                 </span>
                                 <span class="job-type">
                                     Mobile Development
@@ -461,7 +464,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         <div class="modal-content">
             <div class="modal-header">
                 <img src="../img/profile.png" alt="" class="user-chat-img-header">
-                <h5 class="modal-title">John Paulo Sulit</h5>
+                <h5 class="modal-title">Arvin Candelaria Bok</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -537,7 +540,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <span class="label">From:</span>
                         <span class="content">@</span>
                         <span class="content" id="post_title">
-                            John Paulo Sulitz
+                            Arvin Candelaria Bok
                         </span>
                     </div>
 

@@ -362,6 +362,8 @@ body {
     .profile-info{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .right-pic{
         height: 150px;
@@ -413,4 +415,103 @@ body {
 
 
 /*============================ small  ===========================*/
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+
+    /* for message tab */
+    #container2 {
+        max-width: 98vw;
+        height: 85vh;
+        margin: 20px auto;
+        background-color: #b4b4b4;
+        border-radius: 20px 20px 0 0;
+    }
+    .user-post{
+        flex-direction: column;
+        padding: 5px;
+        margin: 2.5px;
+    }
+    .user-info span{
+        font-size: 10px;
+        text-align: center;
+    }
+    .user-info .mname-, .user-info .lname-{
+        display: none;
+    }
+
+    .left-chat-cont{
+        /* background-color: rgba(255, 0, 0, 0.493); */
+        background-color: #bdbdbdab;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 25%;
+        max-height: 25%;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .middle-chat-cont{
+        /* background-color: rgba(0, 128, 0, 0.473); */
+        margin-top: 20px;
+        min-width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+
+    .right-chat-cont{
+        display: none;
+    }
+
+    .chat-container{
+        flex-direction: column;
+    }
+
+    .freelance-chat span {
+        font-size: 10px;
+        color: #f4f4f4;
+        text-align: justify;
+    }
+
+    .user-chat span {
+        font-size: 10px;
+        color: #f4f4f4;
+        text-align: justify;
+    }
+
+    #inputTextarea {
+        width: 300px; /* Set the width to 300 pixels */
+        height: 50px; /* Set the height to 150 pixels */
+        font-size: 13px;
+    }
+
+
+    /* for job applications tab */
+
+    .col-name span{
+        font-size: 20px;
+    }
+    
+    .col-all{
+        width: 30%;
+        height: 65vh;
+        overflow: auto;
+        border: 1px solid #ccc;
+        margin-inline: auto;
+    }
+    .parent {
+        display: flex;
+        margin: 20px 10px;
+        padding: 10px 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
+    }
+    .name-info{
+        font-size: 13px;
+    }
+    .job-type{
+        font-size: 10px;
+    }
+    .right{
+        display: none;
+    }
+}
