@@ -140,8 +140,21 @@ body {
         height: 93%;
         padding: 10px;
     }
+    .post-col-1{
+        display: flex;
+        justify-content: center;
+        margin: auto 2%;
+    }
+    /* .post-col-2{
+        margin-left: 20px;
+    } */
+    .author-pic{
+        height: 100px;
+        width: 100px;
+    }
 
     .containerPost {
+        display: flex;
         margin: 20px 0;
         padding: 30px 50px;
         height: 200px;
@@ -933,11 +946,14 @@ body {
         height: 80%;
         padding: 10px;
     }
+    .author-pic{
+        display: none;
+    }
 
     .containerPost {
         margin: 5px 0px;
-        padding: 10px 30px;
-        height: 150px;
+        padding: 10px 0px;
+        height: 190px;
         font-size: 15px;
         background-color: #f4f4f4ee;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
@@ -965,7 +981,7 @@ body {
     }
 
     .descPost {
-        max-width: 500px;
+        max-width: 300px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;

@@ -79,26 +79,32 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     $dateTimeObj = new DateTime($currentDateTime);
                     $posted_date = $dateTimeObj->format("F d, Y h:i A");
 
-                    echo ' <div class="containerPost">
-                    <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
-                    <div>
-                        <span class="author">Author: </span>
-                        <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
-                    </div>
-                    <div>
-                        <span class="locationPost">' . $row['address'] . '</span>
-                        <span>•</span>
-                        <span class="datePost">Posted on ' . $posted_date . '</span>
-                    </div>
+                    echo ' 
+                    <div class="containerPost">
+                        <div class="post-col-1">
+                            <img class="author-pic" src="../img/profile.png" alt="" ">
+                        </div>
+                        <div class="post-col-2">
+                            <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
+                            <div>
+                                <span class="author">Author: </span>
+                                <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
+                            </div>
+                            <div>
+                                <span class="locationPost">' . $row['address'] . '</span>
+                                <span>•</span>
+                                <span class="datePost">Posted on ' . $posted_date . '</span>
+                            </div>
 
-                    <p class="descPost">
-                        ' . $row['post_description'] . '
-                    </p>
-                    <div>
-                        
-                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
-                    </div>
-                </div> ';
+                            <p class="descPost">
+                                ' . $row['post_description'] . '
+                            </p>
+                            <div>
+                                
+                                <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
+                            </div>
+                        </div>
+                    </div> ';
                 }
                 if ($query->rowCount() <= 0) {
                     echo '<div class="noResult">
