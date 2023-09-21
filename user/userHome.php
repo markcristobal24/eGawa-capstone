@@ -82,7 +82,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
-                            <img class="author-pic" src="../img/profile.png" alt="" ">
+                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
                         </div>
                         <div class="post-col-2">
                             <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
