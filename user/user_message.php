@@ -129,29 +129,38 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <div class="middle-chat-box">
                             <div class="user-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century
                                 </span>
                             </div>
                             <div class="freelance-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                                    a type
                                     specimen book. It usually begins wit
                                 </span>
                             </div>
                             <div class="user-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                                    a type
                                     specimen book. It usually begins wit
                                 </span>
                             </div>
                             <div class="freelance-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
                                     or web designs.
                                 </span>
                             </div>
@@ -161,13 +170,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                             <div id="inputDiv">
                                 <form action="">
-                                    <textarea id="inputTextarea" rows="3" cols="50" placeholder="Enter your message here..."></textarea>
+                                    <textarea id="inputTextarea" rows="3" cols="50"
+                                        placeholder="Enter your message here..."></textarea>
                                     <div class="button-container">
                                         <button type="submit" class="btn btn-primary">Send</button>
                                     </div>
                                 </form>
                             </div>
-                            
+
                         </div>
 
                     </div>
@@ -217,8 +227,33 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <div class="col-container">
 
                     <div class="col-one col-all">
-                        <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
-                            <div class="child left">
+                        <?php
+                        $query = $db->connect()->prepare(
+                            "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.sender_id = account.account_id
+                                WHERE job_application.receiver_id = :account_id AND job_application.jobstatus = 'PENDING' ORDER BY timestamp DESC"
+                        );
+                        $query->execute([
+                            ':account_id' => $_SESSION['account_id']
+                        ]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
+                        <!-- <div class="child left">
                                 <span class="name-info">
                                     Arvin Candelaria Bok
                                 </span>
@@ -230,24 +265,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <span class="status">
                                     Pending
                                 </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Mark Josh Cristobal
-                                </span>
-                                <span class="job-type">
-                                    Mobile Development
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Pending
-                                </span>
-                            </div>
-                        </div>
+                            </div> -->
 
                     </div>
 
@@ -285,7 +303,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-three col-all">
                         <div class="parent">
                             <div class="child left">
@@ -538,22 +556,22 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                     <div class="title mb-3">
                         <span class="label">From:</span>
-                        <span class="content">@</span>
-                        <span class="content" id="post_title">
+                        <!-- <span class="content">@</span> -->
+                        <span class="content" id="from">
                             Arvin Candelaria Bok
                         </span>
                     </div>
 
                     <div class="title mb-3">
                         <span class="label">Status:</span>
-                        <span class="content" id="post_title">
+                        <span class="content" id="jobstatus">
                             Pending
                         </span>
                     </div>
 
                     <div class="title mb-3">
                         <span class="label">Message:</span>
-                        <p class="" id="post_description">
+                        <p class="" id="from_message">
                             The Lorem ipum filling text is used by graphic designers, programmers and printers with the
                             aim
                             of occupying the spaces of a website, an advertising product or an editorial production
@@ -581,12 +599,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         </p>
                     </div>
 
-                    <div class="rate">
+                    <!-- <div class="rate">
                         <span class="label">Rate:</span>
                         <span class="content" id="rate">
                             P 169,00.00
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3">
                         <!-- <label for="formFileSm" class="form-label label">Upload file</label>
@@ -594,8 +612,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" >Decline</button>
-                        <button type="button" class="btn btn-primary">Accept</button>
+                        <button type="button" class="btn btn-secondary" id="btn_declineJob"
+                            onclick="new Job().decline_job(this.value)">Decline</button>
+                        <button type="button" class="btn btn-primary" id="btn_acceptJob">Accept</button>
                     </div>
                 </form>
             </div>
@@ -608,6 +627,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
 <script src="testing.js"></script>
+<script src="../classJS/Job.js"></script>
+<script src="../classJS/Account.js"></script>
+<script src="../classJS/Notification.js"></script>
 
 <script>
 

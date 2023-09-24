@@ -11,33 +11,69 @@ if (isset($_POST['send_job'])) {
     $query = $db->connect()->prepare("SELECT * FROM jobposts WHERE post_id = :post_id");
     $query->execute([':post_id' => $post_id]);
     $fetch = $query->fetch(PDO::FETCH_ASSOC);
-    if(isset($_POST['apply_message'])) {
+    if (isset($_POST['apply_message'])) {
         $apply_message = $_POST['apply_message'];
         $sender_id = $_SESSION['account_id'];
         $receiver_id = $fetch['account_id'];
 
         if ($apply_message !== "") {
-            $query = $db->connect()->prepare("INSERT INTO job_application (sender_id, receiver_id, message, timestamp, status)
-            VALUES (:sender_id, :receiver_id, :message, :timestamp, :status)");
+            $query = $db->connect()->prepare("INSERT INTO job_application (post_id, sender_id, receiver_id, message, timestamp, jobstatus)
+            VALUES (:post_id, :sender_id, :receiver_id, :message, :timestamp, :jobstatus)");
             $result = $query->execute([
+                ':post_id' => $post_id,
                 ':sender_id' => $sender_id,
                 ':receiver_id' => $receiver_id,
                 ':message' => $apply_message,
                 ':timestamp' => $currentDateTime,
-                ':status' => 'PENDING'
+                ':jobstatus' => 'PENDING'
             ]);
 
             if ($result) {
                 $output['success'] = "Job Application successfully sent!";
-            }
-            else {
+            } else {
                 $output['error'] = "Something went wrong! Please try again later.";
             }
-        }
-        else {
+        } else {
             $output['error'] = "Please provide an application letter";
         }
-    } 
+    }
+    echo json_encode($output);
+}
+
+if (isset($_POST['view_job'])) {
+    $job_id = $_POST['jobId'];
+    $query = $db->connect()->prepare(
+        "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.sender_id = account.account_id
+                                WHERE job_application.application_id = :job_id"
+    );
+    $query->execute([
+        ':job_id' => $job_id
+    ]);
+    $data = array();
+    foreach ($query as $row) {
+        $data['application_id'] = $row['application_id'];
+        $data['post_title'] = $row['post_title'];
+        $data['from_name'] = $row['firstName'] . " " . $row['lastName'];
+        $data['jobstatus'] = $row['jobstatus'];
+        $data['message'] = $row['message'];
+    }
+    echo json_encode($data);
+}
+
+if (isset($_POST['decline_job'])) {
+    $job_id = $_POST['jobId'];
+
+    $query = $db->connect()->prepare("DELETE FROM job_application WHERE application_id = :application_id");
+    $result = $query->execute([
+        ':application_id' => $job_id
+    ]);
+    if ($result) {
+        $output['success'] = "You have declined the job application!";
+    } else {
+        $output['error'] = "Something went wrong! Please reload the page.";
+    }
     echo json_encode($output);
 }
 ?>

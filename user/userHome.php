@@ -322,6 +322,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../js/script.js "></script>
     <script src="../js/user.js"></script>
     <script src="../classJS/Account.js"></script>
+    
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script>
 
