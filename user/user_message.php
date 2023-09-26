@@ -231,8 +231,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         $query = $db->connect()->prepare(
                             "SELECT * FROM job_application
                                 INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
-                                INNER JOIN account ON job_application.sender_id = account.account_id
-                                WHERE job_application.receiver_id = :account_id AND job_application.jobstatus = 'PENDING' ORDER BY timestamp DESC"
+                                INNER JOIN account ON job_application.freelance_id = account.account_id
+                                WHERE job_application.user_id = :account_id AND job_application.jobstatus = 'PENDING' ORDER BY timestamp DESC"
                         );
                         $query->execute([
                             ':account_id' => $_SESSION['account_id']
@@ -271,37 +271,32 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
                     <div class="col-two col-all">
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Joel Leonor
-                                </span>
-                                <span class="job-type">
-                                    Web Hosting
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Ongoing
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Mark Josh Cristobal
-                                </span>
-                                <span class="job-type">
-                                    Video Editor
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Ongoing
-                                </span>
-                            </div>
-                        </div>
+                        <?php
+                        $query = $db->connect()->prepare(
+                            "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.freelance_id = account.account_id
+                                WHERE job_application.user_id = :account_id AND job_application.jobstatus = 'ONGOING' ORDER BY timestamp DESC"
+                        );
+                        $query->execute([
+                            ':account_id' => $_SESSION['account_id']
+                        ]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
                     </div>
 
                     <div class="col-three col-all">
@@ -614,7 +609,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="btn_declineJob"
                             onclick="new Job().decline_job(this.value)">Decline</button>
-                        <button type="button" class="btn btn-primary" id="btn_acceptJob">Accept</button>
+                        <button type="button" class="btn btn-primary" id="btn_acceptJob"
+                            onclick="new Job().accept_job(this.value, this.getAttribute)">Accept</button>
                     </div>
                 </form>
             </div>

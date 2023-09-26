@@ -17,7 +17,7 @@ if (isset($_POST['send_job'])) {
         $receiver_id = $fetch['account_id'];
 
         if ($apply_message !== "") {
-            $query = $db->connect()->prepare("INSERT INTO job_application (post_id, sender_id, receiver_id, message, timestamp, jobstatus)
+            $query = $db->connect()->prepare("INSERT INTO job_application (post_id, freelance_id, user_id, message, timestamp, jobstatus)
             VALUES (:post_id, :sender_id, :receiver_id, :message, :timestamp, :jobstatus)");
             $result = $query->execute([
                 ':post_id' => $post_id,
@@ -45,7 +45,7 @@ if (isset($_POST['view_job'])) {
     $query = $db->connect()->prepare(
         "SELECT * FROM job_application
                                 INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
-                                INNER JOIN account ON job_application.sender_id = account.account_id
+                                INNER JOIN account ON job_application.freelance_id = account.account_id
                                 WHERE job_application.application_id = :job_id"
     );
     $query->execute([
@@ -74,6 +74,23 @@ if (isset($_POST['decline_job'])) {
     } else {
         $output['error'] = "Something went wrong! Please reload the page.";
     }
+    echo json_encode($output);
+}
+
+if (isset($_POST['accept_job'])) {
+    $job_id = $_POST['jobId'];
+
+    $query = $db->connect()->prepare("UPDATE job_application SET jobstatus = :jobstatus WHERE application_id = :application_id");
+    $result = $query->execute([
+        ':jobstatus' => 'ONGOING',
+        ':application_id' => $job_id
+    ]);
+    if ($result) {
+        $output['success'] = "You have accepted the job application!";
+    } else {
+        $output['error'] = "Something went wrong! Please reload the page.";
+    }
+
     echo json_encode($output);
 }
 ?>
