@@ -14,10 +14,14 @@ body {
   .container-{
     display: flex;
   }
+
   .sidebar{
     background-color: rgb(90, 90, 90);
-    width: 20%;
+    width: 15%;
     height: 90vh;
+  }
+  .sidebar span{
+    margin-left: 15px;
   }
   ul{
     padding: 0;
@@ -25,6 +29,7 @@ body {
   ul li{
     padding: 10px 0 0 10px;
     list-style: none;
+    border: 1px solid rgba(187, 187, 187, 0.527);
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
@@ -43,7 +48,8 @@ body {
 
   .content{
     /* background-color: bisque; */
-    width: 50%;
+    width: 80%;
+    margin-left: 25px;
   }
   .box-{
     display: flex;
@@ -89,6 +95,37 @@ body {
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
+.container-{
+    display: flex;
+    /* flex-direction: column; */
+  }
 
+.sidebar{
+    background-color: rgb(90, 90, 90);
+    width: 10%;
+    height: 100vh;
+  }
+  .sidebar span{
+    display: none;
+  }
+  .boxes{
+    display: flex;
+    flex-direction: column;
+    background-color: #8000aa;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 120px;
+    height: 100px;
+  }
+  .boxes-data{
+    font-size: 20px;
+  }
+
+  .content{
+    /* background-color: bisque; */
+    width: 90%;
+    margin-left: 0;
+  }
 
 }
