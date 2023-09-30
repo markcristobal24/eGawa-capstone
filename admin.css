@@ -1,0 +1,94 @@
+body {
+    /* background-image: linear-gradient(to right, #0073aa, #8000aa); */
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  header{
+    background-image: linear-gradient(to right, #0073aa, #8000aa);
+    box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+  .container-{
+    display: flex;
+  }
+  .sidebar{
+    background-color: rgb(90, 90, 90);
+    width: 20%;
+    height: 90vh;
+  }
+  ul{
+    padding: 0;
+  }
+  ul li{
+    padding: 10px 0 0 10px;
+    list-style: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  ul li:hover{
+    background-color: #fff;
+  }
+  ul li:hover a{
+    color: #2b2b2b;
+  }
+
+  a{
+    text-decoration: none;
+    font-size: 25px;
+    color: aliceblue;
+  }
+
+  .content{
+    /* background-color: bisque; */
+    width: 50%;
+  }
+  .box-{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .boxes{
+    display: flex;
+    flex-direction: column;
+    background-color: #8000aa;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 220px;
+    height: 120px;
+  }
+  .boxes span{
+    color: #fff;
+  }
+
+  .boxes-data{
+    font-size: 40px;
+  }
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+
+
+}
