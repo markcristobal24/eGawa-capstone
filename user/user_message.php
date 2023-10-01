@@ -83,8 +83,32 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <div class="chat-container">
 
                     <div class="left-chat-cont chats">
+                        <?php
+                        $query = $db->connect()->prepare("SELECT * FROM convo 
+                        INNER JOIN account on account.account_id = convo.freelance_id
+                        INNER JOIN profile on profile.account_id = convo.freelance_id
+                        WHERE convo.user_id = :account_id OR convo.freelance_id = :account_id");
+                        $query->execute([
+                            ':account_id' => $user_id
+                        ]);
+                        foreach ($query as $row) {
+                            $convo_id = $row['convo_id'];
+                            echo '
+                            <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
+                                <div class="user-image">
+                                    <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['imageProfile'] . '" alt="" class="user-chat-img">
+                                </div>
+                                <div class="user-info">
+                                    <span class="fname-">' . $row['firstName'] . '</span>
+                                    <span class="mname-"></span>
+                                    <span class="lname-">' . $row['lastName'] . '</span>
+                                </div>
+                            </div>
+                            ';
+                        }
+                        ?>
 
-                        <div class="user-post">
+                        <!-- <div class="user-post">
                             <div class="user-image">
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
@@ -115,19 +139,19 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <span class="mname-"></span>
                                 <span class="lname-">Leonor</span>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
                     <div class="middle-chat-cont chats">
 
                         <div class="middle-chat-nav">
-                            <img src="../img/profile.png" alt="" class="user-chat-img chat-box-img">
-                            <span>Mark Josh Cristobal</span>
+                            <img src="../img/profile.png" id="chat_image" alt="" class="user-chat-img chat-box-img">
+                            <span id="fullname"></span>
                         </div>
 
-                        <div class="middle-chat-box">
-                            <div class="user-chat">
+                        <div class="middle-chat-box" id="chatbox">
+                            <!-- <div class="user-chat">
                                 <span>
                                     Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
                                     print, graphic
@@ -163,17 +187,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                     print, graphic
                                     or web designs.
                                 </span>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="middle-chat-send">
 
                             <div id="inputDiv">
-                                <form action="">
-                                    <textarea id="inputTextarea" rows="3" cols="50"
+                                <form id="message_box">
+                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50"
                                         placeholder="Enter your message here..."></textarea>
                                     <div class="button-container">
-                                        <button type="submit" class="btn btn-primary">Send</button>
+                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)"
+                                            class="btn btn-primary">Send</button>
                                     </div>
                                 </form>
                             </div>
@@ -184,18 +209,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                     <div class="right-chat-cont">
                         <div class="profile-pic">
-                            <img src="../img/profile.png" alt="" class="user-chat-img right-pic">
+                            <img src="../img/profile.png" id="profile_image" alt="" class="user-chat-img right-pic">
                         </div>
                         <div class="profile-info block">
-                            <span class="block">Mark Josh Cristobal</span>
+                            <span class="block" id="profile_name"></span>
                             <div>
                                 <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                                <span class="block">lethimcook@gmail.com</span>
+                                <span class="block" id="profile_address"></span>
                             </div>
 
                             <div>
                                 <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                                <span class="block">Batia, Bocaue, Bulacan</span>
+                                <span class="block" id="profile_email"></span>
                             </div>
 
                         </div>
@@ -468,6 +493,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         </div>
 
     </div>
+    <script>
+        window.onload = function () {
+            var chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+        };
+    </script>
 </body>
 
 <!-- MODAL FOR CHAT -->
@@ -610,7 +641,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <button type="button" class="btn btn-secondary" id="btn_declineJob"
                             onclick="new Job().decline_job(this.value)">Decline</button>
                         <button type="button" class="btn btn-primary" id="btn_acceptJob"
-                            onclick="new Job().accept_job(this.value, this.getAttribute)">Accept</button>
+                            onclick="new Job().accept_job(this.value)">Accept</button>
                     </div>
                 </form>
             </div>
@@ -622,8 +653,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
-<script src="testing.js"></script>
 <script src="../classJS/Job.js"></script>
+<script src="../classJS/Message.js"></script>
 <script src="../classJS/Account.js"></script>
 <script src="../classJS/Notification.js"></script>
 
@@ -642,7 +673,6 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         });
 
     });
-
 </script>
 
 </html>

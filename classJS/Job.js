@@ -51,9 +51,9 @@ class Job {
         });
     }
 
-    accept_job(jobId, attr) {
+    accept_job(jobId) {
         new Account().button_loading("btn_acceptJob", "loading", "");
-        console.log(attr);
+
         let form_data = new FormData();
         form_data.append('jobId', jobId);
         form_data.append('accept_job', 'accept_job');
@@ -65,6 +65,8 @@ class Job {
         }).then((response_data) => {
             console.log(response_data);
             if (response_data.success) {
+                console.log(response_data.user_id);
+                new Job().create_convo(response_data.user_id, response_data.freelance_id);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
                     window.location.reload();
@@ -75,5 +77,24 @@ class Job {
                 new Notification().create_notification(response_data.error, "error");
             }
         });
+    }
+
+    create_convo(user_id, freelance_id) {
+        let form_data = new FormData();
+        form_data.append('user_id', user_id);
+        form_data.append('freelance_id', freelance_id);
+        form_data.append('create_convo', 'create_convo');
+        fetch('../controller/c_jobapplication.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+            }
+        })
     }
 }
