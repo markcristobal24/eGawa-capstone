@@ -20,6 +20,7 @@ if (isset($_POST['fetch_info_convo'])) {
     $data = array();
     foreach ($query as $row) {
         // $data['receiver'] = $row['$freelance_id'];
+        $data['convo_id'] = $row['convo_id'];
         $data['imageProfile'] = $row['imageProfile'];
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
         $data['email'] = $row['email'];
@@ -41,6 +42,7 @@ if (isset($_POST['fetch_messages'])) {
             $message = $row['message'];
 
             $messageData = array(
+                'convoId' => $convo_id,
                 'sender' => ($sender_id == $_SESSION['account_id']) ? 'self' : 'other',
                 'message' => $message
             );
@@ -55,7 +57,7 @@ if (isset($_POST['fetch_messages'])) {
             //     $data['message'] = $message;
             // }
         }
-        $pusher->trigger('my-channel', 'new-message', array('messages' => $messages));
+        // $pusher->trigger('my-channel', 'new-message', array('messages' => $messages));
         echo json_encode(array('messages' => $messages));
     }
 }

@@ -1,3 +1,5 @@
+let messageFetchIntervalId;
+
 function clickConvo(convoId) {
     let form_data = new FormData();
     form_data.append('fetch_info_convo', 'fetch_info_convo');
@@ -9,8 +11,11 @@ function clickConvo(convoId) {
         return response.json();
     }).then((response_data) => {
         console.log(response_data);
+
+        clearInterval(messageFetchIntervalId);
         fetch_messages(convoId);
         let info = response_data;
+
         document.getElementById('btn_sendMessage').value = convoId;
         document.getElementById('chat_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
         document.getElementById('fullname').innerHTML = `${info.fullname}`;
@@ -19,13 +24,17 @@ function clickConvo(convoId) {
         document.getElementById('profile_email').innerHTML = `${info.email}`;
         document.getElementById('profile_address').innerHTML = `${info.address}`;
 
-        setInterval(() => {
+        messageFetchIntervalId = setInterval(() => {
             fetch_messages(convoId);
         }, 5000);
+        // setInterval(() => {
+        //     fetch_messages(convoId);
+        // }, 1000);
     });
 }
 
 function displayMessage(messageData) {
+    console.log('Received message for convoId:', messageData.convoId);
     const chatbox = document.getElementById('chatbox');
     const messageDiv = document.createElement('div');
     messageDiv.className = (messageData.sender === 'self' ? 'freelance-chat' : 'user-chat');
@@ -38,6 +47,8 @@ function displayMessage(messageData) {
 
 
 function fetch_messages(convoId) {
+    const chatbox = document.getElementById('chatbox');
+    chatbox.innerHTML = '';
     let form_data = new FormData();
     form_data.append('convoId', convoId);
     form_data.append('fetch_messages', 'fetch_messages');
@@ -49,8 +60,8 @@ function fetch_messages(convoId) {
     }).then((response_data) => {
         console.log(response_data);
         const messages = response_data.messages;
-        const chatbox = document.getElementById('chatbox');
-        chatbox.innerHTML = '';
+
+        // chatbox.innerHTML = '';
 
         if (Array.isArray(messages)) {
             messages.forEach((messageData) => {

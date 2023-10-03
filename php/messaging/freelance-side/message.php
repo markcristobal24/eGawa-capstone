@@ -54,7 +54,7 @@ if (isset($_POST['fetch_messages'])) {
             //     $data['message'] = $message;
             // }
         }
-        $pusher->trigger('my-channel', 'new-message', array('messages' => $messages));
+        // $pusher->trigger('my-channel', 'new-message', array('messages' => $messages));
         echo json_encode(array('messages' => $messages));
     }
 }
