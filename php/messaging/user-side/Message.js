@@ -9,7 +9,7 @@ function clickConvo(convoId) {
         return response.json();
     }).then((response_data) => {
         console.log(response_data);
-        // fetch_messages(convoId);
+        fetch_messages(convoId);
         let info = response_data;
         document.getElementById('btn_sendMessage').value = convoId;
         document.getElementById('chat_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
@@ -21,7 +21,7 @@ function clickConvo(convoId) {
 
         setInterval(() => {
             fetch_messages(convoId);
-        }, 1000);
+        }, 5000);
     });
 }
 
