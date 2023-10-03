@@ -39,12 +39,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <title>eGawa | Messages</title>
 
-    <style>
-
-    </style>
+    <script>
+        Pusher.logToConsole = true;
+        const pusher = new Pusher('1e64e7913006b4f715d3', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+    </script>
 
 </head>
 
@@ -74,7 +78,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <?php
                         $query = $db->connect()->prepare("SELECT * FROM convo 
                         INNER JOIN account on account.account_id = convo.user_id
-                        WHERE convo.freelance_id = :account_id OR convo.user_id = :account_id");
+                        WHERE convo.freelance_id = :account_id OR convo.user_id = :account_id ORDER BY timestamp ASC");
                         $query->execute([
                             ':account_id' => $_SESSION['account_id']
                         ]);
@@ -662,10 +666,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
-<script src="testing.js"></script>
+<script src="../js/script.js"></script>
 <script src="../classJS/Job.js"></script>
 <script src="../php/messaging/freelance-side/Message.js"></script>
-
+<script src="../classJS/Account.js"></script>
+<script src="../classJS/Notification.js"></script>
 <script>
 
     $(document).ready(function () {

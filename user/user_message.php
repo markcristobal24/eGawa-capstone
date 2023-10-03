@@ -50,11 +50,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
 
     <title>eGawa | Messages</title>
 
-
+    <script>
+        Pusher.logToConsole = true;
+        const pusher = new Pusher('1e64e7913006b4f715d3', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+    </script>
 
 </head>
 
@@ -85,7 +92,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         $query = $db->connect()->prepare("SELECT * FROM convo 
                         INNER JOIN account on account.account_id = convo.freelance_id
                         INNER JOIN profile on profile.account_id = convo.freelance_id
-                        WHERE convo.user_id = :account_id OR convo.freelance_id = :account_id");
+                        WHERE convo.user_id = :account_id OR convo.freelance_id = :account_id ORDER BY timestamp DESC");
                         $query->execute([
                             ':account_id' => $user_id
                         ]);

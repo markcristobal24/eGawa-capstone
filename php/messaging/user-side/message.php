@@ -1,7 +1,13 @@
 <?php
 require_once dirname(__FILE__) . "/../../classes/DbClass.php";
+require '../../../vendor/autoload.php';
 
 $db = new DbClass();
+$options = array(
+    'cluster' => 'ap1',
+    'useTLS' => true
+);
+$pusher = new Pusher\Pusher('1e64e7913006b4f715d3', '9a94a74865b5837ef487', '1680856', $options);
 
 if (isset($_POST['fetch_info_convo'])) {
     $convo_id = $_POST['convoId'];
@@ -49,6 +55,7 @@ if (isset($_POST['fetch_messages'])) {
             //     $data['message'] = $message;
             // }
         }
+        $pusher->trigger('my-channel', 'new-message', array('messages' => $messages));
         echo json_encode(array('messages' => $messages));
     }
 }

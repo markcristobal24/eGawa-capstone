@@ -35,6 +35,8 @@ function displayMessage(messageData) {
     chatbox.scrollTop = chatbox.scrollHeight;
 }
 
+
+
 function fetch_messages(convoId) {
     let form_data = new FormData();
     form_data.append('convoId', convoId);
@@ -49,11 +51,22 @@ function fetch_messages(convoId) {
         const messages = response_data.messages;
         const chatbox = document.getElementById('chatbox');
         chatbox.innerHTML = '';
+
         if (Array.isArray(messages)) {
             messages.forEach((messageData) => {
                 displayMessage(messageData);
             });
         }
+        // const channel = pusher.subscribe('my-channel');
+        // channel.bind('new-message', function (data) {
+        //     // Update your chat interface with the new messages
+        //     const newMessages = data.messages;
+        //     if (Array.isArray(newMessages)) {
+        //         newMessages.forEach((messageData) => {
+        //             displayMessage(messageData);
+        //         });
+        //     }
+        // });
     });
 }
 
@@ -70,11 +83,14 @@ function send_message(convoId) {
         console.log(response_data);
 
         if (response_data.success) {
+
             fetch_messages(convoId);
             document.getElementById('inputTextarea').value = '';
         }
     });
 }
+
+
 
 
 // function fetch_messages(convoId) {

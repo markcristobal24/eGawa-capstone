@@ -1,5 +1,6 @@
 {
     "require": {
-        "cloudinary/cloudinary_php": "^2.11"
+        "cloudinary/cloudinary_php": "^2.11",
+        "pusher/pusher-php-server": "^7.2"
     }
 }
