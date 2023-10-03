@@ -1,20 +1,18 @@
 <?php
-require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-
+require_once dirname(__FILE__) . "/../../classes/DbClass.php";
 $db = new DbClass();
 
 if (isset($_POST['fetch_info_convo'])) {
     $convo_id = $_POST['convoId'];
 
     $query = $db->connect()->prepare("SELECT * FROM convo
-    INNER JOIN account on account.account_id = convo.freelance_id
-    INNER JOIN profile on profile.account_id = convo.freelance_id
+    INNER JOIN account on account.account_id = convo.user_id
     WHERE convo.convo_id = :convo_id");
     $query->execute([':convo_id' => $convo_id]);
     $data = array();
     foreach ($query as $row) {
         // $data['receiver'] = $row['$freelance_id'];
-        $data['imageProfile'] = $row['imageProfile'];
+        $data['imageProfile'] = $row['user_image'];
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
         $data['email'] = $row['email'];
         $data['address'] = $row['address'];
@@ -68,7 +66,7 @@ if (isset($_POST['send_message'])) {
             $result = $query->execute([
                 ':convo_id' => $convo_id,
                 ':sender_id' => $_SESSION['account_id'],
-                ':receiver_id' => $fetch['freelance_id'],
+                ':receiver_id' => $fetch['user_id'],
                 ':message' => $messageInput
             ]);
 

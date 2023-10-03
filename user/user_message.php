@@ -54,9 +54,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     <title>eGawa | Messages</title>
 
-    <style>
 
-    </style>
 
 </head>
 
@@ -654,9 +652,10 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
 <script src="../classJS/Job.js"></script>
-<script src="../classJS/Message.js"></script>
+<script src="../php/messaging/user-side/Message.js"></script>
 <script src="../classJS/Account.js"></script>
 <script src="../classJS/Notification.js"></script>
+<script src="../js/script.js"></script>
 
 <script>
 

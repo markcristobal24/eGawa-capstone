@@ -71,8 +71,30 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="chat-container">
 
                     <div class="left-chat-cont chats">
-
-                        <div class="user-post">
+                        <?php
+                        $query = $db->connect()->prepare("SELECT * FROM convo 
+                        INNER JOIN account on account.account_id = convo.user_id
+                        WHERE convo.freelance_id = :account_id OR convo.user_id = :account_id");
+                        $query->execute([
+                            ':account_id' => $_SESSION['account_id']
+                        ]);
+                        foreach ($query as $row) {
+                            $convo_id = $row['convo_id'];
+                            echo '
+                            <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
+                                <div class="user-image">
+                                    <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['user_image'] . '" alt="" class="user-chat-img">
+                                </div>
+                                <div class="user-info">
+                                    <span class="fname-">' . $row['firstName'] . '</span>
+                                    <span class="mname-"></span>
+                                    <span class="lname-">' . $row['lastName'] . '</span>
+                                </div>
+                            </div>
+                            ';
+                        }
+                        ?>
+                        <!-- <div class="user-post">
                             <div class="user-image">
                                 <img src="../img/profile.png" alt="" class="user-chat-img">
                             </div>
@@ -136,83 +158,97 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <span class="mname-"></span>
                                 <span class="lname-">Garcia</span>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
                     <div class="middle-chat-cont chats">
 
                         <div class="middle-chat-nav">
-                            <img src="../img/profile.png" alt="" class="user-chat-img chat-box-img">
-                            <span>John Paulo Sulit</span>
+                            <img src="../img/profile.png" id="chat_image" alt="" class="user-chat-img chat-box-img">
+                            <span id="fullname"></span>
                         </div>
 
-                        <div class="middle-chat-box">
-                            <div class="user-chat">
+                        <div class="middle-chat-box" id="chatbox">
+                            <!-- <div class="user-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century
                                 </span>
                             </div>
                             <div class="freelance-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                                    a type
                                     specimen book. It usually begins wit
                                 </span>
                             </div>
                             <div class="user-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                                    a type
                                     specimen book. It usually begins witwidth: fit-content;
 
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
+                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
+                                    century who is
+                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                                    a type
                                     specimen book. It usually begins witwidth: fit-content;
 
                                 </span>
                             </div>
                             <div class="freelance-chat">
                                 <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic
+                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                                    print, graphic
                                     or web designs.
                                 </span>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="middle-chat-send">
 
                             <div id="inputDiv">
-                                <form action="">
-                                    <textarea id="inputTextarea" rows="3" cols="50" placeholder="Enter your message here..."></textarea>
+                                <form id="message_box">
+                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50"
+                                        placeholder="Enter your message here..."></textarea>
                                     <div class="button-container">
-                                        <button type="submit" class="btn btn-primary">Send</button>
+                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)"
+                                            class="btn btn-primary">Send</button>
                                     </div>
                                 </form>
                             </div>
-                            
+
                         </div>
 
                     </div>
 
                     <div class="right-chat-cont">
                         <div class="profile-pic">
-                            <img src="../img/profile.png" alt="" class="user-chat-img right-pic">
+                            <img src="../img/profile.png" id="profile_image" alt="" class="user-chat-img right-pic">
                         </div>
                         <div class="profile-info block">
-                            <span class="block">John Paulo Sulit</span>
+                            <span class="block" id="profile_name"></span>
                             <div>
                                 <img src="../img/email.png" alt="" class="emailImg" height="20px">
-                                <span class="block">paupau@gmail.com</span>
+                                <span class="block" id="profile_email"></span>
                             </div>
 
                             <div>
                                 <img src="../img/address.png" alt="" class="addressImg" height="20px">
-                                <span class="block">Sulok, Bagna, Malolos, Bulacan</span>
+                                <span class="block" id="profile_address"></span>
                             </div>
 
                         </div>
@@ -224,7 +260,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div>
 
             <div class="tab_container">
-                
+
                 <div class="col-names">
                     <div class="col-name">
                         <span>Pending</span>
@@ -242,7 +278,30 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="col-container">
 
                     <div class="col-one col-all">
-                        <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
+                        <?php
+                        $query = $db->connect()->prepare("SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.user_id = account.account_id
+                                WHERE job_application.freelance_id = :account_id AND job_application.jobstatus = 'PENDING' ORDER BY timestamp DESC");
+                        $query->execute([':account_id' => $_SESSION['account_id']]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
+
+                        <!-- <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
                             <div class="child left">
                                 <span class="name-info">
                                     John Paulo Sulit
@@ -272,13 +331,39 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                     Pending
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
 
                     <div class="col-two col-all">
-                        <div class="parent">
+                        <?php
+                        $query = $db->connect()->prepare(
+                            "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.user_id = account.account_id
+                                WHERE job_application.freelance_id = :account_id AND job_application.jobstatus = 'ONGOING' ORDER BY timestamp DESC"
+                        );
+                        $query->execute([
+                            ':account_id' => $_SESSION['account_id']
+                        ]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job-type">' . strtoupper($row['post_title']) . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
+                        <!-- <div class="parent">
                             <div class="child left">
                                 <span class="name-info">
                                     Joel Leonor
@@ -308,9 +393,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                     Ongoing
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    
+
                     <div class="col-three col-all">
                         <div class="parent">
                             <div class="child left">
@@ -578,6 +663,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
 <script src="testing.js"></script>
+<script src="../classJS/Job.js"></script>
+<script src="../php/messaging/freelance-side/Message.js"></script>
 
 <script>
 
