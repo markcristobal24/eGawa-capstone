@@ -169,6 +169,12 @@ body {
     .containerPost:hover #viewPostBTN:hover{
         background-color:rgba(26, 139, 51, 0.918);
     }
+    .containerPost:hover .subs-button{
+        background-color:rgba(30, 185, 64, 0.918);
+    }
+    .containerPost:hover .subs-button:hover{
+        background-color:rgba(26, 139, 51, 0.918);
+    }
     .titlePost{
         font-weight: 400;
         font-size: 25px;
@@ -190,6 +196,17 @@ body {
         background-color: #0074aad8;
         padding: 2px 10px;
         transition: background-color 0.2s ease-in-out;
+    }
+    .subs-button{
+        border: none;
+        border-radius: 5px;
+        color: #ddd;
+        font-weight: 500;
+        font-size: 16px;
+        background-color: #0074aad8;
+        padding: 2px 10px;
+        transition: background-color 0.2s ease-in-out;
+        margin-top: 10px;
     }
 
     .containerRight{
