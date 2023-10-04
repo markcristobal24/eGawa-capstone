@@ -258,14 +258,20 @@ body {
     text-decoration: none;
     color: #000000;
   }
+  #subs-button-profile{
+    text-decoration: none;
+    color: #000000;
+  }
+
   .mt-3:hover {
     background-image: linear-gradient(to right, #0074aa81, #8000aa83);
     color: #f4f4f4;
 
-    #verifyFreelanceAcc {
+    #verifyFreelanceAcc, #subs-button-profile {
       color: #f4f4f4;
     }
   }
+  
   .flexDiv {
     display: flex;
   }
