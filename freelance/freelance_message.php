@@ -245,6 +245,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                         <div class="profile-info block">
                             <span class="block" id="profile_name"></span>
+                            <span class="block" id="user_name"></span>
                             <div>
                                 <img src="../img/email.png" alt="" class="emailImg" height="20px">
                                 <span class="block" id="profile_email"></span>
@@ -253,6 +254,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             <div>
                                 <img src="../img/address.png" alt="" class="addressImg" height="20px">
                                 <span class="block" id="profile_address"></span>
+                            </div>
+
+                            <div>
+                                <button type="button" class="btn btn-primary view_profile mt-3">View Profile</button>
                             </div>
 
                         </div>

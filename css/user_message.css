@@ -182,7 +182,7 @@ body {
     margin: 10px;
   }
 
-  .user-chat span {
+  .user-chat  {
     font-size: 13px;
     color: #636363;
     text-align: justify;
@@ -198,7 +198,7 @@ body {
     margin: 10px 0 10px auto;
   }
 
-  .freelance-chat span {
+  .freelance-chat  {
     font-size: 13px;
     color: #f4f4f4;
     text-align: justify;
@@ -451,13 +451,13 @@ body {
     flex-direction: column;
   }
 
-  .freelance-chat span {
+  .freelance-chat  {
     font-size: 10px;
     color: #f4f4f4;
     text-align: justify;
   }
 
-  .user-chat span {
+  .user-chat  {
     font-size: 10px;
     color: #f4f4f4;
     text-align: justify;
