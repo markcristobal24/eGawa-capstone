@@ -132,31 +132,23 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 }
                 ?>
 
-                <!-- <div class="containerPost">
+
+                <!-- THIS WILL BE SHOWN IF FREELANCER IS NOT YET SUBSCRIBED -->
+                <div class="containerPost">
                     <div class="post-col-1">
-                        <img class="author-pic" src="../img/profile.png" alt="" style="height: 100px;">
+                        <img class="author-pic" src="../img/BOX.png" alt="" style="height: 100px;">
                     </div>
                     <div class="post-col-2">
-                        <span class="titlePost">looking for</span>
+                        <span class="titlePost">You are not yet subscribed</span>
                         <div>
-                            <span class="author">Author: </span>
-                            <span class="userPost">Gojo Satoru</span>
-                        </div>
-                        <div>
-                            <span class="locationPost">Sto. Nino</span>
-                            <span>•</span>
-                            <span class="datePost">Posted on January 23, 2023</span>
+                            <span class="userPost">Please subscribe to view job posts</span>
                         </div>
 
-                        <p class="descPost">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos aperiam tenetur cum culpa distinctio repellat eum alias nesciunt officiis ex!
-                        </p>
                         <div>
-                            
-                            <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
+                            <button id="" class="subs-button" >Subscribe</button>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
             </div>
 

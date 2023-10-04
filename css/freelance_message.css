@@ -185,7 +185,7 @@ body {
         margin: 10px;
     }
 
-    .user-chat span {
+    .user-chat  {
         font-size: 13px;
         color: #636363;
         text-align: justify;
@@ -203,7 +203,7 @@ body {
         margin: 10px 0 10px auto;
     }
 
-    .freelance-chat span {
+    .freelance-chat  {
         font-size: 13px;
         color: #f4f4f4;
         text-align: justify;
@@ -374,6 +374,7 @@ body {
     .block{
         margin: auto;
     }
+    
 
     /* ===================FOR MODAL - VIEW APPLICATION ========================= */
     .label {
@@ -444,8 +445,8 @@ body {
         background-color: #bdbdbdab;
         min-width: 100%;
         max-width: 100%;
-        min-height: 25%;
-        max-height: 25%;
+        min-height: 20%;
+        max-height: 20%;
         border: 1px solid #ccc;
         display: flex;
         flex-direction: row;
@@ -468,13 +469,13 @@ body {
         flex-direction: column;
     }
 
-    .freelance-chat span {
+    .freelance-chat  {
         font-size: 10px;
         color: #f4f4f4;
         text-align: justify;
     }
 
-    .user-chat span {
+    .user-chat  {
         font-size: 10px;
         color: #f4f4f4;
         text-align: justify;

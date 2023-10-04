@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: rgb(226, 226, 233);
+}
+
+body.dark-mode{
+    background: rgb(27, 27, 34);
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    position: fixed;
+    width: 270px;
+    height: 100%;
+    min-height: 350px;
+    color: white;
+    background: rgba(0, 0, 0, 0.801);
+    /* border-top-right-radius: 20px;
+    border-bottom-right-radius: 10px; */
+    transition: ease-in 0.3s;
+    z-index: 100;
+}
+
+nav.hide{
+    width: 0;
+}
+
+nav span{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 28px;
+    font-weight: 800;
+    overflow: hidden;
+}
+
+.sidebar-menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+}
+
+.sidebar-menu li{
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar-menu li a{
+    display: inline-flex;
+    align-items: center;
+    width: 95%;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: ease-in 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+.sidebar-menu li a:hover{
+    color: rgb(45, 209, 67);
+    border: 1px solid white;
+}
+
+.sidebar-menu li a i{
+    margin: 0 18px;
+    width: 20px;
+}
+
+#toggle-btn{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 18px;
+    right: -39px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.801);
+    border-radius: 0 7px 7px 0;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: linear 0.2s;
+}
+
+#toggle-btn:hover{
+    background: rgba(0, 0, 0, 0.623);
+    color: rgb(45, 209, 67);
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding-left: 20px;
+    align-items: flex-start;
+    position: absolute;
+    top:0;
+    left: 270px;
+    height: 100vh;
+    width: calc(100% - 270px);
+    padding: 30px;
+    transition: ease-in 0.3s;
+}
+
+section.expand{
+    width: 100%;
+    left: 0;
+}
+
+section h1{
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+    text-align: center;
+}
+
+section h1.dark-mode{
+    color: white;
+}
+

@@ -56,15 +56,7 @@
                     <span>Subscribed:</span>
                     <span class="boxes-data">60</span>
                 </div>
-                <div class="box-3 boxes">
-                    <span>Lesbian:</span>
-                    <span class="boxes-data">10</span>
-                </div>
-                <div class="box-4 boxes">
-                    <span>Queer:</span>
-                    <span class="boxes-data">90</span>
-                </div>
-                <div class="box-5 boxes"></div>
+                
             </div>
 
             <span class="row-title titles">Freelancers:</span>
@@ -77,10 +69,7 @@
                     <span>Subscribed:</span>
                     <span class="boxes-data">60</span>
                 </div>
-                <div class="box-3 boxes">
-                    <span>Gays:</span>
-                    <span class="boxes-data">40</span>
-                </div>
+                
                 <div class="box-4 boxes"></div>
                 <div class="box-5 boxes"></div>
             </div>
