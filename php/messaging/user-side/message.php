@@ -44,7 +44,8 @@ if (isset($_POST['fetch_messages'])) {
             $messageData = array(
                 'convoId' => $convo_id,
                 'sender' => ($sender_id == $_SESSION['account_id']) ? 'self' : 'other',
-                'message' => $message
+                'message' => $message,
+                'timestamp' => $row['timestamp']
             );
 
             $messages[] = $messageData;
