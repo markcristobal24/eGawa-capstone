@@ -4,18 +4,9 @@ require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
-$account = new Account();
-$account->fetch_account($_SESSION['email']);
-$account->fetch_profile($_SESSION['email']);
-
-if (!isset($_SESSION['email'])) {
-    header('location: ../login.php');
-    die();
-}
-
-$email = $_SESSION['email'];
-$query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
-$query->execute([':email' => $email]);
+$freelance_id = $_GET['freelance_id'];
+$query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.account_id = :freelance_id");
+$query->execute([':freelance_id' => $freelance_id]);
 $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
@@ -41,7 +32,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 
 
-    <title>eGawa | <!-- freelancer's name --> </title>
+    <title>eGawa |
+        <?php echo $fullname; ?>
+    </title>
 </head>
 
 <body>
@@ -60,40 +53,44 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
             <div class="containerLeft-Feed" id="post_container">
                 <?php
-                $query = $db->connect()->prepare("SELECT * FROM catalog WHERE email = :email ORDER BY date_created DESC");
-                $query->execute([':email' => $email]);
+                $query = $db->connect()->prepare("SELECT * FROM catalog WHERE account_id = :freelance_id ORDER BY date_created DESC");
+                $query->execute([':freelance_id' => $freelance_id]);
                 if ($query->rowCount() > 0) {
                     foreach ($query as $row) {
                         $catalog_id = $row['catalog_id'];
                         ?>
-                <div class="containerPost">
-                    <div class="containerImg">
-                        <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
-                            alt="" id="containerImg">
-                    </div>
-                    <div class="containerCatalog">
-                        <span class="titlePost"><?php echo $row['catalogTitle']; ?></span>
-                        <p class="descPost"><?php echo $row['catalogDescription']; ?></p>
-                        <div>
-                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
+                        <div class="containerPost">
+                            <div class="containerImg">
+                                <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
+                                    alt="" id="containerImg">
+                            </div>
+                            <div class="containerCatalog">
+                                <span class="titlePost">
+                                    <?php echo $row['catalogTitle']; ?>
+                                </span>
+                                <p class="descPost">
+                                    <?php echo $row['catalogDescription']; ?>
+                                </p>
+                                <div>
+                                    <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php
+                        <?php
                     }
                 } else {
                     echo '<div class="containerPost">';
 
-                        echo '<div class="catalogImg">';
-                        echo '<img class="imgWork" src="../img/box.png">';
-                        echo '</div>';
+                    echo '<div class="catalogImg">';
+                    echo '<img class="imgWork" src="../img/box.png">';
+                    echo '</div>';
 
-                        echo '<div class="catalogTexts">';
-                        echo '<h3>No catalog to display</h3>';
-                        echo '<p>There is no catalog available at the moment. <br> Freelancer has not yet added a catalog</p>';
-                        echo '</div>';
+                    echo '<div class="catalogTexts">';
+                    echo '<h3>No catalog to display</h3>';
+                    echo '<p>There is no catalog available at the moment. <br> Freelancer has not yet added a catalog</p>';
+                    echo '</div>';
 
                     echo '</div>';
                 }
@@ -117,7 +114,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     </p>
 
                     <p id="freelanceUsername">
-                        <?php echo "@".$fetch['username']; ?>
+                        <?php echo "@" . $fetch['username']; ?>
                     </p>
 
                     <div class="rating">
@@ -131,22 +128,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                     <ul>
                         <?php
-                            $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-                            $query->execute([':email' => $email]);
-                            // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                            if ($query->rowCount() > 0) {
-                                $roleValues = array();
+                        $query = $db->connect()->prepare("SELECT * FROM profile WHERE account_id = :freelance_id");
+                        $query->execute([':freelance_id' => $freelance_id]);
+                        // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                        if ($query->rowCount() > 0) {
+                            $roleValues = array();
 
-                                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                                    $values = explode(',', $row['jobRole']);
-                                    $roleValues = array_merge($roleValues, $values);
-                                }
-
-                                foreach ($roleValues as $value) {
-                                    echo "<li>$value</li>";
-                                }
+                            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                                $values = explode(',', $row['jobRole']);
+                                $roleValues = array_merge($roleValues, $values);
                             }
-                            ?>
+
+                            foreach ($roleValues as $value) {
+                                echo "<li>$value</li>";
+                            }
+                        }
+                        ?>
                     </ul>
 
                     <div class="flexDiv">
@@ -160,7 +157,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <img src="../img/email.png" alt="" class="emailImg" height="20px">
                         <div class="freelanceEmail marg">
                             <?php echo $fetch['email']; ?>
-                        </div> 
+                        </div>
                     </div>
 
                     <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
@@ -188,16 +185,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <hr>
                     <h1 class="modal-title fs-5 titles" id="">Description</h1>
                     <div class="container-description" id="container-description">
-                        
-
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
                         data-bs-target="#edit-catalog-modal">Edit</button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#confirm-delete-modal">Delete</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -225,7 +220,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <p id="freelanceUsername">
-                            <?php echo "@".$fetch['username']; ?>
+                            <?php echo "@" . $fetch['username']; ?>
                         </p>
 
                         <div class="flexDiv">
@@ -256,21 +251,21 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                         <ul>
                             <?php
-                                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-                                $query->execute([':email' => $email]);
-                                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                                if ($query->rowCount() > 0) {
-                                    $roleValues = array();
+                            $query = $db->connect()->prepare("SELECT * FROM profile WHERE account_id = :freelance_id");
+                            $query->execute([':freelance_id' => $freelance_id]);
+                            // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                            if ($query->rowCount() > 0) {
+                                $roleValues = array();
 
-                                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                                        $values = explode(',', $row['jobRole']);
-                                        $roleValues = array_merge($roleValues, $values);
-                                    }
-
-                                    foreach ($roleValues as $value) {
-                                        echo "<li>$value</li>";
-                                    }
+                                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                                    $values = explode(',', $row['jobRole']);
+                                    $roleValues = array_merge($roleValues, $values);
                                 }
+
+                                foreach ($roleValues as $value) {
+                                    echo "<li>$value</li>";
+                                }
+                            }
                             ?>
                         </ul>
                         <div>
@@ -279,22 +274,28 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                             <div>
                                 <div>
-                                    <span>Company Name: </span> <span><?php echo $fetch['companyName']; ?></span>
+                                    <span>Company Name: </span> <span>
+                                        <?php echo $fetch['companyName']; ?>
+                                    </span>
                                 </div>
                                 <div>
-                                    <span>Date Started: </span> <span><?php
-                        $date = $fetch['startDate'];
-                        $dateObj = new DateTime($date);
-                        $startDate = $dateObj->format("F d, Y");
-                        echo $startDate;
-                        ?></span>
+                                    <span>Date Started: </span> <span>
+                                        <?php
+                                        $date = $fetch['startDate'];
+                                        $dateObj = new DateTime($date);
+                                        $startDate = $dateObj->format("F d, Y");
+                                        echo $startDate;
+                                        ?>
+                                    </span>
                                 </div>
                                 <div>
-                                    <span>Date Ended: </span> <span><?php
-                        $date = $fetch['endDate'];
-                        $dateObj = new DateTime($date);
-                        $endDate = $dateObj->format("F d, Y");
-                        echo $endDate; ?></span>
+                                    <span>Date Ended: </span> <span>
+                                        <?php
+                                        $date = $fetch['endDate'];
+                                        $dateObj = new DateTime($date);
+                                        $endDate = $dateObj->format("F d, Y");
+                                        echo $endDate; ?>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -367,18 +368,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    let counter = 0;
-    if (counter <= 0) {
-        lightGallery(document.getElementById('userProfileChild'), {
-            counter: false,
-            download: true,
-            backdropDuration: 100,
-            selector: 'a',
-            controls: false,
-            escKey: true
-        });
-        counter++;
-    }
+        let counter = 0;
+        if (counter <= 0) {
+            lightGallery(document.getElementById('userProfileChild'), {
+                counter: false,
+                download: true,
+                backdropDuration: 100,
+                selector: 'a',
+                controls: false,
+                escKey: true
+            });
+            counter++;
+        }
     </script>
 </body>
 

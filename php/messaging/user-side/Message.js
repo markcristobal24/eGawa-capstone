@@ -26,6 +26,8 @@ function clickConvo(convoId) {
         document.getElementById('profile_name').innerHTML = `${info.fullname}`;
         document.getElementById('profile_email').innerHTML = `${info.email}`;
         document.getElementById('profile_address').innerHTML = `${info.address}`;
+        document.getElementById('btn_viewProfile').style.display = 'block';
+        document.getElementById('btn_viewProfile').value = info.freelance_id;
 
         messageFetchIntervalId = setInterval(() => {
             fetch_messages(convoId);
@@ -115,4 +117,8 @@ function formatTimestamp(date) {
     const seconds = String(date.getSeconds()).padStart(2, '0');
 
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+function view_profile(freelance_id) {
+    window.location.href = `view_freelance_profile.php?freelance_id=${freelance_id}`;
 }

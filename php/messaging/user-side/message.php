@@ -25,6 +25,7 @@ if (isset($_POST['fetch_info_convo'])) {
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
         $data['email'] = $row['email'];
         $data['address'] = $row['address'];
+        $data['freelance_id'] = $row['freelance_id'];
     }
     echo json_encode($data);
 }
@@ -89,4 +90,5 @@ if (isset($_POST['send_message'])) {
     }
     echo json_encode($output);
 }
+
 ?>
