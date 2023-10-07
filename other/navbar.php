@@ -40,8 +40,8 @@
                         </span></a>
                     <div class="dropdown-content">
                         <a href="../freelance/freelanceHomePage.php">My Profile</a>
-                        <a href="../freelance/freelanceChangeEmail.php">Change Email Address</a>
-                        <a href="../freelance/freelanceChangePass.php">Change Password</a>
+                        <a href="../change_email.php">Change Email Address</a>
+                        <a href="../change_password.php">Change Password</a>
                         <a id="logout1" href="#">Log Out</a>
                     </div>
 
@@ -68,8 +68,8 @@
                     <div class="dropdown-content">
                         <a href="../user/userHomePage.php">My Profile</a>
                         <a href="../user/userEditProfile.php">Edit Profile</a>
-                        <a href="../user/userChangeEmail.php">Change Email Address</a>
-                        <a href="../user/userChangePass.php">Change Password</a>
+                        <a href="../change_email.php">Change Email Address</a>
+                        <a href="../change_password.php">Change Password</a>
                         <a id="logout1" href="#">Log Out</a>
                     </div>
                 </li>

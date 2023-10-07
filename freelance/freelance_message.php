@@ -298,10 +298,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
-                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status">
+                                        <span class="status status-1">
                                         ' . $row['jobstatus'] . '
                                         </span>
                                     </div>
@@ -361,10 +361,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
-                                        <span class="job-type">' . strtoupper($row['post_title']) . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status">
+                                        <span class="status status-2">
                                         ' . $row['jobstatus'] . '
                                         </span>
                                     </div>
@@ -416,7 +416,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -432,7 +432,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -448,7 +448,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -464,7 +464,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -480,7 +480,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -496,7 +496,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -512,7 +512,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -528,7 +528,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -544,7 +544,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -560,7 +560,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
