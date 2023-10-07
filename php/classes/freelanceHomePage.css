@@ -193,10 +193,10 @@ body {
     transition: background-color 0.2s ease-in-out;
   }
 
-  .containerPost .imgWork {
+  .containerPost .imgWork{
     height: 100px;
   }
-  .containerPost .catalogTexts {
+  .containerPost .catalogTexts{
     margin-left: 20px;
   }
 
@@ -230,14 +230,15 @@ body {
   #userPic {
     height: 150px;
     border-radius: 50%;
+    
   }
-  .userPic {
+  .userPic{
     margin: 0px auto;
   }
-  #userProfileChild li {
+  #userProfileChild li{
     color: #0073aa;
   }
-  #jobsAndRole1 {
+  #jobsAndRole1{
     font-size: 20px;
   }
 
@@ -257,7 +258,7 @@ body {
     text-decoration: none;
     color: #000000;
   }
-  #subs-button-profile {
+  #subs-button-profile{
     text-decoration: none;
     color: #000000;
   }
@@ -266,12 +267,11 @@ body {
     background-image: linear-gradient(to right, #0074aa81, #8000aa83);
     color: #f4f4f4;
 
-    #verifyFreelanceAcc,
-    #subs-button-profile {
+    #verifyFreelanceAcc, #subs-button-profile {
       color: #f4f4f4;
     }
   }
-
+  
   .flexDiv {
     display: flex;
   }
@@ -314,8 +314,7 @@ body {
     padding: 20px 20px;
   }
   .modal-body-view-more .titles,
-  #exampleModalLabel,
-  .titles {
+  #exampleModalLabel ,.titles{
     font-weight: 500;
     font-size: 20px;
     color: #0073aa;
@@ -446,8 +445,11 @@ body {
     transition: background-color 0.2s ease-in-out;
   }
 
-  .containerPost .imgWork {
+  .containerPost .imgWork{
     height: 120px;
+  }
+  .containerPost .catalogTexts{
+    /* background-color: #8000aa; */
   }
 
   .containerRight {
@@ -873,10 +875,10 @@ body {
     background-color: #f4f4f4ee;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.247);
   }
-  .containerPost .imgWork {
+  .containerPost .imgWork{
     height: 90px;
   }
-  .containerPost .catalogTexts {
+  .containerPost .catalogTexts{
     /* background-color: #8000aa; */
     font-size: 15px;
   }

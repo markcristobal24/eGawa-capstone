@@ -4,19 +4,19 @@ session_start();
 class DbClass
 {
     //SQL HOSTING
-    // public $dbHost = "auth-db623.hstgr.io";
+    public $dbHost = "localhost";
 
-    // public $dbUser = "u673355866_egawa";
+    public $dbUser = "u673355866_egawa";
 
-    // public $dbPassword = "FJ88^&(*sdhf&@h8";
+    public $dbPassword = "FJ88^&(*sdhf&@h8";
 
-    // public $dbName = "u673355866_egawa";
+    public $dbName = "u673355866_egawa";
 
     //XAMPP HOSTING
-    public $dbHost = "localhost";
-    public $dbUser = "root";
-    public $dbPassword = "";
-    public $dbName = "egawa";
+    // public $dbHost = "localhost";
+    // public $dbUser = "root";
+    // public $dbPassword = "";
+    // public $dbName = "egawa";
 
 
     public $con;
