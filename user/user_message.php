@@ -272,10 +272,10 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
-                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status">
+                                        <span class="status status-1">
                                         ' . $row['jobstatus'] . '
                                         </span>
                                     </div>
@@ -313,13 +313,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         ]);
                         foreach ($query as $row) {
                             echo '
-                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-end-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
-                                        <span class="job_type">' . strtoupper($row['post_title']) . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status">
+                                        <span class="status status-2">
                                         ' . $row['jobstatus'] . '
                                         </span>
                                     </div>
@@ -340,7 +340,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -356,7 +356,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -372,7 +372,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -388,7 +388,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -404,7 +404,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -420,7 +420,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -436,7 +436,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -452,7 +452,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -468,7 +468,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -484,7 +484,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                             <div class="child right">
-                                <span class="status">
+                                <span class="status status-3">
                                     Completed
                                 </span>
                             </div>
@@ -647,6 +647,97 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             onclick="new Job().decline_job(this.value)">Decline</button>
                         <button type="button" class="btn btn-primary" id="btn_acceptJob"
                             onclick="new Job().accept_job(this.value)">Accept</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- MODAL FOR ENDING AN ONGOING JOB -->
+<div class="modal fade" id="modal-end-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Job Application</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body apply">
+                <form action="">
+
+                    <div class="title mb-3">
+                        <span class="label">Job Title:</span>
+                        <span class="content" id="post_title">
+                            Web Dev
+                        </span>
+                    </div>
+
+                    <div class="title mb-3">
+                        <span class="label">From:</span>
+                        <!-- <span class="content">@</span> -->
+                        <span class="content" id="from">
+                            Arvin Candelaria Bok
+                        </span>
+                    </div>
+
+                    <div class="title mb-3">
+                        <span class="label">Status:</span>
+                        <span class="content" id="jobstatus">
+                            Pending
+                        </span>
+                    </div>
+
+                    <div class="title mb-3">
+                        <span class="label">Message:</span>
+                        <p class="" id="from_message">
+                            The Lorem ipum filling text is used by graphic designers, programmers and printers with the
+                            aim
+                            of occupying the spaces of a website, an advertising product or an editorial production
+                            whose
+                            final text is not yet ready.
+
+                            This expedient serves to get an idea of the finished product that will soon be printed or
+                            disseminated via digital channels.
+
+
+                            In order to have a result that is more in keeping with the final result, the graphic
+                            designers,
+                            designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
+                            namely readability and editorial requirements.
+
+                            The choice of font and font size with which Lorem ipsum is reproduced answers to specific
+                            needs
+                            that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
+                            allowing to have hands an advertising/publishing product, both web and paper, true to
+                            reality.
+
+                            Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
+                            stylistic choices of a project, so it is installed on many graphic programs on many software
+                            platforms of personal publishing and content management system.
+                        </p>
+                    </div>
+
+                    <!-- <div class="rate">
+                        <span class="label">Rate:</span>
+                        <span class="content" id="rate">
+                            P 169,00.00
+                        </span>
+                    </div> -->
+
+                    <div class="mb-3">
+                        <!-- <label for="formFileSm" class="form-label label">Upload file</label>
+                        <input class="form-control form-control-sm" id="formFileSm" type="file"> -->
+                    </div>
+
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" id="btn_declineJob"
+                            onclick="new Job().decline_job(this.value)">Decline</button> -->
+                        <button type="button" class="btn btn-primary" id="">End Transaction</button>
                     </div>
                 </form>
             </div>
