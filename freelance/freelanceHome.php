@@ -48,7 +48,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 </head>
 
 <body>
-    <?php 
+    <?php
     //  print_r($_SESSION); 
     ?>
     <?php include "../other/navbar.php"; ?>
@@ -93,7 +93,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
-                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['user_image'] . '" alt="">
                         </div>
 
                         <div class="post-col-2">
@@ -113,7 +113,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </p>
                             <div>
                                 
-                                <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
+                                <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
                             </div>
                         </div> 
                     </div>';
@@ -136,7 +136,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <!-- THIS WILL BE SHOWN IF FREELANCER IS NOT YET SUBSCRIBED -->
                 <div class="containerPost">
                     <div class="post-col-1">
-                        <img class="author-pic" src="../img/BOX.png" alt="" style="height: 100px;">
+                        <img class="author-pic" src="../img/box.png" alt="" style="height: 100px;">
                     </div>
                     <div class="post-col-2">
                         <span class="titlePost">You are not yet subscribed</span>
@@ -145,7 +145,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <div>
-                            <button id="" class="subs-button" >Subscribe</button>
+                            <button id="" class="subs-button">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
                     <p class="user-name">
-                        @<?php echo $_SESSION['username']; ?>
+                        @
+                        <?php echo $_SESSION['username']; ?>
                     </p>
                     <!-- <p id="userName">other info</p> -->
                 </div>
@@ -376,13 +377,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     </div>
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    // const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        // const textarea = document.getElementById('description');
 
-    // textarea.addEventListener('input', () => {
-    //     textarea.style.height = 'auto'; 
-    //     textarea.style.height = textarea.scrollHeight + 'px'; 
-    // });
+        // textarea.addEventListener('input', () => {
+        //     textarea.style.height = 'auto';
+        //     textarea.style.height = textarea.scrollHeight + 'px';
+        // });
     </script>
 
     <script src="../js/script.js"></script>

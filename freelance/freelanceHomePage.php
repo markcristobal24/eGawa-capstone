@@ -30,7 +30,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/freelanceHomepage.css">
+    <link rel="stylesheet" href="../css/freelanceHomePage.css">
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
@@ -41,7 +41,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 
 
-    <title>eGawa | <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></title>
+    <title>eGawa |
+        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+    </title>
 </head>
 
 <body>
@@ -67,34 +69,38 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     foreach ($query as $row) {
                         $catalog_id = $row['catalog_id'];
                         ?>
-                <div class="containerPost">
-                    <div class="containerImg">
-                        <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
-                            alt="" id="containerImg">
-                    </div>
-                    <div class="containerCatalog">
-                        <span class="titlePost"><?php echo $row['catalogTitle']; ?></span>
-                        <p class="descPost"><?php echo $row['catalogDescription']; ?></p>
-                        <div>
-                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
+                        <div class="containerPost">
+                            <div class="containerImg">
+                                <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
+                                    alt="" id="containerImg">
+                            </div>
+                            <div class="containerCatalog">
+                                <span class="titlePost">
+                                    <?php echo $row['catalogTitle']; ?>
+                                </span>
+                                <p class="descPost">
+                                    <?php echo $row['catalogDescription']; ?>
+                                </p>
+                                <div>
+                                    <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <?php
+                        <?php
                     }
                 } else {
                     echo '<div class="containerPost">';
 
-                        echo '<div class="catalogImg">';
-                        echo '<img class="imgWork" src="../img/box.png">';
-                        echo '</div>';
+                    echo '<div class="catalogImg">';
+                    echo '<img class="imgWork" src="../img/box.png">';
+                    echo '</div>';
 
-                        echo '<div class="catalogTexts">';
-                        echo '<h3>No catalog to display</h3>';
-                        echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
-                        echo '</div>';
+                    echo '<div class="catalogTexts">';
+                    echo '<h3>No catalog to display</h3>';
+                    echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
+                    echo '</div>';
 
                     echo '</div>';
                 }
@@ -118,7 +124,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     </p>
 
                     <p id="freelanceUsername">
-                        <?php echo "@".$fetch['username']; ?>
+                        <?php echo "@" . $fetch['username']; ?>
                     </p>
 
                     <div class="rating">
@@ -132,22 +138,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div id="jobsAndRole1">Jobs and Roles:</div>
                     <ul>
                         <?php
-                            $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-                            $query->execute([':email' => $email]);
-                            // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                            if ($query->rowCount() > 0) {
-                                $roleValues = array();
+                        $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                        $query->execute([':email' => $email]);
+                        // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                        if ($query->rowCount() > 0) {
+                            $roleValues = array();
 
-                                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                                    $values = explode(',', $row['jobRole']);
-                                    $roleValues = array_merge($roleValues, $values);
-                                }
-
-                                foreach ($roleValues as $value) {
-                                    echo "<li>$value</li>";
-                                }
+                            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                                $values = explode(',', $row['jobRole']);
+                                $roleValues = array_merge($roleValues, $values);
                             }
-                            ?>
+
+                            foreach ($roleValues as $value) {
+                                echo "<li>$value</li>";
+                            }
+                        }
+                        ?>
                     </ul>
 
                     <div class="flexDiv">
@@ -192,7 +198,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <hr>
                     <h1 class="modal-title fs-5 titles" id="">Description</h1>
                     <div class="container-description" id="container-description">
-                        
+
 
                     </div>
                 </div>
@@ -342,7 +348,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <p id="freelanceUsername">
-                            <?php echo "@".$fetch['username']; ?>
+                            <?php echo "@" . $fetch['username']; ?>
                         </p>
 
                         <div class="flexDiv">
@@ -373,22 +379,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                         <ul>
                             <?php
-                $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
-                $query->execute([':email' => $email]);
-                // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
-                if ($query->rowCount() > 0) {
-                    $roleValues = array();
+                            $query = $db->connect()->prepare("SELECT * FROM profile WHERE email = :email");
+                            $query->execute([':email' => $email]);
+                            // $query = mysqli_query($con, "SELECT * FROM profile WHERE email = '$email'");
+                            if ($query->rowCount() > 0) {
+                                $roleValues = array();
 
-                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                        $values = explode(',', $row['jobRole']);
-                        $roleValues = array_merge($roleValues, $values);
-                    }
+                                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                                    $values = explode(',', $row['jobRole']);
+                                    $roleValues = array_merge($roleValues, $values);
+                                }
 
-                    foreach ($roleValues as $value) {
-                        echo "<li>$value</li>";
-                    }
-                }
-                ?>
+                                foreach ($roleValues as $value) {
+                                    echo "<li>$value</li>";
+                                }
+                            }
+                            ?>
                         </ul>
                         <div>
                             <div class="titles">
@@ -396,22 +402,28 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                             <div>
                                 <div>
-                                    <span>Company Name: </span> <span><?php echo $fetch['companyName']; ?></span>
+                                    <span>Company Name: </span> <span>
+                                        <?php echo $fetch['companyName']; ?>
+                                    </span>
                                 </div>
                                 <div>
-                                    <span>Date Started: </span> <span><?php
-                        $date = $fetch['startDate'];
-                        $dateObj = new DateTime($date);
-                        $startDate = $dateObj->format("F d, Y");
-                        echo $startDate;
-                        ?></span>
+                                    <span>Date Started: </span> <span>
+                                        <?php
+                                        $date = $fetch['startDate'];
+                                        $dateObj = new DateTime($date);
+                                        $startDate = $dateObj->format("F d, Y");
+                                        echo $startDate;
+                                        ?>
+                                    </span>
                                 </div>
                                 <div>
-                                    <span>Date Ended: </span> <span><?php
-                        $date = $fetch['endDate'];
-                        $dateObj = new DateTime($date);
-                        $endDate = $dateObj->format("F d, Y");
-                        echo $endDate; ?></span>
+                                    <span>Date Ended: </span> <span>
+                                        <?php
+                                        $date = $fetch['endDate'];
+                                        $dateObj = new DateTime($date);
+                                        $endDate = $dateObj->format("F d, Y");
+                                        echo $endDate; ?>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -557,18 +569,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    let counter = 0;
-    if (counter <= 0) {
-        lightGallery(document.getElementById('userProfileChild'), {
-            counter: false,
-            download: true,
-            backdropDuration: 100,
-            selector: 'a',
-            controls: false,
-            escKey: true
-        });
-        counter++;
-    }
+        let counter = 0;
+        if (counter <= 0) {
+            lightGallery(document.getElementById('userProfileChild'), {
+                counter: false,
+                download: true,
+                backdropDuration: 100,
+                selector: 'a',
+                controls: false,
+                escKey: true
+            });
+            counter++;
+        }
     </script>
 </body>
 
