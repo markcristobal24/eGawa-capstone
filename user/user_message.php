@@ -737,13 +737,38 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-secondary" id="btn_declineJob"
                             onclick="new Job().decline_job(this.value)">Decline</button> -->
-                        <button type="button" class="btn btn-primary" id="">End Transaction</button>
+                        <button type="button" class="btn btn-primary" id="" data-bs-toggle="modal" data-bs-target="#end-transaction">End Transaction</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#end-transaction">
+  Launch demo modal
+</button> -->
+
+<!-- CONFIRMATION TO END TRANSACTION MODAL -->
+<div class="modal fade" id="end-transaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">End Transaction?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you  sure you want to end this transaction?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
