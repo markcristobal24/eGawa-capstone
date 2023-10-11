@@ -59,7 +59,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 <h2>WEEKLY</h2>
             </div>
             <div class="card-detail">
-                <p>$25 per week</p>
+                <p>Some information here</p>
             </div>
             <div class="card-price">
                 <p><sup>$</sup>25 <sub>/weekly</sub></p>
@@ -74,10 +74,10 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 <h2>MONTHLY</h2>
             </div>
             <div class="card-detail">
-                <p>$25 per week</p>
+                <p>Some information here</p>
             </div>
             <div class="card-price">
-                <p><sup>$</sup>25 <sub>/weekly</sub></p>
+                <p><sup>$</sup>75 <sub>/weekly</sub></p>
             </div>
             <button class="card-button">Subscribe</button>
         </div>
@@ -89,10 +89,10 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 <h2>YEARLY</h2>
             </div>
             <div class="card-detail">
-                <p>$25 per week</p>
+                <p>Some information here</p>
             </div>
             <div class="card-price">
-                <p><sup>$</sup>25 <sub>/weekly</sub></p>
+                <p><sup>$</sup>399 <sub>/weekly</sub></p>
             </div>
             <button class="card-button">Subscribe</button>
         </div>
