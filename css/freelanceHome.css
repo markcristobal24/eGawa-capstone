@@ -179,6 +179,11 @@ body {
         font-weight: 400;
         font-size: 25px;
     }
+    
+    #post_description {
+        white-space: pre-wrap;
+
+    }
 
     .descPost{
         max-width: 900px;
