@@ -50,7 +50,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
 </head>
 
 <body>
-    <h1>Select the plan that suits you</h1>
+    <h1>SELECT THE PLAN THAT SUITS YOU</h1>
     <section class="pricing">
 
         <div class="card-wrapper">
@@ -64,7 +64,9 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
             <div class="card-price">
                 <p><sup>$</sup>25 <sub>/weekly</sub></p>
             </div>
-            <button class="card-button">Subscribe</button>
+            <form action="">
+                <button class="card-button">Subscribe</button>
+            </form>
         </div>
 
 
@@ -77,7 +79,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 <p>Some information here</p>
             </div>
             <div class="card-price">
-                <p><sup>$</sup>75 <sub>/weekly</sub></p>
+                <p><sup>$</sup>75 <sub>/monthly</sub></p>
             </div>
             <button class="card-button">Subscribe</button>
         </div>
@@ -92,7 +94,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 <p>Some information here</p>
             </div>
             <div class="card-price">
-                <p><sup>$</sup>399 <sub>/weekly</sub></p>
+                <p><sup>$</sup>399 <sub>/yearly</sub></p>
             </div>
             <button class="card-button">Subscribe</button>
         </div>
@@ -120,18 +122,4 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
 
 </body>
 
-
-
-<script>
-    function getSubscrPrice(obj) {
-        var rowData = obj.options[obj.selectedIndex].getAttribute('rowData');
-        rowData = JSON.parse(rowData);
-
-        document.getElementById('subPrice').innerHTML = '$' + rowData.price + ' <?php echo CURRENCY; ?>';
-        document.getElementById('item_name').value = rowData.name;
-        document.getElementById('item_number').value = rowData.id;
-        document.getElementById('item_price').value = rowData.price;
-        document.getElementById('interval').value = rowData.interval;
-        document.getElementById('interval_count').value = rowData.interval_count;
-    }
-</script>
+</html>
