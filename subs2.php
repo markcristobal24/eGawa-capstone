@@ -50,7 +50,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
 </head>
 
 <body>
-    
+    <h1>Select the plan that suits you</h1>
     <section class="pricing">
 
         <div class="card-wrapper">
@@ -66,7 +66,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
             </div>
             <button class="card-button">Subscribe</button>
         </div>
-        
+
 
         <div class="card-wrapper">
             <div class="card-header">
@@ -81,7 +81,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
             </div>
             <button class="card-button">Subscribe</button>
         </div>
-        
+
 
         <div class="card-wrapper">
             <div class="card-header">
@@ -96,11 +96,11 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
             </div>
             <button class="card-button">Subscribe</button>
         </div>
-        
-        
+
+
     </section>
     <div class="back-to-home">
-        <button class="back-home">go back</button>
+        <button class="back-home">Home</button>
     </div>
 
 
@@ -117,7 +117,7 @@ $loggedInUserID = !empty($_SESSION['userID']) ? $_SESSION['userID'] : 1;
                 class="shape-fill"></path>
         </svg>
     </div>
-    
+
 </body>
 
 
