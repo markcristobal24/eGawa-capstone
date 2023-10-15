@@ -93,7 +93,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
-                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['user_image'] . '" alt="">
+                            <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
                         </div>
 
                         <div class="post-col-2">
@@ -160,8 +160,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </div> -->
             <div class="userProfile">
                 <div class="userProfileChild">
-                    <img id="userPic"
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                    <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
                         alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>

@@ -95,7 +95,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             echo '
                             <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
                                 <div class="user-image">
-                                    <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['imageProfile'] . '" alt="" class="user-chat-img">
+                                    <img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="user-chat-img">
                                 </div>
                                 <div class="user-info">
                                     <span class="fname-">' . $row['firstName'] . '</span>
@@ -737,7 +737,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-secondary" id="btn_declineJob"
                             onclick="new Job().decline_job(this.value)">Decline</button> -->
-                        <button type="button" class="btn btn-primary" id="" data-bs-toggle="modal" data-bs-target="#end-transaction">End Transaction</button>
+                        <button type="button" class="btn btn-primary" id="" data-bs-toggle="modal"
+                            data-bs-target="#end-transaction">End Transaction</button>
                     </div>
                 </form>
             </div>
@@ -752,21 +753,21 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 <!-- CONFIRMATION TO END TRANSACTION MODAL -->
 <div class="modal fade" id="end-transaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">End Transaction?</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you  sure you want to end this transaction?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Proceed</button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">End Transaction?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to end this transaction?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Proceed</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 

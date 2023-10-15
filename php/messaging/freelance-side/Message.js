@@ -16,9 +16,9 @@ function clickConvo(convoId) {
         fetch_messages(convoId);
         let info = response_data;
         document.getElementById('btn_sendMessage').value = convoId;
-        document.getElementById('chat_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
+        document.getElementById('chat_image').src = `../img/uploads/company/${info.imageProfile}`;
         document.getElementById('fullname').innerHTML = `${info.fullname}`;
-        document.getElementById('profile_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
+        document.getElementById('profile_image').src = `../img/uploads/company/${info.imageProfile}`;
         document.getElementById('profile_name').innerHTML = `${info.fullname}`;
         document.getElementById('profile_email').innerHTML = `${info.email}`;
         document.getElementById('profile_address').innerHTML = `${info.address}`;

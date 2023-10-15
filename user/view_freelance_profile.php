@@ -61,8 +61,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         ?>
                         <div class="containerPost">
                             <div class="containerImg">
-                                <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
-                                    alt="" id="containerImg">
+                                <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt=""
+                                    id="containerImg">
                             </div>
                             <div class="containerCatalog">
                                 <span class="titlePost">
@@ -101,10 +101,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         <div class="containerRight">
             <div class="userProfile">
                 <div class="userProfileChild" id="userProfileChild">
-                    <a class="userPic"
-                        href="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>">
-                        <img id="userPic"
-                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                    <a class="userPic" href="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>">
+                        <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
                             alt="user profile" title="user profile">
                     </a>
 
@@ -208,8 +206,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="modal-body">
                     <div class="modal-body-view-more">
                         <div class="modal-pic-container">
-                            <img id="userPic"
-                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
                                 alt="user profile" title="user profile">
                         </div>
 
@@ -367,7 +364,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
+    <!-- <script>
         let counter = 0;
         if (counter <= 0) {
             lightGallery(document.getElementById('userProfileChild'), {
@@ -380,7 +377,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             });
             counter++;
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

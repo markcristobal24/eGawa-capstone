@@ -81,7 +81,7 @@ if (isset($_POST['fetch_user'])) {
 
     //  if ($query) {
     //     $row = mysqli_fetch_assoc($query);
-        
+
     //     // Check if the row was fetched successfully
     //     if ($row) {
     //         $data['username'] = $row['username'];
@@ -103,17 +103,17 @@ if (isset($_POST['fetch_user'])) {
     $_SESSION['address'] = $data['address'];
     $_SESSION['user_image'] = $data['user_image'];
     if ($data['user_image'] != "") {
-        $_SESSION['user_image'] = $data['user_image']; 
+        $_SESSION['user_image'] = $data['user_image'];
     }
-    
-  
+
+
     echo json_encode($data);
 }
 
 if (isset($_POST['update_profile'])) {
     $user_id = $_SESSION['account_id'];
     $type = $_POST['type'];
-    
+
     if ($type == "username") {
         $new_username = $_POST['new_username'];
         $query = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
@@ -121,8 +121,7 @@ if (isset($_POST['update_profile'])) {
 
         if ($query->rowCount() > 0) {
             $output['error'] = "Username already exist!";
-        }
-        else if ($_SESSION['username'] != $new_username) {
+        } else if ($_SESSION['username'] != $new_username) {
             $query = $db->connect()->prepare("UPDATE account SET username = :username WHERE account_id = :user_id");
             $result = $query->execute([':username' => $new_username, ':user_id' => $user_id]);
 
@@ -144,16 +143,19 @@ if (isset($_POST['update_profile'])) {
         if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address) {
             $image_link = $new_profile;
             if (!empty($new_profile)) {
-                $upload_image = new Image();
-                $data = $upload_image->upload_image($new_profile, $user_id, "egawa/user/");
-                $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+                // $upload_image = new Image();
+                // $data = $upload_image->upload_image($new_profile, $user_id, "egawa/user/");
+                // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+                $image_directory = '../img/uploads/company/' . basename($_FILES['new_profile']['name']);
+                $image_link = basename($_FILES['new_profile']['name']);
+                move_uploaded_file($new_profile, $image_directory);
             } else {
                 $image_link = $_SESSION['user_image'];
             }
 
             $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, address = :new_address WHERE account_id = :user_id");
             $result = $query->execute([':new_profile' => $image_link, ':new_address' => $new_address, ':user_id' => $user_id]);
-            if($result) {
+            if ($result) {
                 if (!empty($new_profile)) {
                     $_SESSION['user_image'] = $image_link;
                 }

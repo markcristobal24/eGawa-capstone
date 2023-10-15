@@ -37,7 +37,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php 
+    <?php
     // print_r($_SESSION); 
     ?>
     <?php include "../other/navbar.php"; ?>
@@ -82,7 +82,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
-                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                            <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
                         </div>
                         <div class="post-col-2">
                             <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
@@ -132,7 +132,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <img id="userPic" <?php
                     if (isset($_SESSION['user_image'])) {
                         ?>
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
+                            src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
                     } else {
                         ?> src="../img/profile.png" <?php
                     }
@@ -141,7 +141,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
                     <p class="user-name">
-                        @<?php echo $_SESSION['username']; ?>
+                        @
+                        <?php echo $_SESSION['username']; ?>
                     </p>
                     <!-- <p id="userName">other info</p> -->
                 </div>
@@ -309,20 +310,20 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('description');
 
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto'; // Reset height to auto
-        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    });
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
     </script>
 
 
     <script src="../js/script.js "></script>
     <script src="../js/user.js"></script>
     <script src="../classJS/Account.js"></script>
-    
+
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script>
 

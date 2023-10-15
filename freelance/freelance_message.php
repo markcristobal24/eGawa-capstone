@@ -87,7 +87,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             echo '
                             <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
                                 <div class="user-image">
-                                    <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['user_image'] . '" alt="" class="user-chat-img">
+                                    <img src="../img/uploads/company/' . $row['user_image'] . '" alt="" class="user-chat-img">
                                 </div>
                                 <div class="user-info">
                                     <span class="fname-">' . $row['firstName'] . '</span>

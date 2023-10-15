@@ -464,7 +464,7 @@ class Account {
             document.getElementById('uname').value = `${user.username}`;
 
             if (user.user_image != "") {
-                document.getElementById('imgUpload').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/${user.user_image}`;
+                document.getElementById('imgUpload').src = `../img/uploads/company/${user.user_image}`;
             } else {
                 document.getElementById('imgUpload').src = `../img/uploadIMG.png`;
             }
