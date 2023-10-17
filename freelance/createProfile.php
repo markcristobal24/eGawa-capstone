@@ -1,12 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['account_id'])) {
-    header('location: ../login.php');
-} else if ($_SESSION['userType'] !== "freelancer") {
-    header('location: ../user/userHome.php');
-} else if ($_SESSION['userType'] == "freelancer" && $_SESSION['profileStatus'] === 1) {
-    header('location: ../freelance/freelanceHome.php');
-}
+// if (isset($_SESSION['userType']) !== "freelancer") {
+//     header('location: ../user/userHome.php');
+// } else if (isset($_SESSION['userType']) == "freelancer" && isset($_SESSION['profileStatus']) === 1) {
+//     header('location: ../freelance/freelanceHome.php');
+// }
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@ if (!isset($_SESSION['account_id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Create Profile</title>
 
     <!-- start -- links for fonts -->

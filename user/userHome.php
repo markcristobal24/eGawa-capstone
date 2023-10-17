@@ -35,7 +35,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Home</title>
 
     <style>
@@ -138,13 +138,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" <?php
-                    if (isset($_SESSION['user_image'])) {
-                        ?>
-                            src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
-                    } else {
-                        ?> src="../img/profile.png" <?php
-                    }
-                    ?> alt="user profile" title="user profile">
+                                        if (isset($_SESSION['user_image'])) {
+                                        ?> src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
+                                                                                            } else {
+                                                                                                ?>
+                        src="../img/profile.png" <?php
+                                                                                            }
+                                                    ?> alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
@@ -318,13 +318,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <script>
-        // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('description');
+    // JavaScript to make the textarea auto-resize
+    const textarea = document.getElementById('description');
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
+    textarea.addEventListener('input', () => {
+        textarea.style.height = 'auto'; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+    });
     </script>
 
 

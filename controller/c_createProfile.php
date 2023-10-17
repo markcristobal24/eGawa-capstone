@@ -2,7 +2,7 @@
 //session_start();
 // require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-require_once dirname(__FILE__) . "/../php/classes/Image.php";
+// require_once dirname(__FILE__) . "/../php/classes/Image.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
@@ -13,7 +13,7 @@ if (isset($_POST['create_fprofile'])) {
     //$imageData = file_get_contents($profileImg);
 
     $image_link = $profileImg;
-    if ($profileImg != "") {
+    if (!empty($profile_img)) {
         // $upload_image = new Image();
         // $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
         // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
@@ -56,8 +56,6 @@ if (isset($_POST['create_fprofile'])) {
             $query->execute([':email' => $email]);
             $output['success'] = "Profile Created. Redirecting...";
         }
-
-
     } else if ($profileImg == null) {
         $output['error'] = "Please upload your profile picture!";
     } else if ($selectedData == "") {
@@ -100,12 +98,12 @@ if (isset($_POST['edit_fprofile'])) {
         $image_link = $profile_img;
         if (!empty($profile_img)) {
             // $upload_image = new Image();
-            // $filename = new Account();
-            // $image_name = $filename->generate_imageName(6);
+            $filename = new Account();
+            $image_name = $filename->generate_imageName(6);
             // $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
             // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
-            $image_directory = '../img/uploads/freelancer/' . basename($_FILES['imageProfile']['name']);
-            $image_link = basename($_FILES['imageProfile']['name']);
+            $image_directory = '../img/uploads/freelancer/' . $image_name  . basename($_FILES['imageProfile']['name']);
+            $image_link = $image_name . basename($_FILES['imageProfile']['name']);
             move_uploaded_file($profile_img, $image_directory);
 
             $query = $db->connect()->prepare("UPDATE profile SET imageProfile = :imageProfile WHERE email = :email");
@@ -130,4 +128,3 @@ if (isset($_POST['edit_fprofile'])) {
     }
     echo json_encode($output);
 }
-?>

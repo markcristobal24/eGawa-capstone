@@ -2,7 +2,7 @@
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Email.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
-require_once dirname(__FILE__) . "/../php/classes/Image.php";
+// require_once dirname(__FILE__) . "/../php/classes/Image.php";
 
 $db = new DbClass();
 $acc = new Account();

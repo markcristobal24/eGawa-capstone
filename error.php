@@ -11,18 +11,16 @@
     <link rel="stylesheet" href="css/errorpage.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <link rel="shortcut icon" href="img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Error 404 Page not Found</title>
 
 </head>
 
 <body>
 
-    
+
 
     <div class="logoConatiner">
         <img src="img/eGAWAwhite.png" alt="Logo" id="logoImage">
@@ -33,7 +31,7 @@
         <h2 id="errorMsg1" class="errorMsg">Error 404</h2>
         <div id="errorMsg2" class="errorMsg">
             <p>We're sorry, but the page you requested could not be found.</br>
-            It may have been moved, renamed, or deleted.</p>
+                It may have been moved, renamed, or deleted.</p>
         </div>
         <div class="goBackCont">
             <div class="goBack" onclick="location.href='login.php';">Go Back</div>

@@ -39,14 +39,15 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lightgallery-bundle.css'>
 
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa |
         <?php echo $fullname; ?>
     </title>
 </head>
 
 <body>
-    <?php //print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); 
+    ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -66,27 +67,27 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 if ($query->rowCount() > 0) {
                     foreach ($query as $row) {
                         $catalog_id = $row['catalog_id'];
-                        ?>
-                        <div class="containerPost">
-                            <div class="containerImg">
-                                <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt=""
-                                    id="containerImg">
-                            </div>
-                            <div class="containerCatalog">
-                                <span class="titlePost">
-                                    <?php echo $row['catalogTitle']; ?>
-                                </span>
-                                <p class="descPost">
-                                    <?php echo $row['catalogDescription']; ?>
-                                </p>
-                                <div>
-                                    <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"
-                                        onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
-                                </div>
-                            </div>
+                ?>
+                <div class="containerPost">
+                    <div class="containerImg">
+                        <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt=""
+                            id="containerImg">
+                    </div>
+                    <div class="containerCatalog">
+                        <span class="titlePost">
+                            <?php echo $row['catalogTitle']; ?>
+                        </span>
+                        <p class="descPost">
+                            <?php echo $row['catalogDescription']; ?>
+                        </p>
+                        <div>
+                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
                         </div>
-                        <?php
+                    </div>
+                </div>
+                <?php
                     }
                 } else {
                     echo '<div class="containerPost">';

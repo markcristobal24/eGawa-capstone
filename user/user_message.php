@@ -37,7 +37,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Messages</title>
 
 
@@ -46,7 +46,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 <body>
 
-    <?php //print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); 
+    ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
 
@@ -484,10 +485,10 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     </div>
     <script>
-        window.onload = function () {
-            var chatbox = document.getElementById('chatbox');
-            chatbox.scrollTop = chatbox.scrollHeight;
-        };
+    window.onload = function() {
+        var chatbox = document.getElementById('chatbox');
+        chatbox.scrollTop = chatbox.scrollHeight;
+    };
     </script>
 </body>
 
@@ -767,20 +768,19 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 <script src="../js/script.js"></script>
 
 <script>
+$(document).ready(function() {
+    $('.tab_container:first').show();
+    $('.tab_navigation li:first').addClass('active');
 
-    $(document).ready(function () {
-        $('.tab_container:first').show();
-        $('.tab_navigation li:first').addClass('active');
-
-        $('.tab_navigation li').click(function (event) {
-            index = $(this).index();
-            $('.tab_navigation li').removeClass('active');
-            $(this).addClass('active');
-            $('.tab_container').hide();
-            $('.tab_container').eq(index).show();
-        });
-
+    $('.tab_navigation li').click(function(event) {
+        index = $(this).index();
+        $('.tab_navigation li').removeClass('active');
+        $(this).addClass('active');
+        $('.tab_container').hide();
+        $('.tab_container').eq(index).show();
     });
+
+});
 </script>
 
 </html>

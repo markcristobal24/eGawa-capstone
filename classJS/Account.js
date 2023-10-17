@@ -200,7 +200,7 @@ class Account {
                 console.log(response_data.success);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
-                    window.location.replace('../freelance/freelanceHomePage.php');
+                    window.location.replace('freelanceHomePage.php');
                     window.clearTimeout(tID);
                 }, 3000);
             }
