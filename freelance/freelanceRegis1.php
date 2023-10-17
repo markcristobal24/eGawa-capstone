@@ -78,8 +78,21 @@
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
+                    <input type="password" id="pass1" onkeyup="new Account().verify_password(this.value);"
+                        name="password" class="form-control" placeholder="Enter Password">
                     <label id="pass1" for="pass1">Enter Password</label>
+                    <span class="input_error" id="password_error"></span>
+
+                    <div class="password_requirements">
+                        <h6 id="length_con"><span class="length me-1" id="length">&#x2716;</span>be atleast 8 characters
+                            but not more than 20</h6>
+                        <h6 id="case_con"><span class="case me-1" id="case">&#x2716;</span> contain at least one
+                            uppercase and lowercase letter</h6>
+                        <h6 id="number_con"><span class="number me-1" id="number">&#x2716;</span> contain at least one
+                            number</h6>
+                        <h6 id="special_con"><span class="special me-1" id="special">&#x2716;</span> contain one of the
+                            following characters: @ . # $ % ^ & , *</h6>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
@@ -92,13 +105,14 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
                 <button type="button" id="btnFreelanceReg" class="btn btn-primary"
-                    onclick="new Account().registerFreelance();">
-                    Continue
+                    onclick="new Account().registerFreelance();" disabled=true>
+                    Register
                 </button>
                 <button class="btn btn-secondary" id="btnFreelanceClear">Clear</button>
             </div>
             <hr>
-            <p class="freelanceRegInfo resize">Already have an account? <a id="loginLink" href="../login.php">Login here</a>
+            <p class="freelanceRegInfo resize">Already have an account? <a id="loginLink" href="../login.php">Login
+                    here</a>
             </p>
         </form>
 

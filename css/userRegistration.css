@@ -1,51 +1,136 @@
-body{
-    background-image: linear-gradient(to right, #0073aa, #8000aa);
-    font-family: 'Inter', sans-serif;
-    padding: 0;
-    margin: 0;
+body {
+  background-image: linear-gradient(to right, #0073aa, #8000aa);
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
-
 
 .containerRegis {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
-    border-radius: 5px;
-    margin-top: 5%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+  border-radius: 5px;
+  margin-top: 5%;
 }
-.termsTitle{
-    color: rgb(79, 235, 32);
+.termsTitle {
+  color: rgb(79, 235, 32);
 }
 
-p, #termsTitle{
-    color: white;
-    font-size: 14px;
+p,
+#termsTitle {
+  color: white;
+  font-size: 14px;
 }
-#loginLink{
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
+#loginLink {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
 }
-#loginLink:hover{
-    color: rgb(79, 235, 32);
+#loginLink:hover {
+  color: rgb(79, 235, 32);
 }
 
 .userRegTitle {
-    color: #eaeaea;
+  color: #eaeaea;
 }
 
-#tAndC:hover{
-    cursor: pointer;
+#tAndC:hover {
+  cursor: pointer;
 }
 
 #btnUserReg,
 #btnUserRegClear {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .custom-shape-divider-bottom-1690684253 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1690684253 svg {
+  position: relative;
+  display: block;
+  width: calc(236% + 1.3px);
+  height: 120px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1690684253 .shape-fill {
+  fill: #ffffff;
+}
+
+.password_requirements {
+  max-height: 0;
+  transition: max-height 0.6s ease-out;
+  overflow: hidden;
+  margin-left: 30px;
+}
+.password_requirements h6 {
+  font-size: 0.9em;
+  margin-top: -6px;
+}
+.password_requirements #length_con {
+  margin-top: 0px !important;
+}
+
+.password_requirement_active {
+  max-height: 300px;
+  transition: max-height 0.6s ease-in;
+}
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+}
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+  .userRegTitle {
+    font-size: 30px;
+  }
+}
+
+/*============================ large  ===========================*/
+@media (max-width: 1311px) {
+  .userRegTitle {
+    font-size: 25px;
+  }
+  label {
+    font-size: 12px;
+  }
+  .form-floating {
+    margin: 0px;
+  }
+  .form-floating input {
+    font-size: 12px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+  .resize,
+  #termsTitle,
+  #loginLink {
+    font-size: 12px;
+  }
+
+  .containerRegis {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 20px 3px 20px;
+    box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
+    border-radius: 5px;
+    margin-top: 2%;
+  }
+
+  .custom-shape-divider-bottom-1690684253 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -53,166 +138,92 @@ p, #termsTitle{
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
-}
+  }
 
-.custom-shape-divider-bottom-1690684253 svg {
+  .custom-shape-divider-bottom-1690684253 svg {
     position: relative;
     display: block;
     width: calc(236% + 1.3px);
-    height: 120px;
+    height: 100px;
     transform: rotateY(180deg);
+  }
+
+  .custom-shape-divider-bottom-1690684253 .shape-fill {
+    fill: #ffffff;
+  }
 }
-
-.custom-shape-divider-bottom-1690684253 .shape-fill {
-    fill: #FFFFFF;
-}
-
-
-
-
-/*============================ extra extra large  ===========================*/
-@media (max-width: 5000px) {}
-
-
-/*============================ extra large  ===========================*/
-@media (max-width: 1366px) {
-    .userRegTitle {
-        font-size: 30px;
-    }
-}
-
-
-/*============================ large  ===========================*/
-@media (max-width: 1311px) {
-
-    .userRegTitle {
-        font-size: 25px;
-    }
-    label{
-        font-size: 12px;
-    }
-    .form-floating{
-        margin: 0px;
-    }
-    .form-floating input{
-        font-size: 12px;
-    }
-    .btn{
-        font-size: 12px;
-    }
-    .resize, #termsTitle, #loginLink{
-        font-size: 12px;
-    }
-
-    .containerRegis {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px 20px 3px 20px;
-        box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
-        border-radius: 5px;
-        margin-top: 2%;
-    }
-
-    .custom-shape-divider-bottom-1690684253 {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg);
-    }
-    
-    .custom-shape-divider-bottom-1690684253 svg {
-        position: relative;
-        display: block;
-        width: calc(236% + 1.3px);
-        height: 100px;
-        transform: rotateY(180deg);
-    }
-    
-    .custom-shape-divider-bottom-1690684253 .shape-fill {
-        fill: #FFFFFF;
-    }
-}
-
 
 /*============================ medium  ===========================*/
 @media (max-width: 768px) {
-
-    .termsTitle{
-        font-size: 13px;
-        margin-bottom: 10px;
-      }
+  .termsTitle {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
 }
-
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-    .containerRegis {
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 5px;
-        margin-top: 100px;
-    }
+  .containerRegis {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 100px;
+  }
 
-    #fName,
-    #mName,
-    #sName,
-    #addr,
-    #uName,
-    #eAdd,
-    #pass1Label,
-    #pass2Label {
-        font-size: 10px;
-    }
+  #fName,
+  #mName,
+  #sName,
+  #addr,
+  #uName,
+  #eAdd,
+  #pass1Label,
+  #pass2Label {
+    font-size: 10px;
+  }
 
-    .userRegTitle {
-        color: rgb(252, 252, 252);
-    }
+  .userRegTitle {
+    color: rgb(252, 252, 252);
+  }
 
+  #forgotPasswordLink {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(209, 44, 91);
+    text-decoration: none;
+  }
 
-    #forgotPasswordLink {
-        font-size: 15px;
-        font-weight: 600;
-        color: rgb(209, 44, 91);
-        text-decoration: none;
-    }
+  .infoUserReg {
+    font-size: 13px;
+  }
 
-    .infoUserReg {
-        font-size: 13px;
-        
-    }
+  .footerInfo {
+    font-size: 10px;
+    color: #0073aa;
+  }
 
+  i {
+    color: #0073aa;
+    margin-left: 15px;
+  }
 
-    .footerInfo {
-        font-size: 10px;
-        color: #0073aa
-    }
+  #home1,
+  #about1,
+  #login1 {
+    font-size: 15px;
+    font-family: "roboto", sans-serif;
+    color: #f4f4f4;
+  }
 
-    i {
-        color: #0073aa;
-        margin-left: 15px;
-    }
+  .custom-shape-divider-bottom-1690684253 {
+    display: none;
+  }
 
-    #home1,
-    #about1,
-    #login1 {
-        font-size: 15px;
-        font-family: 'roboto', sans-serif;
-        color: #f4f4f4;
-    }
+  .custom-shape-divider-bottom-1690684253 svg {
+    display: no;
+  }
 
-    .custom-shape-divider-bottom-1690684253 {
-        display: none;
-    }
-    
-    .custom-shape-divider-bottom-1690684253 svg {
-        display: no;
-    }
-    
-    .custom-shape-divider-bottom-1690684253 .shape-fill {
-        fill: #FFFFFF;
-    }
+  .custom-shape-divider-bottom-1690684253 .shape-fill {
+    fill: #ffffff;
+  }
 }
