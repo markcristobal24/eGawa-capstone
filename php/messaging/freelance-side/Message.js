@@ -12,7 +12,7 @@ function clickConvo(convoId) {
     }).then((response_data) => {
         console.log(response_data);
 
-        clearInterval(messageFetchIntervalId);
+        // clearInterval(messageFetchIntervalId);
         fetch_messages(convoId);
         let info = response_data;
         document.getElementById('btn_sendMessage').value = convoId;
@@ -22,10 +22,29 @@ function clickConvo(convoId) {
         document.getElementById('profile_name').innerHTML = `${info.fullname}`;
         document.getElementById('profile_email').innerHTML = `${info.email}`;
         document.getElementById('profile_address').innerHTML = `${info.address}`;
-
-        messageFetchIntervalId = setInterval(() => {
-            fetch_messages(convoId);
-        }, 5000);
+        companyId = info.user_id;
+        freelanceId = info.freelance_id;
+        Pusher.logToConsole = true;
+        const pusher = new Pusher("7717fc588fb67a40c2c6", {
+            cluster: "ap1",
+            encrypted: true,
+        });
+        channel = pusher.subscribe(`message-channel-${companyId}-${freelanceId}`);
+        channel.bind("message-event", function (data) {
+            console.log("connected");
+            console.log(companyId);
+            const chatbox = document.getElementById("chatbox");
+            const messageDiv = document.createElement("div");
+            messageDiv.className =
+                data.sender === "self" ? "freelance-chat" : "user-chat";
+            messageDiv.textContent = data.message;
+            chatbox.append(messageDiv);
+            // var chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+        });
+        // messageFetchIntervalId = setInterval(() => {
+        //     fetch_messages(convoId);
+        // }, 5000);
     });
 }
 

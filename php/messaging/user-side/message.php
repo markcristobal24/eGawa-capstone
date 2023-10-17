@@ -7,8 +7,12 @@ $options = array(
     'cluster' => 'ap1',
     'useTLS' => true
 );
-$pusher = new Pusher\Pusher('1e64e7913006b4f715d3', '9a94a74865b5837ef487', '1680856', $options);
-
+$pusher = new Pusher\Pusher(
+    '7717fc588fb67a40c2c6',
+    'ce2de37e95416673e758',
+    '1650503',
+    $options
+);
 if (isset($_POST['fetch_info_convo'])) {
     $convo_id = $_POST['convoId'];
 
@@ -26,6 +30,7 @@ if (isset($_POST['fetch_info_convo'])) {
         $data['email'] = $row['email'];
         $data['address'] = $row['address'];
         $data['freelance_id'] = $row['freelance_id'];
+        $data['user_id'] = $row['user_id'];
     }
     echo json_encode($data);
 }
@@ -85,10 +90,13 @@ if (isset($_POST['send_message'])) {
 
             if ($result) {
                 $output['success'] = "success";
+                $data['message'] = $messageInput;
+                $message = $data['message'];
+                $channel = 'message-channel-' . $_SESSION['account_id'] . "-" . $fetch['freelance_id'];
+                $event = 'message-event';
+                $pusher->trigger($channel, $event, array('message' => $message, 'sender' => ($fetch['freelance_id'] == $_SESSION['account_id']) ? 'self' : 'other'));
             }
         }
     }
     echo json_encode($output);
 }
-
-?>

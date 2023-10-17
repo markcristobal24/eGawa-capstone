@@ -13,7 +13,7 @@ if (isset($_POST['create_fprofile'])) {
     //$imageData = file_get_contents($profileImg);
 
     $image_link = $profileImg;
-    if (!empty($profile_img)) {
+    if (!empty($profileImg)) {
         // $upload_image = new Image();
         // $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
         // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
@@ -21,7 +21,7 @@ if (isset($_POST['create_fprofile'])) {
         $image_filename = $generate_name->generate_imageName(6);
         $image_directory = '../img/uploads/freelancer/' . $image_filename . basename($_FILES['imageProfile']['name']);
         $image_link = $image_filename . basename($_FILES['imageProfile']['name']);
-        move_uploaded_file($profile_img, $image_directory);
+        move_uploaded_file($profileImg, $image_directory);
     }
 
     $selectedData = $_POST['jobRole'];
