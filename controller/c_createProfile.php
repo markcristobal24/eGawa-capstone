@@ -17,8 +17,10 @@ if (isset($_POST['create_fprofile'])) {
         // $upload_image = new Image();
         // $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
         // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
-        $image_directory = '../img/uploads/freelancer/' . basename($_FILES['imageProfile']['name']);
-        $image_link = basename($_FILES['imageProfile']['name']);
+        $generate_name = new Account();
+        $image_filename = $generate_name->generate_imageName(6);
+        $image_directory = '../img/uploads/freelancer/' . $image_filename . basename($_FILES['imageProfile']['name']);
+        $image_link = $image_filename . basename($_FILES['imageProfile']['name']);
         move_uploaded_file($profile_img, $image_directory);
     }
 
