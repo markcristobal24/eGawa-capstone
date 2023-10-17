@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+} else if ($_SESSION['userType'] !== "freelancer") {
+    header('location: ../user/userHome.php');
+} else if ($_SESSION['userType'] == "freelancer" && $_SESSION['profileStatus'] === 1) {
+    header('location: ../freelance/freelanceHome.php');
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +43,7 @@
 <body>
     <div class="toast_notif" id="toast_notif"></div>
 
-    <?php 
+    <?php
     // print_r($_SESSION);
     // print_r($_POST); 
     ?>
@@ -133,14 +142,14 @@
 
                 <div class="date">
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted" class="form-control"
-                            placeholder="Enter Date Started">
+                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted"
+                            class="form-control" placeholder="Enter Date Started">
                         <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
                     </div>
 
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded" class="form-control"
-                            placeholder="Enter Date Ended">
+                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded"
+                            class="form-control" placeholder="Enter Date Ended">
                         <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
                     </div>
                 </div>

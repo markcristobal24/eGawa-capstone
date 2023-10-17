@@ -2,6 +2,14 @@
 // session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+
 $db = new DbClass();
 
 $user_id = $_SESSION['account_id'];

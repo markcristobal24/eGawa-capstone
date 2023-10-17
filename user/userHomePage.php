@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

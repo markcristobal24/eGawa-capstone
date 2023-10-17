@@ -1,29 +1,14 @@
 <?php
 // session_start();
-// require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-// require_once dirname(__FILE__) . "/../php/classes/Account.php";
-
-// $db = new DbClass();
-// $account = new Account();
-// $account->fetch_account($_SESSION['email']);
-// $account->fetch_profile($_SESSION['email']);
-
-// if (!isset($_SESSION['email'])) {
-//     header('location: ../login.php');
-//     die();
-// }
-
-// $email = $_SESSION['email'];
-// $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
-// $query->execute([':email' => $email]);
-// $fetch = $query->fetch(PDO::FETCH_ASSOC);
-
-// $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
-?>
-
-<?php
-// session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
 
 $db = new DbClass();
 

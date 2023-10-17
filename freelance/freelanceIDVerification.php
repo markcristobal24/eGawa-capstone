@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "freelancer") {
+    header('location: ../user/userHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,9 +111,9 @@
 
 
 
-    <?php include"../footer.php" ?>
+    <?php include "../footer.php" ?>
 
-<!-- 
+    <!-- 
     <div class="custom-shape-divider-bottom-1687514102">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path

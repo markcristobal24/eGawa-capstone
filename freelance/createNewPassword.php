@@ -1,9 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_GET["token"])) {
+if (!isset($_GET["token"]) && !isset($_SESSION['account_id'])) {
     header('location: ../error.php');
     die();
+} else if (!isset($_GET["token"]) && isset($_SESSION['userType']) == "user") {
+    header('location: ../user/userHome.php');
+} else if (!isset($_GET["token"]) && isset($_SESSION['userType']) == "freelancer") {
+    header('location: ../freelance/freelanceHome.php');
 }
 ?>
 
@@ -32,6 +36,7 @@ if (!isset($_GET["token"])) {
 <body>
     <div class="toast_notif" id="toast_notif"></div>
     <?php include "../other/navbar.php" ?>
+    <?php print_r($_SESSION); ?>
 
     <!-- <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">

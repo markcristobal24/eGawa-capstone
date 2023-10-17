@@ -3,6 +3,14 @@
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+
 $db = new DbClass();
 $freelance_id = $_GET['freelance_id'];
 $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.account_id = :freelance_id");

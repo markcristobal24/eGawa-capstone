@@ -8,8 +8,11 @@ $account = new Account();
 $account->fetch_account($_SESSION['email']);
 $account->fetch_profile($_SESSION['email']);
 
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['account_id'])) {
     header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "freelancer") {
+    header('location: ../user/userHome.php');
     die();
 }
 

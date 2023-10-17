@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
+    header('location: user/userHome.php');
+    die();
+} else if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "freelancer") {
+    header('location: freelance/freelanceHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +44,7 @@
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-
+    <?php print_r($_SESSION); ?>
 
     <div class="container">
         <div class="left">

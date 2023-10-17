@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
+    header('location: userHome.php');
+    die();
+} else if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "freelancer") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
