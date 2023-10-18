@@ -88,7 +88,17 @@ session_start();
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
                     <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
                         required>
-                    <label id="addressLabel" for="address">Enter Your Address</label>
+                    <label id="addressLabel" for="address">Enter Street/Baranggay</label>
+                </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
+                        required>
+                    <label id="addressLabel" for="address">Enter Municipality</label>
+                </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
+                        required>
+                    <label id="addressLabel" for="address">Enter Your City/Province</label>
                 </div>
 
                 <div class="pickRoles">

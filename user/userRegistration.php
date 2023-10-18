@@ -59,9 +59,17 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                     <label id="sName" for="surName">Enter Surname</label>
                 </div>
 
-                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
-                    <label id="addr" for="address">Enter Address</label>
+                    <label id="addr" for="address">Enter Street/Baranggay</label>
+                </div>
+                <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
+                    <label id="addr" for="address">Enter Municipality</label>
+                </div>
+                <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
+                    <label id="addr" for="address">Enter City/Province</label>
                 </div>
 
 
