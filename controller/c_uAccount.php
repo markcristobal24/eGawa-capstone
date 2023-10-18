@@ -142,7 +142,9 @@ if (isset($_POST['update_profile'])) {
         }
     } else {
         $new_profile = $_FILES['new_profile']['tmp_name'];
-        $new_address = $_POST['new_address'];
+        $new_barangay = $_POST['new_barangay'];
+        $new_municipality = $_POST['new_municipality'];
+        $new_province = $_POST['new_province'];
 
         if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address) {
             $image_link = $new_profile;
@@ -157,13 +159,15 @@ if (isset($_POST['update_profile'])) {
                 $image_link = $_SESSION['user_image'];
             }
 
-            $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, address = :new_address WHERE account_id = :user_id");
-            $result = $query->execute([':new_profile' => $image_link, ':new_address' => $new_address, ':user_id' => $user_id]);
+            $query = $db->connect()->prepare("UPDATE account SET user_image = :new_profile, barangay = :new_barangay, municipality = :new_municipality, province = :new_province WHERE account_id = :user_id");
+            $result = $query->execute([':new_profile' => $image_link, ':new_barangay' => $new_barangay, ':new_municipality' => $new_municipality, ':new_province' => $new_province, ':user_id' => $user_id]);
             if ($result) {
                 if (!empty($new_profile)) {
                     $_SESSION['user_image'] = $image_link;
                 }
-                $_SESSION['address'] = $new_address;
+                $_SESSION['barangay'] = $new_barangay;
+                $_SESSION['municipality'] = $new_municipality;
+                $_SESSION['province'] = $new_province;
                 $output['success'] = "Your profile has been updated";
             } else {
                 $output['error'] = "Something went wrong! Please try again later.";

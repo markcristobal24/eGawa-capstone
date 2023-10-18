@@ -12,7 +12,9 @@ if (isset($_POST['user_register'])) {
     $firstName = $_POST["fName"];
     $middleName = $_POST["mName"];
     $lastName = $_POST["lName"];
-    $address = $_POST["address"];
+    $barangay = $_POST["barangay"];
+    $municipality = $_POST["municipality"];
+    $province = $_POST["province"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -22,12 +24,12 @@ if (isset($_POST['user_register'])) {
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email]);
-    
+
     $query2 = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
     $query2->execute([':username' => $username]);
 
     if (
-        $firstName === "" || $middleName === "" || $lastName === "" || $address === "" || $username === ""
+        $firstName === "" || $middleName === "" || $lastName === "" || $barangay === "" || $municipality === "" || $province === "" || $username === ""
         || $email === "" || $password === "" || $password2 === ""
     ) {
         $output['error'] = "Incomplete Details!";
@@ -38,9 +40,9 @@ if (isset($_POST['user_register'])) {
     } else if ($query2->rowCount() > 0) {
         $output['error'] = "Username already exist!";
     } else {
-        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, address, username, email, password, userType, status)
-        VALUES (:firstName, :middleName, :lastName, :address, :username, :email, :password, :userType, :status)");
-        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':address' => $address, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0]);
+        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, barangay, municipality, province, username, email, password, userType, status)
+        VALUES (:firstName, :middleName, :lastName, :barangay, :municipality, :province, :username, :email, :password, :userType, :status)");
+        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':barangay' => $barangay, ':municipality' => $municipality, ':province' => $province, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0]);
 
         if ($result) {
             $_SESSION['mail'] = $email;

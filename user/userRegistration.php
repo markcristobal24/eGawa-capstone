@@ -60,15 +60,16 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                 </div>
 
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
+                    <input type="text" id="barangay" name="barangay" class="form-control" placeholder="Enter Address">
                     <label id="addr" for="address">Enter Street/Baranggay</label>
                 </div>
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
+                    <input type="text" id="municipality" name="municipality" class="form-control"
+                        placeholder="Enter Address">
                     <label id="addr" for="address">Enter Municipality</label>
                 </div>
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address">
+                    <input type="text" id="province" name="province" class="form-control" placeholder="Enter Address">
                     <label id="addr" for="address">Enter City/Province</label>
                 </div>
 
