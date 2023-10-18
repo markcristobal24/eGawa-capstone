@@ -12,7 +12,7 @@ class DbClass
 
     public $dbName = "u673355866_egawa";
 
-    //XAMPP HOSTING
+    // XAMPP HOSTING
     // public $dbHost = "localhost";
     // public $dbUser = "root";
     // public $dbPassword = "";
