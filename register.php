@@ -49,8 +49,13 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="choice" onclick="selectChoice('choice1')" id="choice1">
-                                <h5 class="choice-label">User</h5>
+                            <div class="choice" onclick="selectChoice('choice1')" id="choice1" 
+                            title="
+                            Employers - 
+                            Organizations or individuals 
+                            who will post job listings or 
+                            solicit services from freelancers.">
+                                <h5 class="choice-label">Company/Employer</h5>
                                 <img src="css/user.png" alt="Join as User" />
                             </div>
                         </div>
@@ -59,7 +64,13 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="choice" onclick="selectChoice('choice2')" id="choice2">
+                            <div class="choice" onclick="selectChoice('choice2')" id="choice2" 
+                            title="
+                            Freelancers - 
+                            Independent professionals 
+                            who will submit applications or 
+                            offer their services in response 
+                            to job listings.">
                                 <h5 class="choice-label">Freelancer</h5>
                                 <img src="css/freelance.png" alt="Join as Freelancer" />
                             </div>
@@ -67,6 +78,7 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                     </div>
                 </div>
             </div>
+
             <div class="d-grid mt-3 gap-2 d-md-flex justify-content-center">
                 <button type="button" id="myButton" class="btn btn-primary" onclick="sendData();">
                     Register
