@@ -65,7 +65,7 @@ if (isset($_POST['filter_post'])) {
                         <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
                     </div>
                     <div>
-                        <span class="locationPost">' . $row['address'] . '</span>
+                        <span class="locationPost">' . $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
                         <span>•</span>
                         <span class="datePost">Posted on ' . $posted_date . '</span>
                     </div>
@@ -107,7 +107,7 @@ if (isset($_POST['filter_post'])) {
                         <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
                     </div>
                     <div>
-                        <span class="locationPost">' . $row['address'] . '</span>
+                        <span class="locationPost">' . $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
                         <span>•</span>
                         <span class="datePost">Posted on ' . $posted_date . '</span>
                     </div>
@@ -188,7 +188,9 @@ if (isset($_POST['view_post'])) {
         $dateTimeObj = new DateTime($currentDateTime);
         $posted_date = $dateTimeObj->format("F d, Y h:i A");
         $data['posted_date'] = $posted_date;
-        $data['address'] = $row['address'];
+        $data['barangay'] = $row['barangay'];
+        $data['municipality'] = $row['municipality'];
+        $data['province'] = $row['province'];
         $data['post_description'] = $row['post_description'];
         $data['rate'] = 'PHP' . ' ' . $row['rate'];
     }
@@ -223,7 +225,7 @@ if (isset($_POST['search_post'])) {
                     <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
                 </div>
                 <div>
-                    <span class="locationPost">' . $row['address'] . '</span>
+                    <span class="locationPost">' . $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
                     <span>•</span>
                     <span class="datePost">Posted on ' . $posted_date . '</span>
                 </div>
@@ -251,4 +253,3 @@ if (isset($_POST['search_post'])) {
 
     echo json_encode($output);
 }
-?>

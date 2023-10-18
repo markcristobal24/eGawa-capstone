@@ -19,7 +19,10 @@ class Account extends DbClass
             $data['middleName'] = $row['middleName'];
             $data['lastName'] = $row['lastName'];
             $data['userType'] = $row['userType'];
-            $data['address'] = $row['address'];
+            // $data['address'] = $row['address'];
+            $data['barangay'] = $row['barangay'];
+            $data['municipality'] = $row['municipality'];
+            $data['province'] = $row['province'];
             $data['user_image'] = $row['user_image'];
             $data['profileStatus'] = $row['profileStatus'];
             $data['status'] = $row['status'];
@@ -33,9 +36,11 @@ class Account extends DbClass
         $_SESSION['userType'] = $data['userType'];
         $_SESSION['profileStatus'] = $data['profileStatus'];
         $_SESSION['status'] = $data['status'];
-        if ($data['address'] != "") {
-            $_SESSION['address'] = $data['address'];
-        }
+        // if ($data['barangay'] != "" && $data['municipality'] != "" && $data['province'] != "") {
+        $_SESSION['barangay'] = $data['barangay'];
+        $_SESSION['municipality'] = $data['municipality'];
+        $_SESSION['province'] = $data['province'];
+        // }
         if ($data['user_image'] != "") {
             $_SESSION['user_image'] = $data['user_image'];
         }
@@ -51,7 +56,10 @@ class Account extends DbClass
             $data['profileID'] = $row['profileID'];
             $data['imageProfile'] = $row['imageProfile'];
             $data['jobRole'] = $row['jobRole'];
-            $data['address'] = $row['address'];
+            // $data['address'] = $row['address'];
+            $data['barangay'] = $row['barangay'];
+            $data['municipality'] = $row['municipality'];
+            $data['province'] = $row['province'];
             $data['companyName'] = $row['companyName'];
             $data['workTitle'] = $row['workTitle'];
             $data['startDate'] = $row['startDate'];
@@ -60,7 +68,12 @@ class Account extends DbClass
         $_SESSION['profileID'] = $data['profileID'];
         $_SESSION['imageProfile'] = $data['imageProfile'];
         $_SESSION['jobRole'] = $data['jobRole'];
-        $_SESSION['address'] = $data['address'];
+        // $_SESSION['address'] = $data['address'];
+        if ($data['barangay'] != "" && $data['municipality'] != "" && $data['province'] != "") {
+            $_SESSION['barangay'] = $data['barangay'];
+            $_SESSION['municipality'] = $data['municipality'];
+            $_SESSION['province'] = $data['province'];
+        }
         $_SESSION['companyName'] = $data['companyName'];
         $_SESSION['workTitle'] = $data['workTitle'];
         $_SESSION['startDate'] = $data['startDate'];
@@ -98,4 +111,3 @@ class Account extends DbClass
         return password_hash($password, PASSWORD_BCRYPT);
     }
 }
-?>

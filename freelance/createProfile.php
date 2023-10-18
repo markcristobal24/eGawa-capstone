@@ -20,8 +20,7 @@ session_start();
     <!-- start -- links for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- end --links for fonts -->
 
@@ -72,11 +71,9 @@ session_start();
                     </div> -->
 
                     <div class="upload">
-                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt=""
-                            class="uploadPic">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
                         <div class="round">
-                            <input type="file" name="imageProfile" id="file-input" accept="image/*"
-                                onchange="loadImage(event)" required>
+                            <input type="file" name="imageProfile" id="file-input" accept="image/*" onchange="loadImage(event)" required>
                             <i class="fa fa-camera" style="color: #fff;"></i>
                         </div>
                     </div>
@@ -86,45 +83,37 @@ session_start();
                 <hr>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
-                        required>
+                    <input type="text" id="address" name="street/barangay" class="form-control" placeholder="Enter Your Address" required>
                     <label id="addressLabel" for="address">Enter Street/Baranggay</label>
                 </div>
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
-                        required>
+                    <input type="text" id="address" name="municipality" class="form-control" placeholder="Enter Your Address" required>
                     <label id="addressLabel" for="address">Enter Municipality</label>
                 </div>
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
-                    <input type="text" id="address" name="address" class="form-control" placeholder="Enter Your Address"
-                        required>
+                    <input type="text" id="address" name="province" class="form-control" placeholder="Enter Your Address" required>
                     <label id="addressLabel" for="address">Enter Your City/Province</label>
                 </div>
 
                 <div class="pickRoles">
                     <p id="pickRole" class="title">Please Pick a Job or Role</p>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="webDesign" value="Web Designer">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDesign" value="Web Designer">
                         <label class="form-check-label" for="webDesign">Web Designer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev"
-                            value="Web Developer">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDev" value="Web Developer">
                         <label class="form-check-label" for="webDev">Web Developer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="mobAppDev" value="Mobile Application Developer">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="mobAppDev" value="Mobile Application Developer">
                         <label class="form-check-label" for="mobAppDev">Mobile Application Developer</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="brandDesign" value="Brand and Designing">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="brandDesign" value="Brand and Designing">
                         <label class="form-check-label" for="brandDesign">Branding and Design</label>
                     </div>
 
-                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]"
-                            id="hostingMaintenance" value="Hosting/Maintenance">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="hostingMaintenance" value="Hosting/Maintenance">
                         <label class="form-check-label" for="hostingMaintenance">Hosting/Maintenance</label>
                     </div>
                 </div>
@@ -136,41 +125,35 @@ session_start();
                 <p class="userRegTitle title">Work Experience</p>
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="companyName" name="companyName" class="form-control"
-                        placeholder="Enter Company Namess">
+                    <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Enter Company Namess">
                     <label id="companyNameLabel" for="companyName">Enter Company Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-12 gx-2 gy-2">
                     <!-- Gap on all sides is 2 -->
-                    <input type="text" id="workTitle" name="workTitle" class="form-control"
-                        placeholder="Enter Worktitle">
+                    <input type="text" id="workTitle" name="workTitle" class="form-control" placeholder="Enter Worktitle">
                     <label id="workTitleLabel" for="workTitle">Enter Worktitle</label>
                 </div>
 
                 <div class="date">
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted"
-                            class="form-control" placeholder="Enter Date Started">
+                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted" class="form-control" placeholder="Enter Date Started">
                         <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
                     </div>
 
                     <div class="form-floating mb-3 col-6 gx-2 gy-2">
-                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded"
-                            class="form-control" placeholder="Enter Date Ended">
+                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded" class="form-control" placeholder="Enter Date Ended">
                         <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
                     </div>
                 </div>
 
                 <p class="jobDescription" for="comment">Job Description</p>
                 <div>
-                    <textarea class="form-control" id="comment" name="jobDesc" rows="5"
-                        placeholder="Enter job description"></textarea>
+                    <textarea class="form-control" id="comment" name="jobDesc" rows="5" placeholder="Enter job description"></textarea>
                 </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
 
-                    <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary"
-                        onclick="new Account().create_fprofile();">
+                    <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary" onclick="new Account().create_fprofile();">
                         Continue
                     </button>
                     <button type="button" class="btn btn-secondary" onclick="clearInputsProfile()">
@@ -185,23 +168,16 @@ session_start();
 
     <div class="custom-shape-divider-bottom-1690684253">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                opacity=".25" class="shape-fill"></path>
-            <path
-                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                opacity=".5" class="shape-fill"></path>
-            <path
-                d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-                class="shape-fill"></path>
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
         </svg>
     </div>
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
 
 

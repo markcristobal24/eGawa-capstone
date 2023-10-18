@@ -460,7 +460,7 @@ class Account {
         }).then((response_data) => {
             console.log(response_data);
             let user = response_data;
-            document.getElementById('addr').value = `${user.address}`;
+            document.getElementById('addr').value = `${user.barangay}, ${user.municipality}, ${user.province}`;
             document.getElementById('uname').value = `${user.username}`;
 
             if (user.user_image != "") {

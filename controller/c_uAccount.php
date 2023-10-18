@@ -96,11 +96,15 @@ if (isset($_POST['fetch_user'])) {
 
     foreach ($query as $row) {
         $data['username'] = $row['username'];
-        $data['address'] = $row['address'];
+        $data['barangay'] = $row['barangay'];
+        $data['municipality'] = $row['municipality'];
+        $data['province'] = $row['province'];
         $data['user_image'] = $row['user_image'];
     }
     $_SESSION['username'] = $data['username'];
-    $_SESSION['address'] = $data['address'];
+    $_SESSION['barangay'] = $data['barangay'];
+    $_SESSION['municipality'] = $data['municipality'];
+    $_SESSION['province'] = $data['province'];
     $_SESSION['user_image'] = $data['user_image'];
     if ($data['user_image'] != "") {
         $_SESSION['user_image'] = $data['user_image'];
@@ -172,4 +176,3 @@ if (isset($_POST['update_profile'])) {
     }
     echo json_encode($output);
 }
-?>

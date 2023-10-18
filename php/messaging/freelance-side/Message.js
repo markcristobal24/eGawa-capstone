@@ -21,7 +21,7 @@ function clickConvo(convoId) {
         document.getElementById('profile_image').src = `../img/uploads/company/${info.imageProfile}`;
         document.getElementById('profile_name').innerHTML = `${info.fullname}`;
         document.getElementById('profile_email').innerHTML = `${info.email}`;
-        document.getElementById('profile_address').innerHTML = `${info.address}`;
+        document.getElementById('profile_address').innerHTML = `${info.barangay}, ${info.municipality}, ${info.province}`;
         companyId = info.user_id;
         freelanceId = info.freelance_id;
         Pusher.logToConsole = true;

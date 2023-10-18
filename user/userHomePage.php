@@ -21,9 +21,7 @@ if (!isset($_SESSION['account_id'])) {
     <link rel="stylesheet" href="../css/userHomePage.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Homepage</title>
@@ -81,8 +79,7 @@ if (!isset($_SESSION['account_id'])) {
         </div>
 
         <div class="div1">
-            <img id="userPic" src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" alt="user profile"
-                title="user profile">
+            <img id="userPic" src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" alt="user profile" title="user profile">
             <h2 id="userName">
                 <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
             </h2>
@@ -96,7 +93,7 @@ if (!isset($_SESSION['account_id'])) {
             <div class="flexDiv">
                 <img src="../img/address.png" alt="" class="addressImg" height="20px">
                 <div class="freelanceAddress">
-                    <?php echo $_SESSION['address']; ?>
+                    <?php echo $_SESSION['barangay'] . ', ' . $_SESSION['municipality'] . ', ' . $_SESSION['province'];; ?>
                 </div>
             </div>
             <div class="flexDiv flexDivBot">
@@ -147,8 +144,7 @@ if (!isset($_SESSION['account_id'])) {
                         <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
                     </div>
                     <div>
-                        <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)"
-                            required>
+                        <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -164,8 +160,7 @@ if (!isset($_SESSION['account_id'])) {
     </div>
 
     <!--Modal for USER EDIT ACCOUNT-->
-    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content mt-5">
                 <div class="modal-header">
@@ -177,17 +172,14 @@ if (!isset($_SESSION['account_id'])) {
                         <div id="imgUpl">
                             <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                             <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image"
-                                    height="200">
+                                <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
                             </div>
-                            <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
-                                onchange="catalogImgUp(event)">
+                            <input id="uploadInput" type="file" name="catalogImg" accept="image/*" onchange="catalogImgUp(event)">
                         </div>
 
                         <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
                             <!-- Gap on all sides is 2 -->
-                            <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                                placeholder="Address">
+                            <input type="text" id="catalogTitle" name="catalogTitle" class="form-control" placeholder="Address">
                             <label id="catalogTitleLabel" for="companyName">Address</label>
                         </div>
 
@@ -238,8 +230,7 @@ if (!isset($_SESSION['account_id'])) {
     <script src="../js/script.js "></script>
     <script src="../js/user.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

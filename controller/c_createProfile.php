@@ -29,7 +29,10 @@ if (isset($_POST['create_fprofile'])) {
 
     $optionsString = implode(',', $selectedData);
 
-    $address = $_POST['address'];
+    // $address = $_POST['address'];
+    $barangay = $_POST['street/barangay'];
+    $municipality = $_POST['municipality'];
+    $province = $_POST['province'];
     $company = $_POST['companyName'];
     $workTitle = $_POST['workTitle'];
 
@@ -48,8 +51,8 @@ if (isset($_POST['create_fprofile'])) {
 
 
     if ($query->rowCount() > 0) {
-        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (:account_id, :email, :imageProfile, :jobRole, :address, :companyName, :workTitle, :startDate, :endDate, :jobDescription)");
-        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':address' => $address, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]);
+        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay, companyName, workTitle, startDate, endDate, jobDescription) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay, :companyName, :workTitle, :startDate, :endDate, :jobDescription)");
+        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]);
 
         if ($result) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
