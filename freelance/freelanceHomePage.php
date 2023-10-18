@@ -443,10 +443,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
-
                             <input type="text" id="editAddress" name="editAddress" class="form-control" placeholder="Edit your address" value="<?php echo $_SESSION['address']; ?>">
-                            <label id="editAddressLabel" for="editAddress">Edit your address</label>
+                            <label id="editAddressLabel" for="editAddress">Edit Street/Baranggay</label>
                         </div>
+                        <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                            <input type="text" id="editAddress" name="editAddress" class="form-control" placeholder="Edit your address" value="<?php echo $_SESSION['address']; ?>">
+                            <label id="editAddressLabel" for="editAddress">Edit Municipality</label>
+                        </div>
+                        <div class="form-floating mb-3 col-10 gx-2 gy-2 mx-auto">
+                            <input type="text" id="editAddress" name="editAddress" class="form-control" placeholder="Edit your address" value="<?php echo $_SESSION['address']; ?>">
+                            <label id="editAddressLabel" for="editAddress">Edit City/Province</label>
+                        </div>
+                        
 
                         <div class="mb-3 col-10 gx-2 gy-2 mx-auto EditRoles">
                             <h4 id="pickRole" class="title">Please Pick a Job or Role</h4>

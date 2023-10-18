@@ -53,7 +53,7 @@ if (!isset($_SESSION['account_id'])) {
             <form id="editProfile_form" method="POST" enctype="multipart/form-data">
                 <div class="form_div1">
 
-                    <span class="font title">Edit Information</span>
+                    <span class="font title">Edit Profile Picture</span>
                     <div class="imgCont">
                         <img id="imgUpload" class="imgUpload" src="../img/profile.png" alt="">
                     </div>
@@ -62,8 +62,17 @@ if (!isset($_SESSION['account_id'])) {
                         <input type="file" class="form-control" name="new_profile" id="imageInput" accept="image/*" onchange="editUserIMG(event)">
                     </div>
 
+                    <span class="font title">Edit Address</span>
                     <div class="addr">
-                        <label class="font" for="addr">Address</label>
+                        <label class="font" for="addr">Street/Barangay</label>
+                        <input id="addr" type="text" value="" name="new_address" class="text">
+                    </div>
+                    <div class="addr">
+                        <label class="font" for="addr">Municipality</label>
+                        <input id="addr" type="text" value="" name="new_address" class="text">
+                    </div>
+                    <div class="addr">
+                        <label class="font" for="addr">City/Province</label>
                         <input id="addr" type="text" value="" name="new_address" class="text">
                     </div>
 

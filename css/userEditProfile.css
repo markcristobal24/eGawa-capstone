@@ -122,7 +122,7 @@ body {
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 251px;
+        height: 150px;
         transform: rotateY(180deg);
     }
 
@@ -162,7 +162,7 @@ body {
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 150px;
+        height: 120px;
         transform: rotateY(180deg);
     }
 
