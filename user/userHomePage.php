@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +25,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Homepage</title>
 
 </head>
@@ -72,14 +81,14 @@
         </div>
 
         <div class="div1">
-            <img id="userPic"
-                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>"
-                alt="user profile" title="user profile">
+            <img id="userPic" src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" alt="user profile"
+                title="user profile">
             <h2 id="userName">
                 <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
             </h2>
             <p class="user-name">
-                @<?php echo $_SESSION['username']; ?>
+                @
+                <?php echo $_SESSION['username']; ?>
             </p>
             <div id="verifyUserAcc">Verify Account</div>
 

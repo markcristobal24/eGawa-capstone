@@ -127,10 +127,10 @@ class Catalog {
             console.log(response_data.catalogImage)
             let cat = response_data;
 
-            // document.getElementById('delete_catalog').value = `${cat.catalog_id}`;
-            // document.getElementById('edit_catalog').value = `${cat.catalog_id}`;
+            document.getElementById('delete_catalog').value = `${cat.catalog_id}`;
+            document.getElementById('edit_catalog').value = `${cat.catalog_id}`;
             document.getElementById('exampleModalLabel').innerHTML = `${cat.catalogTitle}`;
-            document.getElementById('catalogImage').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/${cat.catalogImage}`;
+            document.getElementById('catalogImage').src = `../img/uploads/freelancer/catalog/${cat.catalogImage}`;
             document.getElementById('container-description').innerHTML = `${cat.catalogDescription}`;
         });
     }

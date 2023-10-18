@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
+    header('location: userHome.php');
+    die();
+} else if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "freelancer") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Registration</title>
 
 </head>
@@ -68,8 +78,21 @@
 
                 <!--For the password we use 6 -->
                 <div class="form-floating mb-3 col-6 g-2">
-                    <input type="password" id="pass1" name="password" class="form-control" placeholder="Enter Password">
+                    <input type="password" id="pass1" name="password"
+                        onkeyup="new Account().verify_password(this.value, 'company')" class="form-control"
+                        placeholder="Enter Password">
                     <label id="pass1Label" for="pass1">Enter Password</label>
+
+                    <div class="password_requirements">
+                        <h6 id="length_con"><span class="length me-1" id="length">&#x2716;</span>be atleast 8 characters
+                            but not more than 20</h6>
+                        <h6 id="case_con"><span class="case me-1" id="case">&#x2716;</span> contain at least one
+                            uppercase and lowercase letter</h6>
+                        <h6 id="number_con"><span class="number me-1" id="number">&#x2716;</span> contain at least one
+                            number</h6>
+                        <h6 id="special_con"><span class="special me-1" id="special">&#x2716;</span> contain one of the
+                            following characters: @ . # $ % ^ & , *</h6>
+                    </div>
                 </div>
 
                 <div class="form-floating mb-3 col-6 g-2">
@@ -89,7 +112,8 @@
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                <button type="button" id="btnUserReg" class="btn btn-primary" onclick="new Account().user_register();">
+                <button type="button" id="btnUserReg" class="btn btn-primary" onclick="new Account().user_register();"
+                    disabled=true>
                     Register
                 </button>
                 <button id="btnUserRegClear" class="btn btn-secondary" onclick="clearFields()">Clear</button>

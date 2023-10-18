@@ -2,7 +2,7 @@
 //session_start();
 // require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-require_once dirname(__FILE__) . "/../php/classes/Image.php";
+// require_once dirname(__FILE__) . "/../php/classes/Image.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
@@ -13,10 +13,15 @@ if (isset($_POST['create_fprofile'])) {
     //$imageData = file_get_contents($profileImg);
 
     $image_link = $profileImg;
-    if ($profileImg != "") {
-        $upload_image = new Image();
-        $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
-        $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+    if (!empty($profileImg)) {
+        // $upload_image = new Image();
+        // $data = $upload_image->upload_image($profileImg, $email, "egawa/freelancer/");
+        // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+        $generate_name = new Account();
+        $image_filename = $generate_name->generate_imageName(6);
+        $image_directory = '../img/uploads/freelancer/' . $image_filename . basename($_FILES['imageProfile']['name']);
+        $image_link = $image_filename . basename($_FILES['imageProfile']['name']);
+        move_uploaded_file($profileImg, $image_directory);
     }
 
     $selectedData = $_POST['jobRole'];
@@ -44,15 +49,13 @@ if (isset($_POST['create_fprofile'])) {
 
     if ($query->rowCount() > 0) {
         $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, address, companyName, workTitle, startDate, endDate, jobDescription) VALUES (:account_id, :email, :imageProfile, :jobRole, :address, :companyName, :workTitle, :startDate, :endDate, :jobDescription)");
-        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':address' => $address, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]); 
+        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':address' => $address, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]);
 
-        if($result) {
+        if ($result) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
             $query->execute([':email' => $email]);
             $output['success'] = "Profile Created. Redirecting...";
         }
-       
-
     } else if ($profileImg == null) {
         $output['error'] = "Please upload your profile picture!";
     } else if ($selectedData == "") {
@@ -94,11 +97,14 @@ if (isset($_POST['edit_fprofile'])) {
         $profile_img = $_FILES['imageProfile']['tmp_name'];
         $image_link = $profile_img;
         if (!empty($profile_img)) {
-            $upload_image = new Image();
+            // $upload_image = new Image();
             $filename = new Account();
             $image_name = $filename->generate_imageName(6);
-            $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
-            $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+            // $data = $upload_image->upload_image($profile_img, $image_name, "egawa/freelancer/");
+            // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+            $image_directory = '../img/uploads/freelancer/' . $image_name  . basename($_FILES['imageProfile']['name']);
+            $image_link = $image_name . basename($_FILES['imageProfile']['name']);
+            move_uploaded_file($profile_img, $image_directory);
 
             $query = $db->connect()->prepare("UPDATE profile SET imageProfile = :imageProfile WHERE email = :email");
             $result = $query->execute([':imageProfile' => $image_link, ':email' => $email_identifier]);
@@ -122,4 +128,3 @@ if (isset($_POST['edit_fprofile'])) {
     }
     echo json_encode($output);
 }
-?>

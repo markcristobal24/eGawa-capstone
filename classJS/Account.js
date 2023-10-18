@@ -200,7 +200,7 @@ class Account {
                 console.log(response_data.success);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
-                    window.location.replace('../freelance/freelanceHomePage.php');
+                    window.location.replace('freelanceHomePage.php');
                     window.clearTimeout(tID);
                 }, 3000);
             }
@@ -464,7 +464,7 @@ class Account {
             document.getElementById('uname').value = `${user.username}`;
 
             if (user.user_image != "") {
-                document.getElementById('imgUpload').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/${user.user_image}`;
+                document.getElementById('imgUpload').src = `../img/uploads/company/${user.user_image}`;
             } else {
                 document.getElementById('imgUpload').src = `../img/uploadIMG.png`;
             }
@@ -483,5 +483,65 @@ class Account {
 
     get_button_value(element) {
         return document.getElementById(element).innerHTML;
+    }
+
+    verify_password(password, user_type) {
+        // document.getElementById('password_error').style.display = "none";
+
+        document.querySelector(".length").style.opacity = 1;
+        document.querySelector(".case").style.opacity = 1;
+        document.querySelector(".special").style.opacity = 1;
+        document.querySelector(".number").style.opacity = 1;
+        let case_requirements = /^(?=.*[a-z])(?=.*[A-Z])/;
+        let special_requirements = /(?=.*[@#$%^&,*.])/;
+        let number_requirements = /(?=.*\d)/;
+
+        if (password.length >= 8 && password.length <= 16) {
+            document.getElementById("length").innerHTML = "&#x2714";
+            document.getElementById("length_con").style.color = "green";
+        } else {
+            document.getElementById("length").innerHTML = "&#x2716";
+            document.getElementById("length_con").style.color = "red";
+        }
+
+        if (password.match(case_requirements)) {
+            document.getElementById("case").innerHTML = "&#x2714";
+            document.getElementById("case_con").style.color = "green";
+        } else {
+            document.getElementById("case").innerHTML = "&#x2716";
+            document.getElementById("case_con").style.color = "red";
+        }
+
+        if (password.match(special_requirements)) {
+            document.getElementById("special").innerHTML = "&#x2714";
+            document.getElementById("special_con").style.color = "green";
+        } else {
+            document.getElementById("special").innerHTML = "&#x2716";
+            document.getElementById("special_con").style.color = "red";
+        }
+
+        if (password.match(number_requirements)) {
+            document.getElementById("number").innerHTML = "&#x2714";
+            document.getElementById("number_con").style.color = "green";
+        } else {
+            document.getElementById("number").innerHTML = "&#x2716";
+            document.getElementById("number_con").style.color = "red";
+        }
+
+        if ((password.length >= 8 && password.length <= 16) && password.match(case_requirements) && password.match(special_requirements) && password.match(number_requirements)) {
+            document.querySelector(".password_requirements").classList.remove("password_requirement_active");
+            if (user_type == 'company') {
+                document.getElementById('btnUserReg').disabled = false;
+            } else {
+                document.getElementById('btnFreelanceReg').disabled = false;
+            }
+        } else {
+            document.querySelector(".password_requirements").classList.add("password_requirement_active");
+            if (user_type == 'company') {
+                document.getElementById('btnUserReg').disabled = true;
+            } else {
+                document.getElementById('btnFreelanceReg').disabled = true;
+            }
+        }
     }
 }

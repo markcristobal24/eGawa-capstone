@@ -3,6 +3,14 @@
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+
 $db = new DbClass();
 $freelance_id = $_GET['freelance_id'];
 $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.account_id = :freelance_id");
@@ -31,14 +39,15 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lightgallery-bundle.css'>
 
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa |
         <?php echo $fullname; ?>
     </title>
 </head>
 
 <body>
-    <?php //print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); 
+    ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -58,27 +67,27 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 if ($query->rowCount() > 0) {
                     foreach ($query as $row) {
                         $catalog_id = $row['catalog_id'];
-                        ?>
-                        <div class="containerPost">
-                            <div class="containerImg">
-                                <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/<?php echo $row['catalogImage']; ?>"
-                                    alt="" id="containerImg">
-                            </div>
-                            <div class="containerCatalog">
-                                <span class="titlePost">
-                                    <?php echo $row['catalogTitle']; ?>
-                                </span>
-                                <p class="descPost">
-                                    <?php echo $row['catalogDescription']; ?>
-                                </p>
-                                <div>
-                                    <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"
-                                        onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
-                                </div>
-                            </div>
+                ?>
+                <div class="containerPost">
+                    <div class="containerImg">
+                        <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt=""
+                            id="containerImg">
+                    </div>
+                    <div class="containerCatalog">
+                        <span class="titlePost">
+                            <?php echo $row['catalogTitle']; ?>
+                        </span>
+                        <p class="descPost">
+                            <?php echo $row['catalogDescription']; ?>
+                        </p>
+                        <div>
+                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                onclick="new Catalog().view_catalogs(<?php echo $catalog_id; ?>);">View Catalog</button>
                         </div>
-                        <?php
+                    </div>
+                </div>
+                <?php
                     }
                 } else {
                     echo '<div class="containerPost">';
@@ -101,10 +110,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         <div class="containerRight">
             <div class="userProfile">
                 <div class="userProfileChild" id="userProfileChild">
-                    <a class="userPic"
-                        href="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>">
-                        <img id="userPic"
-                            src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                    <a class="userPic" href="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>">
+                        <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
                             alt="user profile" title="user profile">
                     </a>
 
@@ -208,8 +215,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="modal-body">
                     <div class="modal-body-view-more">
                         <div class="modal-pic-container">
-                            <img id="userPic"
-                                src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $fetch['imageProfile']; ?>"
+                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
                                 alt="user profile" title="user profile">
                         </div>
 
@@ -367,7 +373,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
+    <!-- <script>
         let counter = 0;
         if (counter <= 0) {
             lightGallery(document.getElementById('userProfileChild'), {
@@ -380,7 +386,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             });
             counter++;
         }
-    </script>
+    </script> -->
 </body>
 
 </html>

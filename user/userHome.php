@@ -2,6 +2,14 @@
 // session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
+
 $db = new DbClass();
 
 $user_id = $_SESSION['account_id'];
@@ -27,7 +35,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Home</title>
 
     <style>
@@ -37,7 +45,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php 
+    <?php
     // print_r($_SESSION); 
     ?>
     <?php include "../other/navbar.php"; ?>
@@ -82,7 +90,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
-                            <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                            <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
                         </div>
                         <div class="post-col-2">
                             <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
@@ -130,18 +138,19 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="userProfile">
                 <div class="userProfileChild">
                     <img id="userPic" <?php
-                    if (isset($_SESSION['user_image'])) {
-                        ?>
-                        src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_jpg/r_max/<?php echo $_SESSION['user_image']; ?>" <?php
-                    } else {
-                        ?> src="../img/profile.png" <?php
-                    }
-                    ?> alt="user profile" title="user profile">
+                                        if (isset($_SESSION['user_image'])) {
+                                        ?> src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
+                                                                                            } else {
+                                                                                                ?>
+                        src="../img/profile.png" <?php
+                                                                                            }
+                                                    ?> alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
                     <p class="user-name">
-                        @<?php echo $_SESSION['username']; ?>
+                        @
+                        <?php echo $_SESSION['username']; ?>
                     </p>
                     <!-- <p id="userName">other info</p> -->
                 </div>
@@ -322,7 +331,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../js/script.js "></script>
     <script src="../js/user.js"></script>
     <script src="../classJS/Account.js"></script>
-    
+
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script>
 

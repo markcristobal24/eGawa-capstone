@@ -21,6 +21,8 @@ class Account extends DbClass
             $data['userType'] = $row['userType'];
             $data['address'] = $row['address'];
             $data['user_image'] = $row['user_image'];
+            $data['profileStatus'] = $row['profileStatus'];
+            $data['status'] = $row['status'];
         }
         $_SESSION['account_id'] = $data['account_id'];
         $_SESSION['username'] = $data['username'];
@@ -29,10 +31,12 @@ class Account extends DbClass
         $_SESSION['middleName'] = $data['middleName'];
         $_SESSION['lastName'] = $data['lastName'];
         $_SESSION['userType'] = $data['userType'];
+        $_SESSION['profileStatus'] = $data['profileStatus'];
+        $_SESSION['status'] = $data['status'];
         if ($data['address'] != "") {
             $_SESSION['address'] = $data['address'];
         }
-        if ($data['user_image'] != ""){
+        if ($data['user_image'] != "") {
             $_SESSION['user_image'] = $data['user_image'];
         }
         json_encode($data);

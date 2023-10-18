@@ -29,13 +29,14 @@ if (!isset($_SESSION["otp"])) {
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Account Verification</title>
 </head>
 
 <body>
     <span class="otp-sent">
-        <?php 
-        print_r($_SESSION); 
+        <?php
+        print_r($_SESSION);
         ?>
     </span>
     <div class="toast_notif" id="toast_notif"></div>
@@ -60,8 +61,7 @@ if (!isset($_SESSION["otp"])) {
             <p>
                 <span class="infoVerify">Did not received the code?</span>
                 <button type="button" id="resendLink" name="resend"
-                    onclick="resendOtp('<?php //echo $_SESSION['mail']; ?>');">Resend
-                    code</button>
+                    onclick="resendOtp('<?php echo $_SESSION['mail']; ?>');">Resend Code</button>
             </p>
             <div id="message"></div>
         </form>

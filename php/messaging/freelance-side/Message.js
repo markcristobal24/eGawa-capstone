@@ -12,20 +12,39 @@ function clickConvo(convoId) {
     }).then((response_data) => {
         console.log(response_data);
 
-        clearInterval(messageFetchIntervalId);
+        // clearInterval(messageFetchIntervalId);
         fetch_messages(convoId);
         let info = response_data;
         document.getElementById('btn_sendMessage').value = convoId;
-        document.getElementById('chat_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
+        document.getElementById('chat_image').src = `../img/uploads/company/${info.imageProfile}`;
         document.getElementById('fullname').innerHTML = `${info.fullname}`;
-        document.getElementById('profile_image').src = `https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/${info.imageProfile}`;
+        document.getElementById('profile_image').src = `../img/uploads/company/${info.imageProfile}`;
         document.getElementById('profile_name').innerHTML = `${info.fullname}`;
         document.getElementById('profile_email').innerHTML = `${info.email}`;
         document.getElementById('profile_address').innerHTML = `${info.address}`;
-
-        messageFetchIntervalId = setInterval(() => {
-            fetch_messages(convoId);
-        }, 5000);
+        companyId = info.user_id;
+        freelanceId = info.freelance_id;
+        Pusher.logToConsole = true;
+        const pusher = new Pusher("7717fc588fb67a40c2c6", {
+            cluster: "ap1",
+            encrypted: true,
+        });
+        channel = pusher.subscribe(`message-channel-${companyId}-${freelanceId}`);
+        channel.bind("message-event", function (data) {
+            console.log("connected");
+            console.log(companyId);
+            const chatbox = document.getElementById("chatbox");
+            const messageDiv = document.createElement("div");
+            messageDiv.className =
+                data.sender === "self" ? "freelance-chat" : "user-chat";
+            messageDiv.textContent = data.message;
+            chatbox.append(messageDiv);
+            // var chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+        });
+        // messageFetchIntervalId = setInterval(() => {
+        //     fetch_messages(convoId);
+        // }, 5000);
     });
 }
 

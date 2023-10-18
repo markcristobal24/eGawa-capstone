@@ -3,7 +3,7 @@
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 // require_once dirname(__FILE__) . "/../php/classes/DbConnection.php";
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-require_once dirname(__FILE__) . "/../php/classes/Image.php";
+// require_once dirname(__FILE__) . "/../php/classes/Image.php";
 
 $db = new DbClass();
 
@@ -27,19 +27,23 @@ if (isset($_POST['add_catalog'])) {
     } else if ($catalogImg === null && $catalogTitle === null && $catalogDesc === null) {
         $output['error'] = "Incomplete Details!";
     } else {
-        $upload_image = new Image();
+        // $upload_image = new Image();
         $generate_name = new Account();
         $image_filename = $generate_name->generate_imageName(6);
-        $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
-        $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+        // $data = $upload_image->upload_image($catalogImg, $image_filename, "egawa/freelancer/catalog/");
+        // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+        $image_directory = '../img/uploads/freelancer/catalog/' . $image_filename . basename($_FILES['catalogImg']['name']);
+        $image_link = $image_filename . basename($_FILES['catalogImg']['name']);
+        move_uploaded_file($catalogImg, $image_directory);
+
 
         $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
         $query->execute([':email' => $email]);
-    
+
         if ($query->rowCount() > 0) {
             $query = $db->connect()->prepare("INSERT INTO catalog (account_id, email, catalogImage, catalogTitle, catalogDescription) VALUES (:account_id, :email, :catalogImage, :catalogTitle, :catalogDescription)");
             $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':catalogImage' => $image_link, ':catalogTitle' => $catalogTitle, ':catalogDescription' => $catalogDesc]);
-    
+
             if ($result) {
                 $output['success'] = "Catalog Added Successfully.";
             } else {
@@ -70,16 +74,19 @@ if (isset($_POST['edit_catalog'])) {
     $query = $db->connect()->prepare("SELECT * FROM catalog WHERE catalog_id = :catalog_id");
     $query->execute([':catalog_id' => $catalog_id]);
     if ($query->rowCount() > 0) {
-        $result= "";
+        $result = "";
         if (isset($_FILES['catalogImg']['tmp_name'])) {
             $new_catalogImg = $_FILES['catalogImg']['tmp_name'];
             $image_link = $new_catalogImg;
             if (!empty($new_catalogImg)) {
-                $upload_image = new Image();
+                // $upload_image = new Image();
                 $generate_name = new Account();
                 $image_filename = $generate_name->generate_imageName(6);
-                $data = $upload_image->upload_image($new_catalogImg, $image_filename, "egawa/freelancer/catalog/");
-                $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+                // $data = $upload_image->upload_image($new_catalogImg, $image_filename, "egawa/freelancer/catalog/");
+                // $image_link = "v" . $data['version'] . "/" . $data['public_id'];
+                $image_directory = '../img/uploads/freelancer/catalog/' . $image_filename . basename($_FILES['catalogImg']['name']);
+                $image_link = $image_filename . basename($_FILES['catalogImg']['name']);
+                move_uploaded_file($new_catalogImg, $image_directory);
 
                 $query = $db->connect()->prepare("UPDATE catalog SET catalogImage = :catalogImage WHERE catalog_id = :catalog_id");
                 $result = $query->execute([':catalogImage' => $image_link, ':catalog_id' => $catalog_id]);
@@ -103,7 +110,7 @@ if (isset($_POST['edit_catalog'])) {
         }
         if ($result) {
             $output['success'] = "Catalog Updated Successfully";
-        } else {
+        } else if ($result === "") {
             $output['error'] = "Please provide the details you want to edit.";
         }
     }

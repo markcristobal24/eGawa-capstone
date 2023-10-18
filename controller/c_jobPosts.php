@@ -55,7 +55,7 @@ if (isset($_POST['filter_post'])) {
             <div class="containerPost">
 
                 <div class="post-col-1">
-                    <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                    <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
                 </div>
                 
                 <div class="post-col-2">
@@ -75,7 +75,7 @@ if (isset($_POST['filter_post'])) {
                     </p>
                     <div>
                         
-                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post('. $row['post_id'] .')">View Post</button>
+                        <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@ if (isset($_POST['filter_post'])) {
             <div class="containerPost">
 
                 <div class="post-col-1">
-                    <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                    <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
                 </div>
                 <div class="post-col-2">
                     <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
@@ -213,7 +213,7 @@ if (isset($_POST['search_post'])) {
         <div class="containerPost">
 
             <div class="post-col-1">
-                <img class="author-pic" src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/'.$row['user_image'].'" alt="">
+                <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
             </div>
             
             <div class="post-col-2">

@@ -62,5 +62,3 @@ if (isset($_POST['user_register'])) {
     }
     echo json_encode($output);
 }
-
-?>

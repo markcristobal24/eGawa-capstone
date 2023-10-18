@@ -1,29 +1,14 @@
 <?php
 // session_start();
-// require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
-// require_once dirname(__FILE__) . "/../php/classes/Account.php";
-
-// $db = new DbClass();
-// $account = new Account();
-// $account->fetch_account($_SESSION['email']);
-// $account->fetch_profile($_SESSION['email']);
-
-// if (!isset($_SESSION['email'])) {
-//     header('location: ../login.php');
-//     die();
-// }
-
-// $email = $_SESSION['email'];
-// $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE account.email = :email");
-// $query->execute([':email' => $email]);
-// $fetch = $query->fetch(PDO::FETCH_ASSOC);
-
-// $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
-?>
-
-<?php
-// session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+
+if (!isset($_SESSION['account_id'])) {
+    header('location: ../login.php');
+    die();
+} else if ($_SESSION['userType'] !== "user") {
+    header('location: ../freelance/freelanceHome.php');
+    die();
+}
 
 $db = new DbClass();
 
@@ -47,12 +32,11 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
 
-
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Messages</title>
 
 
@@ -61,7 +45,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 <body>
 
-    <?php //print_r($_SESSION); ?>
+    <?php //print_r($_SESSION); 
+    ?>
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
 
@@ -95,7 +80,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             echo '
                             <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
                                 <div class="user-image">
-                                    <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/c_fill,g_face,h_300,w_300/f_png/r_max/' . $row['imageProfile'] . '" alt="" class="user-chat-img">
+                                    <img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="user-chat-img">
                                 </div>
                                 <div class="user-info">
                                     <span class="fname-">' . $row['firstName'] . '</span>
@@ -193,11 +178,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                             <div id="inputDiv">
                                 <form id="message_box">
-                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50"
-                                        placeholder="Enter your message here..."></textarea>
+                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50" placeholder="Enter your message here..."></textarea>
                                     <div class="button-container">
-                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)"
-                                            class="btn btn-primary">Send</button>
+                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)" class="btn btn-primary">Send</button>
                                     </div>
                                 </form>
                             </div>
@@ -224,8 +207,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
 
                             <div>
-                                <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3"
-                                    onclick="view_profile(this.value)" style="display: none;">View Profile</button>
+                                <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3" onclick="view_profile(this.value)" style="display: none;">View Profile</button>
                             </div>
 
                         </div>
@@ -499,7 +481,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     </div>
     <script>
-        window.onload = function () {
+        window.onload = function() {
             var chatbox = document.getElementById('chatbox');
             chatbox.scrollTop = chatbox.scrollHeight;
         };
@@ -566,8 +548,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
 <!-- MODAL FOR ViEW JOB APPLICATION -->
-<div class="modal fade" id="modal-view-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-view-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -643,10 +624,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="btn_declineJob"
-                            onclick="new Job().decline_job(this.value)">Decline</button>
-                        <button type="button" class="btn btn-primary" id="btn_acceptJob"
-                            onclick="new Job().accept_job(this.value)">Accept</button>
+                        <button type="button" class="btn btn-secondary" id="btn_declineJob" onclick="new Job().decline_job(this.value)">Decline</button>
+                        <button type="button" class="btn btn-primary" id="btn_acceptJob" onclick="new Job().accept_job(this.value)">Accept</button>
                     </div>
                 </form>
             </div>
@@ -658,8 +637,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
 <!-- MODAL FOR ENDING AN ONGOING JOB -->
-<div class="modal fade" id="modal-end-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-end-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -752,28 +730,27 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 <!-- CONFIRMATION TO END TRANSACTION MODAL -->
 <div class="modal fade" id="end-transaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">End Transaction?</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you  sure you want to end this transaction?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Proceed</button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">End Transaction?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to end this transaction?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Proceed</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="../classJS/Job.js"></script>
 <script src="../php/messaging/user-side/Message.js"></script>
 <script src="../classJS/Account.js"></script>
@@ -781,12 +758,11 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 <script src="../js/script.js"></script>
 
 <script>
-
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.tab_container:first').show();
         $('.tab_navigation li:first').addClass('active');
 
-        $('.tab_navigation li').click(function (event) {
+        $('.tab_navigation li').click(function(event) {
             index = $(this).index();
             $('.tab_navigation li').removeClass('active');
             $(this).addClass('active');
