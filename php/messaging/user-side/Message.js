@@ -31,7 +31,7 @@ function clickConvo(convoId) {
       ).src = `../img/uploads/freelancer/${info.imageProfile}`;
       document.getElementById("profile_name").innerHTML = `${info.fullname}`;
       document.getElementById("profile_email").innerHTML = `${info.email}`;
-      document.getElementById("profile_address").innerHTML = `${info.address}`;
+      document.getElementById("profile_address").innerHTML = `${info.barangay}, ${info.municipality}, ${info.province}`;
       document.getElementById("btn_viewProfile").style.display = "block";
       document.getElementById("btn_viewProfile").value = info.freelance_id;
       companyId = info.user_id;

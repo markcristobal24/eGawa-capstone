@@ -73,7 +73,7 @@ class Posts {
             document.getElementById('post_author').innerHTML = `${job.author}`;
             document.getElementById('category').innerHTML = `${job.category}`;
             document.getElementById('post_tags').innerHTML = `${job.post_tags}`;
-            document.getElementById('address').innerHTML = `${job.address}`;
+            document.getElementById('address').innerHTML = `${job.barangay}, ${job.municipality}, ${job.province}`;
             document.getElementById('posted_date').innerHTML = `${job.posted_date}`;
             document.getElementById('post_description').innerHTML = `${job.post_description}`;
             document.getElementById('rate').innerHTML = `${job.rate}`;

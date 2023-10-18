@@ -156,7 +156,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div class="flexDiv">
                         <img src="../img/address.png" alt="" class="addressImg" height="20px">
                         <div class="freelanceAddress marg">
-                            <?php echo $fetch['address']; ?>
+                            <?php echo $fetch['barangay'] . ', ' . $fetch['municipality'] . ', ' . $fetch['province']; ?>
                         </div>
                     </div>
 
@@ -232,7 +232,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div class="flexDiv">
                             <img src="../img/address.png" alt="" class="addressImg" height="20px">
                             <div class="freelanceAddress marg">
-                                <?php echo $fetch['address']; ?>
+                                <?php echo $fetch['barangay'] . ', ' . $fetch['municipality'] . ', ' . $fetch['province']; ?>
                             </div>
                         </div>
 

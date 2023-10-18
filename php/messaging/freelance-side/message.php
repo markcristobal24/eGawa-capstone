@@ -26,7 +26,9 @@ if (isset($_POST['fetch_info_convo'])) {
         $data['imageProfile'] = $row['user_image'];
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
         $data['email'] = $row['email'];
-        $data['address'] = $row['address'];
+        $data['barangay'] = $row['barangay'];
+        $data['municipality'] = $row['municipality'];
+        $data['province'] = $row['province'];
         $data['freelance_id'] = $row['freelance_id'];
         $data['user_id'] = $row['user_id'];
     }
