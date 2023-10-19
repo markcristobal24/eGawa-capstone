@@ -56,7 +56,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
         <div class="containerLeft">
             <div class="containerLeft-Nav">
-                <span class=catalogNavtitle>Catalogs</span>
+                <span class=catalogNavtitle>Previous Jobs</span>
                 <div class="left-nav">
                     <button class=addCatalog data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add
                         Catalog</button>
@@ -97,7 +97,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     echo '</div>';
 
                     echo '<div class="catalogTexts">';
-                    echo '<h3>No catalog to display</h3>';
+                    echo '<h3>No previous job to display</h3>';
                     echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
                     echo '</div>';
 
