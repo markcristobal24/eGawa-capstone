@@ -333,6 +333,29 @@ body {
   #uploadedImageCatalog {
     margin-inline: auto;
   }
+
+  .box-{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .boxes{
+    display: flex;
+    flex-direction: column;
+    background-color: #8000aa;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 220px;
+    height: 120px;
+  }
+  .boxes span{
+    color: #fff;
+  }
+
+  .boxes-data{
+    font-size: 40px;
+  }
 }
 
 /*============================ LAPTOP ===========================*/

@@ -132,7 +132,7 @@ function clearUploadedID(){
 
 function clearInputsProfile(){
     var img = document.getElementById('uploadedImage');
-    var setImg = '../img/uploadIMG.png';
+    var setImg = '../../img/uploadIMG.png';
     var imgFile = document.getElementById('uploadInput');
     var addr = document.getElementById('address');
     var webDesignCB = document.getElementById('webDesign');

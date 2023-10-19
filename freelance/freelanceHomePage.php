@@ -56,7 +56,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
         <div class="containerLeft">
             <div class="containerLeft-Nav">
-                <span class=catalogNavtitle>Catalogs</span>
+                <span class=catalogNavtitle>Previous Jobs</span>
                 <div class="left-nav">
                     <button class=addCatalog data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add
                         Catalog</button>
@@ -97,7 +97,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     echo '</div>';
 
                     echo '<div class="catalogTexts">';
-                    echo '<h3>No catalog to display</h3>';
+                    echo '<h3>No previous job to display</h3>';
                     echo '<p>There is no catalog available at the moment. <br> Please add one</p>';
                     echo '</div>';
 
@@ -305,7 +305,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
     <!-- Modal for view profile-->
     <div class="modal fade" id="view_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Your Profile</h1>
@@ -374,50 +374,75 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </ul>
                         <div>
                             <div class="titles">
-                                Work Experience
+                                <!-- Work Experience -->
                             </div>
                             <div>
                                 <div>
-                                    <span>Company Name: </span> <span>
-                                        <?php echo $fetch['companyName']; ?>
+                                    <!-- <span>Company Name: </span> <span> -->
+                                        <?php
+                                        //  echo $fetch['companyName']; 
+                                         ?>
                                     </span>
                                 </div>
                                 <div>
-                                    <span>Date Started: </span> <span>
+                                    <!-- <span>Date Started: </span> <span> -->
                                         <?php
-                                        $date = $fetch['startDate'];
-                                        $dateObj = new DateTime($date);
-                                        $startDate = $dateObj->format("F d, Y");
-                                        echo $startDate;
+                                        // $date = $fetch['startDate'];
+                                        // $dateObj = new DateTime($date);
+                                        // $startDate = $dateObj->format("F d, Y");
+                                        // echo $startDate;
                                         ?>
                                     </span>
                                 </div>
                                 <div>
-                                    <span>Date Ended: </span> <span>
+                                    <!-- <span>Date Ended: </span> <span> -->
                                         <?php
-                                        $date = $fetch['endDate'];
-                                        $dateObj = new DateTime($date);
-                                        $endDate = $dateObj->format("F d, Y");
-                                        echo $endDate; ?>
+                                        // $date = $fetch['endDate'];
+                                        // $dateObj = new DateTime($date);
+                                        // $endDate = $dateObj->format("F d, Y");
+                                        // echo $endDate; 
+                                        ?>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div class="titles">
-                                Job Description
+                                <!-- Job Description -->
                             </div>
                             <div>
                                 <span>
-                                    <?php echo $fetch['jobDescription']; ?>
+                                    <?php
+                                    //  echo $fetch['jobDescription'];
+                                    ?>
                                 </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="" class="titles">
+                                Dashboard:
+                            </div>
+                            <div class="box-">
+                                <div class="box-1 boxes">
+                                    <span>Applied:</span>
+                                    <span class="boxes-data">100</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Accepted:</span>
+                                    <span class="boxes-data">60</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Declined:</span>
+                                    <span class="boxes-data">60</span>
+                                </div>
+                            
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#hey">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#hey">Edit Profile</button>
                 </div>
             </div>
         </div>
