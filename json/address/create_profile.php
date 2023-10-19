@@ -54,7 +54,7 @@
             <div class="div1">
                 <div class="uploadIMG">
                     <div class="upload">
-                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
+                        <img id="uploadedImage" src="../../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
                         <div class="round">
                             <input type="file" name="imageProfile" id="file-input" accept="image/*" onchange="loadImage(event)" required>
                             <i class="fa fa-camera" style="color: #fff;"></i>
@@ -129,55 +129,14 @@
 
 
 
-    <script src="../js/freelance.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../classJS/Account.js"></script>
-    <script src="../classJS/Notification.js"></script>
+    <script src="../../js/freelance.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../classJS/Account.js"></script>
+    <script src="../../classJS/Notification.js"></script>
 
 </body>
 <script>
 
-function loadImage(event) {
-    var reader = new FileReader();
-    reader.onload = function () {
-        var uploadedImage = document.getElementById('uploadedImage');
-        uploadedImage.src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
-}
-
-function clearInputsProfile(){
-    var img = document.getElementById('uploadedImage');
-    var setImg = '../img/uploadIMG.png';
-    var imgFile = document.getElementById('uploadInput');
-    var addr = document.getElementById('address');
-    var webDesignCB = document.getElementById('webDesign');
-    var webDevCB = document.getElementById('webDev');
-    var mobAppDevCB = document.getElementById('mobAppDev');
-    var brandDesignCB = document.getElementById('brandDesign');
-    var hostingMaintenanceCB = document.getElementById('hostingMaintenance');
-    var compName = document.getElementById('companyName');
-    var workTitle = document.getElementById('workTitle');
-    var started = document.getElementById('dateStarted');
-    var ended = document.getElementById('dateEnded');
-    var desc = document.getElementById('comment');
-    
-
-    img.src = setImg;
-    imgFile.value = '';
-    addr.value = '';
-    webDesignCB.checked = false;
-    webDevCB.checked = false;
-    mobAppDevCB.checked = false;
-    brandDesignCB.checked = false;
-    hostingMaintenanceCB.checked = false;
-    compName.value = '';
-    workTitle.value = '';
-    started.value = '';
-    ended.value = '';
-    desc.value = '';
-
-}
     async function fetchDataFromJSON(file) {
             const response = await fetch(file);
             const data = await response.json();
