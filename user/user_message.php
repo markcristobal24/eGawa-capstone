@@ -209,6 +209,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             <div>
                                 <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3" onclick="view_profile(this.value)" style="display: none;">View Profile</button>
                             </div>
+                            <div>
+                                <button type="button" class="btn btn-danger view_profile mt-3">Report</button>
+                            </div>
 
                         </div>
                     </div>

@@ -260,6 +260,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             <div>
                                 <button type="button" class="btn btn-primary view_profile mt-3">View Profile</button>
                             </div>
+                            <div>
+                                <button type="button" class="btn btn-danger view_profile mt-3">Report</button>
+                            </div>
 
                         </div>
                     </div>
