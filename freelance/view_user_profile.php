@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/userHomePage.css">
+    <link rel="stylesheet" href="../css/view_user_profile.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -65,6 +65,46 @@
                         <td>02/14/69</td>
                         <td>Completed</td>
                     </tr>
+                    <tr>
+                        <td>Collin Holland</td>
+                        <td>04/20/20</td>
+                        <td>Incomplete</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Sulit</td>
+                        <td>07/14/15</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Santos</td>
+                        <td>02/14/69</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Santos</td>
+                        <td>02/14/69</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Collin Holland</td>
+                        <td>04/20/20</td>
+                        <td>Incomplete</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Sulit</td>
+                        <td>07/14/15</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Santos</td>
+                        <td>02/14/69</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Santos</td>
+                        <td>02/14/69</td>
+                        <td>Completed</td>
+                    </tr>
 
 
                 </table>
@@ -79,7 +119,7 @@
                 <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
             </h2>
             <!-- <div id="verifyUserAcc">Verify Account</div> -->
-            <div id="verifyUserAcc" class="send-message">Send Message</div>
+            <div id="view-dashboard" class="" data-bs-toggle="modal" data-bs-target="#view_dashboard">View Dashboard</div>
 
 
             <div class="flexDiv">
@@ -116,6 +156,74 @@
                             Cancel
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for view dashboard-->
+    <div class="modal fade" id="view_dashboard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><span>Username's</span> Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-view-more">
+                        <div class="modal-pic-container">
+                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
+                        </div>
+
+                        <div class="modal-name-container">
+                            <p id="userName">
+                                <?php echo $fullname; ?>
+                            </p>
+                        </div>
+
+                        <p id="freelanceUsername">
+                            <?php echo "@" . $fetch['username']; ?>
+                        </p>
+
+                        <div class="flexDiv">
+                            <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                            <div class="freelanceAddress marg">
+                                <?php echo $fetch['barangay'] . ', ' . $fetch['municipality'] . ', ' . $fetch['province']; ?>
+                            </div>
+                        </div>
+
+                        <div class="flexDiv">
+                            <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                            <div class="freelanceEmail marg">
+                                <?php echo $fetch['email']; ?>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div id="" class="titles">
+                                Dashboard:
+                            </div>
+                            <div class="box-">
+                                <div class="box-1 boxes">
+                                    <span>Posted Jobs:</span>
+                                    <span class="boxes-data">100</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Accepted:</span>
+                                    <span class="boxes-data">60</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Declined:</span>
+                                    <span class="boxes-data">40</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#">Close</button>
                 </div>
             </div>
         </div>

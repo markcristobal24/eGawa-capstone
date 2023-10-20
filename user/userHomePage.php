@@ -87,7 +87,8 @@ if (!isset($_SESSION['account_id'])) {
                 @
                 <?php echo $_SESSION['username']; ?>
             </p>
-            <div id="verifyUserAcc">Verify Account</div>
+            <!-- <div id="verifyUserAcc">Verify Account</div> -->
+            <div id="verifyUserAcc" data-bs-toggle="modal" data-bs-target="#view_dashboard">View Dashboard</div>
 
 
             <div class="flexDiv">
@@ -105,30 +106,6 @@ if (!isset($_SESSION['account_id'])) {
         </div>
     </div>
 
-
-    <!-- 
-
-    <div class="custom-shape-divider-bottom-1687514102">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                class="shape-fill"></path>
-        </svg>
-    </div>
-
-
-    <footer class="footer">
-        <div class="containerFooter">
-            <div class="socialIcons">
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.gmail.com/"><i class="fa-brands fa-google"></i></a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <p class="footerInfo">&copy; 2023 eGawa. All rights reserved.</p>
-        </div>
-    </footer> -->
 
     <!--Modal for user account verification-->
     <div class="modal fade" id="modaluserIdVerification" aria-hidden="true">
@@ -190,6 +167,74 @@ if (!isset($_SESSION['account_id'])) {
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for view dashboard-->
+    <div class="modal fade" id="view_dashboard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><span>Username's</span> Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-view-more">
+                        <div class="modal-pic-container">
+                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
+                        </div>
+
+                        <div class="modal-name-container">
+                            <p id="userName">
+                                <?php echo $fullname; ?>
+                            </p>
+                        </div>
+
+                        <p id="freelanceUsername">
+                            <?php echo "@" . $fetch['username']; ?>
+                        </p>
+
+                        <div class="flexDiv">
+                            <img src="../img/address.png" alt="" class="addressImg" height="20px">
+                            <div class="freelanceAddress marg">
+                                <?php echo $fetch['barangay'] . ', ' . $fetch['municipality'] . ', ' . $fetch['province']; ?>
+                            </div>
+                        </div>
+
+                        <div class="flexDiv">
+                            <img src="../img/email.png" alt="" class="emailImg" height="20px">
+                            <div class="freelanceEmail marg">
+                                <?php echo $fetch['email']; ?>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div id="" class="titles">
+                                Dashboard:
+                            </div>
+                            <div class="box-">
+                                <div class="box-1 boxes">
+                                    <span>Posted Jobs:</span>
+                                    <span class="boxes-data">100</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Accepted:</span>
+                                    <span class="boxes-data">60</span>
+                                </div>
+                                <div class="box-2 boxes">
+                                    <span>Declined:</span>
+                                    <span class="boxes-data">40</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#">Close</button>
                 </div>
             </div>
         </div>
