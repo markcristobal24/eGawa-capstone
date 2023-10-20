@@ -166,9 +166,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                     </div>
 
-                    <button class="mt-3"><a id="verifyFreelanceAcc" href="freelanceIDVerification.php">Verify
+                    <button class="mt-3"><a id="verifyFreelanceAcc" href="../id_verification.php">Verify
                             Account</a></button>
-                    <button class="mt-3"><a id="subs-button-profile" href="">Subscribe</a></button>
+                    <!-- <button class="mt-3"><a id="subs-button-profile" href="">Subscribe</a></button> -->
                     <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
 
                 </div>
