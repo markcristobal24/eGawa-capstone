@@ -145,12 +145,11 @@ body {
         justify-content: center;
         margin: auto 2%;
     }
-    /* .post-col-2{
-        margin-left: 20px;
-    } */
+
     .author-pic{
         height: 100px;
         width: 100px;
+        border-radius: 50px;
     }
 
     .containerPost{
@@ -241,6 +240,7 @@ body {
 
     #userPic {
         height: 150px;
+        width: 150px;
         border-radius: 100px;
         margin: 0px auto;
     }

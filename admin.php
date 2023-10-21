@@ -29,20 +29,13 @@
     </header>
     <?php 
         //include "other/navbar.php"; 
-    ?>
+    ?>    
+    
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#side-menu" aria-controls="offcanvasExample">
+        Menu
+    </button>
     
     <div class="container-">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="#"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
-                <li><a href="#"><i class="fa fa-suitcase"></i><span>Subscriptions</span></a></li>
-                <li><a href="#"><i class="fa fa-user"></i><span>Manage Users</span></a></li>
-                <!-- <li><a href="#"><i class="fa fa-gear"></i>Subscriptions</a></li> -->
-                <!-- <li><a href="#" class="list-">Manage Users</a></li>
-                <li><a href="#" class="list-">Subscriptions</a></li>
-                <li><a href="#" class="list-">Sample</a></li> -->
-            </ul>
-        </nav>
 
         <div class="content">
             <h1>Dashboard</h1>
@@ -73,6 +66,18 @@
                 <div class="box-4 boxes"></div>
                 <div class="box-5 boxes"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="side-menu" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Admin Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <li><a href="#"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="fa fa-suitcase"></i><span>Subscriptions</span></a></li>
+            <li><a href="#"><i class="fa fa-user"></i><span>Manage Users</span></a></li>
         </div>
     </div>
 

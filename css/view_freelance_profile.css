@@ -229,6 +229,7 @@ body {
   
     #userPic {
       height: 150px;
+      width: 150px;
       border-radius: 50%;
       
     }
@@ -314,17 +315,28 @@ body {
       color: #0073aa;
       margin-top: 20px;
     }
-    /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR ADDING MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-    .modal-body-add {
-      padding: 10px 20px;
+    /* =-=-==--=-=-=-=-=-=-=-=-=-=-=-=FOR dashboard MODAL=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+    .box-{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
-    .input {
+    .boxes{
       display: flex;
       flex-direction: column;
-      margin-bottom: 10px;
+      background-color: #8000aa;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 5px;
+      width: 220px;
+      height: 120px;
     }
-    #uploadedImageCatalog {
-      margin-inline: auto;
+    .boxes span{
+      color: #fff;
+    }
+  
+    .boxes-data{
+      font-size: 40px;
     }
   }
   

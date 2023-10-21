@@ -157,6 +157,8 @@ body {
 
     .user-chat-img {
         height: 55px;
+        width: 55px;
+        border-radius: 50px;
     }
 
     .user-info {
@@ -378,6 +380,7 @@ body {
     .right-pic{
         height: 150px;
         width: 150px;
+        border-radius: 50px;
         margin: 20px auto;
     }
     .block{

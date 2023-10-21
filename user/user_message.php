@@ -209,6 +209,10 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             <div>
                                 <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3" onclick="view_profile(this.value)" style="display: none;">View Profile</button>
                             </div>
+                            <div>
+                                <!-- <button type="button" class="btn btn-danger view_profile mt-3">Report</button> -->
+                                <button type="button" class="btn btn-danger view_profile mt-3" data-bs-toggle="modal" data-bs-target="#report-modal">Report</button>
+                            </div>
 
                         </div>
                     </div>
@@ -745,6 +749,40 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
+</div>
+
+<!-- MODAL FOR REPORTING -->
+<div class="modal fade" id="report-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Report Form</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Reported User:</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="@JPSulit" disabled>
+          </div>
+          <label for="sample-ss" class="col-form-label">Provide a Screenshot:</label>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="sample-ss">
+            <label class="input-group-text" for="sample-ss">Upload</label>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Reason for Report:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
