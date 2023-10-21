@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
 <body
     style="font-family: 'Roboto', sans-serif; font-size: 18px; text-align: center; background-image: linear-gradient(to right, #0073aa, #8000aa); margin: 0; padding: 0;">
 
@@ -19,9 +23,9 @@
                                 style="background-color: white!important; border-radius: 20px; padding: 100px 20px; width: 500px;">
                                 <tr>
                                     <td style="color: black!important;">
-                                        Dear Mr./Ms. Sulit,
-
-                                        I hope this message finds you well. We want to express our appreciation for your
+                                        Dear Mr./Ms. Sulit, <br><br>I hope this message finds you well. We want to
+                                        express
+                                        our appreciation for your
                                         interest in the [Position] role at
                                         [Company Name]. We carefully reviewed your application, and while your
                                         qualifications are impressive, we regret to
@@ -29,13 +33,13 @@
                                         closely aligns with our requirements.
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <a href="{{ $button_link }}"
                                             style="display: inline-block; width: 100%; margin: 20px 0; font-weight: 600; font-size: 18px; padding: 20px 0; border-radius: 10px; border: none; background-image: linear-gradient(to right, #0073aa, #8000aa); color: white; text-decoration: none;">{{
                                             $button_text }}</a>
                                     </td>
-                                </tr>
+                                </tr> -->
 
                             </table>
                         </td>
@@ -64,6 +68,38 @@
             </td>
         </tr>
     </table>
+
+    <div style="width: 80%; margin: auto;">
+        <canvas id="registrationGraph"></canvas>
+    </div>
+
+    <script>
+        // Embed PHP data into JavaScript
+        // var data = <?php echo json_encode($data); ?>;
+
+        // Create a bar chart using Chart.js
+        var ctx = document.getElementById('registrationGraph').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                // labels: Object.keys(data),
+                // datasets: [{
+                //     label: 'User Registrations',
+                //     data: Object.values(data),
+                //     backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                //     borderColor: 'rgba(75, 192, 192, 1)',
+                //     borderWidth: 1
+                // }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
