@@ -85,8 +85,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
             <div class="containerLeft-Feed" id="post_container">
                 <?php
-                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                $query->execute();
+                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE post_status != :post_status ORDER BY posted_date DESC");
+                $query->execute([':post_status' => 'ARCHIVED']);
                 // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
                 foreach ($query as $row) {
                     $currentDateTime = $row['posted_date'];
@@ -107,7 +107,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                             <div>
                                 <span class="locationPost">' .
-                    $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
+                        $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
                                 <span>•</span>
                                 <span class="datePost">Posted on ' . $posted_date . '</span>
                             </div>

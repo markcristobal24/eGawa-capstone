@@ -1,7 +1,11 @@
 <?php
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+require_once dirname(__FILE__) . "/../php/classes/Account.php";
+require_once dirname(__FILE__) . "/../php/classes/Email.php";
 
 $db = new DbClass();
+$acc = new Account();
+$email_notif = new Email();
 
 if (isset($_POST['send_job'])) {
     date_default_timezone_set("Asia/Manila");
@@ -30,6 +34,16 @@ if (isset($_POST['send_job'])) {
 
             if ($result) {
                 $output['success'] = "Job Application successfully sent!";
+                $query = $db->connect()->prepare("SELECT * FROM account WHERE account_id = :account_id");
+                $query->execute([':account_id' => $receiver_id]);
+                $fetch = $query->fetch(PDO::FETCH_ASSOC);
+                $email = $fetch['email'];
+                $subject = "Job Application";
+                $link = "/user/user_message.php";
+                $notice = "A freelancer sent an application to your job post.<br><br>" . $apply_message;
+                $button_value = "Go to Account";
+                $body = $acc->apply_email($link, $notice, $button_value);
+                $email_notif->sendEmail("eGawa", $email, $subject, $body);
             } else {
                 $output['error'] = "Something went wrong! Please try again later.";
             }
@@ -65,12 +79,24 @@ if (isset($_POST['view_job'])) {
 if (isset($_POST['decline_job'])) {
     $job_id = $_POST['jobId'];
 
-    $query = $db->connect()->prepare("DELETE FROM job_application WHERE application_id = :application_id");
+    $query = $db->connect()->prepare("UPDATE job_application SET jobstatus = :jobstatus WHERE application_id = :application_id");
     $result = $query->execute([
+        ':jobstatus' => 'DECLINED',
         ':application_id' => $job_id
     ]);
     if ($result) {
         $output['success'] = "You have declined the job application!";
+        $query = $db->connect()->prepare("SELECT * FROM job_application INNER JOIN account ON account.account_id = job_application.freelance_id WHERE job_application.application_id = :application_id");
+        $query->execute([':application_id' => $job_id]);
+        $fetch_id = $query->fetch(PDO::FETCH_ASSOC);
+        $email = $fetch_id['email'];
+        $lastname = $fetch_id['lastName'];
+        $subject = "Job Application";
+        $notice = "Dear Mr./Mrs./Ms. $lastname:<br><br>I hope this message finds you well. We want to express our appreciation for your interest on our job post.
+        We carefully reviewed your application, and while your qualifications are impressive, we regret to inform you that we have chosen to move forward
+        with another candidate who closely aligns with our requirements.";
+        $body = $acc->deny_email($notice);
+        $email_notif->sendEmail("eGawa", $email, $subject, $body);
     } else {
         $output['error'] = "Something went wrong! Please reload the page.";
     }
@@ -94,6 +120,24 @@ if (isset($_POST['accept_job'])) {
             $output['freelance_id'] = $row['freelance_id'];
         }
         $output['success'] = "You have accepted the job application!";
+        $query = $db->connect()->prepare("SELECT * FROM job_application INNER JOIN account ON account.account_id = job_application.freelance_id INNER JOIN jobposts ON jobposts.post_id = job_application.post_id WHERE job_application.application_id = :application_id");
+        $query->execute([':application_id' => $job_id]);
+        $fetch_id = $query->fetch(PDO::FETCH_ASSOC);
+        $email = $fetch_id['email'];
+        $lastname = $fetch_id['lastName'];
+        $post_id = $fetch_id['post_id'];
+        $subject = "Job Application - " . strtoupper($fetch_id['post_title']);
+        $link = "/freelance/freelance_message.php";
+        $notice = "Dear Mr./Mrs./Ms. $lastname:<br><br>Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
+        $button_value = "Go to Account";
+        $body = $acc->apply_email($link, $notice, $button_value);
+        if ($email_notif->sendEmail("eGawa", $email, $subject, $body)) {
+            $query = $db->connect()->prepare("UPDATE jobposts SET post_status = :post_status WHERE post_id = :post_id");
+            $query->execute([
+                ':post_status' => 'ARCHIVED',
+                ':post_id' => $post_id
+            ]);
+        }
     } else {
         $output['error'] = "Something went wrong! Please reload the page.";
     }
@@ -136,4 +180,3 @@ if (isset($_POST['create_convo'])) {
 
     echo json_encode($output);
 }
-?>

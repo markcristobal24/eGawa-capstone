@@ -60,10 +60,10 @@ class Account extends DbClass
             $data['barangay'] = $row['barangay'];
             $data['municipality'] = $row['municipality'];
             $data['province'] = $row['province'];
-            $data['companyName'] = $row['companyName'];
-            $data['workTitle'] = $row['workTitle'];
-            $data['startDate'] = $row['startDate'];
-            $data['endDate'] = $row['endDate'];
+            // $data['companyName'] = $row['companyName'];
+            // $data['workTitle'] = $row['workTitle'];
+            // $data['startDate'] = $row['startDate'];
+            // $data['endDate'] = $row['endDate'];
         }
         $_SESSION['profileID'] = $data['profileID'];
         $_SESSION['imageProfile'] = $data['imageProfile'];
@@ -74,10 +74,10 @@ class Account extends DbClass
             $_SESSION['municipality'] = $data['municipality'];
             $_SESSION['province'] = $data['province'];
         }
-        $_SESSION['companyName'] = $data['companyName'];
-        $_SESSION['workTitle'] = $data['workTitle'];
-        $_SESSION['startDate'] = $data['startDate'];
-        $_SESSION['endDate'] = $data['endDate'];
+        // $_SESSION['companyName'] = $data['companyName'];
+        // $_SESSION['workTitle'] = $data['workTitle'];
+        // $_SESSION['startDate'] = $data['startDate'];
+        // $_SESSION['endDate'] = $data['endDate'];
         json_encode($data);
     }
 
@@ -109,5 +109,109 @@ class Account extends DbClass
     public function encrypt_password($password)
     {
         return password_hash($password, PASSWORD_BCRYPT);
+    }
+
+    public function apply_email($link, $notice, $button_value)
+    {
+        return '
+        <body style="font-family: Roboto, sans-serif; font-size: 18px; text-align: center; background-image: linear-gradient(to right, #0073aa, #8000aa); margin: 0; padding: 0;">
+
+    <table style="width: 100%;">
+        <tr>
+            <td style="vertical-align: middle;">
+                <table style="margin: 0 auto; padding: 50px 20px 80px 20px;">
+                    <tr>
+                        <td>
+                            <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/v1697954310/egawa/ujfq6udnex6nykzzysah.png" style="height: 150px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table
+                                style="background-color: white!important; border-radius: 20px; padding: 100px 20px; width: 500px;">
+                                <tr>
+                                    <td style="color: black!important;">
+                                        ' . $notice . '
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <button type="button" style="width: 100%; margin: 20px 0; font-weight: 600px;  font-size: 18px;padding: 20px 0; border-radius: 10px;border:none;background-image: linear-gradient(to right, #0073aa, #8000aa); color: white;"> <a style ="color: white; text-decoration: none" href="' . $_SERVER['SERVER_NAME'] . dirname(pathinfo($_SERVER['REQUEST_URI'], PATHINFO_DIRNAME), 1) . $link . '">' . $button_value . '</a></button>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; padding-top: 5px; color: white;">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> eGawa. All Rights Reserved.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="opacity: 0;">
+                            <script>
+                                document.write(Date.now())
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </body>
+        ';
+    }
+
+    public function deny_email($notice)
+    {
+        return '
+        <body style="font-family: Roboto, sans-serif; font-size: 18px; text-align: center; background-image: linear-gradient(to right, #0073aa, #8000aa); margin: 0; padding: 0;">
+
+    <table style="width: 100%;">
+        <tr>
+            <td style="vertical-align: middle;">
+                <table style="margin: 0 auto; padding: 50px 20px 80px 20px;">
+                    <tr>
+                        <td>
+                            <img src="https://res.cloudinary.com/dm6aymlzm/image/upload/v1697954310/egawa/ujfq6udnex6nykzzysah.png" style="height: 150px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table
+                                style="background-color: white!important; border-radius: 20px; padding: 100px 20px; width: 500px;">
+                                <tr>
+                                    <td style="color: black!important;">
+                                        ' . $notice . '
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; padding-top: 5px; color: white;">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> eGawa. All Rights Reserved.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="opacity: 0;">
+                            <script>
+                                document.write(Date.now())
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </body>
+        ';
     }
 }

@@ -30,18 +30,18 @@ if (isset($_POST['create_fprofile'])) {
     $optionsString = implode(',', $selectedData);
 
     // $address = $_POST['address'];
-    $barangay = $_POST['street/barangay'];
+    $barangay = $_POST['barangay'];
     $municipality = $_POST['municipality'];
     $province = $_POST['province'];
-    $company = $_POST['companyName'];
-    $workTitle = $_POST['workTitle'];
+    // $company = $_POST['companyName'];
+    // $workTitle = $_POST['workTitle'];
 
-    $startDate = $_POST['dateStarted'];
-    $endDate = $_POST['dateEnded'];
+    // $startDate = $_POST['dateStarted'];
+    // $endDate = $_POST['dateEnded'];
 
-    $jobDesc = $_POST['jobDesc'];
-    $jobDesc = trim($jobDesc);
-    $jobDesc = htmlspecialchars($jobDesc);
+    // $jobDesc = $_POST['jobDesc'];
+    // $jobDesc = trim($jobDesc);
+    // $jobDesc = htmlspecialchars($jobDesc);
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email]);
@@ -51,8 +51,8 @@ if (isset($_POST['create_fprofile'])) {
 
 
     if ($query->rowCount() > 0) {
-        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay, companyName, workTitle, startDate, endDate, jobDescription) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay, :companyName, :workTitle, :startDate, :endDate, :jobDescription)");
-        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay, ':companyName' => $company, ':workTitle' => $workTitle, ':startDate' => $startDate, ':endDate' => $endDate, ':jobDescription' => $jobDesc]);
+        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay)");
+        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay]);
 
         if ($result) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");

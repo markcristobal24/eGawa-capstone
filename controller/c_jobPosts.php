@@ -159,7 +159,9 @@ if (isset($_POST['fetch_post'])) {
         $dateTimeObj = new DateTime($currentDateTime);
         $posted_date = $dateTimeObj->format("F d, Y h:i A");
         $data['posted_date'] = $posted_date;
-        $data['address'] = $row['address'];
+        $data['barangay'] = $row['barangay'];
+        $data['municipality'] = $row['municipality'];
+        $data['province'] = $row['province'];
         $data['post_description'] = $row['post_description'];
         $data['rate'] = 'PHP' . ' ' . $row['rate'];
     }

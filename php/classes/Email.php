@@ -1,5 +1,11 @@
 <?php
-require dirname(__FILE__) . '/../PHPMailer/PHPMailerAutoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+// require dirname(__FILE__) . '/../PHPMailer/PHPMailerAutoload.php';
+require '../vendor/autoload.php';
 
 class Email
 {
@@ -26,7 +32,9 @@ class Email
         $mail->FromName = $name;
         $mail->Password = $password;
 
-        $mail->msgHTML($body);
+        // $mail->msgHTML($body);
+        $mail->isHTML(true);
+        $mail->Body = $body;
         return $mail->send();
     }
 
@@ -37,4 +45,3 @@ class Email
         return $otp;
     }
 }
-?>

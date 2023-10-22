@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 // if (isset($_SESSION['userType']) !== "freelancer") {
 //     header('location: ../user/userHome.php');
 // } else if (isset($_SESSION['userType']) == "freelancer" && isset($_SESSION['profileStatus']) === 1) {
@@ -30,7 +30,7 @@
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/notification.css">
-    <link rel="stylesheet" href="create_profile.css">
+    <link rel="stylesheet" href="../css/createProfile.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
 
@@ -53,8 +53,25 @@
 
             <div class="div1">
                 <div class="uploadIMG">
+
+                    <!-- <div id="imgUpl">
+                        <p class="labelImage" for="uploadInput">Upload Profile Picture</p>
+                        <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
+                            <img id="uploadedImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="130">
+                        </div>
+                    </div>
+
+
+                    <div class="custom-file-input">
+                        <label for="file-input" class="custom-file-label">
+                            <span><img id="upIMG" src="../img/up2.png" alt=""></span>
+                        </label>
+                        <input type="file" id="file-input" class="actual-file-input" accept="image/*"
+                            onchange="loadImage(event)" required />
+                    </div> -->
+
                     <div class="upload">
-                        <img id="uploadedImage" src="../../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
+                        <img id="uploadedImage" src="../img/uploadIMG.png" width="100" height="100" alt="" class="uploadPic">
                         <div class="round">
                             <input type="file" name="imageProfile" id="file-input" accept="image/*" onchange="loadImage(event)" required>
                             <i class="fa fa-camera" style="color: #fff;"></i>
@@ -64,19 +81,21 @@
 
 
                 <hr>
-                <p id="pickRole" class="title">Pick your Address</p>
-                <select name="" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
-                </select>
 
-                <select name="" id="municipalityDropdown" onchange="updateBarangayDropdown()">
-                </select>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="street/barangay" class="form-control" placeholder="Enter Your Address" required>
+                    <label id="addressLabel" for="address">Enter Street/Baranggay</label>
+                </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="municipality" class="form-control" placeholder="Enter Your Address" required>
+                    <label id="addressLabel" for="address">Enter Municipality</label>
+                </div>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <input type="text" id="address" name="province" class="form-control" placeholder="Enter Your Address" required>
+                    <label id="addressLabel" for="address">Enter Your City/Province</label>
+                </div>
 
-                <select name="" id="barangayDropdown">
-                </select>
-
-                
-
-                <div class="pickRoles mt-4">
+                <div class="pickRoles">
                     <p id="pickRole" class="title">Please Pick a Job or Role</p>
                     <div class="form-check"><input class="form-check-input" type="checkbox" name="jobRole[]" id="webDesign" value="Web Designer">
                         <label class="form-check-label" for="webDesign">Web Designer</label>
@@ -99,7 +118,41 @@
                     </div>
                 </div>
 
+            </div>
+
+
+            <div class="div2">
+                <p class="userRegTitle title">Work Experience</p>
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Enter Company Namess">
+                    <label id="companyNameLabel" for="companyName">Enter Company Name</label>
+                </div>
+
+                <div class="form-floating mb-3 col-12 gx-2 gy-2">
+                    <!-- Gap on all sides is 2 -->
+                    <input type="text" id="workTitle" name="workTitle" class="form-control" placeholder="Enter Worktitle">
+                    <label id="workTitleLabel" for="workTitle">Enter Worktitle</label>
+                </div>
+
+                <div class="date">
+                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                        <input type="date" id="dateStarted" onchange="updateDateEndedMin()" name="dateStarted" class="form-control" placeholder="Enter Date Started">
+                        <label id="dateStartedLabel" for="dateStarted">Enter Date Started</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-6 gx-2 gy-2">
+                        <input type="date" id="dateEnded" onchange="updateDateStartedMax()" name="dateEnded" class="form-control" placeholder="Enter Date Ended">
+                        <label id="dateEndedLabel" for="dateEnded">Enter Date Ended</label>
+                    </div>
+                </div>
+
+                <p class="jobDescription" for="comment">Job Description</p>
+                <div>
+                    <textarea class="form-control" id="comment" name="jobDesc" rows="5" placeholder="Enter job description"></textarea>
+                </div>
                 <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
+
                     <button type="button" id="create_profile" name="btnCreateFreelanceProfile" class="btn btn-primary" onclick="new Account().create_fprofile();">
                         Continue
                     </button>
@@ -109,7 +162,6 @@
                 </div>
 
             </div>
-
         </form>
 
     </div>
@@ -129,71 +181,11 @@
 
 
 
-    <script src="../../js/freelance.js"></script>
-    <script src="../../js/script.js"></script>
-    <script src="../../classJS/Account.js"></script>
-    <script src="../../classJS/Notification.js"></script>
+    <script src="../js/freelance.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
 
 </body>
-<script>
-
-    async function fetchDataFromJSON(file) {
-            const response = await fetch(file);
-            const data = await response.json();
-            return data;
-        }
-
-        async function populateProvinceDropdown() {
-            const provincesData = await fetchDataFromJSON('province.json');
-            const provinces = provincesData;
-
-            const provinceDropdown = document.getElementById('provinceDropdown');
-            provinceDropdown.innerHTML = '';
-
-            for (const province of provinces) {
-                const option = document.createElement('option');
-                option.value = province.province_code;
-                option.textContent = province.province_name;
-                provinceDropdown.appendChild(option);
-            }
-        }
-
-        async function updateMunicipalityDropdown() {
-            const selectedProvince = document.getElementById('provinceDropdown').value;
-            const municipalitiesData = await fetchDataFromJSON('city.json');
-            const municipalities = municipalitiesData.filter(municipality => municipality.province_code === selectedProvince);
-
-            const municipalityDropdown = document.getElementById('municipalityDropdown');
-            municipalityDropdown.innerHTML = '';
-
-            for (const municipality of municipalities) {
-                const option = document.createElement('option');
-                option.value = municipality.city_code;
-                option.textContent = municipality.city_name;
-                municipalityDropdown.appendChild(option);
-            }
-
-            // Update barangay dropdown as well
-            updateBarangayDropdown();
-        }
-
-        async function updateBarangayDropdown() {
-            const selectedMunicipality = document.getElementById('municipalityDropdown').value;
-            const barangaysData = await fetchDataFromJSON('barangay.json');
-            const barangays = barangaysData.filter(barangay => barangay.city_code === selectedMunicipality);
-
-            const barangayDropdown = document.getElementById('barangayDropdown');
-            barangayDropdown.innerHTML = '';
-
-            for (const barangay of barangays) {
-                const option = document.createElement('option');
-                option.value = barangay.brgy_code;
-                option.textContent = barangay.brgy_name;
-                barangayDropdown.appendChild(option);
-            }
-        }
-
-        populateProvinceDropdown();
-</script>
 
 </html>
