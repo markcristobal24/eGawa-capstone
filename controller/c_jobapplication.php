@@ -72,7 +72,9 @@ if (isset($_POST['view_job'])) {
         $data['from_name'] = $row['firstName'] . " " . $row['lastName'];
         $data['jobstatus'] = $row['jobstatus'];
         $data['message'] = $row['message'];
+        $data['freelance_id'] = $row['freelance_id'];
     }
+    $_SESSION['application_id'] = $data['application_id'];
     echo json_encode($data);
 }
 

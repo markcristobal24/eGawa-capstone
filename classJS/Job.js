@@ -1,7 +1,8 @@
 class Job {
-    view_job(jobId) {
+    view_job(jobId, status) {
         let form_data = new FormData();
         console.log(jobId);
+        console.log(status);
         form_data.append('jobId', jobId);
         form_data.append('view_job', 'view_job');
         fetch('../controller/c_jobapplication.php', {
@@ -12,14 +13,25 @@ class Job {
         }).then((response_data) => {
             console.log(response_data);
             let job = response_data;
-            document.getElementById('btn_declineJob').value = `${job.application_id}`;
-            document.getElementById('btn_acceptJob').value = `${job.application_id}`;
 
+            if (status == 'PENDING') {
+                document.getElementById('btn_declineJob').value = `${job.application_id}`;
+                document.getElementById('btn_acceptJob').value = `${job.application_id}`;
 
-            document.getElementById('post_title').innerHTML = `${job.post_title}`.toUpperCase();
-            document.getElementById('from').innerHTML = `${job.from_name}`;
-            document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
-            document.getElementById('from_message').innerHTML = `${job.message}`;
+                document.getElementById('post_title').innerHTML = `${job.post_title}`.toUpperCase();
+                document.getElementById('from').innerHTML = `${job.from_name}`;
+                document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
+                document.getElementById('from_message').innerHTML = `${job.message}`;
+            }
+            else if (status == 'ONGOING') {
+                document.getElementById('btn_proceed_end').value = `${job.freelance_id}`;
+                console.log(document.getElementById('btn_proceed_end').value);
+                document.getElementById('post_title_on').innerHTML = `${job.post_title}`.toUpperCase();
+                document.getElementById('from_on').innerHTML = `${job.from_name}`;
+                document.getElementById('jobstatus_on').innerHTML = `${job.jobstatus}`;
+                document.getElementById('from_message_on').innerHTML = `${job.message}`;
+            }
+
         });
     }
 
@@ -96,5 +108,9 @@ class Job {
                 console.log(response_data.success);
             }
         })
+    }
+
+    review_freelance(freelance_id) {
+        window.location.href = `userrating.php?freelance_id=${freelance_id}`;
     }
 }

@@ -2,12 +2,12 @@
     <div class="container">
         <?php
         if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer") {
-            ?>
+        ?>
         <a class="navbar-brand" href="../freelance/freelanceHome.php"><img src="../img/eGAWAwhite.png" alt="Logo"
                 id="logoImage"></a>
         <?php
         } else if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user") {
-            ?>
+        ?>
         <a class="navbar-brand" href="../user/userHome.php"><img src="../img/eGAWAwhite.png" alt="Logo"
                 id="logoImage"></a>
         <?php
@@ -20,7 +20,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer"): ?>
+            <?php if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer") : ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a id="home1" class="nav-link" href="../freelance/freelanceHome.php">Home</a>
@@ -29,8 +29,7 @@
                     <a id="about1" id="about" class="nav-link" href="../other/about_egawa.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a id="freeLanceInbox" class="nav-link" href="freelance_message.php">Messages <span
-                            class="badge text-bg-secondary bg-danger">0</span></a>
+                    <a id="freeLanceInbox" class="nav-link" href="freelance_message.php">Messages </a>
                 </li>
                 <li class="nav-item dropdown">
 
@@ -47,7 +46,7 @@
 
                 </li>
             </ul>
-            <?php elseif (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user"): ?>
+            <?php elseif (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "user") : ?>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a id="home1" class="nav-link" href="../user/userHome.php">Home</a>
@@ -56,8 +55,7 @@
                     <a id="about1" id="about" class="nav-link" href="../other/about_egawa.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a id="freeLanceInbox" class="nav-link" href="user_message.php">Messages <span
-                            class="badge text-bg-secondary bg-danger">0</span></a>
+                    <a id="freeLanceInbox" class="nav-link" href="user_message.php">Messages </a>
                 </li>
                 <li class="nav-item dropdown">
 
