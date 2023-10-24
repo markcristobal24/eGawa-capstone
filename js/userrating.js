@@ -101,6 +101,10 @@ $(document).ready(function () {
 
                 load_rating_data();
                 new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1500);
             }
         });
     });

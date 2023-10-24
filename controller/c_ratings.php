@@ -33,6 +33,11 @@ if (isset($_POST['rating_data'])) {
 
     if ($result) {
         $output['success'] = "Your reviews has been submitted.";
+        $query = $db->connect()->prepare("UPDATE job_application SET jobstatus= :jobstatus WHERE application_id = :application_id");
+        $query->execute([
+            ':jobstatus' => 'COMPLETED',
+            ':application_id' => $_SESSION['application_id']
+        ]);
     } else {
         $output['error'] = "Something went wrong. Please try again later.";
     }

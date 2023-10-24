@@ -239,172 +239,184 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="col-three col-all">
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Ralpu Garcia
-                                </span>
-                                <span class="job-type">
-                                    Web Hosting
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    John Daniel Edaddy
-                                </span>
-                                <span class="job-type">
-                                    Video Editor
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
+                        <?php
+                        $query = $db->connect()->prepare(
+                            "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.freelance_id = account.account_id
+                                WHERE job_application.user_id = :account_id AND job_application.jobstatus = 'COMPLETED' ORDER BY timestamp DESC"
+                        );
+                        $query->execute([
+                            ':account_id' => $_SESSION['account_id']
+                        ]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status status-2">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
                     </div>
+
+                    <!-- <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                John Daniel Edaddy
+                            </span>
+                            <span class="job-type">
+                                Video Editor
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child left">
+                            <span class="name-info">
+                                Boss Charles Pillos
+                            </span>
+                            <span class="job-type">
+                                Network Administrator
+                            </span>
+                        </div>
+                        <div class="child right">
+                            <span class="status status-3">
+                                Completed
+                            </span>
+                        </div>
+                    </div> -->
 
                 </div>
 
             </div>
+
         </div>
+    </div>
 
     </div>
     <script>
