@@ -30,9 +30,9 @@ if (isset($_POST['create_fprofile'])) {
     $optionsString = implode(',', $selectedData);
 
     // $address = $_POST['address'];
-    $barangay = $_POST['barangay'];
-    $municipality = $_POST['municipality'];
-    $province = $_POST['province'];
+    $barangay = $_POST['selectedBarangay'];
+    $municipality = $_POST['selectedMunicipality'];
+    $province = $_POST['selectedProvince'];
     // $company = $_POST['companyName'];
     // $workTitle = $_POST['workTitle'];
 
@@ -86,14 +86,22 @@ if (isset($_POST['edit_fprofile'])) {
     $query->execute([':email' => $email_identifier]);
     $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
-    if (isset($_POST['editAddress'])) {
-        $new_address = $_POST['editAddress'];
-        $old_address = $fetch['address'];
+    if (isset($_POST['new_barangay']) || isset($_POST['new_municipality']) || isset($_POST['new_province'])) {
+        $new_barangay = $_POST['new_barangay'];
+        $new_municipality = $_POST['new_municipality'];
+        $new_province = $_POST['new_province'];
 
-        if ($new_address != $old_address) {
-            $query = $db->connect()->prepare("UPDATE profile SET address = :address WHERE email = :email");
-            $result = $query->execute([':address' => $new_address, ':email' => $email_identifier]);
-        }
+        $new_barangay = trim($new_barangay);
+        $new_municipality = trim($new_municipality);
+        $new_province = trim($new_province);
+
+        $query = $db->connect()->prepare("UPDATE profile SET barangay = :barangay, municipality = :municipality, province = :province WHERE email = :email");
+        $result = $query->execute([
+            ':barangay' => $new_barangay,
+            ':municipality' => $new_municipality,
+            ':province' => $new_province,
+            ':email' => $email_identifier
+        ]);
     }
 
     if (isset($_FILES['imageProfile']['tmp_name'])) {

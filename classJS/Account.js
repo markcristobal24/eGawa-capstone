@@ -259,7 +259,7 @@ class Account {
                 }, 3000);
             }
             else if (response_data.error) {
-                new Account().button_loading("btnNewPassword", "", button_value);
+                new Account().button_loading("edit_fprofile", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
         });
