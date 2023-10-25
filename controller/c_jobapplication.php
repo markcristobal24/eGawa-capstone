@@ -78,6 +78,30 @@ if (isset($_POST['view_job'])) {
     echo json_encode($data);
 }
 
+if (isset($_POST['view_job_f'])) {
+    $job_id = $_POST['jobId'];
+    $query = $db->connect()->prepare(
+        "SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.user_id = account.account_id
+                                WHERE job_application.application_id = :job_id"
+    );
+    $query->execute([
+        ':job_id' => $job_id
+    ]);
+    $data = array();
+    foreach ($query as $row) {
+        $data['application_id'] = $row['application_id'];
+        $data['post_title'] = $row['post_title'];
+        $data['from_name'] = $row['firstName'] . " " . $row['lastName'];
+        $data['jobstatus'] = $row['jobstatus'];
+        $data['message'] = $row['message'];
+        $data['user_id'] = $row['user_id'];
+    }
+    $_SESSION['application_id'] = $data['application_id'];
+    echo json_encode($data);
+}
+
 if (isset($_POST['decline_job'])) {
     $job_id = $_POST['jobId'];
 

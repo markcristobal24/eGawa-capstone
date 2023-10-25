@@ -35,6 +35,37 @@ class Job {
         });
     }
 
+    view_job_freelance(jobId, status) {
+        let form_data = new FormData();
+        console.log(jobId);
+        console.log(status);
+        form_data.append('jobId', jobId);
+        form_data.append('view_job_f', 'view_job_f');
+        fetch('../controller/c_jobapplication.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let job = response_data;
+
+            if (status == 'PENDING') {
+                document.getElementById('post_title').innerHTML = `${job.post_title}`.toUpperCase();
+                document.getElementById('from').innerHTML = `${job.from_name}`;
+                document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
+                document.getElementById('from_message').innerHTML = `${job.message}`;
+            }
+            else if (status == 'ONGOING') {
+                document.getElementById('post_title').innerHTML = `${job.post_title}`.toUpperCase();
+                document.getElementById('from').innerHTML = `${job.from_name}`;
+                document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
+                document.getElementById('from_message').innerHTML = `${job.message}`;
+            }
+
+        });
+    }
+
     decline_job(jobId) {
         let button_value = new Account().get_button_value("btn_declineJob");
         new Account().button_loading("btn_declineJob", "loading", "");

@@ -38,18 +38,20 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Messages</title>
 
     <script>
-        Pusher.logToConsole = true;
-        const pusher = new Pusher('1e64e7913006b4f715d3', {
-            cluster: 'ap1',
-            encrypted: true
-        });
+    Pusher.logToConsole = true;
+    const pusher = new Pusher('1e64e7913006b4f715d3', {
+        cluster: 'ap1',
+        encrypted: true
+    });
     </script>
 
 </head>
@@ -229,9 +231,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                             <div id="inputDiv">
                                 <form id="message_box">
-                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50" placeholder="Enter your message here..."></textarea>
+                                    <textarea id="inputTextarea" name="messageInput" rows="3" cols="50"
+                                        placeholder="Enter your message here..."></textarea>
                                     <div class="button-container">
-                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)" class="btn btn-primary">Send</button>
+                                        <button type="button" id="btn_sendMessage" onclick="send_message(this.value)"
+                                            class="btn btn-primary">Send</button>
                                     </div>
                                 </form>
                             </div>
@@ -258,10 +262,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
 
                             <div>
-                                <button type="button" class="btn btn-primary view_profile mt-3">View Profile</button>
+                                <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3"
+                                    style="display: none;">View Profile</button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-danger view_profile mt-3" data-bs-toggle="modal" data-bs-target="#report-modal">Report</button>
+                                <button type="button" id="btn_report" class="btn btn-danger view_profile mt-3"
+                                    data-bs-toggle="modal" data-bs-target="#report-modal"
+                                    style="display: none;">Report</button>
                             </div>
 
                         </div>
@@ -299,7 +306,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         $query->execute([':account_id' => $_SESSION['account_id']]);
                         foreach ($query as $row) {
                             echo '
-                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job_freelance(' . $row['application_id'] . ', \'PENDING\')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
                                         <span class="job-type">' . $row['post_title'] . '</span>
@@ -313,39 +320,6 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 ';
                         }
                         ?>
-
-                        <!-- <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app">
-                            <div class="child left">
-                                <span class="name-info">
-                                    John Paulo Sulit
-                                </span>
-                                <span class="job-type">
-                                    Web Development
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Pending
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Arvin Candelaria Bok
-                                </span>
-                                <span class="job-type">
-                                    Mobile Development
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Pending
-                                </span>
-                            </div>
-                        </div> -->
-
                     </div>
 
 
@@ -362,7 +336,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         ]);
                         foreach ($query as $row) {
                             echo '
-                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ')">
+                                <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job_freelance(' . $row['application_id'] . ', \'ONGOING\')">
                                     <div class="child left">
                                         <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
                                         <span class="job-type">' . $row['post_title'] . '</span>
@@ -376,206 +350,33 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 ';
                         }
                         ?>
-                        <!-- <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Joel Leonor
-                                </span>
-                                <span class="job-type">
-                                    Web Hosting
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Ongoing
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Mark Josh Cristobal
-                                </span>
-                                <span class="job-type">
-                                    Video Editor
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status">
-                                    Ongoing
-                                </span>
-                            </div>
-                        </div> -->
                     </div>
 
                     <div class="col-three col-all">
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Ralpu Garcia
-                                </span>
-                                <span class="job-type">
-                                    Web Hosting
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    John Daniel Edaddy
-                                </span>
-                                <span class="job-type">
-                                    Video Editor
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="parent">
-                            <div class="child left">
-                                <span class="name-info">
-                                    Boss Charles Pillos
-                                </span>
-                                <span class="job-type">
-                                    Network Administrator
-                                </span>
-                            </div>
-                            <div class="child right">
-                                <span class="status status-3">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-
+                        <?php
+                        $query = $db->connect()->prepare("SELECT * FROM job_application
+                                INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
+                                INNER JOIN account ON job_application.user_id = account.account_id
+                                WHERE job_application.freelance_id = :account_id AND job_application.jobstatus = 'COMPLETED' ORDER BY timestamp DESC");
+                        $query->execute([':account_id' => $_SESSION['account_id']]);
+                        foreach ($query as $row) {
+                            echo '
+                                <div class="parent">
+                                    <div class="child left">
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="job-type">' . $row['post_title'] . '</span>
+                                    </div>
+                                    <div class="child right">
+                                        <span class="status status-1">
+                                        ' . $row['jobstatus'] . '
+                                        </span>
+                                    </div>
+                                </div>
+                                ';
+                        }
+                        ?>
                     </div>
-
                 </div>
-
-
-
             </div>
         </div>
 
@@ -585,7 +386,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 
 <!-- MODAL FOR ViEW JOB APPLICATION -->
-<div class="modal fade" id="modal-view-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modal-view-job-app" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -605,54 +407,23 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                     <div class="title mb-3">
                         <span class="label">To:</span>
-                        <span class="content">@</span>
-                        <span class="content" id="post_title">
+                        <span class="content" id="from">
                             John Paulo Sulitz
                         </span>
                     </div>
 
                     <div class="title mb-3">
                         <span class="label">Status:</span>
-                        <span class="content" id="post_title">
+                        <span class="content" id="jobstatus">
                             Pending
                         </span>
                     </div>
 
                     <div class="title mb-3">
                         <span class="label">Message:</span>
-                        <p class="" id="post_description">
-                            The Lorem ipum filling text is used by graphic designers, programmers and printers with the
-                            aim
-                            of occupying the spaces of a website, an advertising product or an editorial production
-                            whose
-                            final text is not yet ready.
+                        <p class="" id="from_message">
 
-                            This expedient serves to get an idea of the finished product that will soon be printed or
-                            disseminated via digital channels.
-
-
-                            In order to have a result that is more in keeping with the final result, the graphic
-                            designers,
-                            designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
-                            namely readability and editorial requirements.
-
-                            The choice of font and font size with which Lorem ipsum is reproduced answers to specific
-                            needs
-                            that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
-                            allowing to have hands an advertising/publishing product, both web and paper, true to
-                            reality.
-
-                            Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
-                            stylistic choices of a project, so it is installed on many graphic programs on many software
-                            platforms of personal publishing and content management system.
                         </p>
-                    </div>
-
-                    <div class="rate">
-                        <span class="label">Rate:</span>
-                        <span class="content" id="rate">
-                            P 16,900.00
-                        </span>
                     </div>
 
                     <div class="mb-3">
@@ -672,61 +443,63 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 
 <!-- MODAL FOR REPORTING -->
-<div class="modal fade" id="report-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<!-- <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Report Form</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Reported User:</label>
-            <input type="text" class="form-control" id="recipient-name" placeholder="@JPSulit" disabled>
-          </div>
-          <label for="sample-ss" class="col-form-label">Provide a Screenshot:</label>
-          <div class="input-group mb-3">
-            <input type="file" class="form-control" id="sample-ss">
-            <label class="input-group-text" for="sample-ss">Upload</label>
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Reason for Report:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+<div class="modal fade" id="report-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="report-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Report Form</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Reported User:</label>
+                        <input type="text" class="form-control" id="recipient-name" placeholder="@JPSulit" disabled>
+                    </div>
+                    <label for="sample-ss" class="col-form-label">Provide a Screenshot:</label>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="sample-ss">
+                        <label class="input-group-text" for="sample-ss">Upload</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Reason for Report:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
 <script src="../js/script.js"></script>
 <script src="../classJS/Job.js"></script>
 <script src="../php/messaging/freelance-side/Message.js"></script>
 <script src="../classJS/Account.js"></script>
 <script src="../classJS/Notification.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.tab_container:first').show();
-        $('.tab_navigation li:first').addClass('active');
+$(document).ready(function() {
+    $('.tab_container:first').show();
+    $('.tab_navigation li:first').addClass('active');
 
-        $('.tab_navigation li').click(function(event) {
-            index = $(this).index();
-            $('.tab_navigation li').removeClass('active');
-            $(this).addClass('active');
-            $('.tab_container').hide();
-            $('.tab_container').eq(index).show();
-        });
-
+    $('.tab_navigation li').click(function(event) {
+        index = $(this).index();
+        $('.tab_navigation li').removeClass('active');
+        $(this).addClass('active');
+        $('.tab_container').hide();
+        $('.tab_container').eq(index).show();
     });
+
+});
 </script>
 
 </html>

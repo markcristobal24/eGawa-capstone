@@ -40,10 +40,10 @@ if (isset($_POST['filter_post'])) {
     $query = $db->connect()->prepare(
         "SELECT * FROM jobposts
         INNER JOIN account ON jobposts.account_id = account.account_id
-        WHERE jobposts.category = :filterValue
+        WHERE jobposts.category = :filterValue AND post_status != :post_status
         ORDER BY posted_date DESC"
     );
-    $query->execute([':filterValue' => $filterValue]);
+    $query->execute([':filterValue' => $filterValue, ':post_status' => 'ARCHIVED']);
     $output = array();
     if ($query->rowCount() > 0) {
         $output['success'] = '';
@@ -84,10 +84,11 @@ if (isset($_POST['filter_post'])) {
     } else if ($filterValue == "all") {
         $query = $db->connect()->prepare(
             "SELECT * FROM jobposts
-        INNER JOIN account ON jobposts.account_id = account.account_id
+        INNER JOIN account ON jobposts.account_id = account.account_id 
+        WHERE post_status != :post_status
         ORDER BY posted_date DESC"
         );
-        $query->execute();
+        $query->execute([':post_status' => 'ARCHIVED']);
         $output = array();
         $output['success'] = '';
         foreach ($query as $row) {
@@ -203,9 +204,9 @@ if (isset($_POST['search_post'])) {
     $search_input = $_POST['keyword'];
 
     $query = $db->connect()->prepare(
-        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' ORDER BY posted_date DESC"
+        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' AND post_status != :post_status ORDER BY posted_date DESC"
     );
-    $query->execute();
+    $query->execute([':post_status' => 'ARCHIVED']);
     $output = array();
     $output['success'] = '';
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {

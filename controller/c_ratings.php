@@ -58,7 +58,7 @@ if (isset($_POST['action'])) {
 
     date_default_timezone_set("Asia/Manila");
 
-    $query = $db->connect()->prepare("SELECT * FROM reviews INNER JOIN account ON account.account_id = reviews.company_id WHERE reviews.freelancer_id = :freelance_id");
+    $query = $db->connect()->prepare("SELECT * FROM reviews INNER JOIN account ON account.account_id = reviews.company_id WHERE reviews.freelancer_id = :freelance_id ORDER BY timestamp DESC");
     $query->execute(['freelance_id' => $_SESSION['freelance_id']]);
 
     foreach ($query as $row) {
