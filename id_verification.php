@@ -76,10 +76,15 @@
             </div>
 
         </div>
+
+        <div class="input-group flex-nowrap mt-3 mb-3">
+            <span class="input-group-text" id="addon-wrapping">ID Number: </span>
+            <input type="text" class="form-control" placeholder="Enter ID number"  aria-describedby="addon-wrapping">
+        </div>
         
         <div class="container-bottom">
             <div class="bot-top">
-                <input type="checkbox">
+                <input type="checkbox" id="">
                 <span class="white- hereby">I hereby declare that the information contained in this form is complete, valid and truthful</span>
             </div>
             <div class="bot-bot mt-3">
