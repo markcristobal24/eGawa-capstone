@@ -250,7 +250,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                         <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status status-2">
+                                        <span class="status status-3">
                                         ' . $row['jobstatus'] . '
                                         </span>
                                         <div class="mb-3">
