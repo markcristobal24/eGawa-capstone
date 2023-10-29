@@ -59,7 +59,7 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                     <label id="sName" for="surName">Enter Surname</label>
                 </div>
 
-                <div class="form-floating mb-3 col-4 gx-2 gy-2">
+                <!-- <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <input type="text" id="barangay" name="barangay" class="form-control" placeholder="Enter Address">
                     <label id="addr" for="address">Enter Street/Baranggay</label>
                 </div>
@@ -71,9 +71,27 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                 <div class="form-floating mb-3 col-4 gx-2 gy-2">
                     <input type="text" id="province" name="province" class="form-control" placeholder="Enter Address">
                     <label id="addr" for="address">Enter City/Province</label>
-                </div>
+                </div> -->
+                <hr>
+                <p id="pickRole" class="title">Pick your Address</p>
+
+                <select class=" mb-3 col-4 gx-2 gy-2" name="province" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
+                    <option value="">Select Province</option>
+                </select>
+
+                <select class=" mb-3 col-4 gx-2 gy-2" name="municipality" id="municipalityDropdown" onchange="updateBarangayDropdown()">
+                </select>
+
+                <select class=" mb-3 col-4 gx-2 gy-2" name="barangay" id="barangayDropdown">
+                </select>
 
 
+                <input type="hidden" name="selectedProvince" id="selectedProvince">
+                <input type="hidden" name="selectedMunicipality" id="selectedMunicipality">
+                <input type="hidden" name="selectedBarangay" id="selectedBarangay">
+
+
+                <hr>
                 <div class="form-floating mb-3 col-6 gx-2 gy-2">
                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
                     <label id="uName" for="username">Enter Username</label>
@@ -187,6 +205,92 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
             </div>
         </div>
     </div>
+
+    <script>
+    async function fetchDataFromJSON(file) {
+        const response = await fetch(file);
+        const data = await response.json();
+        return data;
+    }
+
+    async function populateProvinceDropdown() {
+        const provincesData = await fetchDataFromJSON('../json/address/province.json');
+        const provinces = provincesData;
+
+        const provinceDropdown = document.getElementById('provinceDropdown');
+        provinceDropdown.innerHTML = '';
+
+        for (const province of provinces) {
+            const option = document.createElement('option');
+            option.value = province.province_code;
+            option.textContent = province.province_name;
+            option.setAttribute('data-name', province.province_name);
+            provinceDropdown.appendChild(option);
+        }
+
+        document.getElementById('selectedProvince').value = provinceDropdown.value;
+    }
+
+    async function updateMunicipalityDropdown() {
+        const selectedProvince = document.getElementById('provinceDropdown').value;
+        const municipalitiesData = await fetchDataFromJSON('../json/address/city.json');
+        const municipalities = municipalitiesData.filter(municipality => municipality.province_code ===
+            selectedProvince);
+
+        const municipalityDropdown = document.getElementById('municipalityDropdown');
+        municipalityDropdown.innerHTML = '';
+
+        for (const municipality of municipalities) {
+            const option = document.createElement('option');
+            option.value = municipality.city_code;
+            option.textContent = municipality.city_name;
+            option.setAttribute('data-name', municipality.city_name);
+            municipalityDropdown.appendChild(option);
+        }
+        document.getElementById('selectedCity').value = municipalityDropdown.value;
+        // Update barangay dropdown as well
+        updateBarangayDropdown();
+    }
+
+    async function updateBarangayDropdown() {
+        const selectedMunicipality = document.getElementById('municipalityDropdown').value;
+        const barangaysData = await fetchDataFromJSON('../json/address/barangay.json');
+        const barangays = barangaysData.filter(barangay => barangay.city_code === selectedMunicipality);
+
+        const barangayDropdown = document.getElementById('barangayDropdown');
+        barangayDropdown.innerHTML = '';
+
+        for (const barangay of barangays) {
+            const option = document.createElement('option');
+            option.value = barangay.brgy_code;
+            option.textContent = barangay.brgy_name;
+            option.setAttribute('data-name', barangay.brgy_name);
+            barangayDropdown.appendChild(option);
+        }
+    }
+    document.getElementById('selectedBarangay').value = barangayDropdown.textContent;
+    populateProvinceDropdown();
+
+    document.getElementById('provinceDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedProvince = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedProvince').value = selectedProvince;
+    });
+
+    // Update municipality dropdown
+    document.getElementById('municipalityDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedMunicipality = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedMunicipality').value = selectedMunicipality;
+    });
+
+    // Update barangay dropdown
+    document.getElementById('barangayDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedBarangay = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedBarangay').value = selectedBarangay;
+    });
+    </script>
 
 
 
