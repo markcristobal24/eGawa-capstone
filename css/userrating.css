@@ -237,6 +237,11 @@ body {
         font-size: 10px;
         color: #0073aa
     }
+    .rounded-circle{
+        height: 50px;
+        width: 50px;
+        margin-bottom: 5px;
+    }
 
     i {
         color: #0073aa;
