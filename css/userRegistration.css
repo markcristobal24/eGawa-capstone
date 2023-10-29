@@ -45,6 +45,11 @@ p,
   padding-left: 20px;
   padding-right: 20px;
 }
+.add-{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
 
 .custom-shape-divider-bottom-1690684253 {
   position: absolute;
