@@ -27,7 +27,7 @@ function selectChoice(choice) {
     if (choice === 'choice1') {
         choice1.classList.add('selected');
         choice2.classList.remove('selected');
-        button.textContent = "Continue as User";
+        button.textContent = "Continue as Company";
         selectedChoice = "user/userRegistration.php";
     } else if (choice === 'choice2') {
         choice2.classList.add('selected');
