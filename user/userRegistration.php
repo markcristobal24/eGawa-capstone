@@ -75,14 +75,14 @@ if (isset($_SESSION['account_id']) && $_SESSION['userType'] == "user") {
                 <hr>
                 <p id="pickRole" class="title">Pick your Address</p>
 
-                <select class=" mb-3 col-4 gx-2 gy-2" name="province" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
+                <select class="add- mb-3 col-4" name="province" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
                     <option value="">Select Province</option>
                 </select>
 
-                <select class=" mb-3 col-4 gx-2 gy-2" name="municipality" id="municipalityDropdown" onchange="updateBarangayDropdown()">
+                <select class="add- mb-3 col-4" name="municipality" id="municipalityDropdown" onchange="updateBarangayDropdown()">
                 </select>
 
-                <select class=" mb-3 col-4 gx-2 gy-2" name="barangay" id="barangayDropdown">
+                <select class="add- mb-3 col-4" name="barangay" id="barangayDropdown">
                 </select>
 
 
