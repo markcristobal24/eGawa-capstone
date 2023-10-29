@@ -356,6 +356,14 @@ body {
   .boxes-data{
     font-size: 40px;
   }
+
+  .addr{
+   margin-left: 20px;
+  }
+  .image-holder{
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /*============================ LAPTOP ===========================*/
