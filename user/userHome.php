@@ -310,11 +310,87 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#apply-job-modal">Apply</button> -->
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        data-bs-target="#edit-post-modal">Edit</button>
+                    <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button> -->
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FOR EDIT POST MODAL-->
+    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="post_form" method="POST">
+                        <div class="toFlex">
+                            <div class="dropdownOptionPost">
+                                <select id="filterOptionPost" name="post_category">
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile Development">Mobile Development</option>
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="Multimedia">Multimedia</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mx-3">
+                            <input type="text"  id="title" name="post_title" placeholder="Job Title" required>   
+                        </div>
+
+                        <div class="descContainer mx-3">
+                            <textarea id="description" placeholder="Job Description" name="post_description"></textarea>
+                        </div>
+
+                        <div class="mx-3">
+                            <input type="text" id="tags" name="post_tags" placeholder="Tags" required>
+                        </div>
+
+                        <div class="rateInput input-group col-4">
+                            <span class="input-group-text">&#8369;</span>
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                                name="rate" placeholder="Enter rate" required>
+                            <span class="input-group-text">.00</span>
+                        </div>
+
+                        <!-- <div class="btns">
+                            <input id="submitPost" class="btn" type="button" value="Submit"
+                                onclick="new Posts().post();">
+                            <input id="clearPost" class="btn" type="button" value="Clear">
+                        </div> -->
+                </form>
+                
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-post-modal">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#edit-post-modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION DELETE POST MODAL -->
+    <div class="modal fade" id="delete-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Post?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this post?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+            </div>
             </div>
         </div>
     </div>
