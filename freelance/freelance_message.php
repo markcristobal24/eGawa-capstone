@@ -367,9 +367,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                         <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
-                                        <span class="status status-1">
+                                        <span class="status status-3">
                                         ' . $row['jobstatus'] . '
                                         </span>
+                                        <div class="mb-3">
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                        </div>
                                     </div>
                                 </div>
                                 ';

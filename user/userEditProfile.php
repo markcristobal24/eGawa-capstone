@@ -68,17 +68,31 @@ if (!isset($_SESSION['account_id'])) {
 
                     <span class="font title">Edit Address</span>
                     <div class="addr">
-                        <label class="font" for="addr">Street/Barangay</label>
-                        <input id="new_barangay" type="text" value="" name="new_barangay" class="text">
+                        <label class="font" for="addr">City/Province</label>
+                        <!-- <input id="new_province" type="text" value="" name="new_province" class="text"> -->
+                        <select class="add-" name="province" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
+                        <option value="">Select Province</option>
+                        </select>
                     </div>
+                    
                     <div class="addr">
                         <label class="font" for="addr">Municipality</label>
-                        <input id="new_municipality" type="text" value="" name="new_municipality" class="text">
+                        <!-- <input id="new_municipality" type="text" value="" name="new_municipality" class="text"> -->
+                        <select class="add-" name="municipality" id="municipalityDropdown" onchange="updateBarangayDropdown()">
+                        </select>
                     </div>
+
                     <div class="addr">
-                        <label class="font" for="addr">City/Province</label>
-                        <input id="new_province" type="text" value="" name="new_province" class="text">
+                        <label class="font" for="addr">Street/Barangay</label>
+                        <!-- <input id="new_barangay" type="text" value="" name="new_barangay" class="text"> -->
+                        <select class="add-" name="barangay" id="barangayDropdown">
+                        </select>
                     </div>
+                    
+
+                    <input type="hidden" name="selectedProvince" id="selectedProvince">
+                    <input type="hidden" name="selectedMunicipality" id="selectedMunicipality">
+                    <input type="hidden" name="selectedBarangay" id="selectedBarangay">
 
                     <div class="btns">
                         <div class="end">
@@ -88,6 +102,7 @@ if (!isset($_SESSION['account_id'])) {
                                 onclick="window.location.replace('userHome.php');">Back</button>
                         </div>
                     </div>
+                    
 
                 </div>
 
@@ -138,6 +153,89 @@ if (!isset($_SESSION['account_id'])) {
 </body>
 <script>
 new Account().fetch_user();
+async function fetchDataFromJSON(file) {
+        const response = await fetch(file);
+        const data = await response.json();
+        return data;
+    }
+
+    async function populateProvinceDropdown() {
+        const provincesData = await fetchDataFromJSON('../json/address/province.json');
+        const provinces = provincesData;
+
+        const provinceDropdown = document.getElementById('provinceDropdown');
+        provinceDropdown.innerHTML = '';
+
+        for (const province of provinces) {
+            const option = document.createElement('option');
+            option.value = province.province_code;
+            option.textContent = province.province_name;
+            option.setAttribute('data-name', province.province_name);
+            provinceDropdown.appendChild(option);
+        }
+
+        document.getElementById('selectedProvince').value = provinceDropdown.value;
+    }
+
+    async function updateMunicipalityDropdown() {
+        const selectedProvince = document.getElementById('provinceDropdown').value;
+        const municipalitiesData = await fetchDataFromJSON('../json/address/city.json');
+        const municipalities = municipalitiesData.filter(municipality => municipality.province_code ===
+            selectedProvince);
+
+        const municipalityDropdown = document.getElementById('municipalityDropdown');
+        municipalityDropdown.innerHTML = '';
+
+        for (const municipality of municipalities) {
+            const option = document.createElement('option');
+            option.value = municipality.city_code;
+            option.textContent = municipality.city_name;
+            option.setAttribute('data-name', municipality.city_name);
+            municipalityDropdown.appendChild(option);
+        }
+        document.getElementById('selectedCity').value = municipalityDropdown.value;
+        // Update barangay dropdown as well
+        updateBarangayDropdown();
+    }
+
+    async function updateBarangayDropdown() {
+        const selectedMunicipality = document.getElementById('municipalityDropdown').value;
+        const barangaysData = await fetchDataFromJSON('../json/address/barangay.json');
+        const barangays = barangaysData.filter(barangay => barangay.city_code === selectedMunicipality);
+
+        const barangayDropdown = document.getElementById('barangayDropdown');
+        barangayDropdown.innerHTML = '';
+
+        for (const barangay of barangays) {
+            const option = document.createElement('option');
+            option.value = barangay.brgy_code;
+            option.textContent = barangay.brgy_name;
+            option.setAttribute('data-name', barangay.brgy_name);
+            barangayDropdown.appendChild(option);
+        }
+    }
+    document.getElementById('selectedBarangay').value = barangayDropdown.textContent;
+    populateProvinceDropdown();
+
+    document.getElementById('provinceDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedProvince = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedProvince').value = selectedProvince;
+    });
+
+    // Update municipality dropdown
+    document.getElementById('municipalityDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedMunicipality = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedMunicipality').value = selectedMunicipality;
+    });
+
+    // Update barangay dropdown
+    document.getElementById('barangayDropdown').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const selectedBarangay = selectedOption.getAttribute('data-name');
+        document.getElementById('selectedBarangay').value = selectedBarangay;
+    });
 </script>
 
 </html>

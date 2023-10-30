@@ -10,7 +10,7 @@ body {
 @media (max-width: 5000px) {
 
     .container_{
-        margin: 15vh auto;
+        margin: 10vh auto;
         width: 50vw;
         height: fit-content;
         padding: 10px 10px 30px;
@@ -105,6 +105,11 @@ body {
         background-color: #4b4d4d;
         color: #FFFFFF;
     }
+    .add-{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+      }
 
 
 
@@ -140,7 +145,7 @@ body {
 @media (max-width: 1366px) {
 
     .container_{
-        margin: 10vh auto;
+        margin: 5vh auto;
         width: 60vw;
         height: fit-content;
         padding: 10px 10px 30px;
@@ -162,7 +167,7 @@ body {
         position: relative;
         display: block;
         width: calc(236% + 1.3px);
-        height: 100px;
+        height: 50px;
         transform: rotateY(180deg);
     }
 

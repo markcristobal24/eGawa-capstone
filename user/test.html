@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test address</title>
+</head>
+
+<body>
+    <select name="" id="provinceDropdown" onchange="updateMunicipalityDropdown()">
+
+    </select>
+
+    <select name="" id="municipalityDropdown" onchange="updateBarangayDropdown()">
+
+    </select>
+
+    <select name="" id="barangayDropdown">
+
+    </select>
+
+    <script>
+        async function fetchDataFromJSON(file) {
+            const response = await fetch(file);
+            const data = await response.json();
+            return data;
+        }
+
+        async function populateProvinceDropdown() {
+            const provincesData = await fetchDataFromJSON('province.json');
+            const provinces = provincesData;
+
+            const provinceDropdown = document.getElementById('provinceDropdown');
+            provinceDropdown.innerHTML = '';
+
+            for (const province of provinces) {
+                const option = document.createElement('option');
+                option.value = province.province_code;
+                option.textContent = province.province_name;
+                provinceDropdown.appendChild(option);
+            }
+        }
+
+        async function updateMunicipalityDropdown() {
+            const selectedProvince = document.getElementById('provinceDropdown').value;
+            const municipalitiesData = await fetchDataFromJSON('city.json');
+            const municipalities = municipalitiesData.filter(municipality => municipality.province_code === selectedProvince);
+
+            const municipalityDropdown = document.getElementById('municipalityDropdown');
+            municipalityDropdown.innerHTML = '';
+
+            for (const municipality of municipalities) {
+                const option = document.createElement('option');
+                option.value = municipality.city_code;
+                option.textContent = municipality.city_name;
+                municipalityDropdown.appendChild(option);
+            }
+
+            // Update barangay dropdown as well
+            updateBarangayDropdown();
+        }
+
+        async function updateBarangayDropdown() {
+            const selectedMunicipality = document.getElementById('municipalityDropdown').value;
+            const barangaysData = await fetchDataFromJSON('barangay.json');
+            const barangays = barangaysData.filter(barangay => barangay.city_code === selectedMunicipality);
+
+            const barangayDropdown = document.getElementById('barangayDropdown');
+            barangayDropdown.innerHTML = '';
+
+            for (const barangay of barangays) {
+                const option = document.createElement('option');
+                option.value = barangay.brgy_code;
+                option.textContent = barangay.brgy_name;
+                barangayDropdown.appendChild(option);
+            }
+        }
+
+        populateProvinceDropdown();
+
+    </script>
+</body>
+
+</html>
