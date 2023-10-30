@@ -142,11 +142,11 @@ if (isset($_POST['update_profile'])) {
         }
     } else {
         $new_profile = $_FILES['new_profile']['tmp_name'];
-        $new_barangay = $_POST['new_barangay'];
-        $new_municipality = $_POST['new_municipality'];
-        $new_province = $_POST['new_province'];
+        $new_barangay = $_POST['selectedBarangay'];
+        $new_municipality = $_POST['selectedMunicipality'];
+        $new_province = $_POST['selectedProvince'];
 
-        if ($_SESSION['user_image'] != $new_profile || $_SESSION['address'] != $new_address) {
+        if ($_SESSION['user_image'] != $new_profile && !empty($new_province) && !empty($new_municipality) && !empty($new_barangay)) {
             $image_link = $new_profile;
             if (!empty($new_profile)) {
                 // $upload_image = new Image();
@@ -172,7 +172,7 @@ if (isset($_POST['update_profile'])) {
             } else {
                 $output['error'] = "Something went wrong! Please try again later.";
             }
-        } else if ($new_address == "") {
+        } else if (empty($new_barangay) || empty($new_municipality) || empty($new_province)) {
             $output['error'] = "Please input some details!";
         } else {
             $output['error'] = "No changes have been made";

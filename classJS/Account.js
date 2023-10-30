@@ -460,9 +460,31 @@ class Account {
         }).then((response_data) => {
             console.log(response_data);
             let user = response_data;
-            document.getElementById('new_barangay').value = `${user.barangay}`;
-            document.getElementById('new_municipality').value = `${user.municipality}`;
-            document.getElementById('new_province').value = `${user.province}`;
+            // document.getElementById('new_barangay').value = `${user.barangay}`;
+            // document.getElementById('new_municipality').value = `${user.municipality}`;
+            // document.getElementById('new_province').value = `${user.province}`;
+
+            let province = document.getElementById('provinceDropdown');
+            for (var i = 0; i < province.options.length; i++) {
+                if (province.options[i].textContent === `${user.province}`) {
+                    province.selectedIndex = i;
+                    break;
+                }
+            }
+            let municipality = document.getElementById('municipalityDropdown');
+            for (var i = 0; i < municipality.options.length; i++) {
+                if (municipality.options[i].textContent === `${user.municipality}`) {
+                    municipality.selectedIndex = i;
+                    break;
+                }
+            }
+            let barangay = document.getElementById('barangayDropdown');
+            for (var i = 0; i < barangay.options.length; i++) {
+                if (barangay.options[i].textContent === `${user.barangay}`) {
+                    barangay.selectedIndex = i;
+                    break;
+                }
+            }
             document.getElementById('uname').value = `${user.username}`;
 
             if (user.user_image != "") {

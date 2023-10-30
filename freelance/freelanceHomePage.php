@@ -439,15 +439,15 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             <div class="box-">
                                 <div class="box-1 boxes">
                                     <span>Applied:</span>
-                                    <span class="boxes-data">100</span>
+                                    <span class="boxes-data" id="total_applied_freelancer">100</span>
                                 </div>
                                 <div class="box-2 boxes">
                                     <span>Accepted:</span>
-                                    <span class="boxes-data">60</span>
+                                    <span class="boxes-data" id="total_accepted_freelancer">60</span>
                                 </div>
                                 <div class="box-2 boxes">
                                     <span>Declined:</span>
-                                    <span class="boxes-data">60</span>
+                                    <span class="boxes-data" id="total_declined_freelancer">60</span>
                                 </div>
 
                             </div>
@@ -598,6 +598,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="../js/createNewDiv.js"></script>
     <script src="../classJS/Catalog.js"></script>
     <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Dashboard.js"></script>
     <script src="../classJS/Notification.js"></script>
     <script src="../js/script.js"></script>
     <!-- <script src="../js/validate.js"></script> -->
@@ -607,6 +608,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        new Dashboard().get_information_freelancer();
         // let counter = 0;
         // if (counter <= 0) {
         //     lightGallery(document.getElementById('userProfileChild'), {
