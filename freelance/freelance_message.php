@@ -357,7 +357,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         $query = $db->connect()->prepare("SELECT * FROM job_application
                                 INNER JOIN jobposts ON job_application.post_id = jobposts.post_id
                                 INNER JOIN account ON job_application.user_id = account.account_id
-                                WHERE job_application.freelance_id = :account_id AND job_application.jobstatus = 'COMPLETED' ORDER BY timestamp DESC");
+                                INNER JOIN reviews ON job_application.application_id = reviews.application_id
+                                WHERE job_application.freelance_id = :account_id AND job_application.jobstatus = 'COMPLETED' ORDER BY job_application.timestamp DESC");
                         $query->execute([':account_id' => $_SESSION['account_id']]);
                         foreach ($query as $row) {
                             echo '
@@ -368,14 +369,25 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                     </div>
                                     <div class="child right">
                                         <span class="status status-3">
-                                        ' . $row['jobstatus'] . '
+                                        ' . $row['jobstatus'] .
+                            '
                                         </span>
                                         <div class="mb-3">
-                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                            <i class="fas fa-star star-light mr-1 main_star"></i>
-                                            <i class="fas fa-star star-light mr-1 main_star"></i>
+                                            ';
+                            for ($star = 1; $star <= 5; $star++) {
+                                $class_name = '';
+
+                                if ($row['rating'] >= $star) {
+                                    $class_name = 'text-warning';
+                                } else {
+                                    $class_name = 'star-light';
+                                }
+                                echo
+                                '<i class="fas fa-star ' . $class_name . ' mr-1"></i>';
+                            }
+                            echo '
+
+                                            
                                         </div>
                                     </div>
                                 </div>
