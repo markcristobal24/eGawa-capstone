@@ -134,4 +134,27 @@ class Catalog {
             document.getElementById('container-description').innerHTML = `${cat.catalogDescription}`;
         });
     }
+
+    view_catalogs_user(id) {
+        console.log(id);
+        let form_data = new FormData();
+        form_data.append('id', id);
+        form_data.append('view_catalog', 'view_catalog');
+        fetch('../controller/c_catalog.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            console.log(response_data.catalogImage)
+            let cat = response_data;
+
+            // document.getElementById('delete_catalog').value = `${cat.catalog_id}`;
+            // document.getElementById('edit_catalog').value = `${cat.catalog_id}`;
+            document.getElementById('exampleModalLabel').innerHTML = `${cat.catalogTitle}`;
+            document.getElementById('catalogImage').src = `../img/uploads/freelancer/catalog/${cat.catalogImage}`;
+            document.getElementById('container-description').innerHTML = `${cat.catalogDescription}`;
+        });
+    }
 }
