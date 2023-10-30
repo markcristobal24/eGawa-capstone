@@ -123,6 +123,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <?php echo "@" . $fetch['username']; ?>
                     </p>
 
+                    <a href="view_freelance_rating.php" id="rating">
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i id="average_rating">4.5/5</i><span> / 5</span>
+                        <span>(<i id="total_review">4.5 </i> Reviews)</span>
+                    </a>
+
                     <div class="rating">
                         <span class="star" data-value="1"></span>
                         <span class="star" data-value="2"></span>
@@ -341,6 +351,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             <?php echo "@" . $fetch['username']; ?>
                         </p>
 
+
+
                         <div class="flexDiv">
                             <img src="../img/address.png" alt="" class="addressImg" height="20px">
                             <div class="freelanceAddress marg">
@@ -355,13 +367,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             </div>
                         </div>
 
-                        <div class="rating">
-                            <span class="star" data-value="1"></span>
-                            <span class="star" data-value="2"></span>
-                            <span class="star" data-value="3"></span>
-                            <span class="star" data-value="4"></span>
-                            <span class="star" data-value="5"></span>
-                        </div>
+
 
                         <div id="" class="titles">
                             Jobs and Roles:
@@ -609,6 +615,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
     <script>
         new Dashboard().get_information_freelancer();
+        new Account().fetch_ratings_freelancer(<?php echo $_SESSION['account_id'] ?>);
         // let counter = 0;
         // if (counter <= 0) {
         //     lightGallery(document.getElementById('userProfileChild'), {

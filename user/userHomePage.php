@@ -28,6 +28,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/userHomePage.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -41,7 +42,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 <body>
     <?php include "../other/navbar.php"; ?>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
 
         <div class="div2">
@@ -286,6 +287,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
     <script src="../js/script.js "></script>
     <script src="../classJS/Dashboard.js"></script>
+    <script src="../classJS/Notification.js"></script>
+    <script src="../classJS/Account.js"></script>
     <script src="../js/user.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"
