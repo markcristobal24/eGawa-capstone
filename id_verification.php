@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | ID Verification</title>
 
     <!-- start -- links for fonts -->
@@ -36,19 +36,19 @@
     <!-- Link for CSS -->
     <!-- <link rel="stylesheet" href="../css/userEditProfile.css"> -->
     <link rel="stylesheet" href="id_verification.css">
-    <link rel="stylesheet" href="../css/notification.css">
+    <link rel="stylesheet" href="css/notification.css">
 
 
 </head>
 
 <body>
-
-    <form class="container_">
+    <div class="toast_notif" id="toast_notif"></div>
+    <form class="container_" id="idverify_form" enctype="multipart/form-data">
         <div class="cont-dflex">
 
             <div class="container-left">
                 <h1 class="white- header_title">Upload ID</h1>
-                <select id="id-dropdown">
+                <select id="id-dropdown" name="id_type">
                     <option value="none">Pick an ID type</option>
                     <option value="umid">UMID</option>
                     <option value="drive">Drivers License</option>
@@ -57,7 +57,7 @@
                     <option value="passport">Passport</option>
                     <option value="tin">TIN ID</option>
                     <option value="voters">Voters ID</option>
-                    
+
                 </select>
                 <div id="id-box">
                     <img id="id-image" src="" alt="ID Image">
@@ -67,11 +67,11 @@
             <div class="container-right">
                 <div class="id-front">
                     <label for="front-id" class="white-">Front ID Image</label>
-                    <input type="file" id="front-id" accept="image/*" required>
+                    <input type="file" id="front-id" name="front_id" accept="image/*" required>
                 </div>
                 <div class="id-back mt-3">
                     <label for="back-id" class="white-">Back ID Image</label>
-                    <input type="file" id="back-id" accept="image/*" required>
+                    <input type="file" id="back-id" name="back_id" accept="image/*" required>
                 </div>
             </div>
 
@@ -79,16 +79,19 @@
 
         <div class="input-group flex-nowrap mt-3 mb-3">
             <span class="input-group-text" id="addon-wrapping">ID Number: </span>
-            <input type="text" class="form-control" placeholder="Enter ID number"  aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" name="id_number" placeholder="Enter ID number"
+                aria-describedby="addon-wrapping">
         </div>
-        
+
         <div class="container-bottom">
             <div class="bot-top">
                 <input type="checkbox" id="">
-                <span class="white- hereby">I hereby declare that the information contained in this form is complete, valid and truthful</span>
+                <span class="white- hereby">I hereby declare that the information contained in this form is complete,
+                    valid and truthful</span>
             </div>
             <div class="bot-bot mt-3">
-                <button type="button" class="btn btn-primary">Send</button>
+                <button type="button" class="btn btn-primary" id="btn_verifyID"
+                    onclick="new Account().id_verify();">Send</button>
                 <button type="button" class="btn btn-secondary">Back</button>
             </div>
         </div>
@@ -114,39 +117,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="../js/user.js"></script>
-    <script src="../classJS/Account.js"></script>
-    <script src="../classJS/Notification.js"></script>
+    <script src="js/user.js"></script>
+    <script src="classJS/Account.js"></script>
+    <script src="classJS/Notification.js"></script>
 </body>
 <script>
+const idDropdown = document.getElementById("id-dropdown");
+const idImage = document.getElementById("id-image");
 
-    const idDropdown = document.getElementById("id-dropdown");
-    const idImage = document.getElementById("id-image");
+idDropdown.addEventListener("change", function() {
+    const selectedId = idDropdown.value;
+    if (selectedId === "none") {
+        idImage.src = "";
+        idImage.alt = "Animal Image";
+    } else {
 
-    idDropdown.addEventListener("change", function () {
-        const selectedId = idDropdown.value;
-        if (selectedId === "none") {
-            idImage.src = "";
-            idImage.alt = "Animal Image";
-        } else {
+        const imageSources = {
+            umid: "img/umid.png",
+            drive: "img/drivers.jpg",
+            philhealth: "img/philhealth.png",
+            sss: "img/umid.png",
+            passport: "img/passport.png",
+            tin: "img/tin.png",
+            voters: "img/voters.png",
+        };
 
-            const imageSources = {
-                umid: "img/umid.png",
-                drive: "img/drivers.jpg",
-                philhealth: "img/philhealth.png",
-                sss: "img/umid.png",
-                passport: "img/passport.png",
-                tin: "img/tin.png",
-                voters: "img/voters.png",
-            };
-
-            if (imageSources[selectedId]) {
-                idImage.src = imageSources[selectedId];
-                idImage.alt = selectedId.charAt(0).toUpperCase() + selectedId.slice(1);
-            }
+        if (imageSources[selectedId]) {
+            idImage.src = imageSources[selectedId];
+            idImage.alt = selectedId.charAt(0).toUpperCase() + selectedId.slice(1);
         }
-    });
-
+    }
+});
 </script>
 
 </html>

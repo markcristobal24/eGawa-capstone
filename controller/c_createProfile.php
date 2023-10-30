@@ -59,7 +59,7 @@ if (isset($_POST['create_fprofile'])) {
             $query->execute([':email' => $email]);
             $output['success'] = "Profile Created. Redirecting...";
         }
-    } else if ($profileImg == null) {
+    } else if (empty($profileImg)) {
         $output['error'] = "Please upload your profile picture!";
     } else if ($selectedData == "") {
         $output['error'] = "Please select your job role!";
@@ -86,14 +86,12 @@ if (isset($_POST['edit_fprofile'])) {
     $query->execute([':email' => $email_identifier]);
     $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
-    if (isset($_POST['new_barangay']) || isset($_POST['new_municipality']) || isset($_POST['new_province'])) {
-        $new_barangay = $_POST['new_barangay'];
-        $new_municipality = $_POST['new_municipality'];
-        $new_province = $_POST['new_province'];
+    if (isset($_POST['selectedProvince']) || isset($_POST['selectedMunicipality']) || isset($_POST['selectedBarangay'])) {
+        $new_barangay = $_POST['selectedBarangay'];
+        $new_municipality = $_POST['selectedMunicipality'];
+        $new_province = $_POST['selectedProvince'];
 
-        $new_barangay = trim($new_barangay);
-        $new_municipality = trim($new_municipality);
-        $new_province = trim($new_province);
+
 
         $query = $db->connect()->prepare("UPDATE profile SET barangay = :barangay, municipality = :municipality, province = :province WHERE email = :email");
         $result = $query->execute([

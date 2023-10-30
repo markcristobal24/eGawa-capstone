@@ -15,7 +15,7 @@ if (isset($_POST['change_email'])) {
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email_identifier]);
-    
+
     if ($old_email === "" && $new_email === "") {
         $output['error'] = "Incomplete Details!";
     } else if ($old_email !== $email_identifier) {
@@ -29,7 +29,7 @@ if (isset($_POST['change_email'])) {
         if ($result) {
             $query = $db->connect()->prepare("UPDATE profile SET email = :new_email WHERE email = :old_email");
             $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
-            
+
             if ($result) {
                 $query = $db->connect()->prepare("UPDATE catalog SET email = :new_email WHERE email = :old_email");
                 $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
@@ -69,7 +69,7 @@ if (isset($_POST['change_password'])) {
             } else if (password_verify($old_pass, $old_hash)) {
                 $query = $db->connect()->prepare("UPDATE account SET password = :password WHERE email = :email");
                 $result = $query->execute([':password' => $encrypted_password, ':email' => $email_identifier]);
-               
+
                 if ($result) {
                     $output['success'] = "Password has been changed.";
                 }
@@ -96,4 +96,49 @@ if (isset($_POST['resendOtp'])) {
 
     echo json_encode($output);
 }
-?>
+
+if (isset($_POST['id_verification'])) {
+    $freelance_id = $_SESSION['account_id'];
+    $id_type = $_POST['id_type'];
+    $front_id = $_FILES['front_id']['tmp_name'];
+    $back_id = $_FILES['back_id']['tmp_name'];
+    $id_number = $_POST['id_number'];
+
+    if (empty($front_id) || empty($back_id) || empty($id_number) || $id_type == 'none') {
+        $output['error'] = "Please provide all the details!";
+    } else {
+        $front_link = $front_id;
+        if (!empty($front_id)) {
+            $front_name = $acc->generate_imageName(6);
+            $front_directory = '../img/uploads/freelancer/id/' . $front_name . basename($_FILES['front_id']['name']);
+            $front_link = $front_name . basename($_FILES['front_id']['name']);
+            move_uploaded_file($front_id, $front_directory);
+        }
+        $back_link = $back_id;
+        if (!empty($back_link)) {
+            $back_name = $acc->generate_imageName(6);
+            $back_directory = '../img/uploads/freelancer/id/' . $back_name . basename($_FILES['back_id']['name']);
+            $back_link = $back_name . basename($_FILES['back_id']['name']);
+            move_uploaded_file($back_id, $back_directory);
+        }
+
+        $query = $db->connect()->prepare("INSERT INTO id_verification (account_id, id_type, front_image, back_image, id_number, verify_status)
+        VALUES (:account_id, :id_type, :front_image, :back_image, :id_number, :verify_status)");
+        $result = $query->execute([
+            ':account_id' => $freelance_id,
+            ':id_type' => $id_type,
+            ':front_image' => $front_link,
+            ':back_image' => $back_link,
+            ':id_number' => $id_number,
+            ':verify_status' => 'PENDING'
+        ]);
+
+        if ($result) {
+            $output['success'] = 'Your id verification has been submitted.';
+        } else {
+            $output['error'] = "Something went wrong. Please try again.";
+        }
+    }
+
+    echo json_encode($output);
+}

@@ -546,4 +546,33 @@ class Account {
             }
         }
     }
+
+    id_verify() {
+        let button_value = new Account().get_button_value("btn_verifyID");
+        new Account().button_loading("btn_verifyID", "loading", "");
+
+        let form_data = new FormData(document.getElementById('idverify_form'));
+        form_data.append('id_verification', 'id_verification');
+        fetch('controller/c_Faccount.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.replace('freelance/freelanceHomePage.php');
+                    window.clearTimeout(tID);
+                }, 2000);
+            }
+            else if (response_data.error) {
+                new Account().button_loading("btn_verifyID", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
 }
