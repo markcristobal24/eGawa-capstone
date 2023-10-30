@@ -12,9 +12,9 @@ if (isset($_POST['user_register'])) {
     $firstName = $_POST["fName"];
     $middleName = $_POST["mName"];
     $lastName = $_POST["lName"];
-    $barangay = $_POST["barangay"];
-    $municipality = $_POST["municipality"];
-    $province = $_POST["province"];
+    $barangay = $_POST["selectedBarangay"];
+    $municipality = $_POST["selectedMunicipality"];
+    $province = $_POST["selectedProvince"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
