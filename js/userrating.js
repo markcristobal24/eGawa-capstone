@@ -210,7 +210,7 @@ $(document).ready(function () {
 
                     html += data.review_data[count].user_review;
 
-                    html += '<img src = "../img/uploads/company/reviews/' + data.review_data[count].screenshot + '" style="height: 150px; display: block;">'
+                    html += '<img src = "../img/uploads/company/reviews/' + data.review_data[count].screenshot + '" style="height: 150px; width: 150px; display: block;">'
 
                     html += '</div>';
 
