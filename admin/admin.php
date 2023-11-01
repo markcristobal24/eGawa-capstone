@@ -40,7 +40,7 @@
                             <span class="white- hov-">Manage</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Freelaner</a></li>
+                            <li><a class="dropdown-item" href="#">Freelancer</a></li>
                             <li><a class="dropdown-item" href="#">Company</a></li>
                             <li>
                                 <hr class="dropdown-divider">
