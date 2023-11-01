@@ -37,7 +37,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="white- hov-">Manage</span>
+                            <span class="white- hov-">Manage Users</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Freelancer</a></li>
@@ -49,7 +49,7 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <div class="d-flex">
                     <span class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="white- hov-">Hi, Admin <span>Sulit</span></span>
@@ -58,7 +58,7 @@
                             <li><a class="dropdown-item" href="#">Log out</a></li>
                         </ul>
                     </span>
-                </form>
+                </div>
             </div>
         </div>
     </nav>
