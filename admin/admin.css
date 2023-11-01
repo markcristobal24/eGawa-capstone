@@ -5,42 +5,27 @@ body {
     margin: 0;
   }
 
-  header{
+  /* ===for nav bar====== */
+  nav{
     background-image: linear-gradient(to right, #0073aa, #8000aa);
     box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
     color: #fff;
   }
 
+  .white-{
+    color: #fff;
+  }
+  .hov-:hover{
+    color: coral;
+  }
+  
+
+
+  /* ====for conatiner====== */
   .container-{
     display: flex;
   }
 
-  #side-menu{
-    background-color: rgb(114, 114, 114);
-  }
-
-
-  .offcanvas-body{
-    padding: 0;
-    margin-left: 10px;
-  }
-  .offcanvas-body li {
-    list-style: none;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    padding-left: 0; /* Optional: Remove the default left padding */
-  }
-
-  a, .offcanvas-title{
-    text-decoration: none;
-    font-size: 25px;
-    color: aliceblue;
-  }
-  .offcanvas-body li:hover{
-    background-color: #ffffff;
-  }
-  .offcanvas-body li:hover a{
-    color: rgb(85, 85, 85);
-  }
   
 
   .content{
@@ -100,11 +85,6 @@ body {
     /* flex-direction: column; */
   }
 
-.sidebar{
-    background-color: rgb(90, 90, 90);
-    width: 10%;
-    height: 100vh;
-  }
   .sidebar span{
     display: none;
   }
