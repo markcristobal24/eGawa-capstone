@@ -261,8 +261,8 @@ if (isset($_POST['search_post'])) {
 if (isset($_POST['delete_post'])) {
     $post_id = $_POST['post_id'];
 
-    $query = $db->connect()->prepare("DELETE FROM jobposts WHERE post_id = :post_id");
-    $result = $query->execute([':post_id' => $post_id]);
+    $query = $db->connect()->prepare("UPDATE jobposts SET post_status = :post_status WHERE post_id = :post_id");
+    $result = $query->execute([':post_status' => 'ARCHIVED', ':post_id' => $post_id]);
 
     if ($result) {
         $output['success'] = "Post deleted successfully.";

@@ -201,6 +201,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                         ' . $row['jobstatus'] . '
                                         </span>
                                     </div>
+                                    
                                 </div>
                                 ';
                         }
@@ -433,6 +434,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="mb-3">
                         <!-- <label for="formFileSm" class="form-label label">Upload file</label>
                         <input class="form-control form-control-sm" id="formFileSm" type="file"> -->
+                    </div>
+                    <div>
+                        <button type="button" id="view_resume">View Resume</button>
                     </div>
 
                     <div class="modal-footer">

@@ -22,6 +22,11 @@ class Job {
                 document.getElementById('from').innerHTML = `${job.from_name}`;
                 document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
                 document.getElementById('from_message').innerHTML = `${job.message}`;
+                let view_resume = document.getElementById('view_resume');
+                let url = `../img/uploads/freelancer/resume/${job.resume}`;
+                view_resume.addEventListener("click", function () {
+                    window.open(url, "_blank");
+                });
             }
             else if (status == 'ONGOING') {
                 document.getElementById('btn_proceed_end').value = `${job.freelance_id}`;

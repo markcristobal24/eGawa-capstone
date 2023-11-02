@@ -31,9 +31,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Homepage</title>
@@ -116,12 +114,11 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             <?php
             if (isset($_SESSION['user_image'])) {
             ?>
-            <img id="userPic" src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" alt="user profile"
-                title="user profile">
+                <img id="userPic" src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" alt="user profile" title="user profile">
             <?php
             } else {
             ?>
-            <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
+                <img id="userPic" src="../img/profile.png" alt="user profile" title="user profile">
             <?php
             }
             ?>
@@ -167,8 +164,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <img id="uploadedImageUser" src="../img/upload.png" alt="Uploaded Image" height="200">
                     </div>
                     <div>
-                        <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)"
-                            required>
+                        <input id="uploadedImageUser1" type="file" accept="image/*" onchange="loadImageUser(event)" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -184,8 +180,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     </div>
 
     <!--Modal for USER EDIT ACCOUNT-->
-    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdropYow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content mt-5">
                 <div class="modal-header">
@@ -197,17 +192,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div id="imgUpl">
                             <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                             <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image"
-                                    height="200">
+                                <img id="uploadedImageCatalog" src="../img/upload.png" alt="Uploaded Image" height="200">
                             </div>
-                            <input id="uploadInput" type="file" name="catalogImg" accept="image/*"
-                                onchange="catalogImgUp(event)">
+                            <input id="uploadInput" type="file" name="catalogImg" accept="image/*" onchange="catalogImgUp(event)">
                         </div>
 
                         <div class="form-floating mb-3 col-11 gx-2 gy-2 mx-auto">
                             <!-- Gap on all sides is 2 -->
-                            <input type="text" id="catalogTitle" name="catalogTitle" class="form-control"
-                                placeholder="Address">
+                            <input type="text" id="catalogTitle" name="catalogTitle" class="form-control" placeholder="Address">
                             <label id="catalogTitleLabel" for="companyName">Address</label>
                         </div>
 
@@ -228,8 +220,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><span
-                            class="text-primary"><?php echo $fullname; ?></span><span>'s</span> Dashboard</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><span class="text-primary"><?php echo $fullname; ?></span><span>'s</span> Dashboard</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -262,8 +253,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                         <div class="list-group">
                             <?php
-                            $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.account_id = :account_id ORDER BY posted_date DESC");
-                            $query->execute([':account_id' => $_SESSION['account_id']]);
+                            $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.account_id = :account_id AND jobposts.post_status != :status ORDER BY jobposts.posted_date DESC");
+                            $query->execute([':status' => 'ARCHIVED', ':account_id' => $_SESSION['account_id']]);
                             foreach ($query as $row) {
                                 $currentDateTime = $row['posted_date'];
                                 $dateTimeObj = new DateTime($currentDateTime);
@@ -284,16 +275,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     </div>
                 </div>
                 <div class=" modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- MODAL FOR EDIT POST MODAL-->
-    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -317,8 +306,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- <input type="text" id="title" name="post_title" placeholder="Job Title" required> -->
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Job Title</span>
-                            <input type="text" class="form-control" id="post_title" name="new_post_title"
-                                placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" id="post_title" name="new_post_title" placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
@@ -326,8 +314,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- <textarea id="description" placeholder="Job Description" name="post_description"></textarea> -->
                         <div class="input-group">
                             <span class="input-group-text">Description</span>
-                            <textarea class="form-control" aria-label="Edit description" id="post_description"
-                                name="new_post_description"></textarea>
+                            <textarea class="form-control" aria-label="Edit description" id="post_description" name="new_post_description"></textarea>
                         </div>
                     </div>
 
@@ -335,17 +322,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- <input type="text" id="tags" name="post_tags" placeholder="Tags" required> -->
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Tag</span>
-                            <input type="text" class="form-control" id="post_tags" placeholder="Edit tag"
-                                aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" id="post_tags" placeholder="Edit tag" aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
                     <div class="mx-3 mb-3">
                         <div class="input-group">
                             <span class="input-group-text">&#8369;</span>
-                            <input type="number" class="form-control" id="rate"
-                                aria-label="Dollar amount (with dot and two decimal places)" name="new_rate"
-                                placeholder="Enter rate">
+                            <input type="number" class="form-control" id="rate" aria-label="Dollar amount (with dot and two decimal places)" name="new_rate" placeholder="Enter rate">
                             <span class="input-group-text">0.00</span>
                         </div>
                     </div>
@@ -359,10 +343,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#delete-post-modal">Delete</button>
-                        <button type="button" class="btn btn-primary" id="btn_editpost"
-                            onclick="new Posts().edit_post(this.value);"></button>Save</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-post-modal">Delete</button>
+                        <button type="button" class="btn btn-primary" id="btn_editpost" onclick="new Posts().edit_post(this.value);"></button>Save</button>
                     </div>
                 </form>
             </div>
@@ -370,8 +352,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     </div>
 
     <!-- CONFIRMATION DELETE POST MODAL -->
-    <div class="modal fade" id="delete-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="delete-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -383,8 +364,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
-                    <button type="button" class="btn btn-danger" id="btn_deletepost" data-bs-dismiss="modal"
-                        onclick="new Posts().delete_post(this.value);">Delete</button>
+                    <button type="button" class="btn btn-danger" id="btn_deletepost" data-bs-dismiss="modal" onclick="new Posts().delete_post(this.value);">Delete</button>
                 </div>
             </div>
         </div>
@@ -423,14 +403,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <script src="../classJS/Account.js"></script>
     <script src="../js/user.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
     <script>
-    new Dashboard().get_information_company();
+        new Dashboard().get_information_company();
     </script>
 </body>
 

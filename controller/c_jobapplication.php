@@ -19,15 +19,25 @@ if (isset($_POST['send_job'])) {
         $apply_message = $_POST['apply_message'];
         $sender_id = $_SESSION['account_id'];
         $receiver_id = $fetch['account_id'];
+        $resume = $_FILES['apply_file']['tmp_name'];
+
+        $file_link = $resume;
+        if (!empty($resume)) {
+            $file_filename = $acc->generate_imageName(6);
+            $file_directory = '../img/uploads/freelancer/resume/' . $file_filename . basename($_FILES['apply_file']['name']);
+            $file_link = $file_filename . basename($_FILES['apply_file']['name']);
+            move_uploaded_file($resume, $file_directory);
+        }
 
         if ($apply_message !== "") {
-            $query = $db->connect()->prepare("INSERT INTO job_application (post_id, freelance_id, user_id, message, timestamp, jobstatus)
-            VALUES (:post_id, :sender_id, :receiver_id, :message, :timestamp, :jobstatus)");
+            $query = $db->connect()->prepare("INSERT INTO job_application (post_id, freelance_id, user_id, message, resume, timestamp, jobstatus)
+            VALUES (:post_id, :sender_id, :receiver_id, :message, :resume, :timestamp, :jobstatus)");
             $result = $query->execute([
                 ':post_id' => $post_id,
                 ':sender_id' => $sender_id,
                 ':receiver_id' => $receiver_id,
                 ':message' => $apply_message,
+                ':resume' => $file_link,
                 ':timestamp' => $currentDateTime,
                 ':jobstatus' => 'PENDING'
             ]);
@@ -73,6 +83,7 @@ if (isset($_POST['view_job'])) {
         $data['jobstatus'] = $row['jobstatus'];
         $data['message'] = $row['message'];
         $data['freelance_id'] = $row['freelance_id'];
+        $data['resume'] = $row['resume'];
     }
     $_SESSION['application_id'] = $data['application_id'];
     echo json_encode($data);
