@@ -92,7 +92,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             echo '
                             <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
                                 <div class="user-image">
-                                    <img src="../img/uploads/company/' . $row['user_image'] . '" alt="" class="user-chat-img">
+                                ';
+                            if ($row['imageProfile'] == "") {
+                                echo  '<img src="../img/profile.png" alt="" class="user-chat-img">';
+                            } else {
+                                echo '<img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="user-chat-img">';
+                            }
+                            echo '     
                                 </div>
                                 <div class="user-info">
                                     <span class="fname-">' . $row['firstName'] . '</span>
@@ -103,71 +109,6 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             ';
                         }
                         ?>
-                        <!-- <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">John Paulo</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Sulit</span>
-                            </div>
-                        </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">Arvin</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Bok</span>
-                            </div>
-                        </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">Joel</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Leonor</span>
-                            </div>
-                        </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">Mark Josh</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Cristobal</span>
-                            </div>
-                        </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">John Daniel</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Edaddy</span>
-                            </div>
-                        </div>
-
-                        <div class="user-post">
-                            <div class="user-image">
-                                <img src="../img/profile.png" alt="" class="user-chat-img">
-                            </div>
-                            <div class="user-info">
-                                <span class="fname-">Ralpu</span>
-                                <span class="mname-"></span>
-                                <span class="lname-">Garcia</span>
-                            </div>
-                        </div> -->
 
                     </div>
 
@@ -179,52 +120,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
 
                         <div class="middle-chat-box" id="chatbox">
-                            <!-- <div class="user-chat">
-                                <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                                    print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
-                                    century
-                                </span>
-                            </div>
-                            <div class="freelance-chat">
-                                <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                                    print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
-                                    century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
-                                    a type
-                                    specimen book. It usually begins wit
-                                </span>
-                            </div>
-                            <div class="user-chat">
-                                <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                                    print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
-                                    century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
-                                    a type
-                                    specimen book. It usually begins witwidth: fit-content;
 
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                                    print, graphic
-                                    or web designs. The passage is attributed to an unknown typesetter in the 15th
-                                    century who is
-                                    thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
-                                    a type
-                                    specimen book. It usually begins witwidth: fit-content;
-
-                                </span>
-                            </div>
-                            <div class="freelance-chat">
-                                <span>
-                                    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
-                                    print, graphic
-                                    or web designs.
-                                </span>
-                            </div> -->
                         </div>
 
                         <div class="middle-chat-send">
@@ -370,7 +266,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                     <div class="child right">
                                         <span class="status status-3">
                                         ' . $row['jobstatus'] .
-                            '
+                                '
                                         </span>
                                         <div class="mb-3">
                                             ';

@@ -59,11 +59,11 @@ if (isset($_POST['create_fprofile'])) {
             $query->execute([':email' => $email]);
             $output['success'] = "Profile Created. Redirecting...";
         }
-    } else if (empty($profileImg)) {
+    } else if (empty($profileImg) || $profileImg == "") {
         $output['error'] = "Please upload your profile picture!";
     } else if ($selectedData == "") {
         $output['error'] = "Please select your job role!";
-    } else if ($address == "") {
+    } else if ($barangay == "" || $municipality == "" || $province == "") {
         $output['error'] = "Please provide your complete address!";
     } else if ($company == "") {
         $output['error'] = "Please provide your company name!";
