@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><span class="white- hov-">Dashboard</span></a>
+                    <a class="nav-link active" aria-current="page" href="dashboard.php"><span class="white- hov-">Dashboard</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="white- hov-">Reports</span></a>
+                    <a class="nav-link" href="reports.php"><span class="white- hov-">Reports</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
