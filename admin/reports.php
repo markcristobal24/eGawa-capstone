@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="title mb-1">
-                        <span class="fw-bold">User to Report:</span>
+                        <span class="fw-bold">Reported Account:</span>
                         <span class="text-danger" id="">
                             John Paulo Sulitz
                         </span>
