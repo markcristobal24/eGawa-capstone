@@ -257,3 +257,57 @@ if (isset($_POST['search_post'])) {
 
     echo json_encode($output);
 }
+
+if (isset($_POST['delete_post'])) {
+    $post_id = $_POST['post_id'];
+
+    $query = $db->connect()->prepare("DELETE FROM jobposts WHERE post_id = :post_id");
+    $result = $query->execute([':post_id' => $post_id]);
+
+    if ($result) {
+        $output['success'] = "Post deleted successfully.";
+    } else {
+        $output['error'] = "Something went wrong. Please try again later.";
+    }
+
+    echo json_encode($output);
+}
+
+if (isset($_POST['edit_post'])) {
+    $post_id = $_POST['post_id'];
+    $post_category = $_POST['new_post_category'];
+    $post_title = $_POST['new_post_title'];
+    $post_description = $_POST['new_post_description'];
+    $post_tags = $_POST['new_post_tags'];
+    $post_rate = $_POST['new_rate'];
+
+    $query = $db->connect()->prepare("SELECT * FROM jobposts WHERE post_id = :post_id");
+    $query->execute([':post_id' => $post_id]);
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($query->rowCount() > 0) {
+        if (($post_category == "" || $post_title == "" || $post_description == "" || $post_tags == "" || $post_rate == "")) {
+            $output['error'] = "All fields are required.";
+        } else if ($post_category != $row['category'] || $post_title != $row['post_title'] || $post_description != $row['post_description'] || $post_tags != $row['post_tags'] || $post_rate != $row['rate']) {
+            $query = $db->connect()->prepare("UPDATE jobposts SET category = :category, post_title = :post_title, post_description = :post_description, post_tags = :post_tags, rate = :rate WHERE post_id = :post_id");
+            $result = $query->execute([
+                ':category' => $post_category,
+                ':post_title' => $post_title,
+                ':post_description' => $post_description,
+                ':post_tags' => $post_tags,
+                ':rate' => $post_rate,
+                ':post_id' => $post_id
+            ]);
+
+            if ($result) {
+                $output['success'] = "Post updated successfully.";
+            }
+        } else {
+            $output['success'] = "No changes have been made.";
+        }
+    } else {
+        $output['error'] = "Something went wrong. Please try again later.";
+    }
+
+    echo json_encode($output);
+}

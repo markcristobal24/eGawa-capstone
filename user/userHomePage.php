@@ -257,33 +257,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 ';
                             }
                             ?>
-
-                            <!-- <button type="button" class="list-group-item list-group-item-action">
-                                <div class="d-flex">
-                                    <div class="p-2 flex-grow-1">Web Developer</div>
-                                    <div class="p-2 date-posted fw-light fst-italic">11-12-22</div>
-                                    <div class="p-2 border border-primary rounded ms-3" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="list-group-item list-group-item-action">
-                                <div class="d-flex">
-                                    <div class="p-2 flex-grow-1">Mobile Developer</div>
-                                    <div class="p-2 date-posted fw-light fst-italic">01-01-23</div>
-                                    <div class="p-2 border border-primary rounded ms-3" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="list-group-item list-group-item-action">
-                                <div class="d-flex">
-                                    <div class="p-2 flex-grow-1">Bootstrap Gods</div>
-                                    <div class="p-2 date-posted fw-light fst-italic">04-19-20</div>
-                                    <div class="p-2 border border-primary rounded ms-3" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</div>
-                                </div>
-                            </button> -->
-
                         </div>
-
                     </div>
                 </div>
                 <div class=" modal-footer">
@@ -304,10 +278,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="post_form" method="POST">
+                <form id="editpost_form" method="POST">
                     <div class="toFlex d-flex justify-content-center p-3">
                         <div class="dropdownOptionPost">
-                            <select id="filterOptionPost" name="post_category">
+                            <select id="filterOptionPost" name="new_post_category">
                                 <option value="Website Development">Website Development</option>
                                 <option value="Mobile Development">Mobile Development</option>
                                 <option value="Website Hosting">Website Hosting</option>
@@ -320,8 +294,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- <input type="text" id="title" name="post_title" placeholder="Job Title" required> -->
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Job Title</span>
-                            <input type="text" class="form-control" id="post_title" placeholder="Edit job title"
-                                aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" id="post_title" name="new_post_title"
+                                placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
@@ -329,8 +303,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <!-- <textarea id="description" placeholder="Job Description" name="post_description"></textarea> -->
                         <div class="input-group">
                             <span class="input-group-text">Description</span>
-                            <textarea class="form-control" aria-label="Edit description"
-                                id="post_description"></textarea>
+                            <textarea class="form-control" aria-label="Edit description" id="post_description"
+                                name="new_post_description"></textarea>
                         </div>
                     </div>
 
@@ -339,7 +313,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Tag</span>
                             <input type="text" class="form-control" id="post_tags" placeholder="Edit tag"
-                                aria-label="Username" aria-describedby="addon-wrapping">
+                                aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
@@ -347,7 +321,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <div class="input-group">
                             <span class="input-group-text">&#8369;</span>
                             <input type="number" class="form-control" id="rate"
-                                aria-label="Dollar amount (with dot and two decimal places)" name="rate"
+                                aria-label="Dollar amount (with dot and two decimal places)" name="new_rate"
                                 placeholder="Enter rate">
                             <span class="input-group-text">0.00</span>
                         </div>
@@ -358,15 +332,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 onclick="new Posts().post();">
                             <input id="clearPost" class="btn" type="button" value="Clear">
                         </div> -->
-                </form>
 
-                <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#delete-post-modal">Delete</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#edit-post-modal">Save</button>
-                </div>
+
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#delete-post-modal">Delete</button>
+                        <button type="button" class="btn btn-primary" id="btn_editpost"
+                            onclick="new Posts().edit_post(this.value);"></button>Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -385,7 +360,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-danger" id="btn_deletepost" data-bs-dismiss="modal"
+                        onclick="new Posts().delete_post(this.value);">Delete</button>
                 </div>
             </div>
         </div>

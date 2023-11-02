@@ -173,6 +173,58 @@ class Posts {
             document.getElementById('post_description').value = job.post_description;
             document.getElementById('post_tags').value = job.post_tags;
             document.getElementById('rate').value = job.post_rate;
+            document.getElementById('btn_deletepost').value = job.post_id;
+            document.getElementById('btn_editpost').value = job.post_id;
+        });
+    }
+
+    delete_post(post_id) {
+        let form_data = new FormData(document.getElementById('editpost_form'));
+        form_data.append('delete_post', 'delete_post');
+        form_data.append('post_id', post_id);
+        fetch('../controller/c_jobPosts.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1500);
+            }
+            else if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
+    edit_post(post_id) {
+        let form_data = new FormData(document.getElementById('editpost_form'));
+        form_data.append('edit_post', 'edit_post');
+        form_data.append('post_id', post_id);
+        fetch('../controller/c_jobPosts.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1500);
+            }
+            else if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            }
         });
     }
 }
