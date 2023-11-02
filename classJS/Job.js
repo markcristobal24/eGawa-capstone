@@ -23,10 +23,17 @@ class Job {
                 document.getElementById('jobstatus').innerHTML = `${job.jobstatus}`;
                 document.getElementById('from_message').innerHTML = `${job.message}`;
                 let view_resume = document.getElementById('view_resume');
-                let url = `../img/uploads/freelancer/resume/${job.resume}`;
-                view_resume.addEventListener("click", function () {
-                    window.open(url, "_blank");
-                });
+                if (job.resume != "") {
+
+                    view_resume.style.display = "block";
+                    let url = `../img/uploads/freelancer/resume/${job.resume}`;
+                    view_resume.addEventListener("click", function () {
+                        window.open(url, "_blank");
+                    });
+                } else {
+                    view_resume.style.display = "none"
+                }
+
             }
             else if (status == 'ONGOING') {
                 document.getElementById('btn_proceed_end').value = `${job.freelance_id}`;
