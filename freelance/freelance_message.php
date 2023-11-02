@@ -93,10 +93,10 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                             <div class="user-post" onclick="clickConvo(' . $convo_id . ')">
                                 <div class="user-image">
                                 ';
-                            if ($row['imageProfile'] == "") {
+                            if ($row['user_image'] == "") {
                                 echo  '<img src="../img/profile.png" alt="" class="user-chat-img">';
                             } else {
-                                echo '<img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="user-chat-img">';
+                                echo '<img src="../img/uploads/company/' . $row['user_image'] . '" alt="" class="user-chat-img">';
                             }
                             echo '     
                                 </div>
@@ -159,7 +159,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
                             <div>
                                 <button type="button" id="btn_viewProfile" class="btn btn-primary view_profile mt-3"
-                                    style="display: none;">View Profile</button>
+                                    style="display: none;" onclick="view_profile(this.value)">View Profile</button>
                             </div>
                             <div>
                                 <button type="button" id="btn_report" class="btn btn-danger view_profile mt-3"

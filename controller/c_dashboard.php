@@ -69,3 +69,25 @@ if (isset($_POST['get_information_freelancer_employerpov'])) {
     $output = array("data" => $data);
     echo json_encode($output);
 }
+
+if (isset($_POST['get_information_company_freelancerpov'])) {
+    $company_id = $_POST['company_id'];
+    $sub_array = array();
+
+    $total_posts = $db->connect()->prepare('SELECT * FROM jobposts WHERE account_id = ' . $company_id . '');
+    $total_posts->execute();
+    $sub_array['total_posts'] = $total_posts->rowCount();
+
+    $total_accepted = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND jobstatus = "ONGOING" OR jobstatus = "COMPLETED"');
+    $total_accepted->execute();
+    $sub_array['total_accepted'] = $total_accepted->rowCount();
+
+    $total_declined = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND jobstatus = "DECLINED"');
+    $total_declined->execute();
+    $sub_array['total_declined'] = $total_declined->rowCount();
+
+    $data[] = $sub_array;
+
+    $output = array("data" => $data);
+    echo json_encode($output);
+}

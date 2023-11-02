@@ -24,6 +24,7 @@ function clickConvo(convoId) {
         document.getElementById('profile_address').innerHTML = `${info.barangay}, ${info.municipality}, ${info.province}`;
         document.getElementById("btn_viewProfile").style.display = "block";
         document.getElementById("btn_report").style.display = "block";
+        document.getElementById('btn_viewProfile').value = info.user_id;
         companyId = info.user_id;
         freelanceId = info.freelance_id;
         Pusher.logToConsole = true;
@@ -114,4 +115,8 @@ function send_message(convoId) {
             document.getElementById('inputTextarea').value = '';
         }
     });
+}
+
+function view_profile(company_id) {
+    window.location.href = `view_user_profile.php?company_id=${company_id}`;
 }

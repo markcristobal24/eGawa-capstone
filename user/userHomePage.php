@@ -63,17 +63,21 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         ':user_id' => $_SESSION['account_id'],
                         ':status' => 'COMPLETED',
                     ]);
+                    $first = true;
                     foreach ($query as $row) {
                         $currentDateTime = $row['timestamp'];
                         $dateTimeObj = new DateTime($currentDateTime);
                         $posted_date = $dateTimeObj->format("F d, Y");
+
+                        $class = $first ? 'table-group-divider' : '';
                         echo '
-                        <tr>
+                        <tr class="' . $class . '">
                             <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>
                             <td>' . $posted_date . '</td>
                             <td>Completed</td>
                         </tr>
                         ';
+                        $first = false;
                     }
                     ?>
                     <!-- <tr class="table-group-divider">
