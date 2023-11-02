@@ -58,6 +58,10 @@
                     <span>Subscribed:</span>
                     <span class="boxes-data">60</span>
                 </div>
+                <div class="box-2 boxes">
+                    <span>Verified:</span>
+                    <span class="boxes-data">100</span>
+                </div>
                 <div class="box-3 boxes">
                     <span>Banned:</span>
                     <span class="boxes-data">40</span>
