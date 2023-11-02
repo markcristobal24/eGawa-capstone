@@ -66,6 +66,14 @@
                 <!-- <div class="box-4 boxes"></div> -->
                 <!-- <div class="box-5 boxes"></div> -->
             </div>
+
+            <span class="row-title titles">Registered Users:</span>
+            <div class="box-">
+                <div class="box-1 boxes">
+                    <span>Total Registered:</span>
+                    <span class="boxes-data">200</span>
+                </div>
+            </div>
         </div>
     </div>
 
