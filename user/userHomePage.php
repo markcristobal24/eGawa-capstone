@@ -56,9 +56,28 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <th>Date</th>
                         <th>Info</th>
                     </tr>
+                    <?php
+                    $query = $db->connect()->prepare("SELECT * FROM job_application
+                    INNER JOIN account on  job_application.freelance_id = account.account_id WHERE job_application.user_id = :user_id AND job_application.jobstatus = :status ORDER BY job_application.timestamp DESC");
+                    $query->execute([
+                        ':user_id' => $_SESSION['account_id'],
+                        ':status' => 'COMPLETED',
+                    ]);
+                    foreach ($query as $row) {
+                        $currentDateTime = $row['timestamp'];
+                        $dateTimeObj = new DateTime($currentDateTime);
+                        $posted_date = $dateTimeObj->format("F d, Y");
+                        echo '
+                        <tr>
+                            <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>
+                            <td>' . $posted_date . '</td>
+                            <td>Completed</td>
+                        </tr>
+                        ';
+                    }
+                    ?>
+                    <!-- <tr class="table-group-divider">
 
-                    <tr class="table-group-divider">
-                        <!-- Adds horizontal line, can be used on any row-->
                         <td>Arvin Candelaria Bok</td>
                         <td>01/01/20</td>
                         <td>Completed</td>
@@ -72,7 +91,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         <td>Joel Leonor</td>
                         <td>07/14/22</td>
                         <td>Completed</td>
-                    </tr>
+                    </tr> -->
                     <!-- <tr>
                         <td>Johnny Santos</td>
                         <td>02/14/69</td>
