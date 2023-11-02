@@ -147,4 +147,32 @@ class Posts {
             }
         });
     }
+
+    fetch_jobposts(id) {
+        let form_data = new FormData();
+        form_data.append('view_post', 'view_post');
+        form_data.append('id', id);
+        fetch('../controller/c_jobPosts.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let job = response_data;
+
+            let category = document.getElementById('filterOptionPost');
+            for (var i = 0; i < category.options.length; i++) {
+                if (category.options[i].textContent === `${job.category}`) {
+                    category.selectedIndex = i;
+                    break;
+                }
+            }
+
+            document.getElementById('post_title').value = job.post_title;
+            document.getElementById('post_description').value = job.post_description;
+            document.getElementById('post_tags').value = job.post_tags;
+            document.getElementById('rate').value = job.post_rate;
+        });
+    }
 }

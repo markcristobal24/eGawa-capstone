@@ -196,6 +196,7 @@ if (isset($_POST['view_post'])) {
         $data['province'] = $row['province'];
         $data['post_description'] = $row['post_description'];
         $data['rate'] = 'PHP' . ' ' . $row['rate'];
+        $data['post_rate'] = $row['rate'];
     }
     echo json_encode($data);
 }
