@@ -43,7 +43,7 @@
                 </div>
                 <div class="box-3 boxes">
                     <span>Banned:</span>
-                    <span class="boxes-data">60</span>
+                    <span class="boxes-data">40</span>
                 </div>
 
             </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="box-3 boxes">
                     <span>Banned:</span>
-                    <span class="boxes-data">60</span>
+                    <span class="boxes-data">40</span>
                 </div>
 
                 <!-- <div class="box-4 boxes"></div> -->
