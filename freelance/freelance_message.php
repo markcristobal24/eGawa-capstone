@@ -58,8 +58,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
 <body>
 
-    <?php //print_r($_SESSION); 
-    ?>
+
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
 

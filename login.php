@@ -45,7 +45,7 @@ session_start();
 
 <body>
     <div class="toast_notif" id="toast_notif"></div>
-    <?php print_r($_SESSION); ?>
+
 
     <div class="container">
         <div class="left">

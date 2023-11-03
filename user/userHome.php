@@ -31,9 +31,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | User Home</title>
@@ -45,9 +43,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php
-    // print_r($_SESSION); 
-    ?>
+
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerUserHome">
@@ -56,8 +52,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <div class="left-nav-dropdown">
                     <div class="dropdownOption">
                         <form id="filterpost_form" method="POST">
-                            <select id="filterOption" name="filterOption"
-                                onchange="new Posts().filter_post(this.value);">
+                            <select id="filterOption" name="filterOption" onchange="new Posts().filter_post(this.value);">
                                 <option value="all">All</option>
                                 <option value="Website Development">Website Development</option>
                                 <option value="Mobile Development">Mobile Development</option>
@@ -69,9 +64,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 </div>
                 <div class="left-nav-search">
                     <form class="d-flex">
-                        <input class="form-control me-2 search" type="text" id="search_post"
-                            onkeyup="new Posts().search_post(this.value);" placeholder="Search a tag"
-                            aria-label="Search">
+                        <input class="form-control me-2 search" type="text" id="search_post" onkeyup="new Posts().search_post(this.value);" placeholder="Search a tag" aria-label="Search">
                         <!-- <button class="btn btn-success" type="submit">Search</button> -->
                     </form>
                 </div>
@@ -91,12 +84,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="containerPost">
                         <div class="post-col-1">
                         ';
-                        if ($row['user_image'] == "") {
-                            echo '<img class="author-pic" src="../img/profile.png" alt="">';
-                        } else {
-                            echo ' <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">';
-                        }
-                        echo '
+                    if ($row['user_image'] == "") {
+                        echo '<img class="author-pic" src="../img/profile.png" alt="">';
+                    } else {
+                        echo ' <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">';
+                    }
+                    echo '
                         </div>
                         <div class="post-col-2">
                             <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
@@ -147,12 +140,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                         if (isset($_SESSION['user_image'])) {
                                         ?> src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
                                                                                                             } else {
-                                                                                                                ?>
-                        src="../img/profile.png"
-                        <?php
+                                                                                                                ?> src="../img/profile.png" <?php
                                                                                                                                         }
-                                                                                                                                            ?>
-                        alt="user profile" title="user profile">
+                                                                                                                                            ?> alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
                     </p>
@@ -192,14 +182,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <div class="rateInput input-group mb-3 mt-2">
 
                             <span class="input-group-text">&#8369;</span>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                                name="rate" placeholder="Enter rate" required>
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="rate" placeholder="Enter rate" required>
                             <span class="input-group-text">.00</span>
                         </div>
 
                         <div class="btns">
-                            <input id="submitPost" class="btn" type="button" value="Submit"
-                                onclick="new Posts().post();">
+                            <input id="submitPost" class="btn" type="button" value="Submit" onclick="new Posts().post();">
                             <input id="clearPost" class="btn" type="button" value="Clear">
                         </div>
                     </form>
@@ -326,13 +314,13 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        const textarea = document.getElementById('description');
 
-    textarea.addEventListener('input', () => {
-        textarea.style.height = 'auto'; // Reset height to auto
-        textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    });
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto'; // Reset height to auto
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        });
     </script>
 
 
@@ -343,8 +331,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

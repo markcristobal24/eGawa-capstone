@@ -35,9 +35,7 @@ if (!isset($_SESSION["otp"])) {
 
 <body>
     <span class="otp-sent">
-        <?php
-        print_r($_SESSION);
-        ?>
+
     </span>
     <div class="toast_notif" id="toast_notif"></div>
     <div class="containerVerify">
