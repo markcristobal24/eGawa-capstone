@@ -79,7 +79,7 @@ if (isset($_POST['view_job'])) {
     foreach ($query as $row) {
         $data['application_id'] = $row['application_id'];
         $data['post_title'] = $row['post_title'];
-        $data['from_name'] = $row['firstName'] . " " . $row['lastName'];
+        $data['from_name'] = $row['firstName'] . " " . $row['lastName'] . $row['checkmark'];
         $data['jobstatus'] = $row['jobstatus'];
         $data['message'] = $row['message'];
         $data['freelance_id'] = $row['freelance_id'];

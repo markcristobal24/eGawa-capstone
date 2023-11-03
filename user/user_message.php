@@ -34,6 +34,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
@@ -91,7 +92,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <div class="user-info">
                                     <span class="fname-">' . $row['firstName'] . '</span>
                                     <span class="mname-"></span>
-                                    <span class="lname-">' . $row['lastName'] . '</span>
+                                    <span class="lname-">' . $row['lastName'] . $row['checkmark'] . '</span>
                                 </div>
                             </div>
                             ';
@@ -193,7 +194,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             echo '
                                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-view-job-app" onclick="new Job().view_job(' . $row['application_id'] . ', \'PENDING\')">
                                     <div class="child left">
-                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . $row['checkmark'] . '</span>
                                         <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
@@ -224,7 +225,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             echo '
                                 <div class="parent" data-bs-toggle="modal" data-bs-target="#modal-end-job-app" onclick="new Job().view_job(' . $row['application_id'] . ', \'ONGOING\');">
                                     <div class="child left">
-                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . $row['checkmark'] . '</span>
                                         <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">
@@ -255,7 +256,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             echo '
                                 <div class="parent">
                                     <div class="child left">
-                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . '</span>
+                                        <span class="name-info">' . $row['firstName'] . " " . $row['lastName'] . $row['checkmark'] . '</span>
                                         <span class="job-type">' . $row['post_title'] . '</span>
                                     </div>
                                     <div class="child right">

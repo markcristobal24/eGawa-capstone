@@ -21,7 +21,7 @@ $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON ac
 $query->execute([':email' => $email]);
 $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
-$fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
+$fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['checkmark'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/freelanceHome.css">
     <link rel="stylesheet" href="../css/notification.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -161,7 +162,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 <div class="userProfileChild">
                     <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
                     <p id="userName">
-                        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
+                        <?php echo $fullname; ?>
                     </p>
                     <p class="user-name">
                         @
