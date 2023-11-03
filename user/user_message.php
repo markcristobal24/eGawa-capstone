@@ -436,7 +436,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <input class="form-control form-control-sm" id="formFileSm" type="file"> -->
                     </div>
                     <div>
-                        <button type="button" id="view_resume">View Resume</button>
+                        <button type="button" class="btn btn-primary" id="view_resume">View Resume</button>
                     </div>
 
                     <div class="modal-footer">
