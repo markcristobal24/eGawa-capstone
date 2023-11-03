@@ -29,9 +29,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/view_user_profile.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?></title>
@@ -87,8 +85,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div class="div1">
-            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile"
-                title="user profile">
+            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile">
             <h2 id="userName">
                 <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?>
             </h2>
@@ -149,8 +146,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <div class="modal-body">
                     <div class="modal-body-view-more">
                         <div class="modal-pic-container">
-                            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>"
-                                alt="user profile" title="user profile">
+                            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile">
                         </div>
 
                         <div class="modal-name-container">
@@ -201,8 +197,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                        data-bs-target="#">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#">Close</button>
                 </div>
             </div>
         </div>
@@ -213,12 +208,11 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../classJS/Dashboard.js"></script>
     <script src="../js/user.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    new Dashboard().get_information_company_freelancerpov(<?php echo $company_id; ?>);
+        new Dashboard().get_information_company_freelancerpov(<?php echo $company_id; ?>);
     </script>
 
 
