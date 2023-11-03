@@ -191,6 +191,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                     <button disabled class="mt-3">ONGOING
                         VERIFICATION</button>
                     <?php
+                    } else if ($fetch_status['verify_status'] == "VERIFIED") {
                     } else {
                     ?>
                     <button class="mt-3"><a id="verifyFreelanceAcc"
@@ -199,7 +200,6 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                     <?php
                     }
                     ?>
-
                     <!-- <button class="mt-3"><a id="subs-button-profile" href="">Subscribe</a></button> -->
                     <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
 

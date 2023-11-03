@@ -38,9 +38,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Freelance Home</title>
@@ -55,44 +53,82 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
 
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
+
     <div class="containerUserHome">
         <div class="containerLeft">
             <div class="containerLeft-Nav">
-                <div class="left-nav-dropdown">
-                    <div class="dropdownOption">
-                        <form id="filterpost_form" method="POST">
-                            <select id="filterOption" name="filterOption"
-                                onchange="new Posts().filter_post(this.value);">
-                                <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
-                            </select>
+                <?php
+                $check_verify = $db->connect()->prepare("SELECT * FROM id_verification WHERE account_id = :account_id");
+                $check_verify->execute([':account_id' => $_SESSION['account_id']]);
+                $fetch_status = $check_verify->fetch(PDO::FETCH_ASSOC);
+
+                if ($fetch_status['verify_status'] != "VERIFIED") {
+                ?>
+                    <div class="left-nav-dropdown">
+                        <div class="dropdownOption">
+                            <form id="filterpost_form" method="POST">
+                                <select id="filterOption" name="filterOption" onchange="new Posts().filter_post(this.value);" disabled>
+                                    <option value="all">All</option>
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile Development">Mobile Development</option>
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="Multimedia">Multimedia</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="left-nav-search">
+                        <form class="d-flex">
+                            <input class="form-control me-2 search" type="search" id="search_post" placeholder="Search a tag" aria-label="Search" onkeyup="new Posts().search_post(this.value);" disabled>
+                            <!-- <button class="btn btn-success" type="submit">Search</button> -->
                         </form>
                     </div>
-                </div>
-                <div class="left-nav-search">
-                    <form class="d-flex">
-                        <input class="form-control me-2 search" type="search" id="search_post"
-                            placeholder="Search a tag" aria-label="Search"
-                            onkeyup="new Posts().search_post(this.value);">
-                        <!-- <button class="btn btn-success" type="submit">Search</button> -->
-                    </form>
-                </div>
+                <?php
+                } else {
+                ?>
+                    <div class="left-nav-dropdown">
+                        <div class="dropdownOption">
+                            <form id="filterpost_form" method="POST">
+                                <select id="filterOption" name="filterOption" onchange="new Posts().filter_post(this.value);">
+                                    <option value="all">All</option>
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile Development">Mobile Development</option>
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="Multimedia">Multimedia</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="left-nav-search">
+                        <form class="d-flex">
+                            <input class="form-control me-2 search" type="search" id="search_post" placeholder="Search a tag" aria-label="Search" onkeyup="new Posts().search_post(this.value);">
+                            <!-- <button class="btn btn-success" type="submit">Search</button> -->
+                        </form>
+                    </div>
+                <?php
+                }
+                ?>
+
             </div>
 
             <div class="containerLeft-Feed" id="post_container">
                 <?php
-                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE post_status != :post_status ORDER BY posted_date DESC");
-                $query->execute([':post_status' => 'ARCHIVED']);
-                // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                foreach ($query as $row) {
-                    $currentDateTime = $row['posted_date'];
-                    $dateTimeObj = new DateTime($currentDateTime);
-                    $posted_date = $dateTimeObj->format("F d, Y h:i A");
+                if ($fetch_status['verify_status'] != "VERIFIED") {
+                ?>
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-triangle"></i> You need to verify your account first before applying to
+                        job posts.
+                    </div>
+                <?php
+                    $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE post_status != :post_status ORDER BY posted_date DESC");
+                    $query->execute([':post_status' => 'ARCHIVED']);
+                    // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                    foreach ($query as $row) {
+                        $currentDateTime = $row['posted_date'];
+                        $dateTimeObj = new DateTime($currentDateTime);
+                        $posted_date = $dateTimeObj->format("F d, Y h:i A");
 
-                    echo ' 
+                        echo ' 
                     <div class="containerPost">
                         <div class="post-col-1">
                             <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
@@ -106,7 +142,57 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                             </div>
                             <div>
                                 <span class="locationPost">' .
-                        $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
+                            $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
+                                <span>•</span>
+                                <span class="datePost">Posted on ' . $posted_date . '</span>
+                            </div>
+
+                            <p class="descPost">
+                                ' . $row['post_description'] . '
+                            </p>
+                            <div>
+                                
+                                
+                            </div>
+                        </div> 
+                    </div>';
+                    }
+                    if ($query->rowCount() <= 0) {
+                        echo '<div class="noResult">
+                            <div class="noResultIMG">
+                                <img id="noIMG" src="../img/search.png" alt="">
+                            </div>
+                            <div class="noResultText">
+                                <span>
+                                No post available
+                                </span>
+                            </div>
+                        </div>';
+                    }
+                } else {
+                    $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE post_status != :post_status ORDER BY posted_date DESC");
+                    $query->execute([':post_status' => 'ARCHIVED']);
+                    // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
+                    foreach ($query as $row) {
+                        $currentDateTime = $row['posted_date'];
+                        $dateTimeObj = new DateTime($currentDateTime);
+                        $posted_date = $dateTimeObj->format("F d, Y h:i A");
+
+                        echo ' 
+                    <div class="containerPost">
+                        <div class="post-col-1">
+                            <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">
+                        </div>
+
+                        <div class="post-col-2">
+                            <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
+                            <div>
+                                <span class="author">Author: </span>
+                                <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
+                            </div>
+                            <div>
+                                <span class="locationPost">' .
+                            $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
                                 <span>•</span>
                                 <span class="datePost">Posted on ' . $posted_date . '</span>
                             </div>
@@ -120,9 +206,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                             </div>
                         </div> 
                     </div>';
-                }
-                if ($query->rowCount() <= 0) {
-                    echo '<div class="noResult">
+                    }
+                    if ($query->rowCount() <= 0) {
+                        echo '<div class="noResult">
                             <div class="noResultIMG">
                                 <img id="noIMG" src="../img/search.png" alt="">
                             </div>
@@ -132,27 +218,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                                 </span>
                             </div>
                         </div>';
+                    }
                 }
                 ?>
-
-
-                <!-- THIS WILL BE SHOWN IF FREELANCER IS NOT YET SUBSCRIBED -->
-                <!-- <div class="containerPost">
-                    <div class="post-col-1">
-                        <img class="author-pic" src="../img/box.png" alt="" style="height: 100px;">
-                    </div>
-                    <div class="post-col-2">
-                        <span class="titlePost">You are not yet subscribed</span>
-                        <div>
-                            <span class="userPost">Please subscribe to view job posts</span>
-                        </div>
-
-                        <div>
-                            <button id="" class="subs-button">Subscribe</button>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
 
         </div>
@@ -163,8 +231,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
             </div> -->
             <div class="userProfile">
                 <div class="userProfileChild">
-                    <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
-                        alt="user profile" title="user profile">
+                    <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
                     <p id="userName">
                         <?php echo $fullname; ?>
                     </p>
@@ -294,17 +361,14 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#apply-job-modal" id="applyjob_btn"
-                        onclick="new Posts().apply_job(this.value);">Apply</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#apply-job-modal" id="applyjob_btn" onclick="new Posts().apply_job(this.value);">Apply</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- MODAL FOR APPLY JOB -->
-    <div class="modal fade" id="apply-job-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="apply-job-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -331,8 +395,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                         <div class="title">
                             <span class="label">Message:</span>
                             <div class="form-floating mt-1 mb-2">
-                                <textarea class="form-control" name="apply_message" placeholder="Leave a comment here"
-                                    id="floatingTextarea2" style="height: 100px"></textarea>
+                                <textarea class="form-control" name="apply_message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                 <label for="floatingTextarea2">Write your message...</label>
                             </div>
                         </div>
@@ -344,8 +407,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="btn_sendJob" onclick="new Posts().send_job(this.value);"
-                                class="btn btn-primary">Send</button>
+                            <button type="button" id="btn_sendJob" onclick="new Posts().send_job(this.value);" class="btn btn-primary">Send</button>
                         </div>
                     </form>
                 </div>
@@ -380,13 +442,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
     </div>
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    // const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        // const textarea = document.getElementById('description');
 
-    // textarea.addEventListener('input', () => {
-    //     textarea.style.height = 'auto';
-    //     textarea.style.height = textarea.scrollHeight + 'px';
-    // });
+        // textarea.addEventListener('input', () => {
+        //     textarea.style.height = 'auto';
+        //     textarea.style.height = textarea.scrollHeight + 'px';
+        // });
     </script>
 
     <script src="../js/script.js"></script>
@@ -398,8 +460,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
     
      -->
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
