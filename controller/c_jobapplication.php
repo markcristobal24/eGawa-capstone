@@ -186,18 +186,14 @@ if (isset($_POST['create_convo'])) {
     $user_id = $_POST['user_id'];
     $freelance_id = $_POST['freelance_id'];
 
-    $query = $db->connect()->prepare("INSERT INTO convo (user_id, freelance_id) VALUES (:user_id, :freelance_id)");
-    $result = $query->execute([
+    $query = $db->connect()->prepare("SELECT * FROM convo WHERE user_id = :user_id AND freelance_id = :freelance_id");
+    $query->execute([
         ':user_id' => $user_id,
         ':freelance_id' => $freelance_id
     ]);
+    $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
-    if ($result) {
-        $query = $db->connect()->prepare("SELECT * FROM convo WHERE user_id = :user_id AND freelance_id = :freelance_id");
-        $query->execute([
-            ':user_id' => $user_id,
-            ':freelance_id' => $freelance_id
-        ]);
+    if ($query->rowCount() > 0) {
         $fetch = $query->fetch(PDO::FETCH_ASSOC);
         $convo_id = $fetch['convo_id'];
         $sender = $user_id;
@@ -205,15 +201,42 @@ if (isset($_POST['create_convo'])) {
         $message = "Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
 
         $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message) VALUES (
-            :convo_id, :sender_id, :receiver_id, :message
-        )");
+            :convo_id, :sender_id, :receiver_id, :message)");
         $stmt->execute([
             ':convo_id' => $convo_id,
             ':sender_id' => $sender,
             ':receiver_id' => $receiver,
             ':message' => $message
         ]);
-    }
+    } else {
+        $query = $db->connect()->prepare("INSERT INTO convo (user_id, freelance_id) VALUES (:user_id, :freelance_id)");
+        $result = $query->execute([
+            ':user_id' => $user_id,
+            ':freelance_id' => $freelance_id
+        ]);
 
+        if ($result) {
+            $query = $db->connect()->prepare("SELECT * FROM convo WHERE user_id = :user_id AND freelance_id = :freelance_id");
+            $query->execute([
+                ':user_id' => $user_id,
+                ':freelance_id' => $freelance_id
+            ]);
+            $fetch = $query->fetch(PDO::FETCH_ASSOC);
+            $convo_id = $fetch['convo_id'];
+            $sender = $user_id;
+            $receiver = $freelance_id;
+            $message = "Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
+
+            $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message) VALUES (
+            :convo_id, :sender_id, :receiver_id, :message
+        )");
+            $stmt->execute([
+                ':convo_id' => $convo_id,
+                ':sender_id' => $sender,
+                ':receiver_id' => $receiver,
+                ':message' => $message
+            ]);
+        }
+    }
     echo json_encode($output);
 }

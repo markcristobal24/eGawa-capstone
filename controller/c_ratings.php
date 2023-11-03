@@ -67,6 +67,7 @@ if (isset($_POST['action'])) {
             'user_review' => $row['review'],
             'rating' => $row['rating'],
             'screenshot' => $row['screenshot'],
+            'user_image' => $row['user_image'],
             'datetime' => date('l jS, F Y h:i:s A', $row['timestamp'])
         );
 
@@ -125,7 +126,7 @@ if (isset($_POST['fetch_ratings_freelancerpov'])) {
 
     date_default_timezone_set("Asia/Manila");
 
-    $query = $db->connect()->prepare("SELECT * FROM reviews INNER JOIN account ON account.account_id = reviews.company_id WHERE reviews.freelancer_id = :freelance_id");
+    $query = $db->connect()->prepare("SELECT * FROM reviews INNER JOIN account ON account.account_id = reviews.company_id  WHERE reviews.freelancer_id = :freelance_id");
     $query->execute([':freelance_id' => $freelancer_id]);
 
     foreach ($query as $row) {
@@ -134,6 +135,7 @@ if (isset($_POST['fetch_ratings_freelancerpov'])) {
             'user_review' => $row['review'],
             'rating' => $row['rating'],
             'screenshot' => $row['screenshot'],
+            'user_image' => $row['user_image'],
             'datetime' => date('l jS, F Y h:i:s A', $row['timestamp'])
         );
 

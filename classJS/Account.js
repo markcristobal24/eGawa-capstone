@@ -650,8 +650,11 @@ class Account {
                     html += '<div class="row mb-3">';
 
                     // html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">' + data.review_data[count].user_name.charAt(0) + '</h3></div></div>';
-
-                    html += '<div class="col-sm-1"><img src="../img/profile.png" alt="" style="width: 55px; height: 55px; border-radius: 50%;"></div>';
+                    if (data.review_data[count].user_image != "") {
+                        html += '<div class="col-sm-1"><img src="../img/uploads/company/' + data.review_data[count].user_image + '" alt="" style="width: 55px; height: 55px; border-radius: 50%;"></div>';
+                    } else {
+                        html += '<div class="col-sm-1"><img src="../img/profile.png" alt="" style="width: 55px; height: 55px; border-radius: 50%;"></div>';
+                    }
 
                     html += '<div class="col-sm-11">';
 
