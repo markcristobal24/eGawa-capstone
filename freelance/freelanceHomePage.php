@@ -185,10 +185,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                     ?>
                         <button disabled class="mt-3">ONGOING
                             VERIFICATION</button>
+<<<<<<< HEAD
                     <?php
                     } else if ($fetch_status['verify_status'] == "VERIFIED") {
                     ?>
 
+=======
+>>>>>>> a6a2b809746c0a81a4da01a2a39a8010e6a9f1ba
                     <?php
                     } else {
                     ?>
