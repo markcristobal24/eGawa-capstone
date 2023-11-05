@@ -245,7 +245,8 @@ body {
     }
     #userPic{
         height: 150px;
-        border-radius: 100px;
+        width: 150px;
+        border-radius: 50%;
         margin: 0px auto;
     }
     .user-name{

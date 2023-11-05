@@ -23,6 +23,7 @@
     <!-- Link for CSS -->
     <link rel="stylesheet" href="../css/about_egawa.css">
 
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
 
 </head>
 
