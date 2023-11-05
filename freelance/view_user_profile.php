@@ -85,10 +85,17 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div class="div1">
-            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile">
+            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile" style="border-radius: 50%;">
             <h2 id="userName">
                 <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?>
             </h2>
+
+            <div class="d-flex justify-content-center">
+                <p id="freelanceUsername" class="text-primary">
+                    <?php echo "@" . $fetch['username']; ?>
+                </p>
+            </div>
+
             <!-- <div id="verifyUserAcc">Verify Account</div> -->
             <div id="view-dashboard" class="" data-bs-toggle="modal" data-bs-target="#view_dashboard">View Dashboard
             </div>
@@ -139,25 +146,30 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        <span><?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?>'s</span> Profile
+                        <span class="text-primary"><?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?></span>'s Profile
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-body-view-more">
-                        <div class="modal-pic-container">
-                            <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile">
-                        </div>
 
-                        <div class="modal-name-container">
-                            <p id="userName">
-                                <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?>
-                            </p>
-                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="">
+                                <div class="modal-pic-container">
+                                    <img id="userPic" src="../img/uploads/company/<?php echo $fetch['user_image']; ?>" alt="user profile" title="user profile" style="border-radius: 50%;">
+                                </div>
 
-                        <p id="freelanceUsername">
-                            <?php echo "@" . $fetch['username']; ?>
-                        </p>
+                                <div class=" modal-name-container">
+                                    <p id="userName">
+                                        <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?>
+                                    </p>
+                                </div>
+
+                                <p id="freelanceUsername" class="text-primary">
+                                    <?php echo "@" . $fetch['username']; ?>
+                                </p>
+                            </div>
+                        </div>
 
                         <div class="flexDiv">
                             <img src="../img/address.png" alt="" class="addressImg" height="20px">
@@ -174,7 +186,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         </div>
 
                         <div>
-                            <div id="" class="titles">
+                            <div id="" class="titles mt-3 mb-2 fs-5">
                                 Dashboard:
                             </div>
                             <div class="box-">
