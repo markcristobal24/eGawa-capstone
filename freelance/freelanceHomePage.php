@@ -186,14 +186,22 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                     $check_verify->execute([':account_id' => $_SESSION['account_id']]);
                     $fetch_status = $check_verify->fetch(PDO::FETCH_ASSOC);
 
-                    if ($fetch_status['verify_status'] == "PENDING") {
+                    if ($check_verify->rowCount() > 0) {
+                        if ($fetch_status['verify_status'] == "PENDING") {
                     ?>
                     <button disabled class="mt-3">ONGOING
                         VERIFICATION</button>
                     <?php
-                    } else if ($fetch_status['verify_status'] == "VERIFIED") {
+                        } else if ($fetch_status['verify_status'] == "VERIFIED") {
+                        } else {
+                        ?>
+                    <button class="mt-3"><a id="verifyFreelanceAcc"
+                            href="../id_verification.php?freelance_id=<?php echo $_SESSION['account_id'] ?>">Verify
+                            Account</a></button>
+                    <?php
+                        }
                     } else {
-                    ?>
+                        ?>
                     <button class="mt-3"><a id="verifyFreelanceAcc"
                             href="../id_verification.php?freelance_id=<?php echo $_SESSION['account_id'] ?>">Verify
                             Account</a></button>
