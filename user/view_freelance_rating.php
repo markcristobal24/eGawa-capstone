@@ -28,19 +28,15 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>Ratings | <?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?></title>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/userrating.css">
     <link rel="stylesheet" href="../css/notification.css">
 </head>
@@ -79,8 +75,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                aria-valuemax="100" id="five_star_progress"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
                         </div>
                         </p>
                         <p>
@@ -88,8 +83,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                aria-valuemax="100" id="four_star_progress"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
                         </div>
                         </p>
                         <p>
@@ -97,8 +91,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                aria-valuemax="100" id="three_star_progress"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
                         </div>
                         </p>
                         <p>
@@ -106,8 +99,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                aria-valuemax="100" id="two_star_progress"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
                         </div>
                         </p>
                         <p>
@@ -115,8 +107,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
                         <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                aria-valuemax="100" id="one_star_progress"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
                         </div>
                         </p>
                     </div>
@@ -152,7 +143,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../classJS/Notification.js"></script>
 
     <script>
-    new Account().fetch_ratings_freelancer(<?php echo $_GET['freelance_id'] ?>);
+        new Account().fetch_ratings_freelancer(<?php echo $_GET['freelance_id'] ?>);
     </script>
 </body>
 
