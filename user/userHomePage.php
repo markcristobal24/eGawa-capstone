@@ -344,7 +344,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-post-modal">Delete</button>
-                        <button type="button" class="btn btn-primary" id="btn_editpost" onclick="new Posts().edit_post(this.value);"></button>Save</button>
+                        <button type="button" class="btn btn-primary" id="btn_editpost" onclick="new Posts().edit_post(this.value);">Save</button>
                     </div>
                 </form>
             </div>
