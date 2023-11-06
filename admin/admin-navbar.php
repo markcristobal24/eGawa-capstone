@@ -28,6 +28,9 @@
                     <a class="nav-link active" aria-current="page" href="dashboard.php"><span class="white- hov-">Dashboard</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="freelance_verification.php"><span class="white- hov-">Verification</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="reports.php"><span class="white- hov-">Reports</span></a>
                 </li>
                 <li class="nav-item dropdown">
