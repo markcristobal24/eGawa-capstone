@@ -33,7 +33,7 @@ if ($_SESSION['userType'] !== "super_admin") {
     <?php include "admin-navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
 
-    <div class="container- mt-2">
+    <div class="container- mt-5 pt-2">
         <div class="content">
             <div class="container bg-info bg-opacity-10 border border-success border rounded mt-5">
                 <div class="row">
