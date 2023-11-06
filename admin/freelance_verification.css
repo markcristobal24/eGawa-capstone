@@ -8,6 +8,7 @@ body {
   /* ====for conatiner====== */
   .container-{
     display: flex;
+    max-height: 90vh;
   }
 
   .content{
