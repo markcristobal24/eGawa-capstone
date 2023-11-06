@@ -23,9 +23,9 @@
     <div>
         <span>
             <div><span class="text-primary fs-4">1. Registration and Account:</span></div>
-            <div><span>1.1 You must be at least 18 years old to register as a company or freelancer on our platform.</span></div>
-            <div><span>1.2 You agree to provide accurate and up-to-date information during the registration process.</span></div>
-            <div><span>1.3 You are responsible for maintaining the confidentiality of your account credentials and agree not to share them with any third parties.</span></div>
+            <!-- <div><span>1.1 You must be at least 18 years old to register as a company or freelancer on our platform.</span></div> -->
+            <div><span>1.1 You agree to provide accurate and up-to-date information during the registration process.</span></div>
+            <div><span>1.2 You are responsible for maintaining the confidentiality of your account credentials and agree not to share them with any third parties.</span></div>
         </span>
     </div>
 
@@ -76,7 +76,7 @@
         <span>
             <div><span class="text-primary fs-4">7. Reviews and Feedback:</span></div>
             <div><span>7.1 Company may leave reviews and feedback on your performance as a freelancer.</span></div>
-            <div><span>7.2 You may respond professionally to client reviews, but you will not attempt to manipulate or coerce clients into leaving positive feedback.</span></div>
+            <!-- <div><span>7.2 You may respond professionally to client reviews, but you will not attempt to manipulate or coerce clients into leaving positive feedback.</span></div> -->
         </span>
     </div>
 
