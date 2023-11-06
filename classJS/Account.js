@@ -19,7 +19,7 @@ class Account {
                 if (response_data.success == "super_admin") {
                     new Notification().create_notification(response_data.message, "success");
                     let tID = setTimeout(function () {
-                        window.location.replace('pages/dashboard.php');
+                        window.location.replace('admin/dashboard.php');
                         window.clearTimeout(tID);
                     }, 3000);
                 }
