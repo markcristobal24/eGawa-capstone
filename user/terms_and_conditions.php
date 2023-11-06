@@ -11,8 +11,8 @@
         </div>
     </span>
 
-    <div class="my-4">
-        <span>
+    <div class="my-4 d-flex justify-content-center">
+        <span class="mx-2 text-justify">
             Welcome to <span class="text-primary">eGAWA</span>: Online Freelance Services Platform! These terms and conditions ("Terms")
             govern your use of our platform as a company and freelancer.
             By registering as a company or freelancer and using our platform, you agree to abide by these Terms.
