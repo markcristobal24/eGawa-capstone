@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['userType'] !== "super_admin") {
+    header('location: ../login.php');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +89,7 @@
     </div>
 
 
-
+    <script src="../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -117,17 +124,28 @@
                         <span class="label fw-bold">Message:</span>
                         <div class="form-floating mt-1 mb-2 border p-3 rounded ">
                             <span class="">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias illo fugit obcaecati? Nemo magni esse est,
-                                eaque nulla, nesciunt ipsam labore reiciendis itaque, explicabo soluta. Id magni fugit suscipit,
-                                possimus veritatis ut excepturi inventore eius quo quam, consequatur voluptas iusto dolores porro perferendis aut qui quos dignissimos sequi cum?
-                                Alias culpa dolore recusandae porro assumenda nostrum dolores dicta numquam consectetur voluptatum repellendus eveniet officia velit accusamus
-                                tenetur laborum vitae minus et, iure excepturi dolorem! Veniam asperiores quo architecto sapiente recusandae nisi iure omnis dicta eius, minima,
-                                cum provident accusamus ratione earum distinctio unde quaerat. Commodi nostrum illo quia minima dolorum similique, quibusdam dignissimos dolorem,
-                                placeat odit distinctio corporis earum numquam ratione laudantium doloribus ut eveniet asperiores vel sunt mollitia. Animi consequatur molestiae
-                                nulla minima tempora, eligendi tempore libero nam cumque et quasi totam voluptas ea magnam culpa a nihil labore accusantium, cupiditate autem.
-                                Omnis blanditiis numquam maxime ab id assumenda exercitationem, magni sint corporis earum accusantium vel neque temporibus aspernatur pariatur
-                                dicta maiores, perferendis eaque accusamus hic. Tenetur, maxime in placeat error veniam laudantium hic eum nisi minus sapiente possimus
-                                corrupti temporibus cumque amet. Nisi dolores et perferendis, temporibus aperiam explicabo provident praesentium cum repellendus impedit ducimus,
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias illo fugit
+                                obcaecati? Nemo magni esse est,
+                                eaque nulla, nesciunt ipsam labore reiciendis itaque, explicabo soluta. Id magni fugit
+                                suscipit,
+                                possimus veritatis ut excepturi inventore eius quo quam, consequatur voluptas iusto
+                                dolores porro perferendis aut qui quos dignissimos sequi cum?
+                                Alias culpa dolore recusandae porro assumenda nostrum dolores dicta numquam consectetur
+                                voluptatum repellendus eveniet officia velit accusamus
+                                tenetur laborum vitae minus et, iure excepturi dolorem! Veniam asperiores quo architecto
+                                sapiente recusandae nisi iure omnis dicta eius, minima,
+                                cum provident accusamus ratione earum distinctio unde quaerat. Commodi nostrum illo quia
+                                minima dolorum similique, quibusdam dignissimos dolorem,
+                                placeat odit distinctio corporis earum numquam ratione laudantium doloribus ut eveniet
+                                asperiores vel sunt mollitia. Animi consequatur molestiae
+                                nulla minima tempora, eligendi tempore libero nam cumque et quasi totam voluptas ea
+                                magnam culpa a nihil labore accusantium, cupiditate autem.
+                                Omnis blanditiis numquam maxime ab id assumenda exercitationem, magni sint corporis
+                                earum accusantium vel neque temporibus aspernatur pariatur
+                                dicta maiores, perferendis eaque accusamus hic. Tenetur, maxime in placeat error veniam
+                                laudantium hic eum nisi minus sapiente possimus
+                                corrupti temporibus cumque amet. Nisi dolores et perferendis, temporibus aperiam
+                                explicabo provident praesentium cum repellendus impedit ducimus,
                                 fuga, ad rerum!
                             </span>
                         </div>
