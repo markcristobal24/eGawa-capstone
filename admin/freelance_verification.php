@@ -29,7 +29,7 @@
             <div class="container bg-info bg-opacity-10 border border-success border rounded mt-5">
                 <div class="row">
                     <div class="parent">
-                        <h1>Reports</h1>
+                        <h1>Pending Verification</h1>
                         <div class="child">
                             <table class="table table-hover">
                                 <thead>
