@@ -27,6 +27,14 @@ if (isset($_POST['jobPosts'])) {
 
         if ($result) {
             $output['success'] = "Posted Successfully";
+            if ($success) {
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Posted a job',
+                    ':user_type' => 'company'
+                ]);
+            }
         } else {
             $output['error'] = "Something went wrong. Please try again later.";
         }
@@ -266,6 +274,12 @@ if (isset($_POST['delete_post'])) {
 
     if ($result) {
         $output['success'] = "Post deleted successfully.";
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query->execute([
+            ':account_id' => $_SESSION['account_id'],
+            ':event' => 'Deletes a job post',
+            ':user_type' => 'company'
+        ]);
     } else {
         $output['error'] = "Something went wrong. Please try again later.";
     }
@@ -301,6 +315,12 @@ if (isset($_POST['edit_post'])) {
 
             if ($result) {
                 $output['success'] = "Post updated successfully.";
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Edit a job post',
+                    ':user_type' => 'company'
+                ]);
             }
         } else {
             $output['success'] = "No changes have been made.";

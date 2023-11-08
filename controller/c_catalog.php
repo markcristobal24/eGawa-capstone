@@ -46,6 +46,12 @@ if (isset($_POST['add_catalog'])) {
 
             if ($result) {
                 $output['success'] = "Catalog Added Successfully.";
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Added Catalog',
+                    ':user_type' => 'freelancer'
+                ]);
             } else {
                 $output['error'] = "Something went wrong. Please try again later.";
             }
@@ -110,6 +116,12 @@ if (isset($_POST['edit_catalog'])) {
         }
         if ($result) {
             $output['success'] = "Catalog Updated Successfully";
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query->execute([
+                ':account_id' => $_SESSION['account_id'],
+                ':event' => 'Update Catalog',
+                ':user_type' => 'freelancer'
+            ]);
         } else if ($result === "") {
             $output['error'] = "Please provide the details you want to edit.";
         }
@@ -131,4 +143,3 @@ if (isset($_POST['view_catalog'])) {
     }
     echo json_encode($data);
 }
-?>

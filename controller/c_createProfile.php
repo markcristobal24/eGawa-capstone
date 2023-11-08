@@ -56,7 +56,15 @@ if (isset($_POST['create_fprofile'])) {
 
         if ($result) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
-            $query->execute([':email' => $email]);
+            $result = $query->execute([':email' => $email]);
+            if ($result) {
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Create profile',
+                    ':user_type' => 'freelancer'
+                ]);
+            }
             $output['success'] = "Profile Created. Redirecting...";
         }
     } else if (empty($profileImg) || $profileImg == "") {
@@ -132,6 +140,12 @@ if (isset($_POST['edit_fprofile'])) {
 
     if ($result) {
         $output['success'] = "Profile Updated Successfully";
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query->execute([
+            ':account_id' => $_SESSION['account_id'],
+            ':event' => 'Edit profile',
+            ':user_type' => 'freelancer'
+        ]);
     } else {
         $output['error'] = "Something went wrong. Please try again.";
     }

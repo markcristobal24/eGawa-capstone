@@ -34,10 +34,18 @@ if (isset($_POST['rating_data'])) {
     if ($result) {
         $output['success'] = "Your reviews has been submitted.";
         $query = $db->connect()->prepare("UPDATE job_application SET jobstatus= :jobstatus WHERE application_id = :application_id");
-        $query->execute([
+        $exec = $query->execute([
             ':jobstatus' => 'COMPLETED',
             ':application_id' => $_SESSION['application_id']
         ]);
+        if ($exec) {
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query->execute([
+                ':account_id' => $_SESSION['account_id'],
+                ':event' => 'Added a review',
+                ':user_type' => 'company'
+            ]);
+        }
     } else {
         $output['error'] = "Something went wrong. Please try again later.";
     }

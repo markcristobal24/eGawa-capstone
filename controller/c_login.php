@@ -62,6 +62,12 @@ if (isset($_POST['login'])) {
                 $session->fetch_account($email);
                 $output['status'] = "1";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Logged In',
+                    ':user_type' => 'company'
+                ]);
             }
         } else if ($fetch["userType"] == 'freelancer') {
             $output['success'] = "freelancer";
@@ -95,6 +101,12 @@ if (isset($_POST['login'])) {
                 $session->fetch_profile($email);
                 $output['status'] = "11";
                 $output['message'] = "Logging in as " . $fetch['firstName'];
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':event' => 'Logged In',
+                    ':user_type' => 'freelancer'
+                ]);
             }
         }
     }

@@ -52,10 +52,10 @@ if (isset($_POST['registerFreelance'])) {
                 $output['error'] = "Registration Failed! Invalid Email Address.";
             } else {
                 $output['success'] = "Registered Successfully. OTP sent to " . $email;
+                
             }
         }
 
     }
     echo json_encode($output);
 }
-?>

@@ -37,6 +37,12 @@ if (isset($_POST['change_email'])) {
                 if ($result) {
                     $_SESSION['email'] = $new_email;
                     $output['success'] = "Email address updated successfully";
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query->execute([
+                        ':account_id' => $_SESSION['account_id'],
+                        ':event' => 'Change email',
+                        ':user_type' => 'freelancer'
+                    ]);
                 }
             }
         }
@@ -72,6 +78,12 @@ if (isset($_POST['change_password'])) {
 
                 if ($result) {
                     $output['success'] = "Password has been changed.";
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query->execute([
+                        ':account_id' => $_SESSION['account_id'],
+                        ':event' => 'Change password',
+                        ':user_type' => 'freelancer'
+                    ]);
                 }
             }
         }
@@ -135,6 +147,12 @@ if (isset($_POST['id_verification'])) {
 
         if ($result) {
             $output['success'] = 'Your id verification has been submitted.';
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query->execute([
+                ':account_id' => $_SESSION['account_id'],
+                ':event' => 'Submitted ID Verification',
+                ':user_type' => 'freelancer'
+            ]);
         } else {
             $output['error'] = "Something went wrong. Please try again.";
         }

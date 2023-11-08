@@ -54,6 +54,14 @@ if (isset($_POST['send_job'])) {
                 $button_value = "Go to Account";
                 $body = $acc->apply_email($link, $notice, $button_value);
                 $email_notif->sendEmail("eGawa", $email, $subject, $body);
+                if ($email_notif) {
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query->execute([
+                        ':account_id' => $_SESSION['account_id'],
+                        ':event' => 'Submitted Job Application',
+                        ':user_type' => 'freelancer'
+                    ]);
+                }
             } else {
                 $output['error'] = "Something went wrong! Please try again later.";
             }
@@ -134,6 +142,14 @@ if (isset($_POST['decline_job'])) {
         with another candidate who closely aligns with our requirements.";
         $body = $acc->deny_email($notice);
         $email_notif->sendEmail("eGawa", $email, $subject, $body);
+        if ($email_notif) {
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query->execute([
+                ':account_id' => $_SESSION['account_id'],
+                ':event' => 'Declined Job Applcation',
+                ':user_type' => 'company'
+            ]);
+        }
     } else {
         $output['error'] = "Something went wrong! Please reload the page.";
     }
@@ -175,6 +191,12 @@ if (isset($_POST['accept_job'])) {
                 ':post_id' => $post_id
             ]);
         }
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query->execute([
+            ':account_id' => $_SESSION['account_id'],
+            ':event' => 'Accepted Job Application',
+            ':user_type' => 'company'
+        ]);
     } else {
         $output['error'] = "Something went wrong! Please reload the page.";
     }
