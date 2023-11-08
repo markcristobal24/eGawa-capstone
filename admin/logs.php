@@ -25,13 +25,6 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <style>
         /* Custom CSS to change button colors */
-        .color- {
-            color: #808080;
-        }
-
-        .nav-link.active .text-success-emphasis {
-            color: white;
-        }
     </style>
 
     <title>eGawa | Admin Logs</title>

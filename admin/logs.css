@@ -7,12 +7,12 @@ body {
 
   /* ====for conatiner====== */
 
+  .color- {
+    color: #808080;
+  }
 
-  .content{
-    /* background-color: bisque; */
-    width: 80%;
-    margin-left: 25px;
-    margin-inline: auto;
+  .nav-link.active .text-success-emphasis {
+      color: white;
   }
 
 
@@ -37,16 +37,5 @@ body {
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-.container-{
-    display: flex;
-    /* flex-direction: column; */
-  }
-
-
-  .content{
-    /* background-color: bisque; */
-    width: 90%;
-    margin-left: 0;
-  }
 
 }
