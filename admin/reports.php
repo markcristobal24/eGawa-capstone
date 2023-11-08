@@ -44,44 +44,44 @@ if ($_SESSION['userType'] !== "super_admin") {
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Firstname</th>
-                                    <th scope="col">Lastname</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col" class="text-center">Firstname</th>
+                                    <th scope="col" class="text-center">Lastname</th>
+                                    <th scope="col" class="text-center">Date</th>
+                                    <th scope="col" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
                                     <th scope="row">1</th>
-                                    <td>Arvin</td>
-                                    <td>Bok</td>
-                                    <td>04-19-20</td>
-                                    <td><i class="fa-regular fa-circle-check" style="color: #1bd057;"></i></td>
+                                    <td class="text-center">Arvin</td>
+                                    <td class="text-center">Bok</td>
+                                    <td class="text-center">04-19-20</td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-check" style="color: #1bd057;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
                                     <th scope="row">2</th>
-                                    <td>John Paulo</td>
-                                    <td>Sulit</td>
-                                    <td>12-25-19</td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                    <td class="text-center">John Paulo</td>
+                                    <td class="text-center">Sulit</td>
+                                    <td class="text-center">12-25-19</td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                    <th scope="row">2</th>
-                                    <td>Mark Josh</td>
-                                    <td>Cristobal</td>
-                                    <td>06-07-21</td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                    <th scope="row">3</th>
+                                    <td class="text-center">Mark Josh</td>
+                                    <td class="text-center">Cristobal</td>
+                                    <td class="text-center">06-07-21</td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                    <th scope="row">2</th>
-                                    <td>Joel</td>
-                                    <td>Leonor</td>
-                                    <td>03-14-21</td>
-                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                    <th scope="row">4</th>
+                                    <td class="text-center">Joel</td>
+                                    <td class="text-center">Leonor</td>
+                                    <td class="text-center">03-14-21</td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
                                 </tr>
 
                             </tbody>
