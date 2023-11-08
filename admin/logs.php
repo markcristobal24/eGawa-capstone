@@ -38,22 +38,28 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="p-3 mb-2 bg-secondary text-white fs-3">Audit Logs</div>
 
-        <div class="d-flex justify-content-center"> <!-- Centering container -->
-            <ul class="nav nav-pills mb-3 bg-secondary" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><span class="text-white">Freelancer</span></button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span class="text-white">Company</span></button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="text-white">Messages</span></button>
-                </li>
-                <!-- <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
-                </li> -->
-            </ul>
+        <div class="d-flex justify-content-between flex-wrap mb-3"> <!-- Centering container -->
+            <div>
+                <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><span class="text-success-emphasis">Freelance</span></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span class="text-success-emphasis">Company</span></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><span class="text-success-emphasis">Messages</span></button>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
+
 
         <div class="tab-content" id="pills-tabContent">
             <!-- TAB FOR FREELANCERS -->
