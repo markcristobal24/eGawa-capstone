@@ -124,6 +124,12 @@ if (isset($_POST['send_report'])) {
 
         if ($result) {
             $output['success'] = "Report submitted successfully";
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query->execute([
+                ':account_id' => $_SESSION['account_id'],
+                ':event' => 'Submit a report',
+                ':user_type' => $_SESSION['userType']
+            ]);
         }
     } else {
         $output['error'] = "Incomplete Details.";
