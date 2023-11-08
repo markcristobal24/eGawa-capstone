@@ -31,6 +31,9 @@
                     <a class="nav-link" href="freelance_verification.php"><span class="white- hov-">Verification</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="logs.php"><span class="white- hov-">Logs</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="reports.php"><span class="white- hov-">Reports</span></a>
                 </li>
                 <li class="nav-item dropdown">

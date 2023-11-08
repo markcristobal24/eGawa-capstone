@@ -1,0 +1,52 @@
+body {
+    /* background-image: linear-gradient(to right, #0073aa, #8000aa); */
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ====for conatiner====== */
+
+
+  .content{
+    /* background-color: bisque; */
+    width: 80%;
+    margin-left: 25px;
+    margin-inline: auto;
+  }
+
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+.container-{
+    display: flex;
+    /* flex-direction: column; */
+  }
+
+
+  .content{
+    /* background-color: bisque; */
+    width: 90%;
+    margin-left: 0;
+  }
+
+}
