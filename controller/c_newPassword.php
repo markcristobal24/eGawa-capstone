@@ -25,12 +25,12 @@ if (isset($_POST["new_password"])) {
         $result = $query->execute([':password' => $encrypted_password, ':email' => $Email]);
         if($result) {
             $output['success'] = "Password Updated.";
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
-            $query->execute([
-                ':account_id' => $_SESSION['account_id'],
-                ':event' => 'Update password',
-                ':user_type' => $_SESSION['userType']
-            ]);
+            // $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            // $query->execute([
+            //     ':account_id' => $_SESSION['account_id'],
+            //     ':event' => 'Update password',
+            //     ':user_type' => $_SESSION['userType']
+            // ]);
         }
     }
     echo json_encode($output);

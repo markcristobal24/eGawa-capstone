@@ -145,7 +145,7 @@ class Account {
                 console.log(response_data.success);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
-                    window.location.replace('forgotPassword2.php');
+                    window.location.replace('forgot_password2.php');
                     window.clearTimeout(tID);
                 }, 3000);
             }
@@ -309,9 +309,9 @@ class Account {
         let button_value = new Account().get_button_value("change_email");
         new Account().button_loading("change_email", "loading", "");
 
-        var form_data = new FormData(document.getElementById('change_email_form'));
+        var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('change_email', 'change_email');
-        fetch('../controller/c_Faccount.php', {
+        fetch('controller/c_Faccount.php', {
             method: "POST",
             body: form_data
         }).then(function (response) {
@@ -322,7 +322,11 @@ class Account {
                 console.log(response_data.success);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
-                    window.location.replace('../freelance/freelanceHomePage.php');
+                    if (response_data.type == 'freelancer') {
+                        window.location.replace('freelance/freelanceHomePage.php');
+                    } else {
+                        window.location.replace('user/userHomePage.php');
+                    }
                     window.clearTimeout(tID);
                 }, 3000);
             }
@@ -337,9 +341,9 @@ class Account {
         let button_value = new Account().get_button_value("change_password");
         new Account().button_loading("change_password", "loading", "");
 
-        var form_data = new FormData(document.getElementById('change_password_form'));
+        var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('change_password', 'change_password');
-        fetch('../controller/c_Faccount.php', {
+        fetch('controller/c_Faccount.php', {
             method: "POST",
             body: form_data
         }).then(function (response) {
@@ -350,7 +354,11 @@ class Account {
                 console.log(response_data.success);
                 new Notification().create_notification(response_data.success, "success");
                 let tID = setTimeout(function () {
-                    window.location.replace('../freelance/freelanceHomePage.php');
+                    if (response_data.type == 'freelancer') {
+                        window.location.replace('freelance/freelanceHomePage.php');
+                    } else {
+                        window.location.replace('user/userHomePage.php');
+                    }
                     window.clearTimeout(tID);
                 }, 3000);
             }

@@ -22,7 +22,7 @@ if (isset($_POST['change_email'])) {
         $output['error'] = "Email address does not match!";
     } else if ($new_email === $email_identifier || $new_email === "") {
         $output['error'] = "Please provide new email address!";
-    } else if ($query->rowCount() > 0) {
+    } else if ($query->rowCount() < 0) {
         $query = $db->connect()->prepare("UPDATE account SET email = :new_email WHERE email = :old_email");
         $result = $query->execute([':new_email' => $new_email, ':old_email' => $old_email]);
 
@@ -37,17 +37,18 @@ if (isset($_POST['change_email'])) {
                 if ($result) {
                     $_SESSION['email'] = $new_email;
                     $output['success'] = "Email address updated successfully";
+                    $output['type'] = $_SESSION['userType'];
                     $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
                         ':event' => 'Change email',
-                        ':user_type' => 'freelancer'
+                        ':user_type' => $_SESSION['userType']
                     ]);
                 }
             }
         }
-    } else if ($query->rowCount() < 0) {
-        $output['error'] = "Email address does not match!";
+    } else if ($query->rowCount() > 0) {
+        $output['error'] = "Email address already exist.";
     }
     echo json_encode($output);
 }
@@ -78,11 +79,12 @@ if (isset($_POST['change_password'])) {
 
                 if ($result) {
                     $output['success'] = "Password has been changed.";
+                    $output['type'] = $_SESSION['userType'];
                     $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
                         ':event' => 'Change password',
-                        ':user_type' => 'freelancer'
+                        ':user_type' => $_SESSION['userType']
                     ]);
                 }
             }

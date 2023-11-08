@@ -29,9 +29,9 @@ if (isset($_POST['login'])) {
     } else if ($password == "") {
         $output['error'] = "Please enter your password!";
     } else if ($query->rowCount() == 0) {
-        $output['error'] = "Email Address do not exist!";
+        $output['error'] = "Email address or password are not matched!";
     } else if (!password_verify($password, $fetch_password) || $email !== $fetch['email']) {
-        $output['error'] = "Email address and password are not matched!";
+        $output['error'] = "Email address or password are not matched!";
     } else if (password_verify($password, $fetch_password)) {
         if ($fetch["userType"] == 'super_admin') {
             $output['success'] = "super_admin";

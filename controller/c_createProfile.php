@@ -49,8 +49,13 @@ if (isset($_POST['create_fprofile'])) {
 
     $account_id = $fetch['account_id'];
 
-
-    if ($query->rowCount() > 0) {
+    if (empty($profileImg) || $profileImg == '') {
+        $output['error'] = "Please upload your profile picture!";
+    } else if ($selectedData == "") {
+        $output['error'] = "Please select your job role!";
+    } else if ($barangay == "" || $municipality == "" || $province == "") {
+        $output['error'] = "Please provide your complete address!";
+    } else if ($query->rowCount() > 0) {
         $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay)");
         $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay]);
 
@@ -67,18 +72,6 @@ if (isset($_POST['create_fprofile'])) {
             }
             $output['success'] = "Profile Created. Redirecting...";
         }
-    } else if (empty($profileImg) || $profileImg == "") {
-        $output['error'] = "Please upload your profile picture!";
-    } else if ($selectedData == "") {
-        $output['error'] = "Please select your job role!";
-    } else if ($barangay == "" || $municipality == "" || $province == "") {
-        $output['error'] = "Please provide your complete address!";
-    } else if ($company == "") {
-        $output['error'] = "Please provide your company name!";
-    } else if ($workTitle == "") {
-        $output['error'] = "Please provide your work title!";
-    } else if ($jobDesc == "") {
-        $output['error'] = "Please provide your job description!";
     } else {
         $output['error'] = "Incomplete Details!";
     }
