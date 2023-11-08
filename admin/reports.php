@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
+$db = new DbClass();
 if ($_SESSION['userType'] !== "super_admin") {
     header('location: ../login.php');
     die();
@@ -17,7 +18,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="reports.css" />
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,7 +46,8 @@ if ($_SESSION['userType'] !== "super_admin") {
                         <table class="table table-hover border">
                             <thead>
                                 <tr class="table-secondary">
-                                    <th scope="col">#</th>
+                                    <th scope="col">Report ID</th>
+                                    <th scope="col">Account ID</th>
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
                                     <th scope="col" class="text-center">Date</th>
@@ -53,13 +55,41 @@ if ($_SESSION['userType'] !== "super_admin") {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $query = $db->connect()->prepare("SELECT * FROM reports
+                                INNER JOIN account ON account.account_id = reports.account_id");
+                                $query->execute();
 
-                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                foreach ($query as $row) {
+                                    $currentDateTime = $row['timestamp'];
+                                    $dateTimeObj = new DateTime($currentDateTime);
+                                    $date_submitted = $dateTimeObj->format("m-d-Y");
+                                    $reporter = $row['firstName'] . ' ' . $row['lastName'];
+                                    echo '
+                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal" onclick = "new Admin().fetch_report(' . $row['report_id'] . ', \'' . $reporter . '\');">
+                                    <th scope="row">' . $row['report_id'] . '</th>
+                                    <th scope="row">' . $row['account_id'] . '</th>
+                                    <td class="text-center">' . $row['firstName'] . '</td>
+                                    <td class="text-center">' . $row['lastName'] . '</td>
+                                    <td class="text-center">' . $date_submitted . '</td>';
+                                    if ($row['report_status'] == 'PENDING') {
+                                        echo '<td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>';
+                                    } else {
+                                        echo '<td class="text-center"><i class="fa-regular fa-circle-check" style="color: #1bd057;"></i></td>';
+                                    }
+
+                                    echo '</tr>
+                                    ';
+                                }
+                                ?>
+
+                                <!-- <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
                                     <th scope="row">1</th>
                                     <td class="text-center">Arvin</td>
                                     <td class="text-center">Bok</td>
                                     <td class="text-center">04-19-20</td>
-                                    <td class="text-center"><i class="fa-regular fa-circle-check" style="color: #1bd057;"></i></td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-check"
+                                            style="color: #1bd057;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -67,7 +97,8 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">John Paulo</td>
                                     <td class="text-center">Sulit</td>
                                     <td class="text-center">12-25-19</td>
-                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark"
+                                            style="color: #e33131;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -75,7 +106,8 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Mark Josh</td>
                                     <td class="text-center">Cristobal</td>
                                     <td class="text-center">06-07-21</td>
-                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark"
+                                            style="color: #e33131;"></i></td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -83,8 +115,9 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Joel</td>
                                     <td class="text-center">Leonor</td>
                                     <td class="text-center">03-14-21</td>
-                                    <td class="text-center"><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
-                                </tr>
+                                    <td class="text-center"><i class="fa-regular fa-circle-xmark"
+                                            style="color: #e33131;"></i></td>
+                                </tr> -->
 
                             </tbody>
                         </table>
@@ -95,6 +128,9 @@ if ($_SESSION['userType'] !== "super_admin") {
     </div>
 
     <script src="../js/script.js"></script>
+    <script src="../classJS/Account.js"></script>
+    <script src="../classJS/Notification.js"></script>
+    <script src="../classJS/Admin.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -113,14 +149,14 @@ if ($_SESSION['userType'] !== "super_admin") {
                 <form id="">
                     <div class="title mb-1">
                         <span class="fw-bold">Submitted By:</span>
-                        <span class="text-primary" id="">
+                        <span class="text-primary" id="reporter">
                             Lebron James
                         </span>
                     </div>
 
                     <div class="title mb-1">
                         <span class="fw-bold">Reported Account:</span>
-                        <span class="text-danger" id="">
+                        <span class="text-danger" id="reported_account">
                             John Paulo Sulitz
                         </span>
                     </div>
@@ -128,7 +164,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                     <div class="title">
                         <span class="label fw-bold">Message:</span>
                         <div class="form-floating mt-1 mb-2 border p-3 rounded ">
-                            <span class="">
+                            <span class="" id="reason">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias illo fugit
                                 obcaecati? Nemo magni esse est,
                                 eaque nulla, nesciunt ipsam labore reiciendis itaque, explicabo soluta. Id magni fugit
@@ -159,7 +195,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                     <label for="formFileSm" class="form-label label fw-bold ">Uploaded file</label>
                     <div class="mb-3 d-flex justify-content-center">
                         <!-- <input class="form-control form-control-sm" name="apply_file" id="formFileSm" type="file"> -->
-                        <img src="../img/egawaicon4.png" class="img-fluid" alt="...">
+                        <img src="../img/egawaicon4.png" id="screenshot" class="img-fluid" alt="...">
                     </div>
 
                     <div class="modal-footer">

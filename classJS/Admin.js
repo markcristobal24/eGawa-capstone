@@ -54,4 +54,25 @@ class Admin {
             }
         });
     }
+
+    fetch_report(report_id, reporter) {
+        let form_data = new FormData();
+        form_data.append('fetch_report', 'fetch_report');
+        form_data.append('report_id', report_id);
+        form_data.append('reporter', reporter);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let report = response_data;
+
+            document.getElementById('reporter').innerHTML = report.reporter;
+            document.getElementById('reported_account').innerHTML = `[${report.account_id}] ${report.reported_account}`;
+            document.getElementById('reason').innerHTML = report.reason;
+            document.getElementById('screenshot').src = `../img/uploads/reports/${report.screenshot}`;
+        });
+    }
 }

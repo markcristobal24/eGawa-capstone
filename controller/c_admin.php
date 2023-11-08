@@ -73,3 +73,20 @@ Best Regards, <br><br> <b>eGawa</b>";
 
     echo json_encode($output);
 }
+
+if (isset($_POST['fetch_report'])) {
+    $report_id = $_POST['report_id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM reports INNER JOIN account ON account.account_id = reports.reported_id WHERE report_id = :report_id");
+    $query->execute([':report_id' => $report_id]);
+    $data = array();
+    foreach ($query as $row) {
+        $data['reporter'] = $_POST['reporter'];
+        $data['account_id'] = $row['account_id'];
+        $data['reported_account'] = $row['firstName'] . ' ' . $row['lastName'];
+        $data['reason'] = $row['reason'];
+        $data['screenshot'] = $row['screenshot'];
+    }
+
+    echo json_encode($data);
+}
