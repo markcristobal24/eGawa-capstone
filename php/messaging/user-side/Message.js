@@ -35,6 +35,9 @@ function clickConvo(convoId) {
       document.getElementById("btn_viewProfile").style.display = "block";
       document.getElementById("btn_report").style.display = "block";
       document.getElementById("btn_viewProfile").value = info.freelance_id;
+      document.getElementById("btn_report").value = info.freelance_id;
+      document.getElementById('reported_username').value = `@${info.username}`;
+      document.getElementById('btn_sendreport').value = info.freelance_id;
       companyId = info.user_id;
       freelanceId = info.freelance_id;
       Pusher.logToConsole = true;
@@ -157,4 +160,35 @@ function formatTimestamp(date) {
 
 function view_profile(freelance_id) {
   window.location.href = `view_freelance_profile.php?freelance_id=${freelance_id}`;
+}
+
+function send_report(id) {
+  let button_value = new Account().get_button_value("btn_sendreport");
+  new Account().button_loading("btn_sendreport", "loading", "");
+  document.getElementById('btn_sendreport').disabled = true;
+  let form_data = new FormData(document.getElementById('report_form'));
+  form_data.append('send_report', 'send_report');
+  form_data.append('id', id);
+  fetch('../php/messaging/user-side/message.php', {
+    method: "POST",
+    body: form_data
+  }).then((response) => {
+    return response.json();
+  }).then((response_data) => {
+    console.log(response_data);
+    if (response_data.success) {
+      console.log(response_data.success);
+      new Notification().create_notification(response_data.success, "success");
+      let tID = setTimeout(function () {
+        window.location.reload();
+        window.clearTimeout(tID);
+      }, 2000);
+    }
+    else if (response_data.error) {
+      console.log(response_data.error);
+      new Account().button_loading("btn_sendreport", "", button_value);
+      document.getElementById('btn_sendreport').disabled = false;
+      new Notification().create_notification(response_data.error, "error");
+    }
+  });
 }

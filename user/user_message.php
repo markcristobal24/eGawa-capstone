@@ -587,26 +587,29 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="report_form" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Reported User:</label>
-                        <input type="text" class="form-control" id="recipient-name" placeholder="@JPSulit" disabled>
+                        <input type="text" class="form-control" id="reported_username" name="reported_username"
+                            placeholder="" disabled>
                     </div>
                     <label for="sample-ss" class="col-form-label">Provide a Screenshot:</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="sample-ss">
+                        <input type="file" name="report_ss" class="form-control" id="sample-ss">
                         <label class="input-group-text" for="sample-ss">Upload</label>
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Reason for Report:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <textarea class="form-control" id="message-text" name="report_reason"></textarea>
                     </div>
-                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" id="btn_sendreport" class="btn btn-primary"
+                    onclick="send_report(this.value);">Report</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

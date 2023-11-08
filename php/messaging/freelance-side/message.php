@@ -31,6 +31,7 @@ if (isset($_POST['fetch_info_convo'])) {
         $data['province'] = $row['province'];
         $data['freelance_id'] = $row['freelance_id'];
         $data['user_id'] = $row['user_id'];
+        $data['username'] = $row['username'];
     }
     echo json_encode($data);
 }
@@ -96,5 +97,37 @@ if (isset($_POST['send_message'])) {
             }
         }
     }
+    echo json_encode($output);
+}
+
+if (isset($_POST['send_report'])) {
+    $reported_id = $_POST['id'];
+    $account_id = $_SESSION['account_id'];
+    $report_screenshot = $_FILES['report_ss']['tmp_name'];
+    $report_reason = $_POST['report_reason'];
+
+    if ($report_screenshot != '' && $report_reason !== '') {
+        $image_link = $report_screenshot;
+        $image_directory = '../../../img/uploads/reports/' . basename($_FILES['report_ss']['name']);
+        $image_link = basename($_FILES['report_ss']['name']);
+        move_uploaded_file($report_screenshot, $image_directory);
+
+        $query = $db->connect()->prepare("INSERT INTO reports (account_id, reported_id, screenshot, reason, report_status)
+        VALUES (:account_id, :reported_id, :screenshot, :reason, :report_status)");
+        $result = $query->execute([
+            ':account_id' => $account_id,
+            ':reported_id' => $reported_id,
+            ':screenshot' => $image_link,
+            ':reason' => $report_reason,
+            ':report_status' => 'PENDING'
+        ]);
+
+        if ($result) {
+            $output['success'] = "Report submitted successfully";
+        }
+    } else {
+        $output['error'] = "Incomplete Details.";
+    }
+
     echo json_encode($output);
 }
