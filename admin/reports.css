@@ -22,7 +22,11 @@ body {
     margin-left: 25px;
     margin-inline: auto;
   }
-  .box-{
+  .cont{
+    margin-top: 100px;
+  }
+
+  /* .box-{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,7 +47,7 @@ body {
 
   .boxes-data{
     font-size: 40px;
-  }
+  } */
 
   
 

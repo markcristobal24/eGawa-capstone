@@ -34,60 +34,63 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <?php include "admin-navbar.php"; ?>
 
+    <div class="cont">
+        <div id="container-" class="container bg-info bg-opacity-10 border border-success border rounded mt-5 m-top">
+            <div class="row">
+                <div class="parent">
+                    <h1>Reports</h1>
+                    <div class="child">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Firstname</th>
+                                    <th scope="col">Lastname</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-    <div class="container bg-info bg-opacity-10 border border-success border rounded mt-5">
-        <div class="row">
-            <div class="parent">
-                <h1>Reports</h1>
-                <div class="child">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Firstname</th>
-                                <th scope="col">Lastname</th>
-                                <th scope="col">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                    <th scope="row">1</th>
+                                    <td>Arvin</td>
+                                    <td>Bok</td>
+                                    <td>04-19-20</td>
+                                    <td><i class="fa-regular fa-circle-check" style="color: #1bd057;"></i></td>
+                                </tr>
 
-                            <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                <th scope="row">1</th>
-                                <td>Arvin</td>
-                                <td>Bok</td>
-                                <td>04-19-20</td>
-                            </tr>
+                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                    <th scope="row">2</th>
+                                    <td>John Paulo</td>
+                                    <td>Sulit</td>
+                                    <td>12-25-19</td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                </tr>
 
-                            <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                <th scope="row">2</th>
-                                <td>John Paulo</td>
-                                <td>Sulit</td>
-                                <td>12-25-19</td>
-                            </tr>
+                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                    <th scope="row">2</th>
+                                    <td>Mark Josh</td>
+                                    <td>Cristobal</td>
+                                    <td>06-07-21</td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                </tr>
 
-                            <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                <th scope="row">2</th>
-                                <td>Mark Josh</td>
-                                <td>Cristobal</td>
-                                <td>06-07-21</td>
-                            </tr>
+                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                    <th scope="row">2</th>
+                                    <td>Joel</td>
+                                    <td>Leonor</td>
+                                    <td>03-14-21</td>
+                                    <td><i class="fa-regular fa-circle-xmark" style="color: #e33131;"></i></td>
+                                </tr>
 
-                            <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
-                                <th scope="row">2</th>
-                                <td>Joel</td>
-                                <td>Leonor</td>
-                                <td>03-14-21</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    </div>
-
 
     <script src="../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -158,8 +161,8 @@ if ($_SESSION['userType'] !== "super_admin") {
                     </div>
 
                     <div class="modal-footer">
+                        <button type="button" id="" class="btn btn-primary">Done</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" id="" class="btn btn-primary">Send</button>
                     </div>
                 </form>
             </div>
