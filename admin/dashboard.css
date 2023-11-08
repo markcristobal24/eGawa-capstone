@@ -6,16 +6,8 @@ body {
   }
 
   /* ====for conatiner====== */
-  .container-{
-    display: flex;
-  }
 
-  .content{
-    /* background-color: bisque; */
-    width: 80%;
-    margin-left: 25px;
-    margin-inline: auto;
-  }
+
   .box-{
     display: flex;
     flex-direction: row;
