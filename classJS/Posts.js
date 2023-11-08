@@ -2,6 +2,7 @@ class Posts {
     post() {
         let button_value = new Account().get_button_value("submitPost");
         new Account().button_loading("submitPost", "loading", "");
+        document.getElementById('submitPost').disabled = true;
 
         let form_data = new FormData(document.getElementById('post_form'));
         form_data.append('jobPosts', 'jobPosts');
@@ -21,6 +22,7 @@ class Posts {
                 }, 1500);
             }
             else if (response_data.error) {
+                document.getElementById('submitPost').disabled = false;
                 new Account().button_loading("submitPost", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -121,7 +123,7 @@ class Posts {
 
     send_job(postId) {
         new Account().button_loading("btn_sendJob", "loading", "");
-
+        document.getElementById('btn_sendJob').disabled = true;
         let form_data = new FormData(document.getElementById('sendJob_form'));
         form_data.append('postId', postId);
         form_data.append('send_job', 'send_job');
@@ -142,6 +144,7 @@ class Posts {
                 }, 1500);
             }
             else if (response_data.error) {
+                document.getElementById('btn_sendJob').disabled = false;
                 new Account().button_loading("btn_sendJob", "", "Send");
                 new Notification().create_notification(response_data.error, "error");
             }

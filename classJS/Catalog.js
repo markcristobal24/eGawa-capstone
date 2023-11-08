@@ -3,7 +3,7 @@ class Catalog {
     add_catalog() {
         let button_value = new Account().get_button_value("add_catalog");
         new Account().button_loading("add_catalog", "loading", "");
-
+        document.getElementById('add_catalog').disabled = true;
         let msg = "Adding catalog....";
         new Notification().create_notification(msg, "neutral");
 
@@ -26,6 +26,7 @@ class Catalog {
                 }, 1000);
             }
             else if (response_data.error) {
+                document.getElementById('add_catalog').disabled = false;
                 new Account().button_loading("add_catalog", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -86,6 +87,7 @@ class Catalog {
 
         let button_value = new Account().get_button_value("edit_catalog");
         new Account().button_loading("edit_catalog", "loading", "");
+        document.getElementById('edit_catalog').disabled = true;
 
         var form_data = new FormData(document.getElementById('edit_catalogForm'));
         form_data.append('catalog_id', catalog_id);
@@ -106,6 +108,7 @@ class Catalog {
                 }, 1000);
             }
             else if (response_data.error) {
+                document.getElementById('edit_catalog').disabled = false;
                 new Account().button_loading("edit_catalog", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }

@@ -81,6 +81,7 @@ class Job {
     decline_job(jobId) {
         let button_value = new Account().get_button_value("btn_declineJob");
         new Account().button_loading("btn_declineJob", "loading", "");
+        document.getElementById('btn_declineJob').disabled = true;
 
         let form_data = new FormData();
         form_data.append('jobId', jobId);
@@ -101,6 +102,7 @@ class Job {
                 }, 1500);
             }
             else if (response_data.error) {
+                document.getElementById('btn_declineJob').disabled = false;
                 new Notification().create_notification(response_data.error, "error");
             }
         });
@@ -108,7 +110,7 @@ class Job {
 
     accept_job(jobId) {
         new Account().button_loading("btn_acceptJob", "loading", "");
-
+        document.getElementById('btn_acceptJob').disabled = true;
         let form_data = new FormData();
         form_data.append('jobId', jobId);
         form_data.append('accept_job', 'accept_job');
@@ -129,6 +131,7 @@ class Job {
                 }, 1500);
             }
             else if (response_data.error) {
+                document.getElementById('btn_acceptJob').disabled = false;
                 new Notification().create_notification(response_data.error, "error");
             }
         });

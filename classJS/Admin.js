@@ -2,6 +2,7 @@ class Admin {
     accept_idverify(id) {
         let button_value = new Account().get_button_value("btn_acceptverify");
         new Account().button_loading("btn_acceptverify", "loading", "");
+        document.getElementById('btn_acceptverify').disabled = true;
         let form_data = new FormData();
         form_data.append('accept_id', 'accept_id');
         form_data.append('id', id);
@@ -21,6 +22,7 @@ class Admin {
                 }, 1000);
             }
             else if (response_data.error) {
+                document.getElementById('btn_acceptverify').disabled = false;
                 new Account().button_loading("btn_acceptverify", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -30,6 +32,7 @@ class Admin {
     deny_idverify(id) {
         let button_value = new Account().get_button_value("btn_denyverify");
         new Account().button_loading("btn_denyverify", "loading", "");
+        document.getElementById('btn_denyverify').disabled = true;
         let form_data = new FormData();
         form_data.append('deny_id', 'deny_id');
         form_data.append('id', id);
@@ -49,6 +52,7 @@ class Admin {
                 }, 1000);
             }
             else if (response_data.error) {
+                document.getElementById('btn_denyverify').disabled = false;
                 new Account().button_loading("btn_denyverify", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }

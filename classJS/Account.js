@@ -4,7 +4,7 @@ class Account {
     login() {
         let button_value = new Account().get_button_value("btnLogin");
         new Account().button_loading("btnLogin", "loading", "");
-
+        document.getElementById('btnLogin').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('login', 'login');
         fetch('controller/c_login.php', {
@@ -65,6 +65,7 @@ class Account {
             } else if (response_data.error) {
                 console.log(response_data.error);
                 new Account().button_loading("btnLogin", "", button_value);
+                document.getElementById('btnLogin').disabled = false;
                 new Notification().create_notification(response_data.error, "error");
             }
         });
@@ -73,7 +74,7 @@ class Account {
     logout() {
         let button_value = new Account().get_button_value("logoutBtn");
         new Account().button_loading("logoutBtn", "loading", "");
-
+        document.getElementById('logoutBtn').disabled = true;
         var form_data = new FormData();
         form_data.append('logout', 'logout');
         fetch('../controller/c_logout.php', {
@@ -94,6 +95,7 @@ class Account {
             else if (response_data.error) {
                 console.log(response_data.error);
                 new Account().button_loading("logoutBtn", "", button_value);
+                document.getElementById('logoutBtn').disabled = false;
                 new Notification().create_notification(response_data.error, "error");
             }
         });
@@ -102,7 +104,7 @@ class Account {
     registerFreelance() {
         let button_value = new Account().get_button_value("btnFreelanceReg");
         new Account().button_loading("btnFreelanceReg", "loading", "");
-
+        document.getElementById('btnFreelanceReg').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('registerFreelance', 'registerFreelance');
         fetch('../controller/c_fRegister.php', {
@@ -122,6 +124,7 @@ class Account {
             }
             else if (response_data.error) {
                 console.log(response_data.error);
+                document.getElementById('btnFreelanceReg').disabled = false;
                 new Account().button_loading("btnFreelanceReg", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -131,7 +134,7 @@ class Account {
     forgot_password() {
         let button_value = new Account().get_button_value("forgot_password");
         new Account().button_loading("forgot_password", "loading", "");
-
+        document.getElementById('forgot_password').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('forgot_password', 'forgot_password');
         fetch('controller/c_forgotPassword.php', {
@@ -150,6 +153,7 @@ class Account {
                 }, 3000);
             }
             else if (response_data.error) {
+                document.getElementById('forgot_password').disabled = false;
                 new Account().button_loading("forgot_password", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -159,7 +163,7 @@ class Account {
     new_password() {
         let button_value = new Account().get_button_value("btnNewPassword");
         new Account().button_loading("btnNewPassword", "loading", "");
-
+        document.getElementById('btnNewPassword').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'))
         form_data.append('new_password', 'new_password');
         fetch('../controller/c_newPassword.php', {
@@ -177,6 +181,7 @@ class Account {
                     window.clearTimeout(tID);
                 }, 3000);
             } else if (response_data.error) {
+                document.getElementById('btnNewPassword').disabled = false;
                 new Account().button_loading("btnNewPassword", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -186,7 +191,7 @@ class Account {
     create_fprofile() {
         let button_value = new Account().get_button_value("create_profile");
         new Account().button_loading("create_profile", "loading", "");
-
+        document.getElementById('create_profile').disabled = true;
         var form_data = new FormData(document.getElementById('create_profileForm'));
         form_data.append('create_fprofile', 'create_fprofile');
         fetch('../controller/c_createProfile.php', {
@@ -205,6 +210,7 @@ class Account {
                 }, 3000);
             }
             else if (response_data.error) {
+                document.getElementById('create_profile').disabled = false;
                 new Account().button_loading("create_profile", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -214,7 +220,7 @@ class Account {
     verify_otp() {
         let button_value = new Account().get_button_value("btnVerify");
         new Account().button_loading("btnVerify", "loading", "");
-
+        document.getElementById('btnVerify').disabled = true;
         var form_data = new FormData(document.getElementById('verify_form'));
         form_data.append('verify_otp', 'verify_otp');
         fetch('../controller/c_otp.php', {
@@ -232,6 +238,7 @@ class Account {
                 }, 1500);
             }
             else if (response_data.error) {
+                document.getElementById('btnVerify').disabled = false;
                 new Account().button_loading("btnVerify", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -241,7 +248,7 @@ class Account {
     edit_fprofile() {
         let button_value = new Account().get_button_value("edit_fprofile");
         new Account().button_loading("edit_fprofile", "loading", "");
-
+        document.getElementById('edit_fprofile').disabled = true;
         var form_data = new FormData(document.getElementById('edit_profile'));
         form_data.append('edit_fprofile', 'edit_fprofile');
         fetch('../controller/c_createProfile.php', {
@@ -259,6 +266,7 @@ class Account {
                 }, 3000);
             }
             else if (response_data.error) {
+                document.getElementById('edit_fprofile').disabled = false;
                 new Account().button_loading("edit_fprofile", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -270,8 +278,10 @@ class Account {
 
         if (type == "username") {
             new Account().button_loading("update_username", "loading", "");
+            document.getElementById('update_username').disabled = true;
         } else {
             new Account().button_loading("update_profile", "loading", "");
+            document.getElementById('update_profile').disabled = true;
         }
 
         let form_data = new FormData(document.getElementById('editProfile_form'));
@@ -285,8 +295,11 @@ class Account {
         }).then((response_data) => {
             if (type == "username") {
                 new Account().button_loading("update_username", "", "Update");
+                document.getElementById('update_username').disabled = false;
+
             } else {
                 new Account().button_loading("update_profile", "", "Update");
+                document.getElementById('update_profile').disabled = false;
             }
 
             console.log(response_data);
@@ -308,7 +321,7 @@ class Account {
     change_email() {
         let button_value = new Account().get_button_value("change_email");
         new Account().button_loading("change_email", "loading", "");
-
+        document.getElementById('change_email').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('change_email', 'change_email');
         fetch('controller/c_Faccount.php', {
@@ -332,6 +345,7 @@ class Account {
             }
             else if (response_data.error) {
                 new Account().button_loading("change_email", "", button_value);
+                document.getElementById('change_email').disabled = false;
                 new Notification().create_notification(response_data.error, "error");
             }
         });
@@ -340,7 +354,7 @@ class Account {
     change_password() {
         let button_value = new Account().get_button_value("change_password");
         new Account().button_loading("change_password", "loading", "");
-
+        document.getElementById('change_password').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('change_password', 'change_password');
         fetch('controller/c_Faccount.php', {
@@ -363,6 +377,7 @@ class Account {
                 }, 3000);
             }
             else if (response_data.error) {
+                document.getElementById('change_password').disabled = false;
                 new Account().button_loading("change_password", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -372,7 +387,7 @@ class Account {
     user_register() {
         let button_value = new Account().get_button_value("btnUserReg");
         new Account().button_loading("btnUserReg", "loading", "");
-
+        document.getElementById('btnUserReg').disabled = true;
         var form_data = new FormData(document.getElementById('account_form'));
         form_data.append('user_register', 'user_register');
         fetch('../controller/c_uRegister.php', {
@@ -392,6 +407,7 @@ class Account {
             }
             else if (response_data.error) {
                 console.log(response_data.error);
+                document.getElementById('btnUserReg').disabled = false;
                 new Account().button_loading("btnUserReg", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
@@ -580,7 +596,7 @@ class Account {
     id_verify() {
         let button_value = new Account().get_button_value("btn_verifyID");
         new Account().button_loading("btn_verifyID", "loading", "");
-
+        document.getElementById('btn_verifyID').disabled = true;
         let form_data = new FormData(document.getElementById('idverify_form'));
         form_data.append('id_verification', 'id_verification');
         fetch('controller/c_Faccount.php', {
@@ -600,6 +616,7 @@ class Account {
                 }, 2000);
             }
             else if (response_data.error) {
+                document.getElementById('btn_verifyID').disabled = false;
                 new Account().button_loading("btn_verifyID", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
