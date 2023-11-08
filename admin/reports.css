@@ -5,53 +5,6 @@ body {
     margin: 0;
   }
 
-  /* ====for conatiner====== */
-
-  /* Change the hover color */
-  .table-hover tbody tr:hover {
-    background-color: linear-gradient(to right, #0073aa, #8000aa);
-    cursor: pointer;
- }
- .table-hover tbody tr:hover td{
-  color: rgb(75, 44, 185);
- }
-
-  .content{
-    /* background-color: bisque; */
-    width: 80%;
-    margin-left: 25px;
-    margin-inline: auto;
-  }
-  .cont{
-    margin-top: 100px;
-  }
-
-  /* .box-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .boxes{
-    display: flex;
-    flex-direction: column;
-    background-color: #8000aa;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    width: 220px;
-    height: 120px;
-  }
-  .boxes span{
-    color: #fff;
-  }
-
-  .boxes-data{
-    font-size: 40px;
-  } */
-
-  
-
-
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {}
 
@@ -72,24 +25,6 @@ body {
 
 /*============================ small  ===========================*/
 @media (max-width: 576px) {
-.container-{
-    display: flex;
-    /* flex-direction: column; */
-  }
-
-  .boxes{
-    display: flex;
-    flex-direction: column;
-    background-color: #8000aa;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    width: 120px;
-    height: 100px;
-  }
-  .boxes-data{
-    font-size: 20px;
-  }
 
   .content{
     /* background-color: bisque; */

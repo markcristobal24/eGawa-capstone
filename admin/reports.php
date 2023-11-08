@@ -34,15 +34,17 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <?php include "admin-navbar.php"; ?>
 
-    <div class="cont">
-        <div id="container-" class="container bg-info bg-opacity-10 border border-success border rounded mt-5 m-top">
+    <div class="container mt-5 pt-5">
+
+        <div class="p-3 mb-2 bg-secondary text-white fs-3">Reports</div>
+
+        <div class="container">
             <div class="row">
                 <div class="parent">
-                    <h1>Reports</h1>
                     <div class="child">
-                        <table class="table table-hover">
+                        <table class="table table-hover border">
                             <thead>
-                                <tr>
+                                <tr class="table-secondary">
                                     <th scope="col">#</th>
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
