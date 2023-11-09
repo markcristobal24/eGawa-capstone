@@ -79,4 +79,39 @@ class Admin {
             document.getElementById('screenshot').src = `../img/uploads/reports/${report.screenshot}`;
         });
     }
+
+    search_filter(filter_value, type) {
+        let form_data = new FormData();
+        form_data.append('search_logs', 'search_logs');
+        form_data.append('filter_value', filter_value);
+        form_data.append('type', type);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (type == 'freelancer') {
+                if (response_data.result) {
+                    document.getElementById('freelance_tbl').innerHTML = response_data.result;
+                } else if (response_data.error) {
+                    document.getElementById('freelance_tbl').innerHTML = response_data.error;
+                }
+            } else if (type == 'company') {
+                if (response_data.result) {
+                    document.getElementById('company_tbl').innerHTML = response_data.result;
+                } else if (response_data.error) {
+                    document.getElementById('company_tbl').innerHTML = response_data.error;
+                }
+            } else if (type == 'message') {
+                if (response_data.result) {
+                    document.getElementById('message_tbl').innerHTML = response_data.result;
+                } else if (response_data.error) {
+                    document.getElementById('message_tbl').innerHTML = response_data.error;
+                }
+            }
+        });
+    }
 }

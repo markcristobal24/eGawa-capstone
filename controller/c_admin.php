@@ -90,3 +90,110 @@ if (isset($_POST['fetch_report'])) {
 
     echo json_encode($data);
 }
+
+if (isset($_POST['search_logs'])) {
+    $type = $_POST['type'];
+
+    if ($type == 'freelancer') {
+        $filter_value = $_POST['filter_value'];
+        $query = $db->connect()->prepare("SELECT * FROM activity_logs INNER JOIN account ON account.account_id = activity_logs.account_id WHERE user_type = :user_type 
+        AND (activity_logs.account_id LIKE '$filter_value%' OR timestamp LIKE '%$filter_value%' OR firstName LIKE '$filter_value%' OR lastName LIKE '$filter_value%') ORDER BY activity_logs.timestamp DESC");
+        $query->execute([':user_type' => 'freelancer']);
+        $output = array();
+        $output['result'] = '';
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $currentDateTime = $row['timestamp'];
+            $dateTimeObj = new DateTime($currentDateTime);
+            $timestamp = $dateTimeObj->format("Y-m-d h:i A");
+
+            $output['result'] .= '
+            <tr>
+                                    <th scope="row">' . $row['event_id'] . '</th>
+                                    <td>' . $timestamp . '</td>
+                                    <td>' . $row['account_id'] . '</td>
+                                    <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>
+                                    <td>' . $row['event'] . '</td>
+                                </tr>
+            ';
+        }
+        $output['error'] = '
+         <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+        ';
+
+        echo json_encode($output);
+    } else if ($type == 'company') {
+        $filter_value = $_POST['filter_value'];
+        $query = $db->connect()->prepare("SELECT * FROM activity_logs INNER JOIN account ON account.account_id = activity_logs.account_id WHERE (user_type = :user_type 
+        OR user_type = :other) AND (activity_logs.account_id LIKE '$filter_value%' OR timestamp LIKE '%$filter_value%' OR firstName LIKE '$filter_value%' OR lastName LIKE '$filter_value%') ORDER BY activity_logs.timestamp DESC");
+        $query->execute([':user_type' => 'company', ':other' => 'user']);
+        $output = array();
+        $output['result'] = '';
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $currentDateTime = $row['timestamp'];
+            $dateTimeObj = new DateTime($currentDateTime);
+            $timestamp = $dateTimeObj->format("Y-m-d h:i A");
+
+            $output['result'] .= '
+            <tr>
+                                    <th scope="row">' . $row['event_id'] . '</th>
+                                    <td>' . $timestamp . '</td>
+                                    <td>' . $row['account_id'] . '</td>
+                                    <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>
+                                    <td>' . $row['event'] . '</td>
+                                </tr>
+            ';
+        }
+        $output['error'] = '
+         <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+        ';
+
+        echo json_encode($output);
+    } else if ($type == 'message') {
+        $filter_value = $_POST['filter_value'];
+        $query = $db->connect()->prepare("SELECT * FROM messages WHERE sender_id LIKE '$filter_value%' OR receiver_id LIKE '$filter_value%' ORDER BY timestamp DESC");
+        $query->execute();
+        $output = array();
+        $output['result'] = '';
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $currentDateTime = $row['timestamp'];
+            $dateTimeObj = new DateTime($currentDateTime);
+            $timestamp = $dateTimeObj->format("Y-m-d h:i A");
+
+            $output['result'] .= '
+            <tr>
+                                        <th scope="row">' . $row['message_id'] . '</th>
+                                        <td>' . $timestamp . '</td>
+                                        <td>' . $row['sender_id'] . '</td>
+                                        <td>' . $row['receiver_id'] . '</td>
+                                        <td>' . $row['message'] . '</td>
+                                    </tr>
+            ';
+        }
+        $output['error'] = '
+         <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+        ';
+
+        echo json_encode($output);
+    }
+}
