@@ -164,7 +164,7 @@ if (isset($_POST['search_logs'])) {
         echo json_encode($output);
     } else if ($type == 'message') {
         $filter_value = $_POST['filter_value'];
-        $query = $db->connect()->prepare("SELECT * FROM messages WHERE sender_id LIKE '$filter_value%' OR receiver_id LIKE '$filter_value%' ORDER BY timestamp DESC");
+        $query = $db->connect()->prepare("SELECT * FROM messages WHERE sender_id LIKE '$filter_value%' OR receiver_id LIKE '$filter_value%' OR message LIKE '%$filter_value%' ORDER BY timestamp DESC");
         $query->execute();
         $output = array();
         $output['result'] = '';
