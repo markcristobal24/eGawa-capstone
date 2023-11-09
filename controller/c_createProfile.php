@@ -63,12 +63,12 @@ if (isset($_POST['create_fprofile'])) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
             $result = $query->execute([':email' => $email]);
             if ($result) {
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
-                $query->execute([
-                    ':account_id' => $_SESSION['account_id'],
-                    ':event' => 'Create profile',
-                    ':user_type' => 'freelancer'
-                ]);
+                // $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                // $query->execute([
+                //     ':account_id' => $_SESSION['account_id'],
+                //     ':event' => 'Create profile',
+                //     ':user_type' => 'freelancer'
+                // ]);
             }
             $output['success'] = "Profile Created. Redirecting...";
         }

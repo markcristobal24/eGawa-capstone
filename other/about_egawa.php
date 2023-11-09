@@ -54,11 +54,11 @@
                 </p>
             </span>
 
-            <button class="btn">
-                <a href="../freelance/freelanceHome.php">
-                    <span class="btn-text-one">Back</span>
-                    <span class="btn-text-two">Let's go!</span>
-                </a>
+            <button class="btn" onclick="window.history.back()">
+
+                <span class="btn-text-one">Back</span>
+                <span class="btn-text-two">Let's go!</span>
+
             </button>
 
         </div>
