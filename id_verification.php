@@ -117,11 +117,15 @@
                 <!-- First Child Div -->
                 <div class="child-div">
                     <!-- Content for the first child div -->
+                    <label for="" class="white- mb-1">Front ID</label>
                     <div class="mb-1">
                         <!-- <img class="img-id" src="img/imgup.png" alt=""> -->
+
                         <img class="img-id" id="uploaded-img-front" src="img/id-card.png" alt="">
                     </div>
+                    <label for="" class="white- mb-1">Back ID</label>
                     <div clas="">
+
                         <img class="img-id" id="uploaded-img-back" src="img/id-card.png" alt="">
                     </div>
                 </div>
