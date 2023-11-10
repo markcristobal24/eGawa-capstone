@@ -9,11 +9,8 @@ body {
 /*============================ extra extra large  ===========================*/
 @media (max-width: 5000px) {
 
-    .container_{
-        margin: 15vh auto;
-        width: fit-content;
-        height: fit-content;
-        padding: 10px 10px 30px;
+    .main-{
+        margin: 5vh auto;
         box-shadow: 5px 8px 16px 5px rgba(196, 196, 196, 0.37);
     }
     .header_title{
@@ -39,7 +36,6 @@ body {
     #id-image {
         width: 100%;
         height: 100%;
-        /* object-fit: cover; */
         object-fit: fill;
     }
     .id-front, .id-back{
@@ -55,10 +51,16 @@ body {
         margin-left: 5px;
     }
     .container-right{
-        padding-top: 15%;
+        padding-top: 10%;
         margin-left: 15px;
         margin-bottom: 0;
     }
+    .img-id{
+        height: 200px;
+        width: 300px;
+        border: 2px dashed #ccc;
+    }
+
 
 
 
@@ -94,11 +96,9 @@ body {
 /*============================ large  ===========================*/
 @media (max-width: 1366px) {
 
-    .container_{
-        margin: 10vh auto;
-        width: 60vw;
-        height: fit-content;
-        padding: 10px 10px 30px;
+    .main-{
+        margin: 3vh auto;
+        padding: 10px;
     }
     
 
