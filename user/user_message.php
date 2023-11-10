@@ -556,8 +556,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 Are you sure you want to end this transaction?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" id="btn_proceed_end" onclick="new Job().review_freelance(this.value)">Proceed</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -590,8 +590,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" id="btn_sendreport" class="btn btn-primary" onclick="send_report(this.value);">Report</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
             </form>
         </div>
