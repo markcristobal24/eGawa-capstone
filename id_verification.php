@@ -118,7 +118,7 @@
                 <div class="child-div">
                     <!-- Content for the first child div -->
                     <label for="" class="white- mb-1">Front ID</label>
-                    <div class="mb-1">
+                    <div class="mb-3">
                         <!-- <img class="img-id" src="img/imgup.png" alt=""> -->
 
                         <img class="img-id" id="uploaded-img-front" src="img/id-card.png" alt="">
@@ -139,17 +139,9 @@
 
 
                         <div class="container mt-3 mt-sm-1">
+
                             <label for="id-dropdown" class="white- mb-1">Select ID Type</label>
-                            <!-- <select id="id-dropdown" name="id_type">
-                                <option value="none">Pick an ID type</option>
-                                <option value="umid">UMID</option>
-                                <option value="drive">Drivers License</option>
-                                <option value="philhealth">Philhealth Card</option>
-                                <option value="sss">SSS ID</option>
-                                <option value="passport">Passport</option>
-                                <option value="tin">TIN ID</option>
-                                <option value="voters">Voters ID</option>
-                            </select> -->
+
                             <select id="id-dropdown" name="id_type" class="form-select form-select-sm mb-3" aria-label="Large select example">
                                 <option selected value="none">Pick an ID type</option>
                                 <option value="umid">UMID</option>
@@ -177,7 +169,15 @@
                             <div class="input-group">
                                 <input type="file" class="form-control" id="back-id" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*" required>
                             </div>
+
+                            <label for="" class="white- mb-1">ID Number</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="addon-wrapping">ID Number: </span>
+                                <input type="text" class="form-control" name="id_number" placeholder="Enter ID number" aria-describedby="addon-wrapping">
+                            </div>
+
                         </div>
+
 
                         <div class="container">
                             <div class="bot-top">
