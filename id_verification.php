@@ -119,10 +119,10 @@
                     <!-- Content for the first child div -->
                     <div class="mb-1">
                         <!-- <img class="img-id" src="img/imgup.png" alt=""> -->
-                        <img class="img-id" id="uploaded-img-front" src="img/imgup.png" alt="">
+                        <img class="img-id" id="uploaded-img-front" src="img/id-card.png" alt="">
                     </div>
                     <div clas="">
-                        <img class="img-id" id="uploaded-img-back" src="img/imgup.png" alt="">
+                        <img class="img-id" id="uploaded-img-back" src="img/id-card.png" alt="">
                     </div>
                 </div>
             </div>
@@ -133,7 +133,9 @@
 
                     <form action="" id="idverify_form" enctype="multipart/form-data">
 
+
                         <div class="container mt-3 mt-sm-1">
+                            <label for="id-dropdown" class="white- mb-1">Select ID Type</label>
                             <!-- <select id="id-dropdown" name="id_type">
                                 <option value="none">Pick an ID type</option>
                                 <option value="umid">UMID</option>
