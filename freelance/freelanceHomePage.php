@@ -231,8 +231,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#edit-catalog-modal">Edit</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-catalog-modal">Edit</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal">Delete</button>
                 </div>
             </div>
         </div>
@@ -266,8 +266,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                                 Description</label>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
                             <button type="button" class="btn btn-primary" id="add_catalog" onclick="new Catalog().add_catalog();">Submit</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearInputs()">Close</button>
                         </div>
                     </form>
 
@@ -283,7 +283,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Catalog</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Catalog</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body-add">
@@ -304,8 +304,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                                 Description</label>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearEditModal()">Close</button>
                             <button type="button" id="edit_catalog" onclick="new Catalog().edit_catalog(this.value);" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearEditModal()">Close</button>
                         </div>
                     </form>
                 </div>
