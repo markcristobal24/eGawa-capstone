@@ -42,7 +42,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="freelance-tab.php">Freelancer</a></li>
-                        <li><a class="dropdown-item" href="#">Company</a></li>
+                        <li><a class="dropdown-item" href="company-tab.php">Company</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
