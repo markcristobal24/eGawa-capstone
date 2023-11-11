@@ -41,7 +41,7 @@
                         <span class="white- hov-">Manage Users</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Freelancer</a></li>
+                        <li><a class="dropdown-item" href="freelance-tab.php">Freelancer</a></li>
                         <li><a class="dropdown-item" href="#">Company</a></li>
                         <li>
                             <hr class="dropdown-divider">
