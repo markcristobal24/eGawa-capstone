@@ -296,12 +296,17 @@ document.getElementById('back-id').addEventListener('change', function() {
     }
 });
 
-let id_checkbox = document.getElementById('id_checkbox').checked != true;
-if (id_checkbox.checked == true) {
-    document.getElementById('btn_verifyID').disabled = true;
-} else {
-    document.getElementById('btn_verifyID').disabled = true;
-}
+let id_checkbox = document.getElementById('id_checkbox');
+id_checkbox.addEventListener('change', function() {
+    if (id_checkbox.checked == true) {
+        console.log(id_checkbox.checked);
+        console.log('eyy');
+        document.getElementById('btn_verifyID').disabled = false;
+    } else {
+        console.log(id_checkbox.checked);
+        document.getElementById('btn_verifyID').disabled = true;
+    }
+});
 </script>
 
 </html>
