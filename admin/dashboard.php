@@ -41,10 +41,10 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="content">
             <!-- <h1>Dashboard</h1> -->
-            <span class="row-title titles">Users:</span>
-            <div class="box-">
+            <span class="row-title titles fw-bold fs-4 text-success">Company:</span>
+            <div class="box- mb-3">
                 <div class="box-1 boxes">
-                    <span>Total Users:</span>
+                    <span>Total Company:</span>
                     <span class="boxes-data">100</span>
                 </div>
                 <div class="box-2 boxes">
@@ -58,9 +58,9 @@ if ($_SESSION['userType'] !== "super_admin") {
 
             </div>
 
-            <span class="row-title titles">Freelancers:</span>
+            <span class="row-title titles fw-bold fs-4 text-success">Freelancers:</span>
             <div class="box-">
-                <div class="box-1 boxes">
+                <div class="box-1 boxes mb-3">
                     <span>Total Freelancers:</span>
                     <span class="boxes-data">100</span>
                 </div>
@@ -81,8 +81,8 @@ if ($_SESSION['userType'] !== "super_admin") {
                 <!-- <div class="box-5 boxes"></div> -->
             </div>
 
-            <span class="row-title titles">Registered Users:</span>
-            <div class="box-">
+            <span class="row-title titles fw-bold fs-4 text-success">Registered Users:</span>
+            <div class="box- mb-3">
                 <div class="box-1 boxes">
                     <span>Total Registered:</span>
                     <span class="boxes-data">200</span>

@@ -23,6 +23,16 @@ body {
     width: 220px;
     height: 120px;
   }
+  .boxes:hover{
+    display: flex;
+    flex-direction: column;
+    background-color: #560472;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 220px;
+    height: 120px;
+  }
   .boxes span{
     color: #fff;
   }
