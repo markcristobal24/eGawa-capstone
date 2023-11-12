@@ -50,7 +50,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
                                     <th scope="col" class="text-center">Date Registered</th>
-                                    <th scope="col" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,7 +59,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Arvin</td>
                                     <td class="text-center">Bok</td>
                                     <td class="text-center">04-19-20</td>
-                                    <td class="text-center text-success">Authorized</td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -68,7 +66,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">John Paulo</td>
                                     <td class="text-center">Sulit</td>
                                     <td class="text-center">12-25-19</td>
-                                    <td class="text-center text-success">Authorized</td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -76,7 +73,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Mark Josh</td>
                                     <td class="text-center">Cristobal</td>
                                     <td class="text-center">06-07-21</td>
-                                    <td class="text-center text-success">Authorized</td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -84,7 +80,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Joel</td>
                                     <td class="text-center">Leonor</td>
                                     <td class="text-center">03-14-21</td>
-                                    <td class="text-center text-success">Authorized</td>
                                 </tr>
 
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
@@ -92,7 +87,6 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Ryomen</td>
                                     <td class="text-center">Sukuna</td>
                                     <td class="text-center">06-20-22</td>
-                                    <td class="text-center text-danger">Banned</td>
                                 </tr>
 
                             </tbody>
