@@ -490,7 +490,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                         <div id="imgUpl">
                             <label class="labelImage" for="uploadInput">Upload New Profile Picture</label>
                             <div class="image-holder d-grid gap-2 d-md-flex justify-content-md-center">
-                                <img id="uploadedEditImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="200">
+                                <img id="uploadedEditImage" src="../img/uploadIMG.png" alt="Uploaded Image" height="200" width="200" class="rounded-circle">
                             </div>
                             <input id="uploadInputEdit" class="mx-4 my-3" type="file" name="imageProfile" accept="image/*" onchange="editImgUp(event)">
                         </div>
