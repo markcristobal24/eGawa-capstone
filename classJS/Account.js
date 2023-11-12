@@ -543,6 +543,7 @@ class Account {
         let case_requirements = /^(?=.*[a-z])(?=.*[A-Z])/;
         let special_requirements = /(?=.*[@#$%^&,*.])/;
         let number_requirements = /(?=.*\d)/;
+        var checkbox_terms = document.getElementById('checkbox_terms').checked;
 
         if (password.length >= 8 && password.length <= 16) {
             document.getElementById("length").innerHTML = "&#x2714";
@@ -578,11 +579,16 @@ class Account {
 
         if ((password.length >= 8 && password.length <= 16) && password.match(case_requirements) && password.match(special_requirements) && password.match(number_requirements)) {
             document.querySelector(".password_requirements").classList.remove("password_requirement_active");
-            if (user_type == 'company') {
-                document.getElementById('btnUserReg').disabled = false;
-            } else {
-                document.getElementById('btnFreelanceReg').disabled = false;
-            }
+            checkbox_terms.addEventListener("change", function () {
+                if (checkbox_terms) {
+                    if (user_type == 'company') {
+                        document.getElementById('btnUserReg').disabled = false;
+                    } else {
+                        document.getElementById('btnFreelanceReg').disabled = false;
+                    }
+                }
+            });
+
         } else {
             document.querySelector(".password_requirements").classList.add("password_requirement_active");
             if (user_type == 'company') {

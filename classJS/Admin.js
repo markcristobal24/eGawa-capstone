@@ -138,4 +138,62 @@ class Admin {
             }
         });
     }
+
+    fetch_freelancer(id) {
+        let form_data = new FormData();
+        form_data.append('fetch_freelancer', 'fetch_freelancer');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            let data = response_data;
+
+            if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            } else {
+                document.getElementById('image_profile').src = `../img/uploads/freelancer/${data.imageProfile}`;
+                document.getElementById('fullname').innerHTML = data.fullname;
+                document.getElementById('tabname').innerHTML = data.fullname;
+                document.getElementById('username').innerHTML = `@${data.username}`;
+                document.getElementById('address').innerHTML = data.address;
+                document.getElementById('email').innerHTML = data.email;
+                document.getElementById('date_created').innerHTML = data.date_created;
+                new Dashboard().get_information_freelancer_employerpov(id);
+            }
+        });
+    }
+
+    fetch_company(id) {
+        let form_data = new FormData();
+        form_data.append('fetch_company', 'fetch_company');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            let data = response_data;
+
+            if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            } else {
+                document.getElementById('image_profile').src = `../img/uploads/company/${data.imageProfile}`;
+                document.getElementById('fullname').innerHTML = data.fullname;
+                document.getElementById('tabname').innerHTML = data.fullname;
+                document.getElementById('username').innerHTML = `@${data.username}`;
+                document.getElementById('address').innerHTML = data.address;
+                document.getElementById('email').innerHTML = data.email;
+                document.getElementById('date_created').innerHTML = data.date_created;
+                new Dashboard().get_information_company_freelancerpov(id);
+            }
+        });
+    }
 }

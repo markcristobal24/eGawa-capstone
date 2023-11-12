@@ -11,7 +11,7 @@ if (isset($_POST['get_information_freelancer'])) {
     $total_applied_freelancer->execute();
     $sub_array['total_applied_freelancer'] = $total_applied_freelancer->rowCount();
 
-    $total_accepted_freelancer = $db->connect()->prepare('SELECT * FROM job_application WHERE freelance_id = ' . $freelance_id . ' AND jobstatus = "ONGOING" OR jobstatus = "COMPLETED"');
+    $total_accepted_freelancer = $db->connect()->prepare('SELECT * FROM job_application WHERE freelance_id = ' . $freelance_id . ' AND (jobstatus = "ONGOING" OR jobstatus = "COMPLETED")');
     $total_accepted_freelancer->execute();
     $sub_array['total_accepted_freelancer'] = $total_accepted_freelancer->rowCount();
 
@@ -33,7 +33,7 @@ if (isset($_POST['get_information_company'])) {
     $total_posts->execute([':status' => 'ARCHIVED']);
     $sub_array['total_posts'] = $total_posts->rowCount();
 
-    $total_accepted = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND jobstatus = "ONGOING" OR jobstatus = "COMPLETED"');
+    $total_accepted = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND (jobstatus = "ONGOING" OR jobstatus = "COMPLETED")');
     $total_accepted->execute();
     $sub_array['total_accepted'] = $total_accepted->rowCount();
 
@@ -56,7 +56,7 @@ if (isset($_POST['get_information_freelancer_employerpov'])) {
     $total_applied_freelancer->execute();
     $sub_array['total_applied_freelancer'] = $total_applied_freelancer->rowCount();
 
-    $total_accepted_freelancer = $db->connect()->prepare('SELECT * FROM job_application WHERE freelance_id = ' . $freelance_id . ' AND jobstatus = "ONGOING" OR jobstatus = "COMPLETED"');
+    $total_accepted_freelancer = $db->connect()->prepare('SELECT * FROM job_application WHERE freelance_id = ' . $freelance_id . ' AND (jobstatus = "ONGOING" OR jobstatus = "COMPLETED")');
     $total_accepted_freelancer->execute();
     $sub_array['total_accepted_freelancer'] = $total_accepted_freelancer->rowCount();
 
@@ -78,7 +78,7 @@ if (isset($_POST['get_information_company_freelancerpov'])) {
     $total_posts->execute([':status' => 'ARCHIVED']);
     $sub_array['total_posts'] = $total_posts->rowCount();
 
-    $total_accepted = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND jobstatus = "ONGOING" OR jobstatus = "COMPLETED"');
+    $total_accepted = $db->connect()->prepare('SELECT * FROM job_application WHERE user_id = ' . $company_id . ' AND (jobstatus = "ONGOING" OR jobstatus = "COMPLETED")');
     $total_accepted->execute();
     $sub_array['total_accepted'] = $total_accepted->rowCount();
 

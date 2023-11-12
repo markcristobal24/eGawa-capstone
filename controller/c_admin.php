@@ -222,3 +222,43 @@ if (isset($_POST['dashboard'])) {
     $output = array("data" => $data);
     echo json_encode($output);
 }
+
+if (isset($_POST['fetch_freelancer'])) {
+    $id = $_POST['id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM account INNER JOIN profile ON account.account_id = profile.account_id WHERE userType = 'freelancer' AND account.account_id = $id");
+    $query->execute();
+    $data = array();
+    foreach ($query as $row) {
+        $data['imageProfile'] = $row['imageProfile'];
+        $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'] . $row['checkmark'];
+        $data['username'] = $row['username'];
+        $data['address'] = $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'];
+        $data['email'] = $row['email'];
+        $currentDateTime = $row['dateCreated'];
+        $dateTimeObj = new DateTime($currentDateTime);
+        $posted_date = $dateTimeObj->format("m-d-Y");
+        $data['date_created'] = $posted_date;
+    }
+    echo json_encode($data);
+}
+
+if (isset($_POST['fetch_company'])) {
+    $id = $_POST['id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM account  WHERE userType = 'user' AND account_id = $id");
+    $query->execute();
+    $data = array();
+    foreach ($query as $row) {
+        $data['imageProfile'] = $row['user_image'];
+        $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
+        $data['username'] = $row['username'];
+        $data['address'] = $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'];
+        $data['email'] = $row['email'];
+        $currentDateTime = $row['dateCreated'];
+        $dateTimeObj = new DateTime($currentDateTime);
+        $posted_date = $dateTimeObj->format("m-d-Y");
+        $data['date_created'] = $posted_date;
+    }
+    echo json_encode($data);
+}
