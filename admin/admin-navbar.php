@@ -46,7 +46,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Banned Users</a></li>
+                        <li><a class="dropdown-item" href="banned-tab.php">Banned Users</a></li>
                     </ul>
                 </li>
             </ul>
