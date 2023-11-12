@@ -197,3 +197,28 @@ if (isset($_POST['search_logs'])) {
         echo json_encode($output);
     }
 }
+
+if (isset($_POST['dashboard'])) {
+    $sub_array = array();
+
+    $total_registered = $db->connect()->prepare("SELECT * FROM account");
+    $total_registered->execute();
+    $sub_array['total_registered'] = $total_registered->rowCount();
+
+    $total_company = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'user'");
+    $total_company->execute();
+    $sub_array['total_company'] = $total_company->rowCount();
+
+    $total_freelancers = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'freelancer'");
+    $total_freelancers->execute();
+    $sub_array['total_freelancers'] = $total_freelancers->rowCount();
+
+    $total_freelancers_verified = $db->connect()->prepare("SELECT * FROM id_verification WHERE verify_status = 'VERIFIED'");
+    $total_freelancers_verified->execute();
+    $sub_array['total_freelancers_verified'] = $total_freelancers_verified->rowCount();
+
+    $data[] = $sub_array;
+
+    $output = array("data" => $data);
+    echo json_encode($output);
+}

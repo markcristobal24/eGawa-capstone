@@ -114,4 +114,28 @@ class Admin {
             }
         });
     }
+
+    dashboard() {
+        let form_data = new FormData();
+        form_data.append('dashboard', 'dashboard');
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            let data = response_data.data;
+
+            if (response_data.error) {
+                new Notification().create_notification(response_data.error, "error");
+            } else {
+                document.getElementById('total_registered').innerHTML = data[0].total_registered;
+                document.getElementById('total_company').innerHTML = data[0].total_company;
+                document.getElementById('total_freelancers').innerHTML = data[0].total_freelancers;
+                document.getElementById('total_freelancers_verified').innerHTML = data[0].total_freelancers_verified;
+            }
+        });
+    }
 }

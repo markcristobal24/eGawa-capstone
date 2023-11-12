@@ -16,7 +16,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="dashboard.css" />
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,12 +45,12 @@ if ($_SESSION['userType'] !== "super_admin") {
             <div class="box- mb-3">
                 <div class="box-1 boxes">
                     <span>Total Company:</span>
-                    <span class="boxes-data">100</span>
+                    <span class="boxes-data" id="total_company">100</span>
                 </div>
-                <div class="box-2 boxes">
+                <!-- <div class="box-2 boxes">
                     <span>Subscribed:</span>
                     <span class="boxes-data">60</span>
-                </div>
+                </div> -->
                 <div class="box-3 boxes">
                     <span>Banned:</span>
                     <span class="boxes-data">40</span>
@@ -62,15 +62,15 @@ if ($_SESSION['userType'] !== "super_admin") {
             <div class="box-">
                 <div class="box-1 boxes mb-3">
                     <span>Total Freelancers:</span>
-                    <span class="boxes-data">100</span>
+                    <span class="boxes-data" id="total_freelancers">100</span>
                 </div>
-                <div class="box-2 boxes">
+                <!-- <div class="box-2 boxes">
                     <span>Subscribed:</span>
                     <span class="boxes-data">60</span>
-                </div>
+                </div> -->
                 <div class="box-2 boxes">
                     <span>Verified:</span>
-                    <span class="boxes-data">100</span>
+                    <span class="boxes-data" id="total_freelancers_verified">100</span>
                 </div>
                 <div class="box-3 boxes">
                     <span>Banned:</span>
@@ -85,7 +85,7 @@ if ($_SESSION['userType'] !== "super_admin") {
             <div class="box- mb-3">
                 <div class="box-1 boxes">
                     <span>Total Registered:</span>
-                    <span class="boxes-data">200</span>
+                    <span class="boxes-data" id="total_registered">200</span>
                 </div>
             </div>
         </div>
@@ -102,11 +102,15 @@ if ($_SESSION['userType'] !== "super_admin") {
             <li><a href="#"><i class="fa fa-user"></i><span>Manage Users</span></a></li>
         </div>
     </div> -->
+
+    <script src="../classJS/Admin.js"></script>
     <script src="../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
+    <script>
+        new Admin().dashboard();
+    </script>
 </body>
 
 </html>
