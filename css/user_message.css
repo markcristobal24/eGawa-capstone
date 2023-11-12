@@ -371,12 +371,12 @@ body {
     justify-content: center;
     align-items: center;
   }
-  .right-pic {
+  .right-pic{
     height: 150px;
     width: 150px;
-    border-radius: 50px;
+    border-radius: 50%;
     margin: 20px auto;
-  }
+}
   .block {
     margin: auto;
   }
