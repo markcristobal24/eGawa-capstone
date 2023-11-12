@@ -21,7 +21,9 @@ if ($_SESSION['userType'] !== "super_admin") {
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -46,15 +48,33 @@ if ($_SESSION['userType'] !== "super_admin") {
                         <table class="table table-hover border">
                             <thead>
                                 <tr class="table-secondary">
-                                    <th scope="col">#</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
                                     <th scope="col" class="text-center">Date Registered</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $query = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'freelancer'");
+                                $query->execute();
 
-                                <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
+                                foreach ($query as $row) {
+                                    $currentDateTime = $row['dateCreated'];
+                                    $dateTimeObj = new DateTime($currentDateTime);
+                                    $posted_date = $dateTimeObj->format("m-d-Y");
+
+                                    echo '
+                                    <tr data-bs-toggle="modal" data-bs-target="#report-user-modal" onclick="new Admin().fetch_freelancer(' . $row['account_id'] . ')">
+                                        <th scope="row">' . $row['account_id'] . '</th>
+                                        <td class="text-center">' . $row['firstName'] . '</td>
+                                        <td class="text-center">' . $row['lastName'] . '</td>
+                                        <td class="text-center">' . $posted_date . '</td>
+                                    </tr>
+                                    ';
+                                }
+                                ?>
+                                <!-- <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
                                     <th scope="row">1</th>
                                     <td class="text-center">Arvin</td>
                                     <td class="text-center">Bok</td>
@@ -87,7 +107,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <td class="text-center">Ryomen</td>
                                     <td class="text-center">Sukuna</td>
                                     <td class="text-center">06-20-22</td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>
@@ -101,18 +121,22 @@ if ($_SESSION['userType'] !== "super_admin") {
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Admin.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="../classJS/Dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
 
 <!-- Modal For Freelancer Information  -->
-<div class="modal fade" id="report-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="report-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><span class="text-primary">Arvin</span><span>'s</span> Information</h1>
+                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><span class="text-primary"
+                        id="tabname">Arvin</span><span>'s</span> Information</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body apply">
@@ -120,19 +144,20 @@ if ($_SESSION['userType'] !== "super_admin") {
 
                 <div class="d-flex justify-content-center">
                     <div class="border border-success-subtle rounded-circle">
-                        <img src="../img/uploadIMG.png" alt="" class="rounded-circle p-1 w-10" style="width: 150px; height: 150px;">
+                        <img src="../img/uploadIMG.png" id="image_profile" alt="" class="rounded-circle p-1 w-10"
+                            style="width: 150px; height: 150px;">
                     </div>
                 </div>
 
                 <div>
                     <div class="d-flex justify-content-center">
-                        <h3>Arvin Candelaria Bok</h3>
+                        <h3 id="fullname">Arvin Candelaria Bok</h3>
                         <span>
                             <!-- place verified icon here -->
                         </span>
                     </div>
                     <div class="d-flex justify-content-center text-primary">
-                        <h4>@vinny</h4>
+                        <h4 id="username">@vinny</h4>
                     </div>
                     <div class="d-flex justify-content-center">
 
@@ -153,15 +178,15 @@ if ($_SESSION['userType'] !== "super_admin") {
                     </div>
                     <div class="d-flex justify-content-center mt-2 mb-1">
                         <span><i class="fa-solid fa-house-user text-primary-emphasis"></i></span>
-                        <span class="px-2">Sto.Nino, Hagonoy, Bulacan</span>
+                        <span class="px-2" id="address">Sto.Nino, Hagonoy, Bulacan</span>
                     </div>
                     <div class="d-flex justify-content-center mb-1">
                         <span><i class="fa-solid fa-envelope text-primary-emphasis"></i></span>
-                        <span class="px-2">sampleemail@gmail.com</span>
+                        <span class="px-2" id="email">sampleemail@gmail.com</span>
                     </div>
                     <div class="d-flex justify-content-center mb1">
                         <span class="text-primary-emphasis">Date Started: </span>
-                        <span class="px-2">04-19-1950</span>
+                        <span class="px-2" id="date_created">04-19-1950</span>
                     </div>
                 </div>
 
@@ -178,22 +203,23 @@ if ($_SESSION['userType'] !== "super_admin") {
                     <div class="box-">
                         <div class="box-1 boxes">
                             <span>Application:</span>
-                            <span class="boxes-data">100</span>
+                            <span class="boxes-data" id="total_applied_freelancer">100</span>
                         </div>
                         <div class="box-2 boxes">
                             <span>Accepted:</span>
-                            <span class="boxes-data">60</span>
+                            <span class="boxes-data" id="total_accepted_freelancer">60</span>
                         </div>
                         <div class="box-3 boxes">
                             <span>Declined:</span>
-                            <span class="boxes-data">40</span>
+                            <span class="boxes-data" id="total_declined_freelancer">40</span>
                         </div>
                     </div>
                 </div>
                 <!-- END OF DASHBOARD -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ban-confirmation">Ban User</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#ban-confirmation">Ban User</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
