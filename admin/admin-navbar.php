@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="reports.php"><span class="white- hov-">Reports</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transaction-tab.php"><span class="white- hov-">Transaction</span></a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="white- hov-">Manage Users</span>

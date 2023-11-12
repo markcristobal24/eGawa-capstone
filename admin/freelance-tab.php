@@ -226,21 +226,30 @@ if ($_SESSION['userType'] !== "super_admin") {
     </div>
 </div>
 
-<!-- BAN USER CONFIRMATION MODAL -->
+<!-- FORM FOR BANNING (REASON) MODAL -->
 <div class="modal fade" id="ban-confirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-danger fw-bold fs-5">Ban User?</h5>
+                <h5 class="modal-title fw-bold fs-5">Ban User?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>Are you sure you want to ban <span>Arvin?</span> </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Ban</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label fs-5">Reason for banning:</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Ban</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
