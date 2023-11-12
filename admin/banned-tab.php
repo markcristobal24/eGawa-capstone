@@ -51,7 +51,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
                                     <th scope="col" class="text-center">Reason</th>
-                                    <th scope="col" class="text-center">Date Registered</th>
+                                    <th scope="col" class="text-center">Date Banned</th>
                                     <th scope="col" class="text-center">User Type</th>
                                 </tr>
                             </thead>
@@ -65,7 +65,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     $posted_date = $dateTimeObj->format("m-d-Y");
 
                                     echo '
-                                    <tr >
+                                    <tr data-bs-toggle="modal" data-bs-target="#report-info-modal">
                                         <th scope="row">' . $row['ban_id'] . '</th>
                                         <td class="text-center text-danger">' . $row['account_id'] . '</td>
                                         <td class="text-center text-danger">' . $row['firstName'] . '</td>
@@ -131,48 +131,21 @@ if ($_SESSION['userType'] !== "super_admin") {
 </body>
 
 <!-- Modal For Company Information  -->
-<div class="modal fade" id="report-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="report-info-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><span class="text-primary">Arvin</span><span>'s</span> Information</h1>
+                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">Information</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body apply">
 
-
-                <div class="d-flex justify-content-center">
-                    <div class="border border-success-subtle rounded-circle">
-                        <img src="../img/uploadIMG.png" alt="" class="rounded-circle p-1 w-10" style="width: 150px; height: 150px;">
-                    </div>
-                </div>
-
                 <div>
                     <div class="d-flex justify-content-center">
                         <h3>Arvin Candelaria Bok</h3>
-                        <span>
-                            <!-- place verified icon here -->
-                        </span>
                     </div>
                     <div class="d-flex justify-content-center text-primary">
                         <h4>@vinny</h4>
-                    </div>
-                    <div class="d-flex justify-content-center">
-
-                        <span class="fs-5 fw-3">
-                            Status:
-                        </span>
-
-                        <!-- IF THE USER IS NOT BANNED SHOW THIS CODE  -->
-                        <span class="fs-5 fw-2 text-success px-2">
-                            Authorized
-                        </span>
-
-                        <!-- IF THE USER IS BANNED SHOW THIS INSTEAD OF THE CODE ABOVE -->
-                        <!-- <span class="fs-5 fw-2 text-danger px-2">
-                            Banned
-                        </span> -->
-
                     </div>
                     <div class="d-flex justify-content-center mt-2 mb-1">
                         <span><i class="fa-solid fa-house-user text-primary-emphasis"></i></span>
@@ -182,64 +155,28 @@ if ($_SESSION['userType'] !== "super_admin") {
                         <span><i class="fa-solid fa-envelope text-primary-emphasis"></i></span>
                         <span class="px-2">sampleemail@gmail.com</span>
                     </div>
-                    <div class="d-flex justify-content-center mb1">
-                        <span class="text-primary-emphasis">Date Started: </span>
+                    <div class="d-flex justify-content-center mb-1">
+                        <span class="text-danger">Date Banned: </span>
                         <span class="px-2">04-19-1950</span>
                     </div>
-                </div>
-
-                <!-- START OF DASHBOARD -->
-                <div class="text-primary">
-                    <hr>
-                </div>
-
-                <div clas="d-flex justify-content-start">
-                    <h1 class="fw-bold fs-5">Dashboard:</h1>
-                </div>
-
-                <div class="d-flex justify-content-center">
-                    <div class="box-">
-                        <div class="box-1 boxes">
-                            <span>Application:</span>
-                            <span class="boxes-data">100</span>
+                    <div class=" mb-1">
+                        <div>
+                            <span class="text-danger mx-5">Reason:</span>
                         </div>
-                        <div class="box-2 boxes">
-                            <span>Accepted:</span>
-                            <span class="boxes-data">60</span>
-                        </div>
-                        <div class="box-3 boxes">
-                            <span>Declined:</span>
-                            <span class="boxes-data">40</span>
+                        <div class="mx-5 px-3">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis pariatur minus voluptas amet odio minima distinctio in reiciendis soluta placeat.</span>
                         </div>
                     </div>
                 </div>
-                <!-- END OF DASHBOARD -->
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ban-confirmation">Ban User</button>
+                <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ban-confirmation">Ban User</button> -->
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- BAN USER CONFIRMATION MODAL -->
-<div class="modal fade" id="ban-confirmation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-danger fw-bold fs-5">Ban User?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to ban <span>Arvin?</span> </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Ban</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 </html>
