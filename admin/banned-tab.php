@@ -49,7 +49,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <th scope="col">#</th>
                                     <th scope="col" class="text-center">Firstname</th>
                                     <th scope="col" class="text-center">Lastname</th>
-                                    <th scope="col" class="text-center">Date Banned</th>
+                                    <th scope="col" class="text-center">Date Registered</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,7 +57,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                 <tr data-bs-toggle="modal" data-bs-target="#report-user-modal">
                                     <th scope="row">1</th>
                                     <td class="text-center text-danger">Arvin</td>
-                                    <td class="text-center text-danger">Bok</td>
+                                    <td class="text-center  text-danger">Bok</td>
                                     <td class="text-center">04-19-20</td>
                                 </tr>
 
