@@ -58,16 +58,21 @@ if (isset($_POST['login'])) {
                 //rekta login
                 // $session = new Account();
                 // $session->fetch_information($email);
-                $session = new Account();
-                $session->fetch_account($email);
-                $output['status'] = "1";
-                $output['message'] = "Logging in as " . $fetch['firstName'];
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
-                $query->execute([
-                    ':account_id' => $_SESSION['account_id'],
-                    ':event' => 'Logged In',
-                    ':user_type' => 'company'
-                ]);
+                if ($fetch['ban_status'] == 'banned') {
+                    $output['error'] = 'Your account was banned.';
+                    $output['status'] = 'banned';
+                } else {
+                    $session = new Account();
+                    $session->fetch_account($email);
+                    $output['status'] = "1";
+                    $output['message'] = "Logging in as " . $fetch['firstName'];
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query->execute([
+                        ':account_id' => $_SESSION['account_id'],
+                        ':event' => 'Logged In',
+                        ':user_type' => 'company'
+                    ]);
+                }
             }
         } else if ($fetch["userType"] == 'freelancer') {
             $output['success'] = "freelancer";
@@ -96,17 +101,22 @@ if (isset($_POST['login'])) {
             } else if ($fetch["status"] == 1 && $fetch["profileStatus"] == 1) {
                 //$_SESSION['email'] = $email;
                 // $_SESSION['account_id'] = $fetch['account_id'];
-                $session = new Account();
-                $session->fetch_account($email);
-                $session->fetch_profile($email);
-                $output['status'] = "11";
-                $output['message'] = "Logging in as " . $fetch['firstName'];
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
-                $query->execute([
-                    ':account_id' => $_SESSION['account_id'],
-                    ':event' => 'Logged In',
-                    ':user_type' => 'freelancer'
-                ]);
+                if ($fetch['ban_status'] == 'banned') {
+                    $output['error'] = 'Your account was banned.';
+                    $output['status'] = 'banned';
+                } else {
+                    $session = new Account();
+                    $session->fetch_account($email);
+                    $session->fetch_profile($email);
+                    $output['status'] = "11";
+                    $output['message'] = "Logging in as " . $fetch['firstName'];
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query->execute([
+                        ':account_id' => $_SESSION['account_id'],
+                        ':event' => 'Logged In',
+                        ':user_type' => 'freelancer'
+                    ]);
+                }
             }
         }
     }

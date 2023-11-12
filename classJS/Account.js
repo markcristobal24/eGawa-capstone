@@ -45,6 +45,11 @@ class Account {
                             window.clearTimeout(tID);
                         }, 3000);
                     }
+                    else if (response_data.status == 'banned') {
+                        new Account().button_loading("btnLogin", "", button_value);
+                        document.getElementById('btnLogin').disabled = false;
+                        new Notification().create_notification(response_data.error, "error");
+                    }
                 }
                 else if (response_data.success == "user") {
                     if (response_data.status == "0") {
@@ -60,6 +65,10 @@ class Account {
                             window.location.replace('user/userHome.php');
                             window.clearTimeout(tID);
                         }, 3000);
+                    } else if (response_data.status == 'banned') {
+                        new Account().button_loading("btnLogin", "", button_value);
+                        document.getElementById('btnLogin').disabled = false;
+                        new Notification().create_notification(response_data.error, "error");
                     }
                 }
             } else if (response_data.error) {
