@@ -209,6 +209,10 @@ if (isset($_POST['dashboard'])) {
     $total_company->execute();
     $sub_array['total_company'] = $total_company->rowCount();
 
+    $total_company_banned = $db->connect()->prepare("SELECT * FROM ban_list INNER JOIN account ON account.account_id = ban_list.account_id WHERE userType = 'user'");
+    $total_company_banned->execute();
+    $sub_array['total_company_banned'] = $total_company_banned->rowCount();
+
     $total_freelancers = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'freelancer'");
     $total_freelancers->execute();
     $sub_array['total_freelancers'] = $total_freelancers->rowCount();
@@ -216,6 +220,10 @@ if (isset($_POST['dashboard'])) {
     $total_freelancers_verified = $db->connect()->prepare("SELECT * FROM id_verification WHERE verify_status = 'VERIFIED'");
     $total_freelancers_verified->execute();
     $sub_array['total_freelancers_verified'] = $total_freelancers_verified->rowCount();
+
+    $total_freelancers_banned = $db->connect()->prepare("SELECT * FROM ban_list INNER JOIN account ON account.account_id = ban_list.account_id WHERE userType = 'freelancer'");
+    $total_freelancers_banned->execute();
+    $sub_array['total_freelancers_banned'] = $total_freelancers_banned->rowCount();
 
     $data[] = $sub_array;
 
@@ -230,6 +238,7 @@ if (isset($_POST['fetch_freelancer'])) {
     $query->execute();
     $data = array();
     foreach ($query as $row) {
+        $data['account_id'] = $row['account_id'];
         $data['imageProfile'] = $row['imageProfile'];
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'] . $row['checkmark'];
         $data['username'] = $row['username'];
@@ -250,6 +259,7 @@ if (isset($_POST['fetch_company'])) {
     $query->execute();
     $data = array();
     foreach ($query as $row) {
+        $data['account_id'] = $row['account_id'];
         $data['imageProfile'] = $row['user_image'];
         $data['fullname'] = $row['firstName'] . ' ' . $row['lastName'];
         $data['username'] = $row['username'];
@@ -261,4 +271,22 @@ if (isset($_POST['fetch_company'])) {
         $data['date_created'] = $posted_date;
     }
     echo json_encode($data);
+}
+
+if (isset($_POST['ban_account'])) {
+    $id = $_POST['id'];
+    $reason = $_POST['reason'];
+
+    $query = $db->connect()->prepare("INSERT INTO ban_list (account_id, reason) VALUES (:account_id, :reason)");
+    $result = $query->execute([':account_id' => $id, ':reason' => $reason]);
+
+    if ($result) {
+        $query = $db->connect()->prepare("UPDATE account SET ban_status = 'banned' WHERE account_id = $id");
+        $query->execute();
+        $output['success'] = "Account has been banned.";
+    } else {
+        $output['error'] = "Something went wrong. Please try again later.";
+    }
+
+    echo json_encode($output);
 }

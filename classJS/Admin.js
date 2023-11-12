@@ -133,8 +133,10 @@ class Admin {
             } else {
                 document.getElementById('total_registered').innerHTML = data[0].total_registered;
                 document.getElementById('total_company').innerHTML = data[0].total_company;
+                document.getElementById('total_company_banned').innerHTML = data[0].total_company_banned;
                 document.getElementById('total_freelancers').innerHTML = data[0].total_freelancers;
                 document.getElementById('total_freelancers_verified').innerHTML = data[0].total_freelancers_verified;
+                document.getElementById('total_freelancers_banned').innerHTML = data[0].total_freelancers_banned;
             }
         });
     }
@@ -156,6 +158,7 @@ class Admin {
             if (response_data.error) {
                 new Notification().create_notification(response_data.error, "error");
             } else {
+                document.getElementById('btn_ban').value = data.account_id;
                 document.getElementById('image_profile').src = `../img/uploads/freelancer/${data.imageProfile}`;
                 document.getElementById('fullname').innerHTML = data.fullname;
                 document.getElementById('tabname').innerHTML = data.fullname;
@@ -185,6 +188,7 @@ class Admin {
             if (response_data.error) {
                 new Notification().create_notification(response_data.error, "error");
             } else {
+                document.getElementById('btn_ban').value = data.account_id;
                 document.getElementById('image_profile').src = `../img/uploads/company/${data.imageProfile}`;
                 document.getElementById('fullname').innerHTML = data.fullname;
                 document.getElementById('tabname').innerHTML = data.fullname;
@@ -193,6 +197,36 @@ class Admin {
                 document.getElementById('email').innerHTML = data.email;
                 document.getElementById('date_created').innerHTML = data.date_created;
                 new Dashboard().get_information_company_freelancerpov(id);
+            }
+        });
+    }
+
+    ban_account(id) {
+        let button_value = new Account().get_button_value("btn_ban");
+        new Account().button_loading("btn_ban", "loading", "");
+        document.getElementById('btn_ban').disabled = true;
+        let form_data = new FormData(document.getElementById('ban_form'));
+        form_data.append('ban_account', 'ban_account');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+            } else if (response_data.error) {
+                document.getElementById('btn_ban').disabled = false;
+                new Account().button_loading("btn_ban", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
             }
         });
     }

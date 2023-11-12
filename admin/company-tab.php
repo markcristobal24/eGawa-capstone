@@ -34,7 +34,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 </head>
 
 <body>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <?php include "admin-navbar.php"; ?>
 
     <div class="container mt-5 pt-5">
@@ -56,7 +56,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                             </thead>
                             <tbody>
                                 <?php
-                                $query = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'user'");
+                                $query = $db->connect()->prepare("SELECT * FROM account WHERE userType = 'user' AND ban_status != 'banned'");
                                 $query->execute();
                                 foreach ($query as $row) {
                                     $currentDateTime = $row['dateCreated'];
@@ -233,19 +233,21 @@ if ($_SESSION['userType'] !== "super_admin") {
                 <h5 class="modal-title fw-bold fs-5">Ban User?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="">
+            <form id="ban_form">
                 <div class="modal-body">
                     <div>
 
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label fs-5">Reason for banning:</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                name="reason"></textarea>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Ban</button>
+                    <button type="button" class="btn btn-danger" id="btn_ban"
+                        onclick="new Admin().ban_account(this.value);">Ban</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
