@@ -386,7 +386,7 @@ body {
     .right-pic{
         height: 150px;
         width: 150px;
-        border-radius: 50px;
+        border-radius: 50%;
         margin: 20px auto;
     }
     .block{
