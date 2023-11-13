@@ -110,6 +110,36 @@ class Account {
         });
     }
 
+    logout_admin() {
+        let button_value = new Account().get_button_value("logoutBtn");
+        new Account().button_loading("logoutBtn", "loading", "");
+        document.getElementById('logoutBtn').disabled = true;
+        var form_data = new FormData();
+        form_data.append('logout_admin', 'logout_admin');
+        fetch('../controller/c_logout.php', {
+            method: "POST",
+            body: form_data
+        }).then(function (response) {
+            return response.json();
+        }).then(function (response_data) {
+            console.log(response_data);
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.replace('../login.php');
+                    window.clearTimeout(tID);
+                }, 2000);
+            }
+            else if (response_data.error) {
+                console.log(response_data.error);
+                new Account().button_loading("logoutBtn", "", button_value);
+                document.getElementById('logoutBtn').disabled = false;
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
     registerFreelance() {
         let button_value = new Account().get_button_value("btnFreelanceReg");
         new Account().button_loading("btnFreelanceReg", "loading", "");

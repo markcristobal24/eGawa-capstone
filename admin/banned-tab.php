@@ -21,7 +21,9 @@ if ($_SESSION['userType'] !== "super_admin") {
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -34,7 +36,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 <body>
 
     <?php include "admin-navbar.php"; ?>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <div class="container mt-5 pt-5">
 
         <div class="p-3 mb-2 bg-secondary text-white fs-3">Banned Users</div>
@@ -65,7 +67,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     $posted_date = $dateTimeObj->format("m-d-Y");
 
                                     echo '
-                                    <tr data-bs-toggle="modal" data-bs-target="#report-info-modal">
+                                    <tr data-bs-toggle="modal" data-bs-target="#report-info-modal" onclick="new Admin().fetch_all(' . $row['account_id'] . ')">
                                         <th scope="row">' . $row['ban_id'] . '</th>
                                         <td class="text-center text-danger">' . $row['account_id'] . '</td>
                                         <td class="text-center text-danger">' . $row['firstName'] . '</td>
@@ -124,14 +126,16 @@ if ($_SESSION['userType'] !== "super_admin") {
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Admin.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
 
 <!-- Modal For Company Information  -->
-<div class="modal fade" id="report-info-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="report-info-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -141,30 +145,15 @@ if ($_SESSION['userType'] !== "super_admin") {
             <div class="modal-body apply">
 
                 <div>
-                    <div class="d-flex justify-content-center">
-                        <h3>Arvin Candelaria Bok</h3>
-                    </div>
-                    <div class="d-flex justify-content-center text-primary">
-                        <h4>@vinny</h4>
-                    </div>
-                    <div class="d-flex justify-content-center mt-2 mb-1">
-                        <span><i class="fa-solid fa-house-user text-primary-emphasis"></i></span>
-                        <span class="px-2">Sto.Nino, Hagonoy, Bulacan</span>
-                    </div>
-                    <div class="d-flex justify-content-center mb-1">
-                        <span><i class="fa-solid fa-envelope text-primary-emphasis"></i></span>
-                        <span class="px-2">sampleemail@gmail.com</span>
-                    </div>
-                    <div class="d-flex justify-content-center mb-1">
-                        <span class="text-danger">Date Banned: </span>
-                        <span class="px-2">04-19-1950</span>
-                    </div>
+
                     <div class=" mb-1">
                         <div>
                             <span class="text-danger mx-5">Reason:</span>
                         </div>
                         <div class="mx-5 px-3">
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis pariatur minus voluptas amet odio minima distinctio in reiciendis soluta placeat.</span>
+                            <span id="reason">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis pariatur
+                                minus voluptas
+                                amet odio minima distinctio in reiciendis soluta placeat.</span>
                         </div>
                     </div>
                 </div>

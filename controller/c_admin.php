@@ -81,6 +81,8 @@ if (isset($_POST['fetch_report'])) {
     $query->execute([':report_id' => $report_id]);
     $data = array();
     foreach ($query as $row) {
+        $data['report_status'] = $row['report_status'];
+        $data['report_id'] = $row['report_id'];
         $data['reporter'] = $_POST['reporter'];
         $data['account_id'] = $row['account_id'];
         $data['reported_account'] = $row['firstName'] . ' ' . $row['lastName'];
@@ -286,6 +288,34 @@ if (isset($_POST['ban_account'])) {
         $output['success'] = "Account has been banned.";
     } else {
         $output['error'] = "Something went wrong. Please try again later.";
+    }
+
+    echo json_encode($output);
+}
+
+if (isset($_POST['fetch_all'])) {
+    $id = $_POST['id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM ban_list INNER JOIN account ON account.account_id = ban_list.account_id WHERE ban_list.account_id = $id");
+    $query->execute();
+    $data = array();
+    foreach ($query as $row) {
+        $data['reason'] = $row['reason'];
+    }
+
+    echo json_encode($data);
+}
+
+if (isset($_POST['report_done'])) {
+    $id = $_POST['id'];
+
+    $query = $db->connect()->prepare("UPDATE reports SET report_status = 'DONE' WHERE report_id = $id");
+    $result = $query->execute();
+
+    if ($result) {
+        $output['success'] = 'Report has been completed.';
+    } else {
+        $output['error'] = 'Something went wrong. Please try again later.';
     }
 
     echo json_encode($output);

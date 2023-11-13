@@ -74,6 +74,13 @@ class Admin {
             let report = response_data;
 
             document.getElementById('reporter').innerHTML = report.reporter;
+            if (report.report_status == 'DONE') {
+                document.getElementById('btn_done').style.display = 'none';
+            } else {
+                document.getElementById('btn_done').style.display = 'block';
+                document.getElementById('btn_done').value = report.report_id;
+            }
+
             document.getElementById('reported_account').innerHTML = `[${report.account_id}] ${report.reported_account}`;
             document.getElementById('reason').innerHTML = report.reason;
             document.getElementById('screenshot').src = `../img/uploads/reports/${report.screenshot}`;
@@ -226,6 +233,55 @@ class Admin {
             } else if (response_data.error) {
                 document.getElementById('btn_ban').disabled = false;
                 new Account().button_loading("btn_ban", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
+    fetch_all(id) {
+        let form_data = new FormData();
+        form_data.append('fetch_all', 'fetch_all');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let data = response_data;
+
+            document.getElementById('reason').innerHTML = data.reason;
+        });
+    }
+
+    report_done(id) {
+        let button_value = new Account().get_button_value("btn_done");
+        new Account().button_loading("btn_done", "loading", "");
+        document.getElementById('btn_done').disabled = true;
+
+        let form_data = new FormData();
+        form_data.append('report_done', 'report_done');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+
+            } else if (response_data.error) {
+                document.getElementById('btn_done').disabled = false;
+                new Account().button_loading("btn_done", "", button_value);
                 new Notification().create_notification(response_data.error, "error");
             }
         });

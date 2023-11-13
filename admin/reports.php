@@ -32,7 +32,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 </head>
 
 <body>
-
+    <div class="toast_notif" id="toast_notif"></div>
     <?php include "admin-navbar.php"; ?>
 
     <div class="container mt-5 pt-5">
@@ -59,6 +59,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                 $query = $db->connect()->prepare("SELECT * FROM reports
                                 INNER JOIN account ON account.account_id = reports.account_id");
                                 $query->execute();
+
 
                                 foreach ($query as $row) {
                                     $currentDateTime = $row['timestamp'];
@@ -199,7 +200,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" id="" class="btn btn-primary">Done</button>
+                        <button type="button" id="btn_done" class="btn btn-primary" onclick="new Admin().report_done(this.value)">Done</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>

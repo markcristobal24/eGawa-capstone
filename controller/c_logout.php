@@ -15,3 +15,11 @@ if (isset($_POST['logout'])) {
     $output['success'] = "Logging out...";
     echo json_encode($output);
 }
+
+if (isset($_POST['logout_admin'])) {
+    session_unset();
+    session_destroy();
+
+    $output['success'] = "Logging out...";
+    echo json_encode($output);
+}
