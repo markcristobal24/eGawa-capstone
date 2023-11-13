@@ -35,6 +35,7 @@ if ($query->rowCount() > 0) {
         $html .= '<tr><td style="text-align: center;"><span>' . $row['application_id'] . '</span></td><td style="text-align: center;">' . $row['freelancer_name'] . '</td><td style="text-align: center;">' . $row['company_name'] . '</td><td style="text-align: center;"><span>' . $row['timestamp'] . '</span></td></tr>';
     }
 
+
     $html .= '</table>';
     $html .= '<br><br>';
     $html .= '<div style="text-align:right;"><span style="font-weight: bold;">Total Transaction:</span> ' . $counter . '</div>';
