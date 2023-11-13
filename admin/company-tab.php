@@ -21,12 +21,11 @@ if ($_SESSION['userType'] !== "super_admin") {
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Company Tab</title>
     <style>
 
@@ -121,21 +120,18 @@ if ($_SESSION['userType'] !== "super_admin") {
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Admin.js"></script>
     <script src="../classJS/Dashboard.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
 
 <!-- Modal For Company Information  -->
-<div class="modal fade" id="report-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="report-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><span class="text-primary"
-                        id="tabname">Arvin</span><span>'s</span> Information</h1>
+                <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><span class="text-primary" id="tabname">Arvin</span><span>'s</span> Information</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body apply">
@@ -143,8 +139,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 
                 <div class="d-flex justify-content-center">
                     <div class="border border-success-subtle rounded-circle">
-                        <img src="../img/uploadIMG.png" alt="" id="image_profile" class="rounded-circle p-1 w-10"
-                            style="width: 150px; height: 150px;">
+                        <img src="../img/uploadIMG.png" alt="" id="image_profile" class="rounded-circle p-1 w-10" style="width: 150px; height: 150px;">
                     </div>
                 </div>
 
@@ -217,8 +212,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                 <!-- END OF DASHBOARD -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                    data-bs-target="#ban-confirmation">Ban User</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ban-confirmation">Ban User</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
@@ -239,15 +233,13 @@ if ($_SESSION['userType'] !== "super_admin") {
 
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label fs-5">Reason for banning:</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                name="reason"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="reason"></textarea>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="btn_ban"
-                        onclick="new Admin().ban_account(this.value);">Ban</button>
+                    <button type="button" class="btn btn-danger" id="btn_ban" onclick="new Admin().ban_account(this.value);">Ban</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>

@@ -20,16 +20,15 @@ if ($_SESSION['userType'] !== "super_admin") {
     <link rel="stylesheet" href="css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
-    /* Custom CSS to change button colors */
+        /* Custom CSS to change button colors */
     </style>
 
+    <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Transaction Logs</title>
 </head>
 
@@ -58,8 +57,7 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="tab-content" id="pills-tabContent">
             <!-- TAB FOR FREELANCERS -->
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-                tabindex="0">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
                 <div class="container">
                     <table class="table table-hover border">
@@ -123,8 +121,7 @@ if ($_SESSION['userType'] !== "super_admin") {
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Admin.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
