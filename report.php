@@ -21,7 +21,7 @@ if ($query->rowCount() > 0) {
 
     $html .= '<body style="width:100%;">';
     $html .= '<div style="text-align: center;"><img src="img/icon.jpg" width="50" height="50"></div>';
-    $html .= '<div style="text-align: center;"><span style="font-size: 19px; font-weight: bold;">eGAWA</span></div>';
+    $html .= '<div style="text-align: center;"><span style="font-size: 19px; font-weight: bold;">eGAWA:</span></div>';
     $html .= '<div style="text-align: center;"><span style="font-size: 17px; font-weight: bold;">Online Freelance Services Platform</span></div>';
     $html .= '<div style="text-align: center;">Transaction Report</div>';
     $html .= '<br><br>';
