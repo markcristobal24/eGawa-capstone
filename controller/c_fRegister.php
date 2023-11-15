@@ -18,6 +18,8 @@ if (isset($_POST['registerFreelance'])) {
     $password2 = $_POST["password2"];
     $user_type = "freelancer";
     $encrypted = $acc->encrypt_password($password);
+    //Set the timezone to philippines
+    date_default_timezone_set('Asia/Manila');
     $currentDateTime = date("Y-m-d H:i");
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
