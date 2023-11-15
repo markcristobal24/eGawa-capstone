@@ -18,10 +18,11 @@ if (isset($_POST['registerFreelance'])) {
     $password2 = $_POST["password2"];
     $user_type = "freelancer";
     $encrypted = $acc->encrypt_password($password);
+    $currentDateTime = date("Y-m-d H:i");
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email]);
-    
+
     $query2 = $db->connect()->prepare("SELECT * FROM account WHERE username = :username");
     $query2->execute([':username' => $username]);
 
@@ -34,11 +35,11 @@ if (isset($_POST['registerFreelance'])) {
     } else if ($query2->rowCount() > 0) {
         $output['error'] = "Username already exist!";
     } else {
-        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status) VALUES (:firstName, :middleName, :lastName, :username, :email, :password, :userType, :status)");
-        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $user_type, ':status' => 0]);
-        
+        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, username, email, password, userType, status, dateCreated) VALUES (:firstName, :middleName, :lastName, :username, :email, :password, :userType, :status, :dateCreated)");
+        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $user_type, ':status' => 0, ':dateCreated' => $currentDateTime]);
+
         if ($result) {
-           $_SESSION['mail'] = $email;
+            $_SESSION['mail'] = $email;
             $otp = $sendEmail->generate_code();
             $_SESSION['otp'] = $otp;
             $body = "<p>Dear user, </p> <h3>Your verification code is $otp</h3>
@@ -52,10 +53,8 @@ if (isset($_POST['registerFreelance'])) {
                 $output['error'] = "Registration Failed! Invalid Email Address.";
             } else {
                 $output['success'] = "Registered Successfully. OTP sent to " . $email;
-                
             }
         }
-
     }
     echo json_encode($output);
 }
