@@ -53,7 +53,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
         <div class="containerLeft">
             <div class="containerLeft-Nav">
                 <!-- <span class=catalogNavtitle>Previous Jobs</span> -->
-                <span class=catalogNavtitle><span><?php echo $fetch['firstName']; ?></span>'s Porfolio</span>
+                <span class=catalogNavtitle><span><?php echo $fetch['firstName']; ?></span>'s Portfolio</span>
                 <div class="left-nav">
 
                 </div>
