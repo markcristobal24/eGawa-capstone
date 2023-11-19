@@ -52,7 +52,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
 
         <div class="containerLeft">
             <div class="containerLeft-Nav">
-                <span class=catalogNavtitle>Previous Jobs</span>
+                <!-- <span class=catalogNavtitle>Previous Jobs</span> -->
+                <span class=catalogNavtitle><span><?php echo $fetch['firstName']; ?></span>'s Porfolio</span>
                 <div class="left-nav">
 
                 </div>
@@ -79,7 +80,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                                 </p>
                                 <div>
                                     <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="new Catalog().view_catalogs_user(<?php echo $catalog_id; ?>);">View
-                                        Catalog</button>
+                                        Porfolio</button>
                                 </div>
                             </div>
                         </div>
@@ -120,11 +121,16 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     </p>
 
                     <a href="view_freelance_rating.php?freelance_id=<?php echo $_GET['freelance_id']; ?>" id="rating">
+                        <!-- <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
-                        <i class="fas fa-star star-light mr-1 main_star"></i>
+                        <i class="fas fa-star star-light mr-1 main_star"></i> -->
+                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
+                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
+                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
+                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
+                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
                         <i id="average_rating">0</i><span> / 5</span>
                         <span>(<i id="total_review">0 </i> Reviews)</span>
                     </a>
