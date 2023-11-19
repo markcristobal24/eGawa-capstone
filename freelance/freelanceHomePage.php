@@ -56,7 +56,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
 
         <div class="containerLeft">
             <div class="containerLeft-Nav">
-                <span class=catalogNavtitle><span>(freelancer name)</span>'s Porfolio</span>
+                <span class=catalogNavtitle><span><?php echo $fetch['firstName']; ?></span>'s Portfolio</span>
                 <div class="left-nav">
                     <button class=addCatalog data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add
                         Portfolio</button>
