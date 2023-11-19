@@ -129,11 +129,12 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i>
                         <i class="fas fa-star star-light mr-1 main_star"></i> -->
-                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
-                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
-                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
-                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
-                        <i class="fa-regular fa-star" style="color: #d4d4d4;"></i>
+                        <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        <!-- <i class="fa-regular fa-star main_star" style="color: #d4d4d4;"></i> -->
                         <i id="average_rating">0</i><span> / 5</span>
                         <span>(<i id="total_review">0 </i> Reviews)</span>
                     </a>
