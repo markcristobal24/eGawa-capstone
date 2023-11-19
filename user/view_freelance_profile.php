@@ -178,6 +178,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                     </div>
 
+                    <button class="mt-3" data-bs-toggle="modal" data-bs-target="#">Inquire</button>
+
                     <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
 
                 </div>
