@@ -182,7 +182,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     <div class="container-fluid">
                         <!-- <a class="navbar-brand">Job Post</a> -->
                         <span class="navbar-brand mb-0 h1 text-white">Job Post</span>
-                        <button class="btn btn-success rounded-pill" type="submit">Add Post</button>
+                        <!-- <button class="btn btn-success rounded-pill" type="submit">Add Post</button> -->
                     </div>
                 </nav>
             </div>
