@@ -686,6 +686,7 @@ class Account {
             $('#average_rating').text(data.average_rating);
             $('#total_review').text(data.total_review);
 
+
             var count_star = 0;
 
             $('.main_star').each(function () {

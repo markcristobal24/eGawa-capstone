@@ -65,11 +65,15 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
             <div class="container d-flex flex-wrap middle_">
                 <?php
-                $query = $db->connect()->prepare("SELECT * FROM account 
-                INNER JOIN profile ON profile.account_id = account.account_id 
-                INNER JOIN reviews ON reviews.freelancer_id = account.account_id 
-                WHERE account.userType = 'freelancer' AND (account.ban_status != 'banned' AND account.checkmark != '') 
-                ORDER BY AVG(reviews.rating) DESC");
+                $query = $db->connect()->prepare("SELECT account.*, profile.*, reviews.*, COUNT(reviews.rating) AS rating_count, AVG(reviews.rating) AS average_rating
+            FROM account 
+            INNER JOIN profile ON profile.account_id = account.account_id 
+            INNER JOIN reviews ON reviews.freelancer_id = account.account_id 
+            WHERE account.userType = 'freelancer' 
+            AND account.ban_status != 'banned' 
+            AND account.checkmark != '' 
+            GROUP BY account.account_id
+            ORDER BY rating_count DESC");
                 $query->execute();
 
                 foreach ($query as $row) {
@@ -77,23 +81,25 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
                         <img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="rounded rounded-circle mt-2">
-                        <div class="my-2">'; ?>
+                        <div class="my-2">';
+                    $average_rating = ceil($row['average_rating']);
+                    for ($i = 1; $i <= 5; $i++) {
+                        // Check if the current star should have additional classes based on the average rating
+                        $additionalClasses = ($i <= $average_rating) ? 'text-warning star-light' : '';
 
-                <script>
-                new Account().fetch_ratings_freelancer(<?php echo $row['account_id'] ?>)
-                </script>
-                <?php
-                    echo '
-                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
-                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
-                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
-                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
-                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
-                            <span>(<span id="total_review"></span>)</span>
-                        </div>
+                        // Output the star icon with classes
+                        echo '<i class="fas fa-star main_star ' . $additionalClasses . '" style="color: #d4d4d4;"></i>';
+                    }
+                    // <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                    // <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                    // <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                    // <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                    // <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                    echo '  <span>(<span id="total_review">' . $row['rating_count'] . '</span>)</span>
+                   </div>
                         
                         <div class="container info_ mt-1 justify-content-between">
-                            <span class="fw-semibold">' . $row['firstName'] . ' ' . $row['lastName']  . $row['checkmark'] . '</span>
+                            <span class="fw-semibold">' . $row['firstName'] . ' ' . $row['lastName']  . ' ' . $row['checkmark'] . '</span>
                             <small class="text-info">@' . $row['username'] . '</small>
                         </div>
                         <div class="container">
@@ -106,6 +112,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 </div>
                 ';
                 }
+
                 ?>
                 <!-- <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
