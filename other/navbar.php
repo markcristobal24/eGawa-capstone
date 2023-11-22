@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark">
-    <div class="container">
+    <div class="container-fluid mx-1 mx-sm-5">
         <?php
         if (isset($_SESSION['email']) && isset($_SESSION['userType']) && $_SESSION['userType'] == "freelancer") {
         ?>

@@ -239,14 +239,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 </nav>
             </div>
 
-            <div class="container d-flex flex-wrap">
+            <div class="container d-flex flex-wrap middle_">
 
                 <!-- FOR ADDING JOB POSTS  -->
                 <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
                         <span class="fw-semibold text-info">Add Job post</span>
                     </div>
-                    <div>
+                    <div class="d-flex justify-content-center">
                         <i class="fa-solid fa-file-circle-plus add-job-icon" style="color: #4665af;"></i>
                     </div>
 
@@ -270,12 +270,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     echo '
                     <div class="box d-flex flex-column justify-content-between m-3 border">
                         <div class="mb-2">
-                            <div>
+                            <div class="mt-2">
                                 <span class="fw-semibold">' . strtoupper($row['post_title']) . '</span>
                             </div>
 
-                            <div class="container info_ mt-1">
-                                <span class="fw-semibold">' . $posted_date . '</span>
+                            <div class="container info_ mt-4">
+                                <p><em>' . $posted_date . '</em></p>
                             </div>
 
                             <div class="container">
