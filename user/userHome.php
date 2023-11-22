@@ -260,12 +260,12 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     echo '
                     <div class="box d-flex flex-column justify-content-between m-3 border">
                         <div class="mb-2">
-                            <div>
+                            <div class="mt-2">
                                 <span class="fw-semibold">' . strtoupper($row['post_title']) . '</span>
                             </div>
 
-                            <div class="container info_ mt-1">
-                                <span class="fw-semibold">' . $posted_date . '</span>
+                            <div class="container info_ mt-4">
+                                <p><em>' . $posted_date . '</em></p>
                             </div>
 
                             <div class="container">
