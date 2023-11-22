@@ -1,5 +1,4 @@
 <?php
-// session_start();
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 
 if (!isset($_SESSION['account_id'])) {
@@ -27,14 +26,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- Link for CSS -->
-    <link rel="stylesheet" href="../css/userHome.css">
+    <link rel="stylesheet" href="../css/user_home.css">
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
-    <title>eGawa | User Home</title>
+    <title>eGawa | Freelancers Hub</title>
 
     <style>
 
@@ -46,123 +45,218 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     <?php include "../other/navbar.php"; ?>
     <div class="toast_notif" id="toast_notif"></div>
-    <div class="containerUserHome">
-        <div class="containerLeft">
-            <div class="containerLeft-Nav">
-                <div class="left-nav-dropdown">
-                    <div class="dropdownOption">
-                        <form id="filterpost_form" method="POST">
-                            <select id="filterOption" name="filterOption" onchange="new Posts().filter_post(this.value);">
-                                <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
-                            </select>
-                        </form>
+
+
+    <div class="container-fluid d-inline d-sm-flex mt-4 px-1 px-sm-5">
+
+        <div class="container div-left-freelance overflow-y-auto col-lg-6">
+
+            <div class="container div-left-navbar">
+                <nav class="navbar bg-body-tertiary rounded-top nav_">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1 text-white">Freelancers</span>
                     </div>
-                </div>
-                <div class="left-nav-search">
-                    <form class="d-flex">
-                        <input class="form-control me-2 search" type="text" id="search_post" onkeyup="new Posts().search_post(this.value);" placeholder="Search a tag" aria-label="Search">
-                        <!-- <button class="btn btn-success" type="submit">Search</button> -->
-                    </form>
-                </div>
+                </nav>
             </div>
 
-            <div class="containerLeft-Feed" id="post_container">
-                <?php
-                $query = $db->connect()->prepare("SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE post_status != :post_status ORDER BY posted_date DESC");
-                $query->execute([':post_status' => 'ARCHIVED']);
-                // $fetch_post = mysqli_query($con, "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id ORDER BY posted_date DESC");
-                foreach ($query as $row) {
-                    $currentDateTime = $row['posted_date'];
-                    $dateTimeObj = new DateTime($currentDateTime);
-                    $posted_date = $dateTimeObj->format("F d, Y h:i A");
 
-                    echo ' 
-                    <div class="containerPost">
-                        <div class="post-col-1">
-                        ';
-                    if ($row['user_image'] == "") {
-                        echo '<img class="author-pic" src="../img/profile.png" alt="">';
-                    } else {
-                        echo ' <img class="author-pic" src="../img/uploads/company/' . $row['user_image'] . '" alt="">';
-                    }
-                    echo '
-                        </div>
-                        <div class="post-col-2">
-                            <span class="titlePost">' . $post_title = strtoupper($row['post_title']) . '</span>
-                            <div>
-                                <span class="author">Author: </span>
-                                <span class="userPost">' . $row['firstName'] . ' ' . $row['lastName'] . '</span>
-                            </div>
-                            <div>
-                                <span class="locationPost">' . $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</span>
-                                <span>•</span>
-                                <span class="datePost">Posted on ' . $posted_date . '</span>
-                            </div>
+            <div class="container d-flex flex-wrap middle_">
 
-                            <p class="descPost">
-                                ' . $row['post_description'] . '
-                            </p>
-                            <div>
-                                
-                                <button id="viewPostBTN"  data-bs-toggle="modal" data-bs-target="#view-post-modal" onclick="new Posts().view_post(' . $row['post_id'] . ')">View Post</button>
-                            </div>
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+
+                        <img src="../img/test.jpg" alt="" class="rounded rounded-circle mt-2">
+                        <div class="my-2">
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
                         </div>
-                    </div> ';
-                }
-                if ($query->rowCount() <= 0) {
-                    echo '<div class="noResult">
-                                <div class="noResultIMG">
-                                    <img id="noIMG" src="../img/search.png" alt="">
-                                </div>
-                                <div class="noResultText">
-                                    <span>
-                                    No post available
-                                    </span>
-                                </div>
-                            </div>';
-                }
-                ?>
+                        <div class="container info_ mt-1 justify-content-between">
+
+                            <span class="fw-semibold">Ryomen Sukuna</span>
+                            <small class="text-info">@suku_na</small>
+                        </div>
+                        <div class="container">
+                            <!-- <span class="fw-light">Sulok Bagna, Malolos, Bulacan</span> -->
+                            <small>Sulok Bagna, Malolos, Bulacan</small>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+
+                        <img src="../img/test.jpg" alt="" class="rounded rounded-circle mt-2">
+                        <div class="my-2">
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        </div>
+                        <div class="container info_ mt-1 justify-content-between">
+
+                            <span class="fw-semibold">Ryomen Sukuna</span>
+                            <small class="text-info">@suku_na</small>
+                        </div>
+                        <div class="container">
+                            <!-- <span class="fw-light">Sulok Bagna, Malolos, Bulacan</span> -->
+                            <small>Sulok Bagna, Malolos, Bulacan</small>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+
+                        <img src="../img/test.jpg" alt="" class="rounded rounded-circle mt-2">
+                        <div class="my-2">
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        </div>
+                        <div class="container info_ mt-1 justify-content-between">
+
+                            <span class="fw-semibold">Ryomen Sukuna</span>
+                            <small class="text-info">@suku_na</small>
+                        </div>
+                        <div class="container">
+                            <!-- <span class="fw-light">Sulok Bagna, Malolos, Bulacan</span> -->
+                            <small>Sulok Bagna, Malolos, Bulacan</small>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+
+                        <img src="../img/test.jpg" alt="" class="rounded rounded-circle mt-2">
+                        <div class="my-2">
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                            <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
+                        </div>
+                        <div class="container info_ mt-1 justify-content-between">
+
+                            <span class="fw-semibold">Ryomen Sukuna</span>
+                            <small class="text-info">@suku_na</small>
+                        </div>
+                        <div class="container">
+                            <!-- <span class="fw-light">Sulok Bagna, Malolos, Bulacan</span> -->
+                            <small>Sulok Bagna, Malolos, Bulacan</small>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container">View Profile</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="container div-right-post col-lg-6">
+
+            <div class="container div-left-navbar">
+                <nav class="navbar bg-body-tertiary rounded-top nav_">
+                    <div class="container-fluid">
+                        <!-- <a class="navbar-brand">Job Post</a> -->
+                        <span class="navbar-brand mb-0 h1 text-white">Job Post</span>
+                        <!-- <button class="btn btn-success rounded-pill" type="submit">Add Post</button> -->
+                    </div>
+                </nav>
+            </div>
+
+            <div class="container d-flex flex-wrap">
+
+                <!-- FOR ADDING JOB POSTS  -->
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+                        <span class="fw-semibold text-info">Add Job post</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-file-circle-plus add-job-icon" style="color: #4665af;"></i>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal" data-bs-target="#add-job-post">Add Job Post</button>
+                    </div>
+                </div>
+
+
+                <!-- SAMPLE JOB POST BOI -->
+                <div class="box d-flex flex-column justify-content-between m-3 border">
+                    <div class="mb-2">
+
+                        <div>
+                            <span class="fw-semibold">JOB TITLE</span>
+                        </div>
+
+                        <div class="container info_ mt-1">
+
+                            <span class="fw-semibold">01-10-23</span>
+
+                        </div>
+                        <div class="container">
+
+                            <small>Sulok Bagna, Malolos, Bulacan</small>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal" data-bs-target="#edit-post-modal">View Job Post</button>
+                    </div>
+                </div>
+
             </div>
 
         </div>
 
-        <div class="containerRight">
-            <!-- <div class="containerRight-Nav">
+    </div>
 
-            </div> -->
-            <div class="userProfile">
-                <div class="userProfileChild">
-                    <img id="userPic" <?php
-                                        if (isset($_SESSION['user_image'])) {
-                                        ?> src="../img/uploads/company/<?php echo $_SESSION['user_image']; ?>" <?php
-                                                                                                            } else {
-                                                                                                                ?> src="../img/profile.png" <?php
-                                                                                                                                        }
-                                                                                                                                            ?> alt="user profile" title="user profile">
-                    <p id="userName">
-                        <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?>
-                    </p>
-                    <p class="user-name">
-                        @
-                        <?php echo $_SESSION['username']; ?>
-                    </p>
-                    <!-- <p id="userName">other info</p> -->
+
+    <!-- MODAL FOR ADDING JOB POST -->
+    <div class="modal fade" id="add-job-post" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="add-job-post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Job Post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="userPost">
-                <div class="userPostChild">
-                    <div class="toFlex">
-                        <p class="postTitle">Post a Job</p>
-                    </div>
+                <div class="modal-body">
 
                     <form id="post_form" method="POST">
-                        <div class="toFlex">
+
+                        <div class="toFlex mx-5 my-3">
                             <div class="dropdownOptionPost">
-                                <select id="filterOptionPost" name="post_category">
+                                <!-- <select id="filterOptionPost" name="post_category">
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Mobile Development">Mobile Development</option>
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="Multimedia">Multimedia</option>
+                                </select> -->
+                                <select id="filterOptionPost" class="form-select" aria-label="Default select example">
                                     <option value="Website Development">Website Development</option>
                                     <option value="Mobile Development">Mobile Development</option>
                                     <option value="Website Hosting">Website Hosting</option>
@@ -171,13 +265,26 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
 
-                        <input type="text" id="title" name="post_title" placeholder="Job Title" required>
 
-                        <div class="descContainer">
-                            <textarea id="description" placeholder="Job Description" name="post_description"></textarea>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Job Title</span>
+                            <input type="text" id="title" name="post_title" placeholder="Add Job title" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
                         </div>
 
-                        <input type="text" id="tags" name="post_tags" placeholder="Tags" required>
+                        <!-- <div class="descContainer">
+                            <textarea id="description" placeholder="Job Description" name="post_description"></textarea>
+                        </div> -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Job Description</span>
+                            <textarea id="description" class="form-control" aria-label="With textarea" placeholder="Add Job Description" name="post_description"></textarea>
+                        </div>
+
+                        <!-- <input type="text" id="tags" name="post_tags" placeholder="Tags" required> -->
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Tags</span>
+                            <input type="text" id="tags" name="post_tags" placeholder="Add Tags" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
 
                         <div class="rateInput input-group mb-3 mt-2">
 
@@ -186,15 +293,99 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                             <span class="input-group-text">.00</span>
                         </div>
 
-                        <div class="btns">
-                            <input id="submitPost" class="btn" type="button" value="Submit" onclick="new Posts().post();">
-                            <input id="clearPost" class="btn" type="button" value="Clear">
+                        <div class="btns d-flex flex-row justify-content-end">
+                            <button id="submitPost" class="btn btn-primary ms-1" type="button" value="Submit" onclick="new Posts().post();">Submit</button>
+                            <button id="clearPost" class="btn btn-secondary ms-1" type="button" value="Clear">Clear</button>
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
+
+
+
+
+    <!-- MODAL FOR EDIT POST MODAL-->
+    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="editpost_form" method="POST">
+                    <div class="toFlex d-flex justify-content-center p-3">
+                        <div class="dropdownOptionPost">
+                            <!-- <select id="filterOptionPost" name="new_post_category">
+                                <option value="Website Development">Website Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="Website Hosting">Website Hosting</option>
+                                <option value="Multimedia">Multimedia</option>
+                            </select> -->
+
+                            <select id="filterOptionPost" name="new_post_category" class="form-select" aria-label="Default select example">
+                                <option value="Website Development">Website Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="Website Hosting">Website Hosting</option>
+                                <option value="Multimedia">Multimedia</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mx-3 mb-3">
+                        <!-- <input type="text" id="title" name="post_title" placeholder="Job Title" required> -->
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">Job Title</span>
+                            <input type="text" class="form-control" id="post_title" name="new_post_title" placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div class="descContainer mx-3 mb-3">
+                        <!-- <textarea id="description" placeholder="Job Description" name="post_description"></textarea> -->
+                        <div class="input-group">
+                            <span class="input-group-text">Description</span>
+                            <textarea class="form-control" aria-label="Edit description" id="post_description" name="new_post_description" placeholder="Edit job description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mx-3 mb-3">
+                        <!-- <input type="text" id="tags" name="post_tags" placeholder="Tags" required> -->
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">Tag</span>
+                            <input type="text" class="form-control" id="post_tags" placeholder="Edit tag" aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div class="mx-3 mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text">&#8369;</span>
+                            <input type="number" class="form-control" id="rate" aria-label="Dollar amount (with dot and two decimal places)" name="new_rate" placeholder="Enter rate">
+                            <span class="input-group-text">0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- <div class="btns">
+                            <input id="submitPost" class="btn" type="button" value="Submit"
+                                onclick="new Posts().post();">
+                            <input id="clearPost" class="btn" type="button" value="Clear">
+                        </div> -->
+
+
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-post-modal">Delete</button>
+                        <button type="button" class="btn btn-primary" id="btn_editpost" onclick="new Posts().edit_post(this.value);">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <!--Modal for log out-->
@@ -221,106 +412,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- MODAL FOR VIEW POST -->
-    <div class="modal fade" id="view-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <!-- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> -->
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Post Title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="title mb-3">
-                        <span class="label">Job:</span>
-                        <span class="content" id="post_title">
-                            Web Dev
-                        </span>
-                    </div>
-                    <div class="author mb-3">
-                        <span class="label">Author:</span>
-                        <span class="content" id="post_author">
-                            John Paulo Sulit
-                        </span>
-                    </div>
-                    <div class="category mb-3">
-                        <span class="label">Category:</span>
-                        <span class="content" id="category">
-                            Web Dev
-                        </span>
-                    </div>
-                    <div class="tags mb-3">
-                        <span class="label">Tags:</span>
-                        <span class="content" id="post_tags">
-                            html
-                        </span>
-                    </div>
-                    <div class="info mb-3">
-                        <span class="locationPost" id="address">
-                            Sulok, Bagna, Malolos
-                        </span>
-                        <span class="separator">&#8226;</span>
-                        <span class="datePost" id="posted_date">Posted on
-                            Jan 01, 1969
-                        </span>
-                    </div>
 
-                    <div class="mb-3">
-                        <span class="label">Description:</span>
-                        <p class="" id="post_description">
-                            The Lorem ipum filling text is used by graphic designers, programmers and printers with the
-                            aim
-                            of occupying the spaces of a website, an advertising product or an editorial production
-                            whose
-                            final text is not yet ready.
-
-                            This expedient serves to get an idea of the finished product that will soon be printed or
-                            disseminated via digital channels.
-
-
-                            In order to have a result that is more in keeping with the final result, the graphic
-                            designers,
-                            designers or typographers report the Lorem ipsum text in respect of two fundamental aspects,
-                            namely readability and editorial requirements.
-
-                            The choice of font and font size with which Lorem ipsum is reproduced answers to specific
-                            needs
-                            that go beyond the simple and simple filling of spaces dedicated to accepting real texts and
-                            allowing to have hands an advertising/publishing product, both web and paper, true to
-                            reality.
-
-                            Its nonsense allows the eye to focus only on the graphic layout objectively evaluating the
-                            stylistic choices of a project, so it is installed on many graphic programs on many software
-                            platforms of personal publishing and content management system.
-                        </p>
-                    </div>
-
-                    <div class="rate">
-                        <span class="label">Rate:</span>
-                        <span class="content" id="rate">
-                            P 169,00.00
-                        </span>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit</button> -->
-                    <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button> -->
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <script>
         // JavaScript to make the textarea auto-resize
-        const textarea = document.getElementById('description');
+        //     const textarea = document.getElementById('description');
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto'; // Reset height to auto
-            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-        });
+        //     textarea.addEventListener('input', () => {
+        //         textarea.style.height = 'auto'; // Reset height to auto
+        //         textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        //     });
+        // 
     </script>
 
 
