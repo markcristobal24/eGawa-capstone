@@ -337,7 +337,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                     <option value="Website Hosting">Website Hosting</option>
                                     <option value="Multimedia">Multimedia</option>
                                 </select> -->
-                                <select id="filterOptionPost" class="form-select" aria-label="Default select example">
+                                <select id="filterOptionPost" class="form-select" name="post_category"
+                                    aria-label="Default select example">
                                     <option value="Website Development">Website Development</option>
                                     <option value="Mobile Development">Mobile Development</option>
                                     <option value="Website Hosting">Website Hosting</option>
