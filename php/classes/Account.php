@@ -220,4 +220,17 @@ class Account extends DbClass
     </body>
         ';
     }
+
+    public function generateTransactionID()
+    {
+        $query = $this->connect()->prepare("SELECT MAX(application_id) as max_id FROM job_application");
+        $query->execute();
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        $maxId = $row['max_id'];
+
+        $nextId = $maxId + 1;
+        $transactionId = 'T' . str_pad($nextId, 10, '0', STR_PAD_LEFT);
+
+        return $transactionId;
+    }
 }

@@ -53,8 +53,8 @@ if (isset($_POST['deny_id'])) {
     $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($query->rowCount() > 0) {
-        $stmt = $db->connect()->prepare("UPDATE id_verification SET verify_status = :status WHERE id = :id");
-        $result = $stmt->execute([':status' => "DENIED", ':id' => $id]);
+        $stmt = $db->connect()->prepare("DELETE FROM id_verification WHERE id = :id");
+        $result = $stmt->execute([':id' => $id]);
 
         if ($result) {
             $output['success'] = "Verification has been denied.";
