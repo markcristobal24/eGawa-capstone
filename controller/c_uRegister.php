@@ -43,7 +43,7 @@ if (isset($_POST['user_register'])) {
         $output['error'] = "Username already exist!";
     } else {
         $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, barangay, municipality, province, username, email, password, userType, status, dateCreated)
-        VALUES (:firstName, :middleName, :lastName, :barangay, :municipality, :province, :username, :email, :password, :userType, :status)");
+        VALUES (:firstName, :middleName, :lastName, :barangay, :municipality, :province, :username, :email, :password, :userType, :status, :dateCreated)");
         $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':barangay' => $barangay, ':municipality' => $municipality, ':province' => $province, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0, ':dateCreated' => $currentDateTime]);
 
         if ($result) {
