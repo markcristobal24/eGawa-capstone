@@ -213,7 +213,7 @@ if (isset($_POST['search_post'])) {
     $search_input = $_POST['keyword'];
 
     $query = $db->connect()->prepare(
-        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE jobposts.post_tags LIKE '%$search_input%' AND post_status != :post_status ORDER BY posted_date DESC"
+        "SELECT * FROM jobposts INNER JOIN account ON jobposts.account_id = account.account_id WHERE (jobposts.post_tags LIKE '%$search_input%' OR jobposts.post_title LIKE '%$search_input%' OR jobposts.post_description LIKE '%$search_input%' OR account.province LIKE '%$search_input%' OR account.municipality LIKE '%$search_input%' OR account.barangay LIKE '%$search_input%') AND post_status != :post_status ORDER BY posted_date DESC"
     );
     $query->execute([':post_status' => 'ARCHIVED']);
     $output = array();
