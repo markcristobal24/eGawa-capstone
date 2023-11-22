@@ -32,9 +32,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../classJS/Account.js"></script>
     <!-- For social icons in the footer -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
     <title>eGawa | Freelancers Hub</title>
 
@@ -79,9 +77,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <img src="../img/uploads/freelancer/' . $row['imageProfile'] . '" alt="" class="rounded rounded-circle mt-2">
                         <div class="my-2">'; ?>
 
-                <script>
-                new Account().fetch_ratings_freelancer(<?php echo $row['account_id'] ?>)
-                </script>
+                    <script>
+                        new Account().fetch_ratings_freelancer(<?php echo $row['account_id'] ?>)
+                    </script>
                 <?php
                     echo '
                             <i class="fas fa-star main_star" style="color: #d4d4d4;"></i>
@@ -232,20 +230,19 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 </nav>
             </div>
 
-            <div class="container d-flex flex-wrap">
+            <div class="container d-flex flex-wrap middle_">
 
                 <!-- FOR ADDING JOB POSTS  -->
                 <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
                         <span class="fw-semibold text-info">Add Job post</span>
                     </div>
-                    <div>
+                    <div class="d-flex justify-content-center">
                         <i class="fa-solid fa-file-circle-plus add-job-icon" style="color: #4665af;"></i>
                     </div>
 
                     <div class="">
-                        <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal"
-                            data-bs-target="#add-job-post">Add Job Post</button>
+                        <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal" data-bs-target="#add-job-post">Add Job Post</button>
                     </div>
                 </div>
 
@@ -316,8 +313,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
     <!-- MODAL FOR ADDING JOB POST -->
-    <div class="modal fade" id="add-job-post" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="add-job-post" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <!-- <div class="modal fade" id="add-job-post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -337,8 +333,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                     <option value="Website Hosting">Website Hosting</option>
                                     <option value="Multimedia">Multimedia</option>
                                 </select> -->
-                                <select id="filterOptionPost" class="form-select" name="post_category"
-                                    aria-label="Default select example">
+                                <select id="filterOptionPost" class="form-select" name="post_category" aria-label="Default select example">
                                     <option value="Website Development">Website Development</option>
                                     <option value="Mobile Development">Mobile Development</option>
                                     <option value="Website Hosting">Website Hosting</option>
@@ -350,9 +345,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Job Title</span>
-                            <input type="text" id="title" name="post_title" placeholder="Add Job title"
-                                class="form-control" placeholder="Username" aria-label="Username"
-                                aria-describedby="basic-addon1" required>
+                            <input type="text" id="title" name="post_title" placeholder="Add Job title" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
                         </div>
 
                         <!-- <div class="descContainer">
@@ -360,31 +353,26 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         </div> -->
                         <div class="input-group mb-3">
                             <span class="input-group-text">Job Description</span>
-                            <textarea id="description" class="form-control" aria-label="With textarea"
-                                placeholder="Add Job Description" name="post_description"></textarea>
+                            <textarea id="description" class="form-control" aria-label="With textarea" placeholder="Add Job Description" name="post_description"></textarea>
                         </div>
 
                         <!-- <input type="text" id="tags" name="post_tags" placeholder="Tags" required> -->
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Tags</span>
-                            <input type="text" id="tags" name="post_tags" placeholder="Add Tags" class="form-control"
-                                placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                            <input type="text" id="tags" name="post_tags" placeholder="Add Tags" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
                         </div>
 
                         <div class="rateInput input-group mb-3 mt-2">
 
                             <span class="input-group-text">&#8369;</span>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
-                                name="rate" placeholder="Enter rate" required>
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="rate" placeholder="Enter rate" required>
                             <span class="input-group-text">.00</span>
                         </div>
 
                         <div class="btns d-flex flex-row justify-content-end">
-                            <button id="submitPost" class="btn btn-primary ms-1" type="button" value="Submit"
-                                onclick="new Posts().post();">Submit</button>
-                            <button id="clearPost" class="btn btn-secondary ms-1" type="button"
-                                value="Clear">Clear</button>
+                            <button id="submitPost" class="btn btn-primary ms-1" type="button" value="Submit" onclick="new Posts().post();">Submit</button>
+                            <button id="clearPost" class="btn btn-secondary ms-1" type="button" value="Clear">Clear</button>
                         </div>
                     </form>
                 </div>
@@ -397,8 +385,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
     <!-- MODAL FOR EDIT POST MODAL-->
-    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="edit-post-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -416,8 +403,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <option value="Multimedia">Multimedia</option>
                             </select> -->
 
-                            <select id="job_category" name="new_post_category" class="form-select"
-                                aria-label="Default select example">
+                            <select id="job_category" name="new_post_category" class="form-select" aria-label="Default select example">
                                 <option value="Website Development">Website Development</option>
                                 <option value="Mobile Development">Mobile Development</option>
                                 <option value="Website Hosting">Website Hosting</option>
@@ -430,8 +416,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <!-- <input type="text" id="title" name="post_title" placeholder="Job Title" required> -->
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Job Title</span>
-                            <input type="text" class="form-control" id="post_title" name="new_post_title"
-                                placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" id="post_title" name="new_post_title" placeholder="Edit job title" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
@@ -439,8 +424,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <!-- <textarea id="description" placeholder="Job Description" name="post_description"></textarea> -->
                         <div class="input-group">
                             <span class="input-group-text">Description</span>
-                            <textarea class="form-control" aria-label="Edit description" id="post_description"
-                                name="new_post_description" placeholder="Edit job description"></textarea>
+                            <textarea class="form-control" aria-label="Edit description" id="post_description" name="new_post_description" placeholder="Edit job description"></textarea>
                         </div>
                     </div>
 
@@ -448,17 +432,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <!-- <input type="text" id="tags" name="post_tags" placeholder="Tags" required> -->
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Tag</span>
-                            <input type="text" class="form-control" id="post_tags" placeholder="Edit tag"
-                                aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" id="post_tags" placeholder="Edit tag" aria-label="Username" name="new_post_tags" aria-describedby="addon-wrapping">
                         </div>
                     </div>
 
                     <div class="mx-3 mb-3">
                         <div class="input-group">
                             <span class="input-group-text">&#8369;</span>
-                            <input type="number" class="form-control" id="rate"
-                                aria-label="Dollar amount (with dot and two decimal places)" name="new_rate"
-                                placeholder="Enter rate">
+                            <input type="number" class="form-control" id="rate" aria-label="Dollar amount (with dot and two decimal places)" name="new_rate" placeholder="Enter rate">
                             <span class="input-group-text">0.00</span>
                         </div>
                     </div>
@@ -472,11 +453,8 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
-                        <button type="button" id="btn_deletepost" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#delete-post-modal"
-                            onclick="new Posts().delete_post(this.value)">Delete</button>
-                        <button type="button" class="btn btn-primary" id="btn_editpost"
-                            onclick="new Posts().edit_post(this.value);">Save</button>
+                        <button type="button" id="btn_deletepost" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-post-modal" onclick="new Posts().delete_post(this.value)">Delete</button>
+                        <button type="button" class="btn btn-primary" id="btn_editpost" onclick="new Posts().edit_post(this.value);">Save</button>
                     </div>
                 </form>
             </div>
@@ -515,14 +493,14 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 
     <script>
-    // JavaScript to make the textarea auto-resize
-    //     const textarea = document.getElementById('description');
+        // JavaScript to make the textarea auto-resize
+        //     const textarea = document.getElementById('description');
 
-    //     textarea.addEventListener('input', () => {
-    //         textarea.style.height = 'auto'; // Reset height to auto
-    //         textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
-    //     });
-    // 
+        //     textarea.addEventListener('input', () => {
+        //         textarea.style.height = 'auto'; // Reset height to auto
+        //         textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight
+        //     });
+        // 
     </script>
 
 
@@ -534,8 +512,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Posts.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
