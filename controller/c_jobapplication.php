@@ -31,7 +31,7 @@ if (isset($_POST['send_job'])) {
 
         if ($apply_message !== "") {
             $transactionId = $acc->generateTransactionID();
-            $query = $db->connect()->prepare("INSERT INTO job_application (application_id, post_id, freelance_id, user_id, message, resume, timestamp, jobstatus)
+            $query = $db->connect()->prepare("INSERT INTO job_application (transaction_id, post_id, freelance_id, user_id, message, resume, timestamp, jobstatus)
             VALUES (:application_id, :post_id, :sender_id, :receiver_id, :message, :resume, :timestamp, :jobstatus)");
             $result = $query->execute([
                 ':application_id' => $transactionId,

@@ -42,10 +42,10 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="content">
             <!-- <h1>Dashboard</h1> -->
-            <span class="row-title titles fw-bold fs-4 text-success">Company:</span>
+            <span class="row-title titles fw-bold fs-4 text-success">Employer:</span>
             <div class="box- mb-3">
                 <div class="box-1 boxes">
-                    <span>Total Company:</span>
+                    <span>Total Employer:</span>
                     <span class="boxes-data" id="total_company">100</span>
                 </div>
                 <!-- <div class="box-2 boxes">

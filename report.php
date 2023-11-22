@@ -32,7 +32,7 @@ if ($query->rowCount() > 0) {
     $html .= '<tr><td style="font-weight: bold;">Transaction ID</td> <td style="font-weight: bold;">Freelancer Name</td> <td style="font-weight: bold;">Company/Employer Name</td> <td style="font-weight: bold;">Date of Transaction</td> </tr>';
     while ($row = $query->fetch(PDO::FETCH_BOTH)) {
         $counter++;
-        $html .= '<tr><td style="text-align: center;"><span>' . $row['application_id'] . '</span></td><td style="text-align: center;">' . $row['freelancer_name'] . '</td><td style="text-align: center;">' . $row['company_name'] . '</td><td style="text-align: center;"><span>' . $row['timestamp'] . '</span></td></tr>';
+        $html .= '<tr><td style="text-align: center;"><span>' . $row['transaction_id'] . '</span></td><td style="text-align: center;">' . $row['freelancer_name'] . '</td><td style="text-align: center;">' . $row['company_name'] . '</td><td style="text-align: center;"><span>' . $row['timestamp'] . '</span></td></tr>';
     }
 
 

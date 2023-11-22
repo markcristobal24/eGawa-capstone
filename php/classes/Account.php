@@ -231,7 +231,7 @@ class Account extends DbClass
         $maxId = $row['max_id'];
 
         $nextId = $maxId + 1;
-        $transactionId = str_pad($nextId, 10, '0', STR_PAD_LEFT);
+        $transactionId = 'T' . str_pad($nextId, 10, '0', STR_PAD_LEFT);
 
         return $transactionId;
     }

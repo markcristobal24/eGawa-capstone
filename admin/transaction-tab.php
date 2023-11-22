@@ -68,7 +68,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                             <tr class="table-secondary">
                                 <th scope="col">Transaction ID</th>
                                 <th scope="col">Freelancer Name</th>
-                                <th scope="col">Company/Employer Name</th>
+                                <th scope="col">Employer Name</th>
                                 <th scope="col">Date of Transaction</th>
                             </tr>
                         </thead>
@@ -86,7 +86,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                 $posted_date = $dateTimeObj->format("m-d-Y");
                                 echo '
                                 <tr>
-                                    <th scope="row">' . $row['application_id'] . '</th>
+                                    <th scope="row">' . $row['transaction_id'] . '</th>
                                     <td>' . $row['freelancer_name'] . '</td>
                                     <td>' . $row['company_name'] . '</td>
                                     <td>' . $posted_date . '</td>
