@@ -164,7 +164,7 @@ class Posts {
             console.log(response_data);
             let job = response_data;
 
-            let category = document.getElementById('filterOptionPost');
+            let category = document.getElementById('job_category');
             for (var i = 0; i < category.options.length; i++) {
                 if (category.options[i].textContent === `${job.category}`) {
                     category.selectedIndex = i;

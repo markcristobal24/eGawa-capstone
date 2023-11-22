@@ -249,9 +249,42 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                     </div>
                 </div>
 
+                <?php
+                $query = $db->connect()->prepare("SELECT * FROM jobposts 
+                INNER JOIN account ON account.account_id = jobposts.account_id 
+                WHERE jobposts.account_id = $user_id AND jobposts.post_status != 'ARCHIVED'
+                ORDER BY jobposts.posted_date DESC");
+                $query->execute();
 
+                foreach ($query as $row) {
+                    $currentDateTime = $row['posted_date'];
+                    $dateTimeObj = new DateTime($currentDateTime);
+                    $posted_date = $dateTimeObj->format("F d, Y h:i A");
+                    echo '
+                    <div class="box d-flex flex-column justify-content-between m-3 border">
+                        <div class="mb-2">
+                            <div>
+                                <span class="fw-semibold">' . strtoupper($row['post_title']) . '</span>
+                            </div>
+
+                            <div class="container info_ mt-1">
+                                <span class="fw-semibold">' . $posted_date . '</span>
+                            </div>
+
+                            <div class="container">
+                                <small>' . $row['barangay'] . ', ' . $row['municipality'] . ', ' . $row['province'] . '</small>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal" data-bs-target="#edit-post-modal" onclick="new Posts().fetch_jobposts(' . $row['post_id'] . ')">View Job Post</button>
+                        </div>
+                    </div>
+                    ';
+                }
+                ?>
                 <!-- SAMPLE JOB POST BOI -->
-                <div class="box d-flex flex-column justify-content-between m-3 border">
+                <!-- <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
 
                         <div>
@@ -273,7 +306,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         <button class="btn btn-outline-info rounded-pill container" data-bs-toggle="modal"
                             data-bs-target="#edit-post-modal">View Job Post</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -382,7 +415,7 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 <option value="Multimedia">Multimedia</option>
                             </select> -->
 
-                            <select id="filterOptionPost" name="new_post_category" class="form-select"
+                            <select id="job_category" name="new_post_category" class="form-select"
                                 aria-label="Default select example">
                                 <option value="Website Development">Website Development</option>
                                 <option value="Mobile Development">Mobile Development</option>
@@ -438,8 +471,9 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-danger"  data-bs-target="#delete-post-modal">Delete</button> -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#delete-post-modal">Delete</button>
+                        <button type="button" id="btn_deletepost" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#delete-post-modal"
+                            onclick="new Posts().delete_post(this.value)">Delete</button>
                         <button type="button" class="btn btn-primary" id="btn_editpost"
                             onclick="new Posts().edit_post(this.value);">Save</button>
                     </div>
