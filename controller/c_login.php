@@ -5,6 +5,8 @@ require_once dirname(__FILE__) . "/../php/classes/Email.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 
 if (isset($_POST['login'])) {
     $email = $_POST["email"];
@@ -66,9 +68,10 @@ if (isset($_POST['login'])) {
                     $session->fetch_account($email);
                     $output['status'] = "1";
                     $output['message'] = "Logging in as " . $fetch['firstName'];
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Logged In',
                         ':user_type' => 'company'
                     ]);
@@ -110,9 +113,10 @@ if (isset($_POST['login'])) {
                     $session->fetch_profile($email);
                     $output['status'] = "11";
                     $output['message'] = "Logging in as " . $fetch['firstName'];
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Logged In',
                         ':user_type' => 'freelancer'
                     ]);

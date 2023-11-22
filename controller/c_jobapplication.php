@@ -6,10 +6,10 @@ require_once dirname(__FILE__) . "/../php/classes/Email.php";
 $db = new DbClass();
 $acc = new Account();
 $email_notif = new Email();
-
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 if (isset($_POST['send_job'])) {
-    date_default_timezone_set("Asia/Manila");
-    $currentDateTime = date("Y-m-d H:i:s");
+
 
     $post_id = $_POST['postId'];
     $query = $db->connect()->prepare("SELECT * FROM jobposts WHERE post_id = :post_id");
@@ -55,9 +55,10 @@ if (isset($_POST['send_job'])) {
                 $body = $acc->apply_email($link, $notice, $button_value);
                 $email_notif->sendEmail("eGawa", $email, $subject, $body);
                 if ($email_notif) {
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Submitted Job Application',
                         ':user_type' => 'freelancer'
                     ]);
@@ -191,9 +192,10 @@ if (isset($_POST['accept_job'])) {
                 ':post_id' => $post_id
             ]);
         }
-        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
         $query->execute([
             ':account_id' => $_SESSION['account_id'],
+            ':timestamp' => $currentDateTime,
             ':event' => 'Accepted Job Application',
             ':user_type' => 'company'
         ]);
@@ -222,19 +224,21 @@ if (isset($_POST['create_convo'])) {
         $receiver = $freelance_id;
         $message = "Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
 
-        $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message) VALUES (
-            :convo_id, :sender_id, :receiver_id, :message)");
+        $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message, timestamp) VALUES (
+            :convo_id, :sender_id, :receiver_id, :message, :timestamp)");
         $stmt->execute([
             ':convo_id' => $convo_id,
             ':sender_id' => $sender,
             ':receiver_id' => $receiver,
-            ':message' => $message
+            ':message' => $message,
+            ':timestamp' => $currentDateTime
         ]);
     } else {
-        $query = $db->connect()->prepare("INSERT INTO convo (user_id, freelance_id) VALUES (:user_id, :freelance_id)");
+        $query = $db->connect()->prepare("INSERT INTO convo (user_id, freelance_id, timestamp) VALUES (:user_id, :freelance_id, :timestamp)");
         $result = $query->execute([
             ':user_id' => $user_id,
-            ':freelance_id' => $freelance_id
+            ':freelance_id' => $freelance_id,
+            ':timestamp' => $currentDateTime
         ]);
 
         if ($result) {
@@ -249,14 +253,15 @@ if (isset($_POST['create_convo'])) {
             $receiver = $freelance_id;
             $message = "Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
 
-            $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message) VALUES (
-            :convo_id, :sender_id, :receiver_id, :message
+            $stmt = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message, timestamp) VALUES (
+            :convo_id, :sender_id, :receiver_id, :message, :timestamp
         )");
             $stmt->execute([
                 ':convo_id' => $convo_id,
                 ':sender_id' => $sender,
                 ':receiver_id' => $receiver,
-                ':message' => $message
+                ':message' => $message,
+                ':timestamp' => $currentDateTime
             ]);
         }
     }

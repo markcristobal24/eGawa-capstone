@@ -6,7 +6,8 @@ require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
 $acc = new Account();
-
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 if (isset($_POST['change_email'])) {
     $user_id = $_SESSION['account_id'];
     $email_identifier = $_SESSION['email'];
@@ -30,9 +31,10 @@ if (isset($_POST['change_email'])) {
         if ($result) {
             $_SESSION['email'] = $new_email;
             $output['success'] = "Email address updated successfully";
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Change email address',
                 ':user_type' => 'company'
             ]);
@@ -71,9 +73,10 @@ if (isset($_POST['change_pass'])) {
 
                 if ($result) {
                     $output['success'] = "Password has been changed.";
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Change password',
                         ':user_type' => 'company'
                     ]);
@@ -144,9 +147,10 @@ if (isset($_POST['update_profile'])) {
             if ($result) {
                 $_SESSION['username'] = $new_username;
                 $output['success'] = "Username updated successfully!";
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                 $query->execute([
                     ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
                     ':event' => 'Update profile',
                     ':user_type' => 'company'
                 ]);
@@ -187,9 +191,10 @@ if (isset($_POST['update_profile'])) {
                 $_SESSION['municipality'] = $new_municipality;
                 $_SESSION['province'] = $new_province;
                 $output['success'] = "Your profile has been updated";
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                 $query->execute([
                     ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
                     ':event' => 'Update profile',
                     ':user_type' => 'company'
                 ]);

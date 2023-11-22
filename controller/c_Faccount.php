@@ -6,6 +6,8 @@ require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $acc = new Account();
 $db = new DbClass();
+date_default_timezone_set('Asia/Manila');
+$currentDateTime = date("Y-m-d H:i");
 
 if (isset($_POST['change_email'])) {
     $email_identifier = $_SESSION['email'];
@@ -38,9 +40,10 @@ if (isset($_POST['change_email'])) {
                     $_SESSION['email'] = $new_email;
                     $output['success'] = "Email address updated successfully";
                     $output['type'] = $_SESSION['userType'];
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Change email',
                         ':user_type' => $_SESSION['userType']
                     ]);
@@ -80,9 +83,10 @@ if (isset($_POST['change_password'])) {
                 if ($result) {
                     $output['success'] = "Password has been changed.";
                     $output['type'] = $_SESSION['userType'];
-                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                    $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                     $query->execute([
                         ':account_id' => $_SESSION['account_id'],
+                        ':timestamp' => $currentDateTime,
                         ':event' => 'Change password',
                         ':user_type' => $_SESSION['userType']
                     ]);
@@ -136,22 +140,24 @@ if (isset($_POST['id_verification'])) {
             move_uploaded_file($back_id, $back_directory);
         }
 
-        $query = $db->connect()->prepare("INSERT INTO id_verification (account_id, id_type, front_image, back_image, id_number, verify_status)
-        VALUES (:account_id, :id_type, :front_image, :back_image, :id_number, :verify_status)");
+        $query = $db->connect()->prepare("INSERT INTO id_verification (account_id, id_type, front_image, back_image, id_number, verify_status, timestamp)
+        VALUES (:account_id, :id_type, :front_image, :back_image, :id_number, :verify_status, :timestamp)");
         $result = $query->execute([
             ':account_id' => $freelance_id,
             ':id_type' => $id_type,
             ':front_image' => $front_link,
             ':back_image' => $back_link,
             ':id_number' => $id_number,
-            ':verify_status' => 'PENDING'
+            ':verify_status' => 'PENDING',
+            ':timestamp' => $currentDateTime
         ]);
 
         if ($result) {
             $output['success'] = 'Your id verification has been submitted.';
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Submitted ID Verification',
                 ':user_type' => 'freelancer'
             ]);

@@ -4,6 +4,8 @@ require_once dirname(__FILE__) . "/../php/classes/Email.php";
 
 $db = new DbClass();
 $send_email = new Email();
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 
 if (isset($_POST['accept_id'])) {
     $id = $_POST['id'];
@@ -279,8 +281,8 @@ if (isset($_POST['ban_account'])) {
     $id = $_POST['id'];
     $reason = $_POST['reason'];
 
-    $query = $db->connect()->prepare("INSERT INTO ban_list (account_id, reason) VALUES (:account_id, :reason)");
-    $result = $query->execute([':account_id' => $id, ':reason' => $reason]);
+    $query = $db->connect()->prepare("INSERT INTO ban_list (account_id, reason, date_ban) VALUES (:account_id, :reason, :date_ban)");
+    $result = $query->execute([':account_id' => $id, ':reason' => $reason, ':date_ban' => $currentDateTime]);
 
     if ($result) {
         $query = $db->connect()->prepare("UPDATE account SET ban_status = 'banned' WHERE account_id = $id");

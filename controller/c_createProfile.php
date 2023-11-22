@@ -6,6 +6,8 @@ require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
+date_default_timezone_set('Asia/Manila');
+$currentDateTime = date("Y-m-d H:i");
 
 if (isset($_POST['create_fprofile'])) {
     $email = $_SESSION['email'];
@@ -56,8 +58,8 @@ if (isset($_POST['create_fprofile'])) {
     } else if ($barangay == "" || $municipality == "" || $province == "") {
         $output['error'] = "Please provide your complete address!";
     } else if ($query->rowCount() > 0) {
-        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay)");
-        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay]);
+        $query = $db->connect()->prepare("INSERT INTO profile (account_id, email, imageProfile, jobRole, province, municipality, barangay, date_created) VALUES (:account_id, :email, :imageProfile, :jobRole, :province, :municipality, :barangay, :date_created)");
+        $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':imageProfile' => $image_link, ':jobRole' => $optionsString, ':province' => $province, ':municipality' => $municipality, ':barangay' => $barangay, ':date_created' => $currentDateTime]);
 
         if ($result) {
             $query = $db->connect()->prepare("UPDATE account SET profileStatus = 1 WHERE email = :email");
@@ -133,9 +135,10 @@ if (isset($_POST['edit_fprofile'])) {
 
     if ($result) {
         $output['success'] = "Profile Updated Successfully";
-        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
         $query->execute([
             ':account_id' => $_SESSION['account_id'],
+            ':timestamp' => $currentDateTime,
             ':event' => 'Edit profile',
             ':user_type' => 'freelancer'
         ]);

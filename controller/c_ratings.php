@@ -4,7 +4,8 @@ require_once dirname(__FILE__) . "/../php/classes/Email.php";
 require_once dirname(__FILE__) . "/../php/classes/Account.php";
 
 $db = new DbClass();
-
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 if (isset($_POST['rating_data'])) {
     $review_img = $_FILES['review_ss']['tmp_name'];
     $image_link = $review_img;
@@ -39,9 +40,10 @@ if (isset($_POST['rating_data'])) {
             ':application_id' => $_SESSION['application_id']
         ]);
         if ($exec) {
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Added a review',
                 ':user_type' => 'company'
             ]);

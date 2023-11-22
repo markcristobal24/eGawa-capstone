@@ -13,6 +13,8 @@ $pusher = new Pusher\Pusher(
     '1650503',
     $options
 );
+date_default_timezone_set('Asia/Manila');
+$currentDateTime = date("Y-m-d H:i");
 if (isset($_POST['fetch_info_convo'])) {
     $convo_id = $_POST['convoId'];
 
@@ -77,14 +79,15 @@ if (isset($_POST['send_message'])) {
     if ($result) {
         $messageInput = $_POST['messageInput'];
         if ($messageInput !== '') {
-            $query = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message) VALUES (
-                :convo_id, :sender_id, :receiver_id, :message
+            $query = $db->connect()->prepare("INSERT INTO messages (convo_id, sender_id, receiver_id, message, timestamp) VALUES (
+                :convo_id, :sender_id, :receiver_id, :message, :timestamp
             )");
             $result = $query->execute([
                 ':convo_id' => $convo_id,
                 ':sender_id' => $_SESSION['account_id'],
                 ':receiver_id' => $fetch['user_id'],
-                ':message' => $messageInput
+                ':message' => $messageInput,
+                ':timestamp' => $currentDateTime
             ]);
 
             if ($result) {
@@ -112,21 +115,23 @@ if (isset($_POST['send_report'])) {
         $image_link = basename($_FILES['report_ss']['name']);
         move_uploaded_file($report_screenshot, $image_directory);
 
-        $query = $db->connect()->prepare("INSERT INTO reports (account_id, reported_id, screenshot, reason, report_status)
-        VALUES (:account_id, :reported_id, :screenshot, :reason, :report_status)");
+        $query = $db->connect()->prepare("INSERT INTO reports (account_id, reported_id, screenshot, reason, report_status, timestamp)
+        VALUES (:account_id, :reported_id, :screenshot, :reason, :report_status, :timestamp)");
         $result = $query->execute([
             ':account_id' => $account_id,
             ':reported_id' => $reported_id,
             ':screenshot' => $image_link,
             ':reason' => $report_reason,
-            ':report_status' => 'PENDING'
+            ':report_status' => 'PENDING',
+            ':timestamp' => $currentDateTime
         ]);
 
         if ($result) {
             $output['success'] = "Report submitted successfully";
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Submit a report',
                 ':user_type' => $_SESSION['userType']
             ]);

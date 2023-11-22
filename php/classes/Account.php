@@ -97,12 +97,14 @@ class Account extends DbClass
     {
         $query = $this->connect()->prepare("DELETE FROM catalog WHERE catalog_id = :catalog_id");
         $result = $query->execute([':catalog_id' => $catalog_id]);
-
+        date_default_timezone_set('Asia/Manila');
+        $currentDateTime = date("Y-m-d H:i");
         if ($result) {
             $output['success'] = "Catalog Deleted Successfully";
-            $query = $this->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $this->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Deleted Catalog',
                 ':user_type' => 'freelancer'
             ]);

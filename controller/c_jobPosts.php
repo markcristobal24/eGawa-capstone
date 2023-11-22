@@ -3,7 +3,8 @@
 require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 
 $db = new DbClass();
-
+date_default_timezone_set("Asia/Manila");
+$currentDateTime = date("Y-m-d H:i:s");
 if (isset($_POST['jobPosts'])) {
     $user_id = $_SESSION['account_id'];
 
@@ -14,8 +15,7 @@ if (isset($_POST['jobPosts'])) {
     $post_tags = $_POST['post_tags'];
     $rate = $_POST['rate'];
 
-    date_default_timezone_set("Asia/Manila");
-    $currentDateTime = date("Y-m-d H:i:s");
+
 
 
     if ($post_title === "" || $post_description === "" || $post_tags === "" || $rate === "") {
@@ -28,9 +28,10 @@ if (isset($_POST['jobPosts'])) {
         if ($result) {
             $output['success'] = "Posted Successfully";
 
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Posted a job',
                 ':user_type' => 'company'
             ]);
@@ -273,9 +274,10 @@ if (isset($_POST['delete_post'])) {
 
     if ($result) {
         $output['success'] = "Post deleted successfully.";
-        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+        $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
         $query->execute([
             ':account_id' => $_SESSION['account_id'],
+            ':timestamp' => $currentDateTime,
             ':event' => 'Deletes a job post',
             ':user_type' => 'company'
         ]);
@@ -314,9 +316,10 @@ if (isset($_POST['edit_post'])) {
 
             if ($result) {
                 $output['success'] = "Post updated successfully.";
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                 $query->execute([
                     ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
                     ':event' => 'Edit a job post',
                     ':user_type' => 'company'
                 ]);

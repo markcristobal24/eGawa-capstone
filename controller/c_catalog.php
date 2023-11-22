@@ -6,6 +6,8 @@ require_once dirname(__FILE__) . "/../php/classes/DbClass.php";
 // require_once dirname(__FILE__) . "/../php/classes/Image.php";
 
 $db = new DbClass();
+date_default_timezone_set('Asia/Manila');
+$currentDateTime = date("Y-m-d H:i");
 
 if (isset($_POST['add_catalog'])) {
     $email = $_SESSION['email'];
@@ -41,14 +43,15 @@ if (isset($_POST['add_catalog'])) {
         $query->execute([':email' => $email]);
 
         if ($query->rowCount() > 0) {
-            $query = $db->connect()->prepare("INSERT INTO catalog (account_id, email, catalogImage, catalogTitle, catalogDescription) VALUES (:account_id, :email, :catalogImage, :catalogTitle, :catalogDescription)");
-            $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':catalogImage' => $image_link, ':catalogTitle' => $catalogTitle, ':catalogDescription' => $catalogDesc]);
+            $query = $db->connect()->prepare("INSERT INTO catalog (account_id, email, catalogImage, catalogTitle, catalogDescription, date_created) VALUES (:account_id, :email, :catalogImage, :catalogTitle, :catalogDescription, :date_created)");
+            $result = $query->execute([':account_id' => $account_id, ':email' => $email, ':catalogImage' => $image_link, ':catalogTitle' => $catalogTitle, ':catalogDescription' => $catalogDesc, ':date_created' => $currentDateTime]);
 
             if ($result) {
                 $output['success'] = "Catalog Added Successfully.";
-                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+                $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
                 $query->execute([
                     ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
                     ':event' => 'Added Catalog',
                     ':user_type' => 'freelancer'
                 ]);
@@ -116,9 +119,10 @@ if (isset($_POST['edit_catalog'])) {
         }
         if ($result) {
             $output['success'] = "Catalog Updated Successfully";
-            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, event, user_type) VALUES (:account_id, :event, :user_type)");
+            $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
             $query->execute([
                 ':account_id' => $_SESSION['account_id'],
+                ':timestamp' => $currentDateTime,
                 ':event' => 'Update Catalog',
                 ':user_type' => 'freelancer'
             ]);

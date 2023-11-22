@@ -21,6 +21,8 @@ if (isset($_POST['user_register'])) {
     $password2 = $_POST['password2'];
     $usertype = "user";
     $encrypted = $acc->encrypt_password($password);
+    date_default_timezone_set('Asia/Manila');
+    $currentDateTime = date("Y-m-d H:i");
 
     $query = $db->connect()->prepare("SELECT * FROM account WHERE email = :email");
     $query->execute([':email' => $email]);
@@ -40,9 +42,9 @@ if (isset($_POST['user_register'])) {
     } else if ($query2->rowCount() > 0) {
         $output['error'] = "Username already exist!";
     } else {
-        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, barangay, municipality, province, username, email, password, userType, status)
+        $query = $db->connect()->prepare("INSERT INTO account (firstName, middleName, lastName, barangay, municipality, province, username, email, password, userType, status, dateCreated)
         VALUES (:firstName, :middleName, :lastName, :barangay, :municipality, :province, :username, :email, :password, :userType, :status)");
-        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':barangay' => $barangay, ':municipality' => $municipality, ':province' => $province, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0]);
+        $result = $query->execute([':firstName' => $firstName, ':middleName' => $middleName, ':lastName' => $lastName, ':barangay' => $barangay, ':municipality' => $municipality, ':province' => $province, ':username' => $username, ':email' => $email, ':password' => $encrypted, ':userType' => $usertype, ':status' => 0, ':dateCreated' => $currentDateTime]);
 
         if ($result) {
             $_SESSION['mail'] = $email;
