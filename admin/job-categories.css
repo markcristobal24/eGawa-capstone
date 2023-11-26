@@ -1,0 +1,45 @@
+body {
+    /* background-image: linear-gradient(to right, #0073aa, #8000aa); */
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ====for conatiner====== */
+
+  .color- {
+    color: #f0f0f0;
+  }
+
+  .nav-link.active .text-success-emphasis {
+      color: white;
+  }
+
+
+
+/*============================ extra extra large  ===========================*/
+@media (max-width: 5000px) {
+    .ptr{
+        cursor: pointer;
+    }
+}
+
+
+/*============================ extra large  ===========================*/
+@media (max-width: 1366px) {
+
+}
+
+
+/*============================ large  ===========================*/
+@media (max-width: 992px) {}
+
+
+/*============================ medium  ===========================*/
+@media (max-width: 768px) {}
+
+
+/*============================ small  ===========================*/
+@media (max-width: 576px) {
+
+}
