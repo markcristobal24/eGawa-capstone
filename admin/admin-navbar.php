@@ -41,15 +41,16 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="white- hov-">Manage Users</span>
+                        <span class="white- hov-">Manage</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="freelance-tab.php">Freelancer</a></li>
                         <li><a class="dropdown-item" href="company-tab.php">Employer</a></li>
+                        <li><a class="dropdown-item" href="banned-tab.php">Banned Users</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="banned-tab.php">Banned Users</a></li>
+                        <li><a class="dropdown-item" href="job-categories.php">Job Categories</a></li>
                     </ul>
                 </li>
             </ul>
