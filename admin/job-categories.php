@@ -64,29 +64,40 @@ if ($_SESSION['userType'] !== "super_admin") {
                             <tr class="table-secondary">
                                 <th scope="col">No.</th>
                                 <th scope="col">Job Type ID</th>
-                                <th scope="col">Modify/Delete</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody id="freelance_tbl">
-                            <tr data-bs-toggle="modal" data-bs-target="#view-job-type" class="ptr">
+                            <tr>
                                 <th scope="row">1</th>
                                 <td>Website Development</td>
-                                <td class="text-primary pe-auto">View</td>
-                            </tr>
-                            <tr data-bs-toggle="modal" data-bs-target="#view-job-type" class="ptr">
+                                <td class="text-primary pe-auto">
+                                    <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#view-job-type">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            <tr>
                                 <th scope="row">2</th>
                                 <td>Mobile Development</td>
-                                <td class="text-primary pe-auto">View</td>
+                                <td class="text-primary pe-auto">
+                                    <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#view-job-type">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
                             </tr>
-                            <tr data-bs-toggle="modal" data-bs-target="#view-job-type" class="ptr">
+                            <tr>
                                 <th scope="row">3</th>
                                 <td>Website Hosting</td>
-                                <td class="text-primary pe-auto">View</td>
+                                <td class="text-primary pe-auto">
+                                    <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#view-job-type">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
                             </tr>
-                            <tr data-bs-toggle="modal" data-bs-target="#view-job-type" class="ptr">
+                            <tr>
                                 <th scope="row">3</th>
                                 <td>Multimedia</td>
-                                <td class="text-primary pe-auto">View</td>
+                                <td class="text-primary pe-auto">
+                                    <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#view-job-type">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -103,12 +114,12 @@ if ($_SESSION['userType'] !== "super_admin") {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">(PASS YUNG JOB TITLE HERE)</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT <span class="text-primary">(PASS YUNG JOB TITLE HERE)</span></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div>
-                        <strong>Edit or Delete?</strong>
+
                     </div>
                     <div class="my-3">
                         <form action="">
@@ -118,7 +129,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
