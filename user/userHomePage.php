@@ -131,6 +131,7 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             </p>
             <!-- <div id="verifyUserAcc">Verify Account</div> -->
             <div id="verifyUserAcc" data-bs-toggle="modal" data-bs-target="#view_dashboard">View Dashboard</div>
+            <div id="verifyUserAcc"><a href="../id_verification.php" class=" text-decoration-none text-white mt-1">Verify Account</a></div>
 
 
             <div class="flexDiv">
