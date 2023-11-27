@@ -17,15 +17,17 @@ if ($_SESSION['userType'] !== "super_admin") {
 
     <!-- Link for CSS -->
     <link rel="stylesheet" href="job-categories.css" />
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
-        /* Custom CSS to change button colors */
+    /* Custom CSS to change button colors */
     </style>
 
     <link rel="shortcut icon" href="../img/egawaicon4.png" type="image/x-icon">
@@ -40,7 +42,8 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="p-3 mb-2 bg-secondary d-flex justify-content-between">
             <span class="text-white fs-3">Job Categories</span>
-            <a class="btn btn-primary" href="#" target="_blank" role="button" data-bs-toggle="modal" data-bs-target="#add-job-type">Add Category</a>
+            <a class="btn btn-primary" href="#" target="_blank" role="button" data-bs-toggle="modal"
+                data-bs-target="#add-job-type">Add Category</a>
         </div>
 
         <div class="d-flex justify-content-between flex-wrap mb-3">
@@ -57,18 +60,37 @@ if ($_SESSION['userType'] !== "super_admin") {
 
         <div class="tab-content" id="pills-tabContent">
             <!-- TAB FOR FREELANCERS -->
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                tabindex="0">
                 <div class="container">
                     <table class="table table-hover border">
                         <thead>
                             <tr class="table-secondary">
-                                <th scope="col">No.</th>
-                                <th scope="col">Job Type ID</th>
+                                <th scope="col">Category ID</th>
+                                <th scope="col">Job Category</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody id="freelance_tbl">
-                            <tr>
+                            <?php
+                            $query = $db->connect()->prepare("SELECT * FROM job_category");
+                            $query->execute();
+
+                            foreach ($query as $row) {
+                                echo '
+                                <tr>
+                                    <th scope="row">' . $row['category_id'] . '</th>
+                                    <td>' . $row['category'] . '</td>
+                                    <td class="text-primary pe-auto">
+                                        <button class="btn btn-primary px-4" id="btn_fetchCategory" data-bs-toggle="modal"
+                                        data-bs-target="#view-job-type" onclick="new Admin().fetch_category(' . $row['category_id'] . ');">Edit</button>
+                                        <button class="btn btn-danger" id="btn_deleteCategory" onclick="new Admin().delete_category(' . $row['category_id'] . ');">Delete</button>
+                                    </td>
+                                </tr>
+                                ';
+                            }
+                            ?>
+                            <!-- <tr>
                                 <th scope="row">1</th>
                                 <td>Website Development</td>
                                 <td class="text-primary pe-auto">
@@ -98,7 +120,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                     <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#view-job-type">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
 
@@ -110,11 +132,14 @@ if ($_SESSION['userType'] !== "super_admin") {
 
 
     <!-- Modal for edit or delete -->
-    <div class="modal fade" id="view-job-type" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="view-job-type" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT <span class="text-primary">(PASS YUNG JOB TITLE HERE)</span></h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT <span class="text-primary"
+                            id="category_name">(PASS YUNG JOB
+                            TITLE HERE)</span></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -122,13 +147,15 @@ if ($_SESSION['userType'] !== "super_admin") {
 
                     </div>
                     <div class="my-3">
-                        <form action="">
-                            <input class="form-control" type="text" placeholder="(PASS YUNG JOB TITLE HERE)" aria-label="default input example">
+                        <form id="editcategory_form">
+                            <input class="form-control" type="text" id="edit_category" name="new_category"
+                                placeholder="(PASS YUNG JOB TITLE HERE)" aria-label="default input example">
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="btn_editCategory"
+                        onclick="new Admin().edit_category(this.value);">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -136,7 +163,8 @@ if ($_SESSION['userType'] !== "super_admin") {
     </div>
 
     <!-- Modal for add job category -->
-    <div class="modal fade" id="add-job-type" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="add-job-type" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,13 +176,15 @@ if ($_SESSION['userType'] !== "super_admin") {
                         <strong>Job Category Title</strong>
                     </div>
                     <div class="my-3">
-                        <form action="">
-                            <input class="form-control" type="text" placeholder="Enter new job category" aria-label="default input example">
+                        <form id="category_form">
+                            <input class="form-control" type="text" name="job_category"
+                                placeholder="Enter new job category" aria-label="default input example">
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="btn_addCategory"
+                        onclick="new Admin().add_category();">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -165,7 +195,8 @@ if ($_SESSION['userType'] !== "super_admin") {
     <script src="../classJS/Account.js"></script>
     <script src="../classJS/Notification.js"></script>
     <script src="../classJS/Admin.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

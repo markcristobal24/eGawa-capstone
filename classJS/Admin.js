@@ -286,4 +286,119 @@ class Admin {
             }
         });
     }
+
+    add_category() {
+        let button_value = new Account().get_button_value("btn_addCategory");
+        new Account().button_loading("btn_addCategory", "loading", "");
+        document.getElementById('btn_addCategory').disabled = true;
+
+        let form_data = new FormData(document.getElementById('category_form'));
+        form_data.append('add_category', 'add_category');
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+            } else if (response_data.error) {
+                document.getElementById('btn_addCategory').disabled = false;
+                new Account().button_loading("btn_addCategory", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
+    delete_category(id) {
+        // let button_value = new Account().get_button_value("btn_deleteCategory");
+        // new Account().button_loading("btn_deleteCategory", "loading", "");
+        // document.getElementById('btn_deleteCategory').disabled = true;
+
+        let form_data = new FormData();
+        form_data.append('delete_category', 'delete_category');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+            } else if (response_data.error) {
+                document.getElementById('btn_deleteCategory').disabled = false;
+                new Account().button_loading("btn_deleteCategory", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
+
+    fetch_category(id) {
+        // let button_value = new Account().get_button_value("btn_editCategory");
+        // new Account().button_loading("btn_editCategory", "loading", "");
+        // document.getElementById('btn_editCategory').disabled = true;
+
+        let form_data = new FormData();
+        form_data.append('fetch_category', 'fetch_category');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+            let category = response_data;
+
+            document.getElementById('btn_editCategory').value = category.category_id;
+            document.getElementById('category_name').innerHTML = category.category;
+            document.getElementById('edit_category').value = category.category;
+        });
+    }
+
+    edit_category(id) {
+        let button_value = new Account().get_button_value("btn_editCategory");
+        new Account().button_loading("btn_editCategory", "loading", "");
+        document.getElementById('btn_editCategory').disabled = true;
+
+        let form_data = new FormData(document.getElementById('editcategory_form'));
+        form_data.append('edit_category', 'edit_category');
+        form_data.append('id', id);
+        fetch('../controller/c_admin.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                console.log(response_data.success);
+                new Notification().create_notification(response_data.success, "success");
+                let tID = setTimeout(function () {
+                    window.location.reload();
+                    window.clearTimeout(tID);
+                }, 1000);
+            } else if (response_data.error) {
+                document.getElementById('btn_editCategory').disabled = false;
+                new Account().button_loading("btn_editCategory", "", button_value);
+                new Notification().create_notification(response_data.error, "error");
+            }
+        });
+    }
 }

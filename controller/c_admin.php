@@ -322,3 +322,75 @@ if (isset($_POST['report_done'])) {
 
     echo json_encode($output);
 }
+
+if (isset($_POST['add_category'])) {
+    if ($_POST['job_category'] == '') {
+        $output['error'] = 'This is a required field.';
+    } else {
+        $job_category = $_POST['job_category'];
+
+        $query = $db->connect()->prepare("INSERT INTO job_category (category, date_added) VALUES (:category, :date_added)");
+        $result = $query->execute([
+            ':category' => $job_category,
+            ':date_added' => $currentDateTime
+        ]);
+
+        if ($result) {
+            $output['success'] = 'Added successfully.';
+        } else {
+            $output['error'] = 'Something went wrong. Please try again later.';
+        }
+    }
+
+    echo json_encode($output);
+}
+
+if (isset($_POST['delete_category'])) {
+    $category_id = $_POST['id'];
+
+    $query = $db->connect()->prepare("DELETE FROM job_category WHERE category_id = $category_id");
+    $result = $query->execute();
+
+    if ($result) {
+        $output['success'] = 'Deleted successfully.';
+    } else {
+        $output['error'] = 'Something went wrong. Please try again later.';
+    }
+
+    echo json_encode($output);
+}
+
+if (isset($_POST['fetch_category'])) {
+    $category_id = $_POST['id'];
+
+    $query = $db->connect()->prepare("SELECT * FROM job_category WHERE category_id = $category_id");
+    $query->execute();
+    $data = array();
+    foreach ($query as $row) {
+        $data['category_id'] = $row['category_id'];
+        $data['category'] = $row['category'];
+    }
+
+    echo json_encode($data);
+}
+
+if (isset($_POST['edit_category'])) {
+    $category_id = $_POST['id'];
+
+    if ($_POST['edit_category'] == '') {
+        $output['error'] = 'This field is required.';
+    } else {
+        $new_category = $_POST['new_category'];
+
+        $query = $db->connect()->prepare("UPDATE job_category SET category = :new WHERE category_id = $category_id");
+        $result = $query->execute([':new' => $new_category]);
+
+        if ($result) {
+            $output['success'] = 'Update successfully.';
+        } else {
+            $output['error'] = 'Something went wrong. Please try again later.';
+        }
+    }
+
+    echo json_encode($output);
+}

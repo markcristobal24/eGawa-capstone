@@ -73,10 +73,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                             <select id="filterOption" name="filterOption"
                                 onchange="new Posts().filter_post(this.value);" disabled>
                                 <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
+                                <?php
+                                        $query = $db->connect()->prepare("SELECT * FROM job_category");
+                                        $query->execute();
+
+                                        foreach ($query as $row) {
+                                            echo '<option value = ' . $row['category'] . '>' . $row['category'] . '</option>';
+                                        }
+                                        ?>
+                                <!-- <option value="Website Development">Website Development</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Website Hosting">Website Hosting</option>
+                                        <option value="Multimedia">Multimedia</option> -->
                             </select>
                         </form>
                     </div>
@@ -97,10 +105,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                             <select id="filterOption" name="filterOption"
                                 onchange="new Posts().filter_post(this.value);">
                                 <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
+                                <?php
+                                        $query = $db->connect()->prepare("SELECT * FROM job_category");
+                                        $query->execute();
+
+                                        foreach ($query as $row) {
+                                            echo '<option value = ' . $row['category'] . '>' . $row['category'] . '</option>';
+                                        }
+                                        ?>
+                                <!-- <option value="Website Development">Website Development</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Website Hosting">Website Hosting</option>
+                                        <option value="Multimedia">Multimedia</option> -->
                             </select>
                         </form>
                     </div>
@@ -122,10 +138,18 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'] . ' ' . $fetch['check
                             <select id="filterOption" name="filterOption"
                                 onchange="new Posts().filter_post(this.value);" disabled>
                                 <option value="all">All</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
+                                <?php
+                                    $query = $db->connect()->prepare("SELECT * FROM job_category");
+                                    $query->execute();
+
+                                    foreach ($query as $row) {
+                                        echo '<option value = ' . $row['category'] . '>' . $row['category'] . '</option>';
+                                    }
+                                    ?>
+                                <!-- <option value="Website Development">Website Development</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Website Hosting">Website Hosting</option>
+                                        <option value="Multimedia">Multimedia</option> -->
                             </select>
                         </form>
                     </div>

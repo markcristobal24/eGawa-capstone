@@ -346,10 +346,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                                 </select> -->
                                 <select id="filterOptionPost" class="form-select" name="post_category"
                                     aria-label="Default select example">
-                                    <option value="Website Development">Website Development</option>
-                                    <option value="Mobile Development">Mobile Development</option>
-                                    <option value="Website Hosting">Website Hosting</option>
-                                    <option value="Multimedia">Multimedia</option>
+                                    <?php
+                                    $query = $db->connect()->prepare("SELECT * FROM job_category");
+                                    $query->execute();
+
+                                    foreach ($query as $row) {
+                                        echo '<option value = ' . $row['category'] . '>' . $row['category'] . '</option>';
+                                    }
+                                    ?>
+                                    <!-- <option value="Website Development">Website Development</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Website Hosting">Website Hosting</option>
+                                        <option value="Multimedia">Multimedia</option> -->
                                 </select>
                             </div>
                         </div>
@@ -425,10 +433,18 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
 
                             <select id="job_category" name="new_post_category" class="form-select"
                                 aria-label="Default select example">
-                                <option value="Website Development">Website Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="Website Hosting">Website Hosting</option>
-                                <option value="Multimedia">Multimedia</option>
+                                <?php
+                                $query = $db->connect()->prepare("SELECT * FROM job_category");
+                                $query->execute();
+
+                                foreach ($query as $row) {
+                                    echo '<option value = ' . $row['category'] . '>' . $row['category'] . '</option>';
+                                }
+                                ?>
+                                <!-- <option value="Website Development">Website Development</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Website Hosting">Website Hosting</option>
+                                        <option value="Multimedia">Multimedia</option> -->
                             </select>
                         </div>
                     </div>
