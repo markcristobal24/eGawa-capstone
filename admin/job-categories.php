@@ -138,8 +138,7 @@ if ($_SESSION['userType'] !== "super_admin") {
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT <span class="text-primary"
-                            id="category_name">(PASS YUNG JOB
-                            TITLE HERE)</span></h1>
+                            id="category_name"></span></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -149,7 +148,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                     <div class="my-3">
                         <form id="editcategory_form">
                             <input class="form-control" type="text" id="edit_category" name="new_category"
-                                placeholder="(PASS YUNG JOB TITLE HERE)" aria-label="default input example">
+                                placeholder="Enter Job Category" aria-label="default input example">
                         </form>
                     </div>
                 </div>

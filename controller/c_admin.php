@@ -377,7 +377,7 @@ if (isset($_POST['fetch_category'])) {
 if (isset($_POST['edit_category'])) {
     $category_id = $_POST['id'];
 
-    if ($_POST['edit_category'] == '') {
+    if ($_POST['new_category'] == '') {
         $output['error'] = 'This field is required.';
     } else {
         $new_category = $_POST['new_category'];
