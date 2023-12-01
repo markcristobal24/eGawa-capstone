@@ -140,6 +140,7 @@ class Admin {
             } else {
                 document.getElementById('total_registered').innerHTML = data[0].total_registered;
                 document.getElementById('total_company').innerHTML = data[0].total_company;
+                document.getElementById('total_employers_verified').innerHTML = data[0].total_employers_verified;
                 document.getElementById('total_company_banned').innerHTML = data[0].total_company_banned;
                 document.getElementById('total_freelancers').innerHTML = data[0].total_freelancers;
                 document.getElementById('total_freelancers_verified').innerHTML = data[0].total_freelancers_verified;

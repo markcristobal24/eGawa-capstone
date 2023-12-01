@@ -45,8 +45,12 @@ if ($_SESSION['userType'] !== "super_admin") {
             <span class="row-title titles fw-bold fs-4 text-success">Employer:</span>
             <div class="box- mb-3">
                 <div class="box-1 boxes">
-                    <span>Total Employer:</span>
+                    <span>Total Employers:</span>
                     <span class="boxes-data" id="total_company">100</span>
+                </div>
+                <div class="box-2 boxes">
+                    <span>Verified:</span>
+                    <span class="boxes-data" id="total_employers_verified">100</span>
                 </div>
                 <!-- <div class="box-2 boxes">
                     <span>Subscribed:</span>

@@ -213,6 +213,10 @@ if (isset($_POST['dashboard'])) {
     $total_company->execute();
     $sub_array['total_company'] = $total_company->rowCount();
 
+    $total_employers_verified = $db->connect()->prepare("SELECT * FROM id_verification WHERE verify_status = 'VERIFIED' AND user_type = 'user'");
+    $total_employers_verified->execute();
+    $sub_array['total_employers_verified'] = $total_employers_verified->rowCount();
+
     $total_company_banned = $db->connect()->prepare("SELECT * FROM ban_list INNER JOIN account ON account.account_id = ban_list.account_id WHERE userType = 'user'");
     $total_company_banned->execute();
     $sub_array['total_company_banned'] = $total_company_banned->rowCount();
@@ -221,7 +225,7 @@ if (isset($_POST['dashboard'])) {
     $total_freelancers->execute();
     $sub_array['total_freelancers'] = $total_freelancers->rowCount();
 
-    $total_freelancers_verified = $db->connect()->prepare("SELECT * FROM id_verification WHERE verify_status = 'VERIFIED'");
+    $total_freelancers_verified = $db->connect()->prepare("SELECT * FROM id_verification WHERE verify_status = 'VERIFIED' AND user_type = 'freelancer'");
     $total_freelancers_verified->execute();
     $sub_array['total_freelancers_verified'] = $total_freelancers_verified->rowCount();
 
