@@ -187,13 +187,14 @@ if (isset($_POST['accept_job'])) {
         $notice = "Dear Mr./Mrs./Ms. $lastname:<br><br>Hi! I accepted your application. Kindly reply as soon as possible. Thank you!";
         $button_value = "Go to Account";
         $body = $acc->apply_email($link, $notice, $button_value);
-        if ($email_notif->sendEmail("eGawa", $email, $subject, $body)) {
-            $query = $db->connect()->prepare("UPDATE jobposts SET post_status = :post_status WHERE post_id = :post_id");
-            $query->execute([
-                ':post_status' => 'ARCHIVED',
-                ':post_id' => $post_id
-            ]);
-        }
+        $email_notif->sendEmail("eGawa", $email, $subject, $body);
+        // if ($email_notif->sendEmail("eGawa", $email, $subject, $body)) {
+        //     $query = $db->connect()->prepare("UPDATE jobposts SET post_status = :post_status WHERE post_id = :post_id");
+        //     $query->execute([
+        //         ':post_status' => 'ARCHIVED',
+        //         ':post_id' => $post_id
+        //     ]);
+        // }
         $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
         $query->execute([
             ':account_id' => $_SESSION['account_id'],
