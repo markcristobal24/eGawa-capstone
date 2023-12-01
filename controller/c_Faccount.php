@@ -117,6 +117,7 @@ if (isset($_POST['resendOtp'])) {
 
 if (isset($_POST['id_verification'])) {
     $freelance_id = $_SESSION['account_id'];
+    $user_type = $_SESSION['userType'];
     $id_type = $_POST['id_type'];
     $front_id = $_FILES['front_id']['tmp_name'];
     $back_id = $_FILES['back_id']['tmp_name'];
@@ -140,8 +141,8 @@ if (isset($_POST['id_verification'])) {
             move_uploaded_file($back_id, $back_directory);
         }
 
-        $query = $db->connect()->prepare("INSERT INTO id_verification (account_id, id_type, front_image, back_image, id_number, verify_status, timestamp)
-        VALUES (:account_id, :id_type, :front_image, :back_image, :id_number, :verify_status, :timestamp)");
+        $query = $db->connect()->prepare("INSERT INTO id_verification (account_id, id_type, front_image, back_image, id_number, verify_status, user_type, timestamp)
+        VALUES (:account_id, :id_type, :front_image, :back_image, :id_number, :verify_status, :user_type, :timestamp)");
         $result = $query->execute([
             ':account_id' => $freelance_id,
             ':id_type' => $id_type,
@@ -149,18 +150,28 @@ if (isset($_POST['id_verification'])) {
             ':back_image' => $back_link,
             ':id_number' => $id_number,
             ':verify_status' => 'PENDING',
+            ':user_type' => $user_type,
             ':timestamp' => $currentDateTime
         ]);
 
         if ($result) {
             $output['success'] = 'Your id verification has been submitted.';
             $query = $db->connect()->prepare("INSERT INTO activity_logs (account_id, timestamp, event, user_type) VALUES (:account_id, :timestamp, :event, :user_type)");
-            $query->execute([
-                ':account_id' => $_SESSION['account_id'],
-                ':timestamp' => $currentDateTime,
-                ':event' => 'Submitted ID Verification',
-                ':user_type' => 'freelancer'
-            ]);
+            if ($user_type == 'freelancer') {
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
+                    ':event' => 'Submitted ID Verification',
+                    ':user_type' => 'freelancer'
+                ]);
+            } else {
+                $query->execute([
+                    ':account_id' => $_SESSION['account_id'],
+                    ':timestamp' => $currentDateTime,
+                    ':event' => 'Submitted ID Verification',
+                    ':user_type' => 'employer'
+                ]);
+            }
         } else {
             $output['error'] = "Something went wrong. Please try again.";
         }

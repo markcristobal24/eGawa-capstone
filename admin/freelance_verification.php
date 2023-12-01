@@ -52,6 +52,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                         <th scope="col">ID Number</th>
                                         <th scope="col">Front ID</th>
                                         <th scope="col">Back ID</th>
+                                        <th scope="col">User Type</th>
                                         <th scope="col" class="d-flex">
                                             <span>Action</span>
                                         </th>
@@ -76,6 +77,7 @@ if ($_SESSION['userType'] !== "super_admin") {
                                             <td>' . $row['id_number'] . '</td>
                                             <td><a href="../img/uploads/freelancer/id/' . $row['front_image'] . '""><img src = "../img/uploads/freelancer/id/' . $row['front_image'] . '" style = "height: 100px;"></a></td>
                                             <td><a href="../img/uploads/freelancer/id/' . $row['back_image'] . '""><img src = "../img/uploads/freelancer/id/' . $row['back_image'] . '" style = "height: 100px;"></a></td>
+                                            <td>' . $row['user_type'] . '</td>
                                             <td>
                                                 <button type="button" id="btn_acceptverify" class="btn btn-primary" onclick="new Admin().accept_idverify(' . $id . ');">Accept</button>
                                                 <button type="button" id="btn_denyverify" class="btn btn-secondary" onclick="new Admin().deny_idverify(' . $id . ');">Decline</button>

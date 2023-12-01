@@ -240,8 +240,23 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <div class="container d-flex flex-wrap middle_">
+                <?php
+                $check_verify = $db->connect()->prepare("SELECT * FROM id_verification WHERE account_id = :account_id");
+                $check_verify->execute([':account_id' => $_SESSION['account_id']]);
+                $fetch_status = $check_verify->fetch(PDO::FETCH_ASSOC);
 
-                <!-- FOR ADDING JOB POSTS  -->
+                if ($check_verify->rowCount() > 0) {
+                    if ($fetch_status['verify_status'] != "VERIFIED") {
+                ?>
+                <div class="alert alert-warning" role="alert">
+                    <i class="bi bi-exclamation-triangle"></i> You need to verify your account first before posting a
+                    job.
+
+                </div>
+                <button type="button" disabled>ONGOING VERIFICATION</button>
+                <?php
+                    } else {
+                    ?>
                 <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
                         <span class="fw-semibold text-info">Add Job post</span>
@@ -257,17 +272,17 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                 </div>
 
                 <?php
-                $query = $db->connect()->prepare("SELECT * FROM jobposts 
+                        $query = $db->connect()->prepare("SELECT * FROM jobposts 
                 INNER JOIN account ON account.account_id = jobposts.account_id 
                 WHERE jobposts.account_id = $user_id AND jobposts.post_status != 'ARCHIVED'
                 ORDER BY jobposts.posted_date DESC");
-                $query->execute();
+                        $query->execute();
 
-                foreach ($query as $row) {
-                    $currentDateTime = $row['posted_date'];
-                    $dateTimeObj = new DateTime($currentDateTime);
-                    $posted_date = $dateTimeObj->format("F d, Y h:i A");
-                    echo '
+                        foreach ($query as $row) {
+                            $currentDateTime = $row['posted_date'];
+                            $dateTimeObj = new DateTime($currentDateTime);
+                            $posted_date = $dateTimeObj->format("F d, Y h:i A");
+                            echo '
                     <div class="box d-flex flex-column justify-content-between m-3 border">
                         <div class="mb-2">
                             <div class="mt-2">
@@ -288,8 +303,25 @@ $fetch = $query->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     ';
+                        }
+                        ?>
+                <?php
+                    }
+                } else {
+                    ?>
+                <div class="alert alert-warning" role="alert">
+                    <i class="bi bi-exclamation-triangle"></i> You need to verify your account first before posting a
+                    job.
+                </div>
+                <div>
+                    <button type="button" onclick="window.location.href = '../id_verification.php'">Verify</button>
+                </div>
+                <?php
                 }
                 ?>
+
+                <!-- FOR ADDING JOB POSTS  -->
+
                 <!-- SAMPLE JOB POST BOI -->
                 <!-- <div class="box d-flex flex-column justify-content-between m-3 border">
                     <div class="mb-2">
