@@ -25,18 +25,16 @@ if (isset($_POST["forgot_password"])) {
         $body = "<b>Dear User</b>
         <h3>We received a request to reset your password.</h3>
         <p>Kindly click the link below to reset your password</p>
-        http://localhost/eGawa-capstone/freelance/createNewPassword.php?token=.$token
+        https://egawa.slarenasitsolutions.com/freelance/createNewPassword.php?token=.$token
         <br><br>
         <p>With Regards,</p>
         <b>E-Gawa</b>";
         $mail->sendEmail("E-Gawa", $email, $subject, $body);
         if ($mail) {
             $output['success'] = "Link sent to $email!";
-        }
-        else {
+        } else {
             $output['error'] = "Invalid Email Address!";
         }
     }
     echo json_encode($output);
 }
-?>

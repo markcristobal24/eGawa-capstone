@@ -773,4 +773,23 @@ class Account {
 
 
     }
+
+    inquire(employer_id, freelance_id) {
+        let form_data = new FormData();
+        form_data.append('inquire_convo', 'inquire_convo');
+        form_data.append('user_id', employer_id);
+        form_data.append('freelance_id', freelance_id);
+        fetch('../controller/c_jobapplication.php', {
+            method: "POST",
+            body: form_data
+        }).then((response) => {
+            return response.json();
+        }).then((response_data) => {
+            console.log(response_data);
+
+            if (response_data.success) {
+                window.location.replace('user_message.php');
+            }
+        });
+    }
 }

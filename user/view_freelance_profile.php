@@ -33,7 +33,9 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <link rel="stylesheet" href="../css/notification.css">
 
     <!-- For social icons in the footer -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.3/css/lightgallery-bundle.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
@@ -67,23 +69,26 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                     foreach ($query as $row) {
                         $catalog_id = $row['catalog_id'];
                 ?>
-                        <div class="containerPost">
-                            <div class="containerImg">
-                                <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt="" id="containerImg">
-                            </div>
-                            <div class="containerCatalog">
-                                <span class="titlePost">
-                                    <?php echo $row['catalogTitle']; ?>
-                                </span>
-                                <p class="descPost">
-                                    <?php echo $row['catalogDescription']; ?>
-                                </p>
-                                <div>
-                                    <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="new Catalog().view_catalogs_user(<?php echo $catalog_id; ?>);">View
-                                        Portfolio</button>
-                                </div>
-                            </div>
+                <div class="containerPost">
+                    <div class="containerImg">
+                        <img src="../img/uploads/freelancer/catalog/<?php echo $row['catalogImage']; ?>" alt=""
+                            id="containerImg">
+                    </div>
+                    <div class="containerCatalog">
+                        <span class="titlePost">
+                            <?php echo $row['catalogTitle']; ?>
+                        </span>
+                        <p class="descPost">
+                            <?php echo $row['catalogDescription']; ?>
+                        </p>
+                        <div>
+                            <button type="button" id="viewPostBTN" class="" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                onclick="new Catalog().view_catalogs_user(<?php echo $catalog_id; ?>);">View
+                                Portfolio</button>
                         </div>
+                    </div>
+                </div>
                 <?php
                     }
                 } else {
@@ -108,7 +113,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
             <div class="userProfile">
                 <div class="userProfileChild" id="userProfileChild">
                     <a class="userPic" href="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>">
-                        <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
+                        <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
+                            alt="user profile" title="user profile">
                     </a>
 
 
@@ -178,7 +184,8 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                         </div>
                     </div>
 
-                    <button class="mt-3" data-bs-toggle="modal" data-bs-target="#">Inquire</button>
+                    <button class="mt-3" data-bs-toggle="modal" data-bs-target="#" id="btn_inquire"
+                        onclick="new Account().inquire(<?php echo $_SESSION['account_id']; ?>, <?php echo $freelance_id ?>);">Inquire</button>
 
                     <button class="mt-3" data-bs-toggle="modal" data-bs-target="#view_profile">View More</button>
 
@@ -227,14 +234,17 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
                 </div> -->
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        <span class="text-primary"><?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?></span>'s Profile
+                        <span
+                            class="text-primary"><?php echo $fetch['firstName'] . ' ' . $fetch['lastName']; ?></span>'s
+                        Profile
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-body-view-more">
                         <div class="modal-pic-container">
-                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>" alt="user profile" title="user profile">
+                            <img id="userPic" src="../img/uploads/freelancer/<?php echo $fetch['imageProfile']; ?>"
+                                alt="user profile" title="user profile">
                         </div>
 
                         <div class="modal-name-container">
@@ -369,12 +379,13 @@ $fullname = $fetch['firstName'] . ' ' . $fetch['lastName'];
     <!-- <script src="../js/validate.js"></script> -->
     <script src="../js/freelance.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        new Dashboard().get_information_freelancer_employerpov(<?php echo $freelance_id ?>);
-        new Account().fetch_ratings_freelancer(<?php echo $_GET['freelance_id']; ?>);
+    new Dashboard().get_information_freelancer_employerpov(<?php echo $freelance_id ?>);
+    new Account().fetch_ratings_freelancer(<?php echo $_GET['freelance_id']; ?>);
     </script>
     <!-- <script>
         let counter = 0;

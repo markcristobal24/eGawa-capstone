@@ -270,3 +270,23 @@ if (isset($_POST['create_convo'])) {
     }
     echo json_encode($output);
 }
+
+if (isset($_POST['inquire_convo'])) {
+    $user_id = $_POST['user_id'];
+    $freelance_id = $_POST['freelance_id'];
+
+    $query = $db->connect()->prepare("INSERT INTO convo (user_id, freelance_id, timestamp) VALUES (:user_id, :freelance_id, :timestamp)");
+    $result = $query->execute([
+        ':user_id' => $user_id,
+        ':freelance_id' => $freelance_id,
+        ':timestamp' => $currentDateTime
+    ]);
+
+    if ($result) {
+        $output['success'] = 'Inquiry successfull.';
+    } else {
+        $output['error'] = 'Something went wrong.';
+    }
+
+    echo json_encode($output);
+}
